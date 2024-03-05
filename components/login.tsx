@@ -1,13 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-
-export default function Home() {
+const Login = () => {
   return (
     <main className="flex flex-col md:flex-row items-center justify-center h-screen relative">
       <div className=" w-[963.34px] h-full relative">
         <div className="flex flex-col items-center justify-center w-full h-full gap-8">
-          <img src="/img/Bimage.png" className="w-full h-full object-cover" />
+          <img src="Bimage.png" className="w-full h-full object-cover" />
         </div>
       </div>
 
@@ -20,9 +19,9 @@ export default function Home() {
               data-kt-redirect-url="index.html"
               action="#"
             >
-              <div className="mb-10 flex">
-                <div className=" fw-medium text-[20px] text-[#007C85]">
-                  Sign in to your account
+              <div className="mb-10 flex justify-center items-center">
+                <div className="text-[#007C85] fw-thin text-[30px]">
+                  Sign in
                 </div>
               </div>
 
@@ -73,4 +72,5 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+export default Login; 
