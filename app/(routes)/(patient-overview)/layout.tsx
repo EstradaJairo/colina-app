@@ -50,17 +50,18 @@ export default function PatientOverviewLayout({
           <div className="flex">
             <div className="flex flex-col">
               <img
-                src="/imgs/dennis.svg"
+                src="/imgs/profile 3.svg"
                 alt="profile"
-                width="252"
-                height="252"
+                width="228px"
+                height="232"
               />
             </div>
             {/* 1 */}
             <div className="justify-between ml-4 mt-1 flex flex-col w-full ">
               <div>
-                <div className=" w-full justify-between text-2xl font-semibold flex">
-                  <h1> Drake Ramos</h1>
+                <div className=" w-full justify-between text-2xl font-semibold flex mb-2">
+                  <p className=" font-bold text-[35px]"> Drake Ramos</p>
+
                   <div className=" items-center ml-10 flex ">
                     <a
                       href=""
@@ -72,15 +73,10 @@ export default function PatientOverviewLayout({
                 </div>
                 <div>
                   <div className="flex flex-row w-full">
-                    <img
-                      src="/imgs/profile-circle.svg"
-                      className="px-1"
-                      alt="profile"
-                      width="26" // Adjust these values to change the size
-                      height="26" // Adjust these values to change the size
-                    />
                     <div>
-                      <p className="flex items-center mr-11">Patient</p>
+                      <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">
+                        Patient
+                      </span>
                     </div>
                     {/*  */}
                     <div className="flex">
@@ -94,7 +90,6 @@ export default function PatientOverviewLayout({
                         <p className="flex items-center">
                           ID: SGY-5146846548465
                         </p>
-                        <img src="/imgs/id.svg" alt="copy" />
                       </div>
                     </div>
                   </div>
@@ -102,16 +97,15 @@ export default function PatientOverviewLayout({
                   <div className="mb-5"></div>
                   <div className="flex flex-row w-full">
                     <img
-                      src="/imgs/codestatus.svg"
+                      src="/imgs/notification-status.svg"
                       className="px-1"
                       alt="codestatus"
                       width="26" // Adjust these values to change the size
                       height="26" // Adjust these values to change the size
                     />
-                    <div>
-                      <p className="flex items-center mr-11">
-                        Code Status: DNR
-                      </p>
+                    <div className="flex items-center">
+                      <p className="flex items-center mr-2 ">Code Status:</p>
+                      <p className="mr-11 text-red-600 font-semibold"> DNR</p>
                     </div>
                     {/*  */}
                     <div className="flex">

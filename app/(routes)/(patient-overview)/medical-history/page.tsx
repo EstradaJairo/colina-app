@@ -1,27 +1,48 @@
+"use client";
+
+import { Modal } from "@/components/modal";
+import { useState } from "react";
+
 export default function MedicalHistoryTab() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isModalOpen = (isOpen: boolean) => {
+    setIsOpen(isOpen);
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else if (!isOpen) {
+      document.body.style.overflow = "scroll";
+    }
+  };
+
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
+    <div className="  shadow-md sm:rounded-lg w-full">
       <div className="flex justify-between">
         search bar
         <div className="flex">
-          <button className="btn-add btn-add:hover mr-2 ">
+          <button
+            onClick={() => isModalOpen(true)}
+            className="btn-add btn-add:hover mr-2 "
+          >
             <img
               src="/imgs/addbtn.svg"
               alt="Custom Icon"
               className="w-5 h-5 mr-2"
             />
-            Button
+            Add
           </button>
+
           <button className="btn-pdf btn-pdf:hover ">
             <img
               src="/imgs/addbtn.svg"
               alt="Custom Icon"
               className="w-5 h-5 mr-2"
             />
-            Button
+            Download PDF
           </button>
         </div>
       </div>
+
       <div>
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -213,6 +234,9 @@ export default function MedicalHistoryTab() {
           </div>
         </div>
       </div>
+      {isOpen && (
+        <Modal isModalOpen={isModalOpen} isOpen={isOpen} label="sample label" />
+      )}
     </div>
   );
 }

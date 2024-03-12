@@ -1,8 +1,14 @@
 export default function MedicalHistoryTab() {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
-      <div className="flex justify-between">
-        search bar
+      <div className="flex items-center justify-between bg-[#F4F4F4]">
+        <div className="mx-5">
+          <input
+            type="search"
+            placeholder="Search by reference no. or name..."
+            className=""
+          />
+        </div>
         <div className="flex">
           <button className="btn-add btn-add:hover mr-2 ">
             <img
@@ -50,11 +56,11 @@ export default function MedicalHistoryTab() {
             <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className=" min-w-127px min-h-27px px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
                 03/11/2024
               </th>
-              <td className="px-6 py-4">Skin Allergy</td>
+              <td className="px-6 py-4">4:56PM </td>
               <td className="px-6 py-4">Major</td>
               <td className="px-6 py-4">Itchy</td>
               <td className="px-6 py-4">Irrirtated</td>
@@ -73,9 +79,9 @@ export default function MedicalHistoryTab() {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Microsoft Surface Pro
+                21/12/2024
               </th>
-              <td className="px-6 py-4">Skin Allergy</td>
+              <td className="px-6 py-4">4:56PM</td>
               <td className="px-6 py-4">Major</td>
               <td className="px-6 py-4">Itchy</td>
               <td className="px-6 py-4">Irrirtated</td>
@@ -94,9 +100,9 @@ export default function MedicalHistoryTab() {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Magic Mouse 2
+                02/01/2023
               </th>
-              <td className="px-6 py-4">Skin Allergy</td>
+              <td className="px-6 py-4">4:56PM </td>
               <td className="px-6 py-4">Major</td>
               <td className="px-6 py-4">Itchy</td>
               <td className="px-6 py-4">Irrirtated</td>
@@ -115,9 +121,9 @@ export default function MedicalHistoryTab() {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                Google Pixel Phone
+                02/01/2023
               </th>
-              <td className="px-6 py-4">Skin Allergy</td>
+              <td className="px-6 py-4">4:56PM </td>
               <td className="px-6 py-4">Major</td>
               <td className="px-6 py-4">Itchy</td>
               <td className="px-6 py-4">Irrirtated</td>
@@ -136,9 +142,9 @@ export default function MedicalHistoryTab() {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white "
               >
-                Apple Watch 5
+                02/01/2023
               </th>
-              <td className="px-6 py-4">Skin Allergy</td>
+              <td className="px-6 py-4">4:56PM </td>
               <td className="px-6 py-4">Major</td>
               <td className="px-6 py-4">Itchy</td>
               <td className="px-6 py-4">Irrirtated</td>
