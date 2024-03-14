@@ -38,7 +38,10 @@ const DropdownMenu = ({ open, width, label, options }: DropdownMenuProps) => {
       {isOpen && (
         <div className=" bg-white w-[165px] absolute mt-2 rounded-md p-4 shadow-xl">
           {options.map((option, index) => (
-            <p className="hover:text-[#007C85] font-semibold" key={index}>
+            <p
+              className="hover:text-[#007C85] font-semibold cursor-pointer"
+              key={index}
+            >
               {option}
             </p>
           ))}

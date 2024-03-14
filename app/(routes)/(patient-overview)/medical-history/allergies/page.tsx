@@ -24,20 +24,26 @@ const Allergies = () => {
     <div className="  w-full">
       <div className="flex justify-between items-center">
         <div className="flex flex-col">
-          <p className="p-title">Medical History Logs - Allergies</p>
-
+          <div className="flex flex-row items-center">
+            <h1 className="font-semibold text-[30px]">Medical History</h1>
+            <h1 className="font-semibold text-[30px] mx-2">{">"} </h1>
+            <h1 className=" font-semibold text-[25px] text-[#007C85] cursor-pointer  ">
+              Allergies
+            </h1>
+            <h1 className="font-semibold text-[30px] mx-2">{">"} </h1>
+            <h1
+              onClick={() => onNavigate(router, "/medical-history/surgeries")}
+              className="font-semibold text-[25px] cursor-pointer text-gray-600"
+            >
+              Surgeries
+            </h1>
+          </div>
           {/* number of patiens */}
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[21px] mt-2 mb-4 ">
             Total of 6 Patients
           </p>
         </div>
         <div className="flex flex-row justify-end">
-          <button
-            onClick={() => onNavigate(router, "/medical-history/surgeries")}
-            className=" mr-2 btn-add text-[#000000] w-[109px] h-[42px] radiu"
-          >
-            Surgery
-          </button>
           <Add></Add>
           <DownloadPDF></DownloadPDF>
         </div>
@@ -186,7 +192,7 @@ const Allergies = () => {
         {/* END OF TABLE */}
       </div>
       {/* pagination */}
-      <div className="mt-5">
+      <div className="mt-5 pb-5">
         <div className="flex justify-between">
           <p className="font-medium size-[18px] w-[138px] items-center">
             Page 1 of 10
