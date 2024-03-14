@@ -27,7 +27,7 @@ const Allergies = () => {
           <div className="flex flex-row items-center">
             <h1 className="font-semibold text-[30px]">Medical History</h1>
             <h1 className="font-semibold text-[30px] mx-2">{">"} </h1>
-            <h1 className=" font-semibold text-[25px] text-[#007C85] cursor-pointer  ">
+            <h1 className=" font-semibold text-[25px] text-[#007C85] cursor-pointer">
               Allergies
             </h1>
             <h1 className="font-semibold text-[30px] mx-2">{">"} </h1>

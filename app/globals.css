@@ -105,12 +105,12 @@ body,
   background: #007c85;
   color: #ffffff;
   width: 48px;
-  height: 30px;
+  height: 25px;
 }
 
 .ipt-pagination {
   width: 48px;
-  height: 30px;
+  height: 25px;
   border: 1px;
 }
 
@@ -128,9 +128,9 @@ body,
 
 .p-title {
   height: 32px;
-  line-height: 43px;
+  line-height: 32px;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 24px;
   /* w-[1157px] h-[32px] leading-[42px] font-bold */
 }
 
