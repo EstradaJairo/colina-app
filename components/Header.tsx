@@ -3,10 +3,17 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { IoNotifications } from "react-icons/io5";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const router = useRouter();
+  const handleLogout = () => {
+    document.cookie = "accessToken=;";
+    router.push("/");
+  };
 
   return (
     <div className="app-page flex-column flex-column-fluid bg-[#007C85]">
@@ -68,14 +75,16 @@ const Header = () => {
                     <div className="px-3 py-1 hover:bg-[#007C85] hover:opacity-60 hover:rounded-md hover:text-white text-black">
                       Language
                     </div>
-                    <div className="px-3 py-1 hover:bg-[#007C85] hover:opacity-60 hover:rounded-md hover:text-white">
+                    <div className="px-3 py-1 hover:bg-[#007C85] hover:opacity-60 hover:rounded-md hover:text-white text-black" >
                       Settings
                     </div>
-                    <Link href="/">
-                    <div className="px-3 py-1 hover:bg-[#007C85] hover:opacity-60 hover:rounded-md hover:text-white  text-[#071437]">
+
+                    <div
+                    onClick={handleLogout}
+                    className="px-3 py-1 hover:bg-[#007C85] hover:opacity-60 hover:rounded-md hover:text-white  text-[#071437]">
                       Sign Out
                     </div>
-                    </Link>
+
                   </div>
                 </div>
               )}

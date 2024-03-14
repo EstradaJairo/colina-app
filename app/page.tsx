@@ -1,8 +1,65 @@
+'use client'
+import Cookies from "js-cookie";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loginFailed, setLoginFailed] = useState(false);
+  useEffect(() => {
+    const checkAuth = () => {
+      const accessToken = Cookies.get("accessToken");
+      const publicPaths = ["/"];
+      console.log(accessToken);
+      if (accessToken) {
+        router.push("/patient-list");
+      }
+    };
+
+    checkAuth();
+    return () => {};
+  }, [router]);
+
+  const handleSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        setLoginFailed(true);
+        throw new Error("Failed to login");
+      }
+      const data = await response.json();
+      console.log(data.accessToken);
+      document.cookie = `accessToken=${data.accessToken};path=/;`;
+      // Redirect to patient-list page upon successful login
+      router.push("/patient-list");
+    } catch (error) {
+      setError("Invalid email or password");
+      setLoginFailed(true);
+    }
+    setTimeout(() => {
+      setLoginFailed(false);
+      setError("");
+    }, 2000);
+  };
+
   return (
     <main className="flex flex-col md:flex-row items-center justify-center h-screen relative">
       <div className=" w-[963.34px] h-full relative">
@@ -18,7 +75,7 @@ export default function Home() {
               className="w-100"
               id="kt_sign_in_form"
               data-kt-redirect-url="index.html"
-              action="#"
+
             >
               <div className="mb-10 flex">
                 <div className=" fw-medium text-[20px] text-[#007C85]">
@@ -32,6 +89,9 @@ export default function Home() {
                   placeholder="Email"
                   name="email"
                   className="form-control bg-body-secondary rounded-0"
+                  value={email}
+                  onChange={(e) => setEmail(e?.target.value)}
+
                 />
               </div>
 
@@ -41,6 +101,8 @@ export default function Home() {
                   placeholder="Password"
                   name="password"
                   className="form-control bg-body-secondary rounded-0"
+                  value={password}
+                  onChange={(e) => setPassword(e?.target.value)}
                 />
               </div>
 
@@ -54,9 +116,8 @@ export default function Home() {
                 </Link>
               </div>
 
-              <Link href="/patient-list">
                 <button
-                  type="submit"
+                  onClick={handleSubmit}
                   id="kt_sign_in_submit"
                   className=" p-5 text-teal-50 hover:bg-[#78e0e7] w-full h-full flex flex-col justify-center items-center bg-[#007C85]"
                 >
@@ -66,7 +127,7 @@ export default function Home() {
                     <span className="spinner-border spinner-border-sm align-middle ms-2"></span>
                   </span>
                 </button>
-              </Link>
+
             </form>
           </div>
         </div>

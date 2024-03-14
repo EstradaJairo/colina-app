@@ -10,7 +10,7 @@ const PatientList = () => {
   const [totalPages, setTotalPages] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [token, setToken] = useState<string>(
-    "eyJhbGciOiJIUzI1NisInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlbnRqb2hubGlsb2NAZzZtYWk1OTY1bC5jb20iLCJzdWIiOiJVaWQtNDQwMzkwYTQiLCJpYXQiOjE3MDk3ODgzNTcsImV4cCI6MTcwOTgyNDM1N30.6wQINmN7aWHnHDGSqPYeJySydsCjgrQqxjtskjPZifM"
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlbnRqb2hubGlsb2NAZ21haWwuY29tIiwic3ViIjoiVWlkLWE0YWVjNzk3IiwiaWF0IjoxNzA5Njg1MzEwLCJleHAiOjE3MDk3MjEzMTB9.BufXvytuT3-DyHklbrmh43daGZzjoQKAZrnXPZyTTXg"
   ); // State to hold the token
   const goToPreviousPage = () => {
     if (currentPage > 1) {
@@ -135,7 +135,7 @@ const PatientList = () => {
                     href={`apps/customers/view.html?id=${item.id}`}
                     className=" mb-1 text-[#071437]"
                   >
-                    {item.uuid}
+                    {item.id}
                   </a>
                 </td>
                 <td>
