@@ -20,12 +20,12 @@ export default function PatientPage() {
 
   return (
     <div className=" relative w-full mx-24 mt-24">
-      <div className="flex justify-end">
+      <div className="flex justify-end w-full mx-3">
         <a href="" className="text-[#64748B] underline">
           Back to Dashboard
         </a>
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center w-full mx-3">
         <div className="flex flex-col mb-5 px-3">
           <p className="p-title">Patients List Records</p>
           {/* number of patiens */}
@@ -192,8 +192,8 @@ export default function PatientPage() {
         {/* END OF TABLE */}
       </div>
       {/* pagination */}
-      <div className="mx-3 mt-5">
-        <div className="flex justify-between">
+      <div className="mt-5 w-full">
+        <div className="flex justify-between w-full mx-3">
           <p className="font-medium size-[18px] w-[138px] items-center">
             Page 1 of 10
           </p>
@@ -243,13 +243,13 @@ export default function PatientPage() {
                     Next
                   </a>
                 </div>
-                <div className="flex px-5 ">
+                <div className="flex px-5">
                   <input
                     className="ipt-pagination text-center border ring-1 ring-gray-300 border-gray-100"
                     type="text"
                     placeholder="-"
                   />
-                  <div className="px-5">
+                  <div className="">
                     <button className="btn-pagination ">Go </button>
                   </div>
                 </div>
