@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function PatientPage() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-
+  
   const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
   };
