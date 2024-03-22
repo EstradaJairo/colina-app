@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { Navbar } from "@/components/navbar";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function PatientOverviewLayout({
   children,
@@ -10,14 +11,16 @@ export default function PatientOverviewLayout({
   children: React.ReactNode;
 }>) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const [activeTab, setActiveTab] = useState<number>(0);
-  const [detailsClicked, setDetailsClicked] = useState<boolean>(false); // State to track if "See more details" is clicked
+  const [tabUrl, setTabUrl] = useState<string>("");
+  const [detailsClicked, setDetailsClicked] = useState<boolean>(false);
 
   const tabs = [
     {
       label: "Medical History",
-      url: "/medical-history",
+      url: "/patient-overview/patientId/medical-history/allergies",
     },
     {
       label: "Medication",
@@ -47,22 +50,27 @@ export default function PatientOverviewLayout({
 
   const handleSeeMoreDetails = (url: string, tabIndex: number) => {
     onNavigate(router, url);
-    setActiveTab(-1); // Reset activeTab to -1 when "See more details" is clicked
-    setDetailsClicked(true); // Set detailsClicked to true when "See more details" is clicked
+    setActiveTab(-1);
+    setDetailsClicked(true);
   };
 
-  const handleTabClick = (index: number, url: string) => {
-    setActiveTab(index);
+  const handleTabClick = (url: string) => {
     onNavigate(router, url);
-    setDetailsClicked(false); // Reset detailsClicked to false when a tab is clicked
+    setDetailsClicked(false);
   };
 
   return (
-    <div className="flex flex-col w-full gap-[150px] px-28 mt-28">
-      <div className="flex flex-col gap-[5px]">
+    <div className="flex flex-col w-full px-4 lg:px-28 mt-[100px]">
+      <div className="flex flex-col gap-[3px]">
         <div className="text-2xl font-bold">
           <h1>Patient Overview</h1>
-          <p className="text-[16px] font-medium opacity-60">Medical History</p>
+          <p className="text-[14px] font-medium text-[#64748B] mt-[-5px]">
+            {detailsClicked
+              ? "View - Details"
+              : activeTab !== -1
+              ? tabs[activeTab]?.label
+              : ""}
+          </p>
         </div>
         <div className="form ring-1 w-full h-[220px] shadow-md ring-gray-300 px-5 pt-5 rounded-md">
           <div className="flex">
@@ -143,13 +151,15 @@ export default function PatientOverviewLayout({
               <div className="flex gap-[50px] px-2">
                 {tabs.map((tab, index) => (
                   <p
-                    className={`cursor-pointer font-semibold ${
-                      activeTab === index
+                    className={`cursor-pointer font-semibold  ${
+                      pathname === tab.url
                         ? "text-[#007C85] border-b-[3px] border-[#007C85]"
                         : "hover:text-[#007C85] hover:border-b-[3px] h-[27px] border-[#007C85]"
                     }`}
                     key={index}
-                    onClick={() => handleTabClick(index, tab.url)}
+                    onClick={() => {
+                      handleTabClick(tab.url);
+                    }}
                   >
                     {tab.label}
                   </p>
