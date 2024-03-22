@@ -32,7 +32,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               </label>
                 <input
                   type="text"
-                  className="h-12 w-[500px]  px-3 py-2 text-sm text-gray-400 text-normal rounded-lg border border-gray-200"
+                  className="h-12 w-[500px]  px-3 py-2 text-sm text-normal rounded-lg border border-gray-200"
                   placeholder="input type of allergy"
                 />
             </div>
@@ -45,7 +45,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               </label>
                 <input
                   type="text"
-                  className="h-12 w-[500px]  px-3 py-2 text-sm  text-gray-400 text-normal rounded-lg border border-gray-200"
+                  className="h-12 w-[500px]  px-3 py-2 text-sm text-normal rounded-lg border border-gray-200"
                   placeholder="input severity"
                 />
             </div>
@@ -58,7 +58,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               </label>
                 <input
                   type="text"
-                  className="h-12 w-[500px]  px-3 py-2 text-sm  text-gray-400 text-normal rounded-lg border border-gray-200"
+                  className="h-12 w-[500px]  px-3 py-2 text-sm text-normal rounded-lg border border-gray-200"
                   placeholder="input severity"
                 />
             </div>
@@ -71,7 +71,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               </label>
                 <input
                   type="text"
-                  className="h-12 w-[500px]  px-3 py-2 text-sm  text-gray-400 text-normal rounded-lg border border-gray-200"
+                  className="h-12 w-[500px]  px-3 py-2 text-sm text-normal rounded-lg border border-gray-200"
                   placeholder="input reaction"
                 />
             </div>
@@ -84,7 +84,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               </label>
                 <input
                   type="text"
-                  className="pb-[100px]   w-[500px]  px-3 py-2 text-sm  text-gray-400 text-normal rounded-lg border border-gray-200"
+                  className="pb-[100px]   w-[500px]  px-3 py-2 text-sm text-normal rounded-lg border border-gray-200"
                   placeholder="input notes"
                 />
             </div>
