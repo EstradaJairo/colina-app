@@ -48,7 +48,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               <div className="mb-4 grid grid-cols-2 gap-6 ">
                 <div className="flex flex-row gap-x-[55px]">
                   <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
-                    Middle Initial
+                    Middle Name
                   </label>
                   <input
                     type="text" id="" name="" required
