@@ -1,6 +1,5 @@
 "use client";
 
-import { X } from "lucide-react";
 import React, { useEffect } from "react";
 
 interface Modalprops {
