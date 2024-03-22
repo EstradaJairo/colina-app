@@ -17,7 +17,7 @@ export default function PatientOverviewLayout({
   const tabs = [
     {
       label: "Medical History",
-      url: "/patient-overview/patientId/medical-history/allergies",
+      url: "/medical-history",
     },
     {
       label: "Medication",
@@ -58,17 +58,11 @@ export default function PatientOverviewLayout({
   };
 
   return (
-    <div className="flex flex-col w-full px-4 lg:px-28 mt-[100px]">
-      <div className="flex flex-col gap-[3px]">
+    <div className="flex flex-col w-full gap-[150px] px-28 mt-28">
+      <div className="flex flex-col gap-[5px]">
         <div className="text-2xl font-bold">
           <h1>Patient Overview</h1>
-          <p className="text-[14px] font-medium text-[#64748B] mt-[-5px]">
-            {detailsClicked
-              ? "View - Details"
-              : activeTab !== -1
-              ? tabs[activeTab]?.label
-              : ""}
-          </p>
+          <p className="text-[16px] font-medium opacity-60">Medical History</p>
         </div>
         <div className="form ring-1 w-full h-[220px] shadow-md ring-gray-300 px-5 pt-5 rounded-md">
           <div className="flex">
