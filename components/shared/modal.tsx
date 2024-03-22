@@ -29,7 +29,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     First Name
                   </label>
                   <input
-                    type="text" id="" name="username" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333] rounded border border-gray-200"
                     placeholder="input fullname"
                   />
@@ -51,7 +51,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Middle Initial
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  rounded border border-gray-200"
                     placeholder="input fullname"
                   />
@@ -61,7 +61,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Gender
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text"  id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input gender"
                   />
@@ -73,7 +73,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Age
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input age"
                   />
@@ -83,7 +83,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Date of Birth
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text"  id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input date of birth"
                   />
@@ -96,7 +96,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Contact Phone
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input contact phone"
                   />
@@ -106,7 +106,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Address1
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text"  id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input Address"
                   />
@@ -119,7 +119,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     City
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input city"
                   />
@@ -129,7 +129,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Address2
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input Addres2"
                   />
@@ -142,7 +142,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     State
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input state"
                   />
@@ -152,7 +152,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Country
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input country"
                   />
@@ -165,7 +165,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Admission Date
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input admission date"
                   />
@@ -175,7 +175,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Zip
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input zip"
                   />
@@ -189,7 +189,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Code Status
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333] text-normal rounded border border-gray-200"
                     placeholder="input code status"
                   />
@@ -202,7 +202,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Email
                   </label>
                   <input
-                    type="text" type="text" id="" name="" required
+                    type="text" id="" name="" required
                     className="h-10 w-96 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input email"
                   />
