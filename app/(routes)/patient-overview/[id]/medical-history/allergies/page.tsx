@@ -189,10 +189,7 @@ const Allergies = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-<<<<<<< HEAD
-=======
      
->>>>>>> 24eb2d74fdc9d6f8b01f98871dd871244762b552
             </tbody>
           </table>
         </div>
