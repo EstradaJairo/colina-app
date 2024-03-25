@@ -24,7 +24,7 @@ export default function PatientOverviewLayout({
     },
     {
       label: "Medication Log",
-      url: "/patient-overview/patientId/medication/scheduled",
+      url: "/patient-overview/patientId/medication",
     },
     {
       label: "Prescription",

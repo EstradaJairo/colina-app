@@ -7,6 +7,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
+import { Modal } from "@/components/shared/labresultsmodal";
 
 export default function Laboratoryresults() {
   const router = useRouter();
@@ -19,6 +20,17 @@ export default function Laboratoryresults() {
   const optionsSortBy = ["Medication", "Notes", "Status"];
   // end of orderby & sortby function
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isModalOpen = (isOpen: boolean) => {
+    setIsOpen(isOpen);
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else if (!isOpen) {
+      document.body.style.overflow = "scroll";
+    }
+  };
+
   return (
     <div className="  w-full">
       <div className="flex justify-between items-center">
@@ -30,8 +42,13 @@ export default function Laboratoryresults() {
           </p>
         </div>
         <div className="flex flex-row justify-end">
+        <button onClick={() => isModalOpen(true)}>
           <Add></Add>
+          </button>
+
+          <button>
           <DownloadPDF></DownloadPDF>
+          </button>
         </div>
       </div>
 
@@ -274,6 +291,13 @@ export default function Laboratoryresults() {
             </nav>
           </div>
         </div>
+        {isOpen && (
+          <Modal
+            isModalOpen={isModalOpen}
+            isOpen={isOpen}
+            label="sample label"
+          />
+        )}
       </div>
     </div>
   );

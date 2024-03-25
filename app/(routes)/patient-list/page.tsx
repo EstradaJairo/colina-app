@@ -5,7 +5,7 @@ import Add from "@/components/shared/buttons/add";
 import DownloadPDF from "@/components/shared/buttons/downloadpdf";
 import Edit from "@/components/shared/buttons/view";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/modal";
+import { Modal } from "@/components/shared/demographicmodal";
 import { useState } from "react";
 
 export default function PatientPage() {
@@ -40,24 +40,12 @@ export default function PatientPage() {
           </p>
         </div>
         <div className="flex flex-row justify-end">
-          <button
-            onClick={() => isModalOpen(true)}
-            className=" mr-2 btn-add text-[#000000] w-[109px] h-[42px] radiu"
-          >
-            <img
-              src="/imgs/add.svg"
-              alt="Custom Icon"
-              className="w-5 h-5 mr-2"
-            />
-            Add
+        <button onClick={() => isModalOpen(true)}>
+          <Add></Add>
           </button>
-          <button className="btn-pdfs hover:bg-[#007C85] h-[42px] hover:border-[#007C85] hover:text-white flex items-center justify-center rounded-lg font-manrope text-black text-lg px-8 py-4 border-2 border-gray-300 text-center w-64 relative ">
-            <img
-              src="/imgs/downloadpdf.svg"
-              alt="Custom Icon"
-              className="w-5 h-5 mr-2"
-            />
-            Download PDF
+
+          <button>
+          <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
