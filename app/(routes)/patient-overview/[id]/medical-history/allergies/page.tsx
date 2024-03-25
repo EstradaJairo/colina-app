@@ -8,7 +8,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/alert";
+import { Modal } from "@/components/shared/modal";
 
 const Allergies = () => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const Allergies = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const isAlertOpen = (isOpen: boolean) => {
+  const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -60,7 +60,7 @@ const Allergies = () => {
         </div>
         <div className="flex flex-row justify-end mt-[15px]">
           <button
-            onClick={() => isAlertOpen(true)}
+            onClick={() => isModalOpen(true)}
             className=" mr-2 btn-add text-[#000000] w-[109px] h-[42px] radius"
           >
             <img
@@ -189,6 +189,10 @@ const Allergies = () => {
                   <Edit></Edit>
                 </td>
               </tr>
+<<<<<<< HEAD
+=======
+     
+>>>>>>> 24eb2d74fdc9d6f8b01f98871dd871244762b552
             </tbody>
           </table>
         </div>
@@ -261,7 +265,7 @@ const Allergies = () => {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isAlertOpen}
+            isModalOpen={isModalOpen}
             isOpen={isOpen}
             label="sample label"
           />
