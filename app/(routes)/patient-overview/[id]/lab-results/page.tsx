@@ -93,15 +93,18 @@ export default function Laboratoryresults() {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-6 py-3 w-[200px] h-[70px]">
+              <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
+                  LAB RESULT ID
+                </th>
+                <th scope="col" className="px-0 py-3 w-[200px] h-[70px]">
                   DATE
                 </th>
-                <th scope="col" className="px-0 py-3 w-[200px]">
+                <th scope="col" className="px-3 py-3 w-[300px]">
                   HEMOGLOBIN A1c
                 </th>
                 <th
                   scope="col"
-                  className="truncate max-w-[286px] px-3 py-3 w-[200px]"
+                  className="truncate max-w-[286px] px-2 py-2"
                 >
                   FASTING BLOOD GLUCOSE
                 </th>
@@ -112,10 +115,10 @@ export default function Laboratoryresults() {
                   TOTAL CHOLESTEROL
                 </th>
                 <th scope="col" className="px-6 py-3 w-[200px]">
-                  LDL CHOLESTEROL
+                  LDL-C
                 </th>
                 <th scope="col" className="px-6 py-3 w-[200px]">
-                  HDL CHOLESTEROL
+                  HDL-C
                 </th>
                 <th scope="col" className="px-6  py-3 w-[200px]">
                   TRIGLYCERIDES
@@ -137,6 +140,7 @@ export default function Laboratoryresults() {
                 <td className="truncate max-w-[286px] px-3 py-4 tb-med">
                   120mg/dl
                 </td>
+                <td className="truncate max-w-[286px] px-2 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
@@ -156,6 +160,7 @@ export default function Laboratoryresults() {
                 <td className="truncate max-w-[286px] px-3 py-4 tb-med">
                   120mg/dl
                 </td>
+                <td className="truncate max-w-[286px] px-2 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
@@ -175,6 +180,7 @@ export default function Laboratoryresults() {
                 <td className="truncate max-w-[286px] px-3 py-4 tb-med">
                   120mg/dl
                 </td>
+                <td className="truncate max-w-[286px] px-2 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
                 <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
@@ -183,44 +189,7 @@ export default function Laboratoryresults() {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white   border-b hover:bg-[#f4f4f4] group ">
-                <th
-                  scope="row"
-                  className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                >
-                  10/12/2024
-                </th>
-                <td className="px-0 py-4">70%</td>
-                <td className="truncate max-w-[286px] px-3 py-4 tb-med">
-                  120mg/dl
-                </td>
-                <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
-                <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
-                <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
-                <td className="px-6 py-4">Given</td>
-                <td className="px-[70px] py-4">
-                  <Edit></Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white   hover:bg-[#f4f4f4] group ">
-                <th
-                  scope="row"
-                  className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                >
-                  10/12/2024
-                </th>
-                <td className="px-0 py-4">70%</td>
-                <td className="truncate max-w-[286px] px-3 py-4 tb-med">
-                  120mg/dl
-                </td>
-                <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
-                <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
-                <td className="truncate max-w-[286px] px-6 py-4"> 120mg/dl</td>
-                <td className="px-6 py-4">Given</td>
-                <td className="px-[70px] py-4">
-                  <Edit></Edit>
-                </td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
