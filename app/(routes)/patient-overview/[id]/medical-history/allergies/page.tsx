@@ -8,7 +8,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/alert";
+import { Modal } from "@/components/shared/modal";
 
 const Allergies = () => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const Allergies = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const isAlertOpen = (isOpen: boolean) => {
+  const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -60,7 +60,7 @@ const Allergies = () => {
         </div>
         <div className="flex flex-row justify-end mt-[15px]">
           <button
-            onClick={() => isAlertOpen(true)}
+            onClick={() => isModalOpen(true)}
             className=" mr-2 btn-add text-[#000000] w-[109px] h-[42px] radius"
           >
             <img
@@ -192,94 +192,7 @@ const Allergies = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                >
-                  ALG-98765432HJK
-                </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                  Drake Ramos
-                </td>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Severe</td>
-                <td className="px-6 py-4">Redness and Itching</td>
-                <td className="px-6 py-4">
-                  Patient is under observation. Need Epipen for emergencies.
-                </td>
-
-                <td className="px-[70px] py-4">
-                  <Edit>
-                  </Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                >
-                  ALG-98765432HJK
-                </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                  Drake Ramos
-                </td>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Severe</td>
-                <td className="px-6 py-4">Redness and Itching</td>
-                <td className="px-6 py-4">
-                  Patient is under observation. Need Epipen for emergencies.
-                </td>
-
-                <td className="px-[70px] py-4">
-                  <Edit>
-                  </Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                >
-                  ALG-98765432HJK
-                </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                  Drake Ramos
-                </td>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Severe</td>
-                <td className="px-6 py-4">Redness and Itching</td>
-                <td className="px-6 py-4">
-                  Patient is under observation. Need Epipen for emergencies.
-                </td>
-
-                <td className="px-[70px] py-4">
-                  <Edit>
-                  </Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                >
-                  ALG-98765432HJK
-                </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                  Drake Ramos
-                </td>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Severe</td>
-                <td className="px-6 py-4">Redness and Itching</td>
-                <td className="px-6 py-4">
-                  Patient is under observation. Need Epipen for emergencies.
-                </td>
-
-                <td className="px-[70px] py-4">
-                  <Edit>
-                  </Edit>
-                </td>
-              </tr>
+     
             </tbody>
           </table>
         </div>
@@ -352,7 +265,7 @@ const Allergies = () => {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isAlertOpen}
+            isModalOpen={isModalOpen}
             isOpen={isOpen}
             label="sample label"
           />
