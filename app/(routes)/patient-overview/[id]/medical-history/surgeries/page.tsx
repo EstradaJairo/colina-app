@@ -138,7 +138,7 @@ export default function Surgeries() {
               </tr>
             </thead>
             <tbody>
-              <tr className="odd:bg-white  hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -155,7 +155,7 @@ export default function Surgeries() {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white  hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -170,7 +170,7 @@ export default function Surgeries() {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white  hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -185,7 +185,7 @@ export default function Surgeries() {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white  hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
