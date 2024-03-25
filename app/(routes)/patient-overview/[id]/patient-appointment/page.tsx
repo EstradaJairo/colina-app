@@ -108,16 +108,16 @@ const Appointment = () => {
           <table className="w-full text-left rtl:text-right">
             <thead>
               <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-7 py-3 w-[400px] h-[60px]">
+                <th scope="col" className="px-6 py-3 w-[500px] h-[70px]">
                   STATUS
                 </th>
                 <th scope="col" className="px-6 py-3 w-[400px]">
                   DATE
                 </th>
-                <th scope="col" className="px-6 py-3 w-[300px]">
+                <th scope="col" className="px-6 py-3 w-[400px]">
                   TIME
                 </th>
-                <th scope="col" className=" px-[90px] py-3 w-10">
+                <th scope="col" className=" px-[80px] py-3 w-10">
                   ACTION
                 </th>
               </tr>
@@ -135,7 +135,7 @@ const Appointment = () => {
                   March 22, 2024
                 </td>
                 <td className="px-6 py-3">8:00 - 10:00 am </td>
-                <td className="px-[90px] py-3">
+                <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
               </tr>
@@ -151,7 +151,7 @@ const Appointment = () => {
                   March 22, 2024
                 </td>
                 <td className="px-6 py-3">8:00 - 10:00 am </td>
-                <td className="px-[90px] py-3">
+                <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
               </tr>
@@ -167,7 +167,7 @@ const Appointment = () => {
                   March 22, 2024
                 </td>
                 <td className="px-6 py-3">8:00 - 10:00 am </td>
-                <td className="px-[90px] py-3">
+                <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
               </tr>
@@ -183,26 +183,11 @@ const Appointment = () => {
                   March 22, 2024
                 </td>
                 <td className="px-6 py-3">8:00 - 10:00 am </td>
-                <td className="px-[90px] py-3">
+                <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white  even:bg-gray-50  hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className=" text-[#B81C1C] font-large text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
-                >
-                  <span className="pr-1 text-[#B81C1C]">●</span>
-                  Cancelled Appointment
-                </th>
-                <td className="truncate max-w-[552px] px-6 py-3">
-                  March 22, 2024
-                </td>
-                <td className="px-6 py-3">8:00 - 10:00 am </td>
-                <td className="px-[90px] py-3">
-                  <Edit></Edit>
-                </td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
