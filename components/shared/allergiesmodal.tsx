@@ -34,6 +34,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                placeholder="input type"
               />
             </div>
           </div>
@@ -46,6 +47,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                placeholder="input allergen"
               />
             </div>
           </div>
@@ -58,6 +60,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                placeholder="input severity"
               />
             </div>
           </div>
@@ -70,6 +73,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                placeholder="input reaction"
               />
             </div>
           </div>
@@ -81,7 +85,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               <textarea
                 rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                defaultValue={''}
+                placeholder="input notes"
               />
             </div>
           </div>

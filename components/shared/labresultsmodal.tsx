@@ -17,17 +17,17 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
     <div className="max-w-[550px] bg-[#FFFFFF] rounded-lg">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-lg">
         <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
-        Add Medical History Allergies Log
+        Add Labaratory Result
         </h2>
         <p className="text-sm pl-9 text-gray-600 pb-10">Submit your log details.</p>
       </div>
       <div className=" mb-9 pt-4">
-      <div className="h-[600px] max-h-[400px] md:px-10 mt-5" >
+      <div className="h-[600px] max-h-[320px] md:px-10 mt-5" >
         <form className="">
         <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
           <div>
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-              TYPE
+            HEMOGLOBIN A1c
             </label>
             <div className="mt-2.5">
               <input
@@ -39,7 +39,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
           </div>
           <div>
             <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-              ALLERGEN
+            FASTING BLOOD GLUCOSE
             </label>
             <div className="mt-2.5">
               <input
@@ -51,7 +51,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
           </div>
           <div>
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-             SEVERITY
+            TOTAL CHOLESTEROL
             </label>
             <div className="mt-2.5">
               <input
@@ -63,7 +63,31 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
           </div>
           <div>
             <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-              REACTION
+              LDL CHOLESTEROL
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                required
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+            HDL CHOLESTEROL
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                required
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+            TRIGLYCERIDES
             </label>
             <div className="mt-2.5">
               <input

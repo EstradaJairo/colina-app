@@ -13,7 +13,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
   return (
     
 
-    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-80`}>
+    <div className={`absolute inset-[-200px] bg-[#76898A99] flex items-center justify-center pb-80`}>
     <div className="max-w-[550px] bg-[#FFFFFF] rounded-lg">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-lg">
         <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
@@ -34,6 +34,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                placeholder="input blood pressure"
               />
             </div>
           </div>
@@ -46,6 +47,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                placeholder="input heart rate"
               />
             </div>
           </div>
@@ -58,6 +60,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                placeholder="input temperature"
               />
             </div>
           </div>
@@ -70,6 +73,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                placeholder="input respiratory"
               />
             </div>
           </div>
