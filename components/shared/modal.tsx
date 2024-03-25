@@ -21,7 +21,8 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               Patient Demographic
             </h2>
           </div>
-            <form className="h-[600px] w-full max-w-7xl py-10 md:px-10 ring-1 ring-gray-200">
+          <div className="h-[600px] overflow-auto max-h-[600px] md:px-10 ring-1 ring-gray-200" >
+            <form className="py-10">
               <div className="mb-4 grid grid-cols-2 gap-6 ">
                 <div className="flex flex-row gap-x-[70px]">
                   <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
@@ -45,7 +46,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 </div>
               </div>
               <div className="mb-4 grid grid-cols-2 gap-6 ">
-                <div className="flex flex-row gap-x-[55px]">
+                <div className="flex flex-row gap-x-[52px]">
                   <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
                     Middle Name
                   </label>
@@ -223,6 +224,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 </div>
               </div>
             </form>
+        </div>
         </div>
       </div>
     </>
