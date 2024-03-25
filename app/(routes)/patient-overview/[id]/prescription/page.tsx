@@ -77,15 +77,18 @@ export default function prescription() {
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
                 <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
+                  PRESCRIPTION ID
+                </th>
+                <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
                   MEDICINE NAME
                 </th>
                 <th scope="col" className="px-0 py-3 w-[300px]">
                   FREQUENCY
                 </th>
-                <th scope="col" className="px-3 py-3 w-[300px]">
+                <th scope="col" className="px-3 py-3 w-[200px]">
                   INTERVAL
                 </th>
-                <th scope="col" className="px-20  py-3 w-[300px]">
+                <th scope="col" className="px-20  py-3 w-[200px]">
                   DOSAGE
                 </th>
                 <th scope="col" className="pl-10 pr-6 py-3 w-[200px] ">
@@ -102,24 +105,11 @@ export default function prescription() {
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Amlodipine
+                  PRL-7890124567891
                 </th>
-                <td className="truncate max-w-[286px] px-0 py-4">
-                  Three times daily
-                </td>
-                <td className="truncate max-w-[286px] px-3 py-4 tb-med">
-                  every 12 hours
-                </td>
-                <td className="truncate max-w-[286px] px-20 py-4">500 mg</td>
-                <td className="px-12 py-4">NONE</td>
-                <td className="px-[70px] py-4">
-                  <Edit></Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
-                  className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
                   Amlodipine
                 </th>
@@ -130,15 +120,22 @@ export default function prescription() {
                   every 12 hours
                 </td>
                 <td className="truncate max-w-[286px] px-20 py-4">500 mg</td>
-                <td className="px-12 py-4">NONE</td>
+                <td className="px-10 py-4">ACTIVE</td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
               </tr>
+
               <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
-                  className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                >
+                  PRL-7890124567891
+                </th>
+                <th
+                  scope="row"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
                   Amlodipine
                 </th>
@@ -149,26 +146,7 @@ export default function prescription() {
                   every 12 hours
                 </td>
                 <td className="truncate max-w-[286px] px-20 py-4">500 mg</td>
-                <td className="px-12 py-4">NONE</td>
-                <td className="px-[70px] py-4">
-                  <Edit></Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Amlodipine
-                </th>
-                <td className="truncate max-w-[286px] px-0 py-4">
-                  Three times daily
-                </td>
-                <td className="truncate max-w-[286px] px-3 py-4 tb-med">
-                  every 12 hours
-                </td>
-                <td className="truncate max-w-[286px] px-20 py-4">500 mg</td>
-                <td className="px-12 py-4">NONE</td>
+                <td className="px-10 py-4">ACTIVE</td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>

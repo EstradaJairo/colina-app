@@ -23,8 +23,8 @@ export default function PatientOverviewLayout({
       url: "/patient-overview/patientId/medical-history/allergies",
     },
     {
-      label: "Medication",
-      url: "/patient-overview/patientId/medication",
+      label: "Medication Log",
+      url: "/patient-overview/patientId/medication/scheduled",
     },
     {
       label: "Prescription",

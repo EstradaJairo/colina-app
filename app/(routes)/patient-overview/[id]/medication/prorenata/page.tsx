@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import DropdownMenu from "@/components/dropdown-menu";
 import Add from "@/components/shared/buttons/add";
 import DownloadPDF from "@/components/shared/buttons/downloadpdf";
@@ -7,8 +8,9 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
+import { Modal } from "@/components/shared/alert";
 
-export default function vitalsigns() {
+const Prorenata = () => {
   const router = useRouter();
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
@@ -16,26 +18,70 @@ export default function vitalsigns() {
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
 
   const optionsOrderedBy = ["Accending", "Decending"];
-  const optionsSortBy = ["Medication", "Notes", "Status"];
+  const optionsSortBy = ["Type", "Severity", "Reaction", "Notes"];
   // end of orderby & sortby function
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isAlertOpen = (isOpen: boolean) => {
+    setIsOpen(isOpen);
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else if (!isOpen) {
+      document.body.style.overflow = "scroll";
+    }
+  };
 
   return (
     <div className="  w-full">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between ">
         <div className="flex flex-col">
-          <h1 className="p-title">Vital Signs</h1>
+          <div className="flex flex-row items-center">
+            <h1 className="p-title">Medication Logs</h1>
+            <h1 className="p-title mx-2">{">"} </h1>
+            <h1
+              onClick={() =>
+                onNavigate(
+                  router,
+                  "/patient-overview/patiendId/medication/scheduled"
+                )
+              }
+              className="p-title cursor-pointer text-gray-600"
+            >
+            Scheduled
+            </h1>
+            <h1 className="p-title mx-2">{">"} </h1>
+            <h1 className="p-title cursor-pointer text-[#007C85]">PRN</h1>
+          </div>
           {/* number of patiens */}
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
             Total of 6 Patients
           </p>
         </div>
-        <div className="flex flex-row justify-end">
-          <Add></Add>
-          <DownloadPDF></DownloadPDF>
+        <div className="flex flex-row justify-end mt-[15px]">
+          <button
+            onClick={() => isAlertOpen(true)}
+            className=" mr-2 btn-add text-[#000000] w-[109px] h-[42px] radius"
+          >
+            <img
+              src="/imgs/add.svg"
+              alt="Custom Icon"
+              className="w-5 h-5 mr-2"
+            />
+            Add
+          </button>
+          <button className="btn-pdfs hover:bg-[#007C85] h-[42px] hover:border-[#007C85] hover:text-white flex items-center justify-center rounded-lg font-manrope text-black text-lg px-8 py-4 border-2 border-gray-300 text-center w-64 relative ">
+            <img
+              src="/imgs/downloadpdf.svg"
+              alt="Custom Icon"
+              className="w-5 h-5 mr-2"
+            />
+            Download PDF
+          </button>
         </div>
       </div>
 
-      <div className="w-full sm:rounded-lg items-center">
+      <div className="w-full m:rounded-lg items-center">
         <div className="w-full justify-between flex items-center bg-[#F4F4F4] h-[75px] px-5">
           <form className="">
             {/* search bar */}
@@ -76,76 +122,75 @@ export default function vitalsigns() {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
-              <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
-                  VITAL SIGN ID
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
-                  DATE
-                </th>
-                <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
-                  TIME
-                </th>
-                <th scope="col" className="px-6 py-3 truncate max-w-[300px]">
-                  BLOOD PRESSURE
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
-                  HEART RATE
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
-                  TEMPERATURE
+              <th scope="col" className="px-6 py-3 w-[300px] h-[60px] ">
+                  Medication ID
                 </th>
                 <th scope="col" className="px-6 py-3 w-[300px]">
-                  RESPIRATORY
+                  Date
                 </th>
-
-                <th scope="col" className="px-[80px] py-3 w-[10px] ">
+                <th scope="col" className="px-6 py-3 w-[300px]">
+                  Time
+                </th>
+                <th scope="col" className="px-6 py-3 w-[300px]">
+                 Medication
+                </th>
+                <th scope="col" className="px-5 py-3 w-[400px]">
+                 Notes
+                </th>
+                <th scope="col" className="px-6 py-3 w-[100px]">
+                  Status
+                </th>
+                <th scope="col" className=" px-20 py-4 w-[10px]">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
+            <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
-                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                  VSL-7890124567891
+                 MDL-7890144567891
                 </th>
                 <td className="truncate max-w-[552px] px-6 py-4">
-                  10/20/99
+                10/24/99
                 </td>
-                <td className="px-6 py-4">6:20am</td>
-                <td className="px-6 py-4">110/90</td>
-                <td className="px-6 py-4">72 bpm</td>
-                <td className="px-6 py-4">37°C</td>
-                <td className="px-6 py-4">98 breaths per minute </td>
+                <td className="px-6 py-4">6:00 am</td>
+                <td className="px-6 py-4">Losartan</td>
+                <td className="px-5 py-4">Patient felt nauseous.</td>
+                <td className="px-6 py-4">
+                 Held
+                </td>
 
                 <td className="px-[70px] py-4">
-                  <Edit></Edit>
+                  <Edit>
+                  </Edit>
                 </td>
               </tr>
               <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
-                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                  VSL-7890124567891
+                 MDL-7890144567891
                 </th>
                 <td className="truncate max-w-[552px] px-6 py-4">
-                  10/20/99
+                10/24/99
                 </td>
-                <td className="px-6 py-4">6:20am</td>
-                <td className="px-6 py-4">110/90</td>
-                <td className="px-6 py-4">72 bpm</td>
-                <td className="px-6 py-4">37°C</td>
-                <td className="px-6 py-4">98 breaths per minute </td>
+                <td className="px-6 py-4">6:00 am</td>
+                <td className="truncate max-w-[400px] px-6 py-4">Losartan</td>
+                <td className="px-5 py-4">Patient took a different brand.</td>
+                <td className="px-6 py-4">
+                 Held
+                </td>
 
                 <td className="px-[70px] py-4">
-                  <Edit></Edit>
+                  <Edit>
+                  </Edit>
                 </td>
               </tr>
-
-             
+              
             </tbody>
           </table>
         </div>
@@ -216,7 +261,16 @@ export default function vitalsigns() {
             </nav>
           </div>
         </div>
+        {isOpen && (
+          <Modal
+            isModalOpen={isAlertOpen}
+            isOpen={isOpen}
+            label="sample label"
+          />
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default Prorenata;

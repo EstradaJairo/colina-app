@@ -119,10 +119,13 @@ export default function Surgeries() {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
+              <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
+                  SURGERY ID
+                </th>
+                <th scope="col" className="px-6 py-3 w-[250px] h-[70px]">
                   DATE
                 </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
+                <th scope="col" className="px-6 py-3 w-[300px]">
                   TYPE
                 </th>
                 <th scope="col" className="px-6 py-3 w-[400px]">
@@ -143,14 +146,14 @@ export default function Surgeries() {
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  10/12/2024
+                 SGY-7890124567891
                 </th>
                 <td className="truncate max-w-[552px] px-6 py-4">
-                  Skin Allergy
+                 10/18/24
                 </td>
-                <td className="px-6 py-4">Major</td>
-                <td className="px-6 py-4">Irritated</td>
-
+                <td className="px-6 py-4">General Surgery</td>
+                <td className="px-6 py-4">Hernia Repair</td>
+                <td className="truncate max-w-[400px] px-6 py-4">Patient will be monitored for internal bleeding.</td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
@@ -158,48 +161,21 @@ export default function Surgeries() {
               <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  10/12/2024
+                 SGY-7890124567891
                 </th>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Major</td>
-                <td className="px-6 py-4">Patient developed mild fever.</td>
-
+                <td className="px-6 py-4">
+                 10/18/24
+                </td>
+                <td className="px-6 py-4">Cardiothoracic</td>
+                <td className="px-6 py-4">Coronary Artery Bypass</td>
+                <td className="truncate max-w-[400px] px-6 py-4">Patient will be monitored 24/7.</td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  10/12/2024
-                </th>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Major</td>
-                <td className="px-6 py-4">Irritated</td>
 
-                <td className="px-[70px] py-4">
-                  <Edit></Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  10/12/2024
-                </th>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Major</td>
-                <td className="px-6 py-4">Irritated</td>
-
-                <td className="px-[70px] py-4">
-                  <Edit></Edit>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
