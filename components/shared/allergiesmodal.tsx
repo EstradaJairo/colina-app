@@ -13,7 +13,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
   return (
     
 
-    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center`}>
+    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-40`}>
     <div className="max-w-[550px] bg-[#FFFFFF] rounded-lg">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-lg">
         <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
@@ -22,17 +22,54 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
         <p className="text-sm pl-9 text-gray-600 pb-10">Submit your log details.</p>
       </div>
       <div className=" mb-9 pt-4">
-      <div className="h-[600px] max-h-[300px] md:px-10 mt-5" >
+      <div className="h-[600px] max-h-[400px] md:px-10 mt-5" >
         <form className="">
-        <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-        <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-              MEDICATION
+        <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+              TYPE
             </label>
             <div className="mt-2.5">
               <input
                 type="text"
+                required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+              ALLERGEN
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                required
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+             SEVERITY
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                required
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+              REACTION
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                required
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -57,7 +94,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Cancel
                   </button>
                   </div>
-                  <div className="mt-5 pb-3 ">        
+                  <div className="mt-5 pb-3  ">        
                   <button
                     type="button"
                     className="w-48 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium"
@@ -68,7 +105,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
           </div>
           </form>
           </div>
-          </div>
+        </div>
         </div>
       </div>
     

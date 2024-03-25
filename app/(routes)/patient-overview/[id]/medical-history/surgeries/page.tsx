@@ -7,7 +7,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/modalss";
+import { Modal } from "@/components/shared/surgeriesmodal";
 
 export default function Surgeries() {
   const router = useRouter();

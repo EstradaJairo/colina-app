@@ -13,11 +13,11 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
   return (
     
 
-    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center`}>
+    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-60`}>
     <div className="max-w-[550px] bg-[#FFFFFF] rounded-lg">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-lg">
         <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
-        Add Medical History Allergies Log
+        Add Medical History Surgeries Log
         </h2>
         <p className="text-sm pl-9 text-gray-600 pb-10">Submit your log details.</p>
       </div>
@@ -25,13 +25,26 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
       <div className="h-[600px] max-h-[300px] md:px-10 mt-5" >
         <form className="">
         <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-        <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-              MEDICATION
+          <div>
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+              TYPE
             </label>
             <div className="mt-2.5">
               <input
                 type="text"
+                required
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+              SURGERY
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               />
             </div>
@@ -68,7 +81,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
           </div>
           </form>
           </div>
-          </div>
+        </div>
         </div>
       </div>
     
