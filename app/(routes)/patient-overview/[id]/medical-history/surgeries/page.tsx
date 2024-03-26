@@ -56,12 +56,12 @@ export default function Surgeries() {
           </p>
         </div>
         <div className="flex flex-row justify-end">
-        <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+          <button onClick={() => isModalOpen(true)}>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
@@ -107,7 +107,7 @@ export default function Surgeries() {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
-              <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
+                <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
                   SURGERY ID
                 </th>
                 <th scope="col" className="px-6 py-3 w-[250px] h-[70px]">
@@ -134,14 +134,14 @@ export default function Surgeries() {
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                 SGY-7890124567891
+                  SGY-7890124567891
                 </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                 10/18/24
-                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">10/18/24</td>
                 <td className="px-6 py-4">General Surgery</td>
                 <td className="px-6 py-4">Hernia Repair</td>
-                <td className="truncate max-w-[400px] px-6 py-4">Patient will be monitored for internal bleeding.</td>
+                <td className="truncate max-w-[400px] px-6 py-4">
+                  Patient will be monitored for internal bleeding.
+                </td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
@@ -151,19 +151,18 @@ export default function Surgeries() {
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                 SGY-7890124567891
+                  SGY-7890124567891
                 </th>
-                <td className="px-6 py-4">
-                 10/18/24
-                </td>
+                <td className="px-6 py-4">10/18/24</td>
                 <td className="px-6 py-4">Cardiothoracic</td>
                 <td className="px-6 py-4">Coronary Artery Bypass</td>
-                <td className="truncate max-w-[400px] px-6 py-4">Patient will be monitored 24/7.</td>
+                <td className="truncate max-w-[400px] px-6 py-4">
+                  Patient will be monitored 24/7.
+                </td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
               </tr>
-
             </tbody>
           </table>
         </div>

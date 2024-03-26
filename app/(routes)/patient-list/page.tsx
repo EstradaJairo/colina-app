@@ -22,11 +22,11 @@ export default function PatientPage() {
   };
 
   return (
-    <div className=" relative w-full mx-24 mt-24">
+    <div className="w-full mx-24 mt-24">
       <div className="flex justify-end w-full mx-3">
         <p
           onClick={() => onNavigate(router, "/dashboard")}
-          className="text-[#64748B] underline "
+          className="text-[#64748B] underline cursor-pointer select-none"
         >
           Back to Dashboard
         </p>
@@ -40,12 +40,12 @@ export default function PatientPage() {
           </p>
         </div>
         <div className="flex flex-row justify-end">
-        <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+          <button onClick={() => isModalOpen(true)}>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
