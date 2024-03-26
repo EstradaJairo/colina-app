@@ -15,7 +15,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
       <div
         className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-40`}
       >
-        <div className="max-w-[550px] bg-[#FFFFFF] rounded-md">
+        <div className="w-[600px] h-[650px] bg-[#FFFFFF] rounded-md">
           <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
             <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
               Patient Demographic 
@@ -187,17 +187,17 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     placeholder="input email"
                   />
                 </div>
-                <div className="mt-5 justify-center flex ">
+                <div className="mt-5 justify-center flex pb-2">
                   <button
                     onClick={() => isModalOpen(false)}
                     type="button"
-                    className="w-64 px-3 py-2 hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] mt-2 mr-3 ring-1 ring-gray-200"
+                    className="w-[340px] px-3 py-2 hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] mt-2 mr-3 ring-1 ring-gray-200"
                   >
                     Cancel
                   </button>
                   <button
                     type="button"
-                    className="w-64 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium mt-2"
+                    className="w-[340px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium mt-2"
                   >
                     Submit
                   </button>
