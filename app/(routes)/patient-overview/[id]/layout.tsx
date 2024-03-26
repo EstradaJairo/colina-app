@@ -4,6 +4,7 @@ import { onNavigate } from "@/actions/navigation";
 import { Navbar } from "@/components/navbar";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import Image from 'next/image'
 
 export default function PatientOverviewLayout({
   children,
@@ -63,20 +64,13 @@ export default function PatientOverviewLayout({
   return (
     <div className="flex flex-col w-full px-4 lg:px-28 mt-[100px]">
       <div className="flex flex-col gap-[3px]">
-        <div className="text-2xl font-bold">
+        <div className="text-2xl font-bold pb-2">
           <h1>Patient Overview</h1>
-          <p className="text-[14px] font-medium text-[#64748B] mt-[-5px]">
-            {detailsClicked
-              ? "View - Details"
-              : activeTab !== -1
-              ? tabs[activeTab]?.label
-              : ""}
-          </p>
         </div>
         <div className="form ring-1 w-full h-[220px] shadow-md ring-gray-300 px-5 pt-5 rounded-md">
           <div className="flex">
             <div className="flex flex-col">
-              <img
+              <Image
                 src="/imgs/dennis.svg"
                 alt="profile"
                 width="200"
@@ -98,7 +92,7 @@ export default function PatientOverviewLayout({
                 </div>
                 <div>
                   <div className="flex flex-row w-full mt-2">
-                    <img
+                    <Image
                       src="/imgs/profile-circle.svg"
                       className="px-1"
                       alt="profile"
@@ -119,13 +113,13 @@ export default function PatientOverviewLayout({
                         <p className="flex items-center">
                           ID: SGY-5146846548465
                         </p>
-                        <img src="/imgs/id.svg" alt="copy" />
+                        <Image src="/imgs/id.svg" alt="copy" width={20} height={20} />
                       </div>
                     </div>
                   </div>
                   <div className="mb-5"></div>
                   <div className="flex flex-row w-full">
-                    <img
+                    <Image
                       src="/imgs/codestatus.svg"
                       className="px-1"
                       alt="codestatus"

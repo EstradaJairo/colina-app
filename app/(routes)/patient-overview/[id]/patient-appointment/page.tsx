@@ -9,6 +9,7 @@ import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
 import { Modal } from "@/components/shared/appointmentmodal";
+import Image from 'next/image'
 
 const Appointment = () => {
   const router = useRouter();
@@ -49,18 +50,22 @@ const Appointment = () => {
             onClick={() => isModalOpen(true)}
             className=" mr-2 btn-add text-[#000000] w-[109px] h-[42px] radiu"
           >
-            <img
+            <Image
               src="/imgs/add.svg"
               alt="Custom Icon"
-              className="w-5 h-5 mr-2"
+              className="mr-2"
+              width={20}
+              height={20}
             />
             Add
           </button>
           <button className="btn-pdfs hover:bg-[#007C85] h-[42px] hover:border-[#007C85] hover:text-white flex items-center justify-center rounded-lg font-manrope text-black text-lg px-8 py-4 border-2 border-gray-300 text-center w-64 relative ">
-            <img
+            <Image
               src="/imgs/downloadpdf.svg"
               alt="Custom Icon"
-              className="w-5 h-5 mr-2"
+              className="mr-2"
+              width={20}
+              height={20}
             />
             Download PDF
           </button>
@@ -117,6 +122,9 @@ const Appointment = () => {
                 <th scope="col" className="px-6 py-3 w-[400px]">
                   TIME
                 </th>
+                <th scope="col" className="px-6 py-3 w-[300px]">
+                  END TIME
+                </th>
                 <th scope="col" className=" px-[80px] py-3 w-10">
                   ACTION
                 </th>
@@ -134,7 +142,8 @@ const Appointment = () => {
                 <td className="truncate max-w-[552px] px-6 py-3">
                   March 22, 2024
                 </td>
-                <td className="px-6 py-3">8:00 - 10:00 am </td>
+                <td className="px-6 py-3">8:00 am </td>
+                <td className="px-6 py-3">2:00 pm </td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
@@ -150,7 +159,8 @@ const Appointment = () => {
                 <td className="truncate max-w-[552px] px-6 py-3">
                   March 22, 2024
                 </td>
-                <td className="px-6 py-3">8:00 - 10:00 am </td>
+                <td className="px-6 py-3">8:00 am </td>
+                <td className="px-6 py-3">3:00 pm </td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
@@ -166,7 +176,8 @@ const Appointment = () => {
                 <td className="truncate max-w-[552px] px-6 py-3">
                   March 22, 2024
                 </td>
-                <td className="px-6 py-3">8:00 - 10:00 am </td>
+                <td className="px-6 py-3">8:00 am </td>
+                <td className="px-6 py-3">4:00pm </td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
@@ -182,7 +193,8 @@ const Appointment = () => {
                 <td className="truncate max-w-[552px] px-6 py-3">
                   March 22, 2024
                 </td>
-                <td className="px-6 py-3">8:00 - 10:00 am </td>
+                <td className="px-6 py-3">8:00 am </td>
+                <td className="px-6 py-3">10:00 am </td>
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
                 </td>
