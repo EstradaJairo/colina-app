@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 
 interface Modalprops {
@@ -9,54 +7,80 @@ interface Modalprops {
 }
 
 export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
-    const [selectedStatus, setSelectedStatus] = useState("");
-  return (
-    
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [isEditable, setIsEditable] = useState(false);
+  const [date, setDate] = useState("March 26, 2024");
+  const [day, setDay] = useState("Tuesday");
+  const [time, setTime] = useState("1:30pm");
+  const [endTime, setEndTime] = useState("2:00pm");
+  const [details, setDetails] = useState("Input details");
 
+  const handleEditToggle = () => {
+    setIsEditable(!isEditable);
+  };
+
+  return (
     <div className={`absolute inset-[-200px] bg-[#76898A99] flex items-center justify-center pb-[170px]`}>
-    <div className="max-w-[550px] bg-[#FFFFFF] rounded-md">
-      <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
-        <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
-        Appointment Details
-        </h2>
-        <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">List of Upcoming Schedules.
-        <button
-                  onClick={() => isModalOpen(false)}
-                  type="button"
-                  className="w-24 h-8 hover:bg-[#D9D9D9] font-medium rounded text-[#000] ring-1 ring-gray-200 ml-[140px] "
-                >
-                  Edit
-                </button>    
-        </p>
-      </div>
-      <div className=" mb-9 pt-4">
-      <div className="h-[600px] max-h-[470px] md:px-10 mt-5" >
-        <form className="">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-            DATE
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                required
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                placeholder="March 26, 2024"
-              />
-            </div>
-          </div>
-          <div>
+      <div className="max-w-[550px] bg-[#FFFFFF] rounded-md">
+        <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
+          <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
+            Appointment Details
+          </h2>
+          <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">
+            List of Upcoming Schedules.
+            <button
+              type="button"
+              onClick={handleEditToggle}
+              className="w-24 h-8 hover:bg-[#D9D9D9] font-medium rounded text-[#000] ring-1 ring-gray-200 ml-[140px]"
+            >
+              {isEditable ? "Save" : "Edit"}
+            </button>
+          </p>
+        </div>
+        <div className="mb-9 pt-4">
+          <div className="h-[600px] max-h-[470px] md:px-10 mt-5">
+            <form className="">
+              <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="date" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+                    DATE
+                  </label>
+                  <div className="mt-2.5">
+                    {isEditable ? (
+                      <input
+                        id="date"
+                        type="text"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                        placeholder="March 26, 2024"
+                      />
+                    ) : (
+                      <p className="font-regular text-gray-400 text-md h-[36px] flex items-center ml-3">
+                        <span>{date}</span>
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div>
             <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
            DAY
             </label>
             <div className="mt-2.5">
+            {isEditable ? (
               <input
-                type="text"
-                required
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                placeholder="Teusday"
+              id="day"
+              type="text"
+              value={day}
+              onChange={(e) => setDate(e.target.value)}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              placeholder="March 26, 2024"
               />
+              ) : (
+              <p className=" font-regular text-gray-400 text-md h-[36px] flex items-center ml-3">
+                  <span>Tuesday</span>
+                </p>
+               )} 
             </div>
           </div>
           <div>
@@ -64,12 +88,20 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
             TIME
             </label>
             <div className="mt-2.5">
+            {isEditable ? (
               <input
-                type="text"
-                required
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                placeholder="1:30pm"
+              id="time"
+              type="text"
+              value={time}
+              onChange={(e) => setDate(e.target.value)}
+              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              placeholder="1:30pm"
               />
+              ) : (
+              <p className=" font-regular text-gray-400 text-md h-[36px] flex items-center ml-3">
+                  <span>1:30pm</span>
+                </p>
+                )} 
             </div>
           </div>
           <div>
@@ -77,12 +109,18 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
             END TIME
             </label>
             <div className="mt-2.5">
+            {isEditable ? (
               <input
                 type="text"
                 required
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                 placeholder="2:00pm"
               />
+              ) : (
+              <p className=" font-regular text-gray-400 text-md h-[36px] flex items-center ml-3">
+                  <span>2:00pm</span>
+                </p>
+                )}
             </div>
           </div>
           <div className="sm:col-span-2">
@@ -111,12 +149,14 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                       defaultValue="select satus"
                     >
                       <option value="">select status</option>
-                      <option value="">SUCCESSFUL</option>
+                      <option value="dad">SUCCESSFUL</option>
                       <option value="Pending">CANCELED</option>
                       
                     </select>
                   </div>
                 </div>
+                
+                
               </div>
               <div className="mt-6 pb-3 flex flex-row">
                 <button
@@ -133,12 +173,10 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                   Submit
                 </button>
               </div> 
-          </form>
+            </form>
           </div>
         </div>
-        </div>
       </div>
-    
-
+    </div>
   );
 };
