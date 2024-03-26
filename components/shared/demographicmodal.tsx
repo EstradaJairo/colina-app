@@ -187,17 +187,17 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     placeholder="input email"
                   />
                 </div>
-                <div className="mt-5 justify-center flex pl-7">
+                <div className="mt-5 justify-center flex ">
                   <button
                     onClick={() => isModalOpen(false)}
                     type="button"
-                    className="w-48 px-3 py-2 hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] mt-2 mr-3 ring-1 ring-gray-200"
+                    className="w-64 px-3 py-2 hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] mt-2 mr-3 ring-1 ring-gray-200"
                   >
                     Cancel
                   </button>
                   <button
                     type="button"
-                    className="w-48 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium mt-2"
+                    className="w-64 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium mt-2"
                   >
                     Submit
                   </button>

@@ -24,7 +24,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
       <div className=" mb-9 pt-4">
       <div className="h-[600px] max-h-[300px] md:px-10 mt-5" >
         <form className="">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
           <div>
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
             MEDICINE NAME
@@ -91,8 +91,8 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                       defaultValue="select satus"
                     >
                       <option value="">select status</option>
-                      <option value="">ACTIVE</option>
-                      <option value="Pending">INACTIVE</option>
+                      <option value="">HELD</option>
+                      <option value="Pending">GIVEN</option>
                       
                     </select>
                   </div>
