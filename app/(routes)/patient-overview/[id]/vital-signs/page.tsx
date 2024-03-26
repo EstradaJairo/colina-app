@@ -7,7 +7,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/vitalsignmodal";
+import { Modal } from "@/components/shared/appointmentmodal";
 
 export default function vitalsigns() {
   const router = useRouter();
