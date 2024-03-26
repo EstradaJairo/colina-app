@@ -8,7 +8,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/success";
+import { Modal } from "@/components/shared/medicationmodal";
 
 const Scheduled = () => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const Scheduled = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const isAlertOpen = (isOpen: boolean) => {
+  const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -250,7 +250,7 @@ const Scheduled = () => {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isAlertOpen}
+            isModalOpen={isModalOpen}
             isOpen={isOpen}
             label="sample label"
           />

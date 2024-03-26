@@ -8,7 +8,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/success";
+import { Modal } from "@/components/shared/prnmodal";
 
 const Prorenata = () => {
   const router = useRouter();
