@@ -91,8 +91,8 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                       defaultValue="select satus"
                     >
                       <option value="">select status</option>
-                      <option value="">ACTIVE</option>
-                      <option value="Pending">INACTIVE</option>
+                      <option value="">HELD</option>
+                      <option value="Pending">GIVEN</option>
                       
                     </select>
                   </div>
