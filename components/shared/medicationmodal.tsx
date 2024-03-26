@@ -19,7 +19,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
           <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">Submit your log details.</p>
         </div>
         <div className=" mb-9 pt-4">
-          <div className="h-[600px] max-h-[400px] md:px-10 mt-5">
+          <div className="h-[600px] max-h-[300px] md:px-10 mt-5">
             <form className="">
               <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                 <div className="sm:col-span-2">
@@ -44,24 +44,6 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       placeholder="input notes"
                     />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="status" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-                    STATUS
-                  </label>
-                  <div className="mt-2.5">
-                    <select
-                      id="status"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                      value={selectedStatus}
-                      onChange={(e) => setSelectedStatus(e.target.value)}
-                    >
-                      <option value="das">select satus</option>
-                      <option value="sad">GIVEN</option>
-                      <option value="Pending">HELD</option>
-                      <option value="Completed">REFUSED</option>
-                    </select>
                   </div>
                 </div>
               </div>
