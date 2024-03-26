@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface Modalprops {
   label: string;
@@ -9,11 +11,11 @@ interface Modalprops {
 }
 
 export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
-  
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   return (
     
 
-    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-[257px]`}>
+    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-[160px]`}>
     <div className="max-w-[550px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
@@ -22,7 +24,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
         <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">Submit your log details.</p>
       </div>
       <div className=" mb-9 pt-4">
-      <div className="h-[600px] max-h-[300px] md:px-10 mt-5" >
+      <div className="h-[600px] max-h-[400px] md:px-10 mt-5" >
         <form className="">
         <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
           <div>
@@ -63,6 +65,20 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               />
             </div>
           </div>
+          <div className="sm:col-span-2">
+                  <label htmlFor="date" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+                    DATE
+                  </label>
+                  <div className="mt-2.5">
+                    <DatePicker
+                      selected={selectedDate}
+                      onChange={(date: Date | null) => setSelectedDate(date)}
+                      dateFormat="MM/dd/yyyy"
+                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                      placeholderText="mm/dd/yyy"
+                    />
+                  </div>
+                </div>
           <div className="mt-5 pb-3 ">
                   <button
                     onClick={() => isModalOpen(false)}
