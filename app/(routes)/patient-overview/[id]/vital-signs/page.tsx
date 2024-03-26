@@ -7,7 +7,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/appointmentviewmodal";
+import { Modal } from "@/components/shared/appointmentmodal";
 
 export default function vitalsigns() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function vitalsigns() {
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
 
   const optionsOrderedBy = ["Accending", "Decending"];
-  const optionsSortBy = ["Medication", "Notes", "Status"];
+  const optionsSortBy = ["Medication", "Notes", "Status"]; 
   // end of orderby & sortby function
 
   const [isOpen, setIsOpen] = useState(false);

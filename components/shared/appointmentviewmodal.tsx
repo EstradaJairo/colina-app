@@ -21,7 +21,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
 
   return (
     <div className={`absolute inset-[-200px] bg-[#76898A99] flex items-center justify-center pb-[170px]`}>
-      <div className="max-w-[550px] bg-[#FFFFFF] rounded-md">
+      <div className="w-[676px] h-[630px] bg-[#FFFFFF] rounded-md">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
             Appointment Details
@@ -31,7 +31,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
             <button
               type="button"
               onClick={handleEditToggle}
-              className="w-24 h-8 hover:bg-[#D9D9D9] font-medium rounded text-[#000] ring-1 ring-gray-200 ml-[140px]"
+              className="w-[70px] h-7 hover:bg-[#D9D9D9] font-medium rounded text-[#000] ring-1 ring-gray-200 ml-[529px] "
             >
               {isEditable ? "Save" : "Edit"}
             </button>
@@ -52,7 +52,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                         type="text"
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
-                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                        className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                         placeholder="March 26, 2024"
                       />
                     ) : (
@@ -73,7 +73,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               type="text"
               value={day}
               onChange={(e) => setDate(e.target.value)}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              className="block w-full h-12  rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               placeholder="March 26, 2024"
               />
               ) : (
@@ -94,7 +94,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               type="text"
               value={time}
               onChange={(e) => setDate(e.target.value)}
-              className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+              className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
               placeholder="1:30pm"
               />
               ) : (
@@ -113,7 +113,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
               <input
                 type="text"
                 required
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                 placeholder="2:00pm"
               />
               ) : (
@@ -143,7 +143,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     
                     <select
                       id="status"
-                      className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                      className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       value={selectedStatus}
                       onChange={(e) => setSelectedStatus(e.target.value)}
                       defaultValue="select satus"
@@ -158,17 +158,17 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                 
                 
               </div>
-              <div className="mt-6 pb-3 flex flex-row">
+              <div className="mt-8 pb-3 flex flex-row">
                 <button
                   onClick={() => isModalOpen(false)}
                   type="button"
-                  className="w-48 px-3 py-2 hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] ring-1 ring-gray-200 mr-8"
+                  className="w-[290px] h-12 px-3 py-2 hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] ring-1 ring-gray-200 mr-8"
                 >
                   Cancel
                 </button>     
                 <button
                   type="button"
-                  className="w-48 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium"
+                  className="w-[290px] h-12 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium"
                 >
                   Submit
                 </button>
