@@ -13,7 +13,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
   return (
     
 
-    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-[260px]`}>
+    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-[240px]`}>
     <div className="max-w-[550px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
@@ -22,7 +22,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
         <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">Submit your log details.</p>
       </div>
       <div className=" mb-9 pt-4">
-      <div className="h-[600px] max-h-[300px] md:px-10 mt-5" >
+      <div className="h-[600px] max-h-[320px] md:px-10 mt-5" >
         <form className="">
         <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
           <div>
