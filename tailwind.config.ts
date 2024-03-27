@@ -1,10 +1,13 @@
+// Import the Config type from tailwindcss
 import type { Config } from "tailwindcss";
 
+// Define the config object of type Config
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "node_modules/flowbite-react/lib/esm/**/*.js", // Add flowbite-react content
   ],
   theme: {
     extend: {
@@ -15,6 +18,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("flowbite/plugin"), // Add flowbite plugin
+  ],
 };
+
+// Export the config object
 export default config;
