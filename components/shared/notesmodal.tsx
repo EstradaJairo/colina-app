@@ -47,7 +47,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                   </div>
                 </div>
               </div>
-              <div className="mt-6 pb-3 flex flex-row">
+              <div className="mt-8 pb-3 flex grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
                 <button
                   onClick={() => isModalOpen(false)}
                   type="button"

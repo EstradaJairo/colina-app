@@ -47,17 +47,17 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 pb-3 flex flex-row">
+              <div className="mt-8 pb-3 flex grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
                 <button
                   onClick={() => isModalOpen(false)}
                   type="button"
-                  className="w-[290px] h-12 px-3 py-2 hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] ring-1 ring-gray-200 mr-8"
+                  className="w-[290px] h-12  hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] ring-1 ring-gray-200 mr-8"
                 >
                   Cancel
                 </button>     
                 <button
                   type="button"
-                  className="w-[290px] h-12 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium"
+                  className="w-[290px] h-12 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium"
                 >
                   Submit
                 </button>
