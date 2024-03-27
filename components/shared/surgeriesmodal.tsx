@@ -16,7 +16,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
     
 
     <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-[150px]`}>
-    <div className="w-[676px] h-[580px] bg-[#FFFFFF] rounded-md">
+    <div className="w-[676px] h-[570px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
         Add Medical History Surgeries Log
@@ -80,7 +80,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     />
                   </div>
                 </div>
-          <div className="mt-8 pb-3 ">
+          <div className="mt-6 pb-3 ">
                   <button
                     onClick={() => isModalOpen(false)}
                     type="button"
@@ -89,7 +89,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Cancel
                   </button>
                   </div>
-                  <div className="mt-8 pb-3 ">        
+                  <div className="mt-6 pb-3 ">        
                   <button
                     type="button"
                     className="w-[290px] h-12 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium"
