@@ -2,9 +2,19 @@
 
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
+import { ForgotPassword } from "./shared/forgotpassword";
+import { useState } from "react";
 
 export const Login = () => {
   const router = useRouter();
+
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+
+  // Toggle function for ForgotPassword component
+  const toggleForgotPassword = () => {
+    setShowForgotPassword((prev) => !prev);
+  };
+
   return (
     <div>
       <section>
@@ -17,6 +27,8 @@ export const Login = () => {
             />
           </div>
 
+          <div>
+          {!showForgotPassword ? (
           <div className="flex mt-40 justify-center md:px-5 md:py-10 lg:py-32 ">
             <div className="w-[542.27px] text-left">
               <h2 className="mb-4 text-1xl font-medium md:mb-10 md:text-2xl lg:mb-10">
@@ -28,14 +40,14 @@ export const Login = () => {
                   <div className="relative">
                     <input
                       type="email"
-                      className="mb-4 h-9 w-full bg-opacity-60 bg-[#D9D9D9] px-3 py-6 pl-5 text-sm text-[#333333]"
+                      className="mb-4 h-[50px] w-full bg-opacity-10 bg-[#D9D9D9] px-3 py-6 pl-5 text-sm text-[#333333]"
                       placeholder="Email Address"
                     />
                   </div>
                   <div className="relative mb-4">
                     <input
                       type="password"
-                      className="mb-4 h-9 w-full bg-opacity-60 bg-[#D9D9D9] px-3 py-6 pl-5 text-sm text-[#333333]"
+                      className="mb-4 h-[50px] w-full bg-opacity-10 bg-[#D9D9D9] px-3 py-6 pl-5 text-sm text-[#333333]"
                       placeholder="Password"
                     />
                   </div>
@@ -51,7 +63,8 @@ export const Login = () => {
                         Remember me
                       </a>
                     </span>
-                    <span className="ml-auto inline-block cursor-pointer text-sm checkbox mt-1 ">
+                    <span className="ml-auto inline-block cursor-pointer text-sm checkbox mt-1 "
+                     onClick={toggleForgotPassword}>
                       Forgot Password?
                     </span>
                   </label>
@@ -66,6 +79,10 @@ export const Login = () => {
                 </form>
               </div>
             </div>
+          </div>
+          ) : (
+        <ForgotPassword />
+         )}
           </div>
         </div>
       </section>
