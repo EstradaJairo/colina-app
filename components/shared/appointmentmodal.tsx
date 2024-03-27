@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Datepicker } from "flowbite-react"; 
+import TimePicker from "../shared/timepicker";
 
 interface ModalProps {
   label: string;
@@ -34,25 +35,13 @@ export const Modal: React.FC<ModalProps> = ({ label, isOpen, isModalOpen }) => {
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
             Time From:
             </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                required
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-              />
-            </div>
+            <TimePicker/>
           </div>
           <div>
             <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
             Time to:
             </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                required
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-              />
-            </div>
+            <TimePicker/>
           </div>
               </div>
             </form>
