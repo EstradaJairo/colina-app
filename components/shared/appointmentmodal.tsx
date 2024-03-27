@@ -25,9 +25,9 @@ export const Modal: React.FC<ModalProps> = ({ label, isOpen, isModalOpen }) => {
         <div className=" mb-9 pt-4">
           <div className="h-[600px] max-h-[300px] md:px-10 mt-5">
             <form className="">
-              <div className="flex flex-col items-center mt-6 pb-3 ">
-                <div className="flex flex-col w-[200px]" >
-                <Datepicker />
+              <div className="flex flex-col mt-6 pb-3">
+                <div className="flex flex-col w-full" >
+                <Datepicker/>
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
