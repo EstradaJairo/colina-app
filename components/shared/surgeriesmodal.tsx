@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 interface Modalprops {
@@ -71,13 +70,12 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     DATE
                   </label>
                   <div className="mt-2.5">
-                    <DatePicker
-                      selected={selectedDate}
-                      onChange={(date: Date | null) => setSelectedDate(date)}
-                      dateFormat="MM/dd/yyyy"
-                      className="block w-[290px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                      placeholderText="mm/dd/yyy"
-                    />
+                  <input
+                type="date"
+                required
+                className="block w-[290px]  h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                placeholder="input surgery"
+              />
                   </div>
                 </div>
           <div className="mt-6 pb-3 ">

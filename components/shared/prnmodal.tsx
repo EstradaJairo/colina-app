@@ -13,8 +13,8 @@ export const Modal = ({ label, isOpen, isModalOpen }: ModalProps) => {
   const [selectedStatus, setSelectedStatus] = useState("");
 
   return (
-    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-[210px]`}>
-      <div className="w-[676px] h-[560px] bg-[#FFFFFF] rounded-md">
+    <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-[150px]`}>
+      <div className="w-[676px] h-[660px] bg-[#FFFFFF] rounded-md">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
             Add PRN Medication Log
@@ -52,18 +52,27 @@ export const Modal = ({ label, isOpen, isModalOpen }: ModalProps) => {
                 </div>
                 <div className="flex-grow md:mr-8 mb-4 md:mb-0">
                 <label htmlFor="date" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
-                    DATE & TIME
+                    DATE 
                   </label>
-                  <DatePicker
-                    selected={selectedDateTime}
-                    onChange={(date: Date | null) => setSelectedDateTime(date)}
-                    dateFormat="MM/dd/yyyy hh:mm aa"
-                    showTimeSelect
-                    timeFormat="hh:mm aa"
-                    timeIntervals={15}
-                    className=" mt-2.5 block w-[290px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    placeholderText="select date&time"
-                  />
+                  <div className="mt-2.5">
+                    <input
+                      type="date"
+                      className="block w-[290px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                      placeholder="Input medication"
+                    />
+                  </div>
+                </div>
+                <div className="flex-grow md:mr-8 mb-4 md:mb-0">
+                <label htmlFor="date" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+                    TIME
+                  </label>
+                  <div className="mt-2.5">
+                    <input
+                      type="time"
+                      className="block w-[290px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                      placeholder="Input medication"
+                    />
+                  </div>
                 </div>
                 <div>
                   <label htmlFor="status" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
