@@ -15,7 +15,7 @@ export const Modal: React.FC<ModalProps> = ({ label, isOpen, isModalOpen }) => {
 
   return (
     <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-40`}>
-      <div className="w-[676px] h-[600px] bg-[#FFFFFF] rounded-md">
+      <div className="w-[676px] h-[530px] bg-[#FFFFFF] rounded-md">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
             Add an Appointment
@@ -42,6 +42,34 @@ export const Modal: React.FC<ModalProps> = ({ label, isOpen, isModalOpen }) => {
             Time to:
             </label>
             <TimePicker/>
+          </div>
+          <div className="sm:col-span-2">
+            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+              Details
+            </label>
+            <div className="mt-2.5">
+              <textarea
+                rows={5}
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                placeholder="input details"
+                style={{ resize: "none" }}
+              />
+            </div>
+            <div className="mt-8 pb-3 flex grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
+                <button
+                  onClick={() => isModalOpen(false)}
+                  type="button"
+                  className="w-[290px] h-12 px-3 py-2 hover:bg-[#D9D9D9] font-medium rounded-[7px] text-[#000] ring-1 ring-gray-200 mr-8"
+                >
+                  Cancel
+                </button>     
+                <button
+                  type="button"
+                  className="w-[290px] h-12 px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE] rounded-[7px] text-[#ffff] font-medium"
+                >
+                  Submit
+                </button>
+              </div>  
           </div>
               </div>
             </form>

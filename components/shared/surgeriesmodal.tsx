@@ -46,7 +46,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
             </label>
             <div className="mt-2.5">
               <input
-                type="text"
+                type=""
                 required
                 className="block w-full  h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                 placeholder="input surgery"
