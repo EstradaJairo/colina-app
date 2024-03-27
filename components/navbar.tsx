@@ -1,7 +1,6 @@
 "use client";
 
 import { onNavigate } from "@/actions/navigation";
-import { FaUser, FaBell } from "react-icons/fa";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NavBarBropdown from "./shared/navbardropdown";
@@ -40,6 +39,7 @@ export const Navbar = () => {
   }, []);
 
   return (
+
     <div className="fixed bg-[#007C85] w-full h-[70px] flex items-center justify-between px-[105px] z-10">
       <Image src={"/imgs/colina-logo.png"} alt={""} width={200} height={37} />
       <div className="flex gap-[20px] items-center">
@@ -55,6 +55,7 @@ export const Navbar = () => {
           ))}
         </div>
         <div className="flex gap-3 items-center">
+
           <Image src={"/imgs/admin 1.png"} alt={""} width={30} height={30} />
 
           <Image
