@@ -141,6 +141,13 @@ body,
   border-bottom: #e7eaee;
   border: 1px;
 }
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
 .required-field::before {
   content: "*";
   color: red;
@@ -181,6 +188,7 @@ body,
 
 .dropdowncss {
   position: absolute;
+
   z-index: 100;
   top: 3.5rem;
   right: 1.5rem;
