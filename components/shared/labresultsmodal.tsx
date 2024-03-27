@@ -17,7 +17,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
     <div className="w-[676px] h-[500px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
-        Add Labaratory Result
+        Add Laboratory Result
         </h2>
         <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">Submit your log details.</p>
       </div>

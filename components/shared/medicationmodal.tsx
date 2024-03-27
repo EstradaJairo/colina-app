@@ -1,26 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-interface Modalprops {
+interface ModalProps {
   label: string;
   isOpen: boolean;
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
-  const [selectedStatus, setSelectedStatus] = useState(""); // State to hold the selected status
+export const Modal = ({ label, isOpen, isModalOpen }: ModalProps) => {
+  const [selectedDateTime, setSelectedDateTime] = useState<Date | null>(null);
+  const [selectedStatus, setSelectedStatus] = useState("");
 
   return (
     <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-[210px]`}>
-      <div className="w-[676px] h-[460px] bg-[#FFFFFF] rounded-md">
+      <div className="w-[676px] h-[560px] bg-[#FFFFFF] rounded-md">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
-            Add Medical Medication Log
+            Add Scheduled Medication Log
           </h2>
           <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">Submit your log details.</p>
         </div>
         <div className=" mb-9 pt-4">
           <div className="w-full max-h-[300px] md:px-10 mt-5">
-            <form className="">
+            <form>
               <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                 <div className="sm:col-span-2">
                   <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
@@ -30,7 +33,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     <input
                       type="text"
                       className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                      placeholder="input medication"
+                      placeholder="Input medication"
                     />
                   </div>
                 </div>
@@ -42,8 +45,41 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     <textarea
                       rows={4}
                       className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                      placeholder="input notes"
+                      placeholder="Input notes"
+                      style={{ resize: "none" }}
                     />
+                  </div>
+                </div>
+                <div className="flex-grow md:mr-8 mb-4 md:mb-0">
+                <label htmlFor="date" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+                    DATE & TIME
+                  </label>
+                  <DatePicker
+                    selected={selectedDateTime}
+                    onChange={(date: Date | null) => setSelectedDateTime(date)}
+                    dateFormat="MM/dd/yyyy hh:mm aa"
+                    showTimeSelect
+                    timeFormat="hh:mm aa"
+                    timeIntervals={15}
+                    className=" mt-2.5 block w-[290px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    placeholderText="select date&time"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="status" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
+                    STATUS
+                  </label>
+                  <div className="mt-2.5">
+                    <select
+                      id="status"
+                      className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                      value={selectedStatus}
+                      onChange={(e) => setSelectedStatus(e.target.value)}
+                    >
+                      <option value="">Select status</option>
+                      <option value="active">HELD</option>
+                      <option value="inactive">GIVEN</option>
+                    </select>
                   </div>
                 </div>
               </div>
