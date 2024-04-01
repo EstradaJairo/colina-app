@@ -31,8 +31,6 @@ export default function vitalsigns() {
     }
   };
 
-
-
   return (
     <div className="  w-full">
       <div className="flex justify-between items-center">
@@ -44,12 +42,12 @@ export default function vitalsigns() {
           </p>
         </div>
         <div className="flex flex-row justify-end">
-        <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+          <button onClick={() => isModalOpen(true)}>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
@@ -95,22 +93,22 @@ export default function vitalsigns() {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
-              <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
+                <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
                   VITAL SIGN ID
                 </th>
-                <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
+                <th scope="col" className="px-6 py-3 w-[300px]">
                   DATE
                 </th>
-                <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
+                <th scope="col" className="px-6 py-3 w-[300px]">
                   TIME
                 </th>
-                <th scope="col" className="px-6 py-3 truncate max-w-[300px]">
+                <th scope="col" className="px-6 py-3 w-[300px]">
                   BLOOD PRESSURE
                 </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
+                <th scope="col" className="px-6 py-3 w-[300px]">
                   HEART RATE
                 </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
+                <th scope="col" className="px-6 py-3 w-[300px]">
                   TEMPERATURE
                 </th>
                 <th scope="col" className="px-6 py-3 w-[300px]">
@@ -130,9 +128,7 @@ export default function vitalsigns() {
                 >
                   VSL-7890124567891
                 </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                  10/20/99
-                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">10/20/99</td>
                 <td className="px-6 py-4">6:20am</td>
                 <td className="px-6 py-4">110/90</td>
                 <td className="px-6 py-4">72 bpm</td>
@@ -150,9 +146,7 @@ export default function vitalsigns() {
                 >
                   VSL-7890124567891
                 </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                  10/20/99
-                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">10/20/99</td>
                 <td className="px-6 py-4">6:20am</td>
                 <td className="px-6 py-4">110/90</td>
                 <td className="px-6 py-4">72 bpm</td>
@@ -163,8 +157,6 @@ export default function vitalsigns() {
                   <Edit></Edit>
                 </td>
               </tr>
-
-             
             </tbody>
           </table>
         </div>

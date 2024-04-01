@@ -31,7 +31,6 @@ export default function prescription() {
     }
   };
 
-
   return (
     <div className="  w-full">
       <div className="flex justify-between items-center">
@@ -44,11 +43,11 @@ export default function prescription() {
         </div>
         <div className="flex flex-row justify-end">
           <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
@@ -103,13 +102,13 @@ export default function prescription() {
                 <th scope="col" className="px-0 py-3 w-[300px]">
                   FREQUENCY
                 </th>
-                <th scope="col" className="px-3 py-3 w-[200px]">
+                <th scope="col" className="px-3 py-3 w-[300px]">
                   INTERVAL
                 </th>
-                <th scope="col" className="px-20  py-3 w-[200px]">
+                <th scope="col" className="px-20  py-3 w-[300px]">
                   DOSAGE
                 </th>
-                <th scope="col" className="pl-10 pr-6 py-3 w-[200px] ">
+                <th scope="col" className="pl-10 pr-6 py-3 w-[250px] ">
                   STATUS
                 </th>
                 <th scope="col" className="px-[80px] py-3 w-[10px] ">

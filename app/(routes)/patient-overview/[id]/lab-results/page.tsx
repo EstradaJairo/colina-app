@@ -42,12 +42,12 @@ export default function Laboratoryresults() {
           </p>
         </div>
         <div className="flex flex-row justify-end">
-        <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+          <button onClick={() => isModalOpen(true)}>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
@@ -92,20 +92,17 @@ export default function Laboratoryresults() {
         <div>
           <table className="w-full text-left rtl:text-right">
             <thead className="">
-              <tr className="uppercase text-[#64748B] border-y  ">
-              <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
+              <tr className="uppercase text-[#64748B] border-y h-[70px] ">
+                <th scope="col" className="px-6 py-3 w-[300px]">
                   LAB RESULT ID
                 </th>
-                <th scope="col" className="px-0 py-3 w-[200px] h-[70px]">
+                <th scope="col" className="px-0 py-3 w-[250px]">
                   DATE
                 </th>
                 <th scope="col" className="px-3 py-3 w-[300px]">
                   HEMOGLOBIN A1c
                 </th>
-                <th
-                  scope="col"
-                  className="truncate max-w-[286px] px-2 py-2"
-                >
+                <th scope="col" className="w-[300px] px-2 py-2">
                   FASTING BLOOD GLUCOSE
                 </th>
                 <th
@@ -189,7 +186,6 @@ export default function Laboratoryresults() {
                   <Edit></Edit>
                 </td>
               </tr>
-              
             </tbody>
           </table>
         </div>

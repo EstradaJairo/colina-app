@@ -125,7 +125,7 @@ const Scheduled = () => {
                 <th scope="col" className="px-5 py-3 w-[400px]">
                   Notes
                 </th>
-                <th scope="col" className="px-6 py-3 w-[100px]">
+                <th scope="col" className="px-6 py-3 w-[200px]">
                   Status
                 </th>
                 <th scope="col" className=" px-20 py-4 w-[10px]">
@@ -144,7 +144,10 @@ const Scheduled = () => {
                 <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
                 <td className="px-6 py-4">6:00 am</td>
                 <td className="truncate max-w-[400px] px-6 py-4">Losartan</td>
-                <td className="px-5 py-4">Patient felt nauseous.</td>
+                <td className="px-5 py-4">
+                  Patient felt nauseous. Observed for 24 hours before taking a
+                  new medicine.
+                </td>
                 <td className="px-6 py-4">Held</td>
 
                 <td className="px-[70px] py-4">
@@ -163,7 +166,10 @@ const Scheduled = () => {
                 <td className="truncate max-w-[400px] px-6 py-4">
                   Co-Amoxiclav
                 </td>
-                <td className="px-5 py-4">None.</td>
+                <td className="px-5 py-4">
+                  Patient felt nauseous. Observed for 24 hours before taking a
+                  new medicine.
+                </td>
                 <td className="px-6 py-4">Given</td>
 
                 <td className="px-[70px] py-4">

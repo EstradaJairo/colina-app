@@ -125,7 +125,7 @@ const Prorenata = () => {
                 <th scope="col" className="px-5 py-3 w-[400px]">
                   Notes
                 </th>
-                <th scope="col" className="px-6 py-3 w-[100px]">
+                <th scope="col" className="px-6 py-3 w-[200px]">
                   Status
                 </th>
                 <th scope="col" className=" px-20 py-4 w-[10px]">

@@ -113,7 +113,7 @@ const Allergies = () => {
                 <th scope="col" className="px-6 py-3 w-[400px] h-[60px] ">
                   Allergy ID
                 </th>
-                <th scope="col" className="px-6 py-3 w-[300px]">
+                <th scope="col" className="px-6 py-3 w-[400px]">
                   Date
                 </th>
                 <th scope="col" className="px-6 py-3 w-[400px]">
@@ -125,10 +125,10 @@ const Allergies = () => {
                 <th scope="col" className="px-5 py-3 w-[400px]">
                   Severity
                 </th>
-                <th scope="col" className="px-6 py-3 w-[340px]">
+                <th scope="col" className="px-6 py-3 w-[400px]">
                   Reaction
                 </th>
-                <th scope="col" className="px-6 py-3 w-[200px]">
+                <th scope="col" className="px-6 py-3 w-[300px]">
                   Notes
                 </th>
                 <th scope="col" className=" px-20 py-4 w-[10px]">
@@ -169,9 +169,7 @@ const Allergies = () => {
                 <td className="px-6 py-4">Anesthesia</td>
                 <td className="px-6 py-4">Severe</td>
                 <td className="px-6 py-4">Redness and Itching</td>
-                <td className="px-6 py-4">
-                  Patient is under observation. Need Epipen for emergencies.
-                </td>
+                <td className="px-6 py-4">Patient is under observation.</td>
 
                 <td className="px-[70px] py-4">
                   <Edit></Edit>
