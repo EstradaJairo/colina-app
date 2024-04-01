@@ -58,13 +58,13 @@ const Scheduled = () => {
             Total of 6 Patients
           </p>
         </div>
-        <div className="flex flex-row justify-end mt-[15px]">
-        <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+        <div className="flex flex-row justify-end">
+          <button onClick={() => isModalOpen(true)}>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
@@ -120,10 +120,10 @@ const Scheduled = () => {
                   Time
                 </th>
                 <th scope="col" className="px-6 py-3 w-[300px]">
-                 Medication
+                  Medication
                 </th>
                 <th scope="col" className="px-5 py-3 w-[400px]">
-                 Notes
+                  Notes
                 </th>
                 <th scope="col" className="px-6 py-3 w-[100px]">
                   Status
@@ -134,26 +134,21 @@ const Scheduled = () => {
               </tr>
             </thead>
             <tbody>
-            <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                 MDL-7890144567891
+                  MDL-7890144567891
                 </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                10/24/99
-                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
                 <td className="px-6 py-4">6:00 am</td>
                 <td className="truncate max-w-[400px] px-6 py-4">Losartan</td>
                 <td className="px-5 py-4">Patient felt nauseous.</td>
-                <td className="px-6 py-4">
-                 Held
-                </td>
+                <td className="px-6 py-4">Held</td>
 
                 <td className="px-[70px] py-4">
-                  <Edit>
-                  </Edit>
+                  <Edit></Edit>
                 </td>
               </tr>
               <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
@@ -161,21 +156,18 @@ const Scheduled = () => {
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                 MDL-7890144567891
+                  MDL-7890144567891
                 </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                10/24/99
-                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
                 <td className="px-6 py-4">6:00 am</td>
-                <td className="truncate max-w-[400px] px-6 py-4">Co-Amoxiclav</td>
-                <td className="px-5 py-4">None.</td>
-                <td className="px-6 py-4">
-                 Given
+                <td className="truncate max-w-[400px] px-6 py-4">
+                  Co-Amoxiclav
                 </td>
+                <td className="px-5 py-4">None.</td>
+                <td className="px-6 py-4">Given</td>
 
                 <td className="px-[70px] py-4">
-                  <Edit>
-                  </Edit>
+                  <Edit></Edit>
                 </td>
               </tr>
             </tbody>

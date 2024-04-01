@@ -108,16 +108,16 @@ const Notes = () => {
           <table className="w-full text-left rtl:text-right">
             <thead>
               <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-7 py-3 w-[250px] h-[70px]">
+                <th scope="col" className="px-7 py-3 w-[400px] h-[70px]">
                   DATE
                 </th>
-                <th scope="col" className="px-6 py-3 w-[250px]">
+                <th scope="col" className="px-6 py-3 w-[400px]">
                   SUBJECT
                 </th>
-                <th scope="col" className="px-6 py-3 w-[1000px]">
+                <th scope="col" className="px-6 py-3 w-[2000px]">
                   NOTES
                 </th>
-                <th scope="col" className=" px-[100px] py-3 w-10">
+                <th scope="col" className="px-[100px] py-3 w-10">
                   ACTION
                 </th>
               </tr>

@@ -58,13 +58,13 @@ const Allergies = () => {
             Total of 6 Patients
           </p>
         </div>
-        <div className="flex flex-row justify-end mt-[15px]">
-        <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+        <div className="flex flex-row justify-end">
+          <button onClick={() => isModalOpen(true)}>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
@@ -177,7 +177,6 @@ const Allergies = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-     
             </tbody>
           </table>
         </div>
