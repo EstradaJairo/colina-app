@@ -110,7 +110,7 @@ const Allergies = () => {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-6 py-3 w-[400px] h-[60px] ">
+                <th scope="col" className="px-6 py-3 w-[400px] h-[70px] ">
                   Allergy ID
                 </th>
                 <th scope="col" className="px-6 py-3 w-[400px]">
