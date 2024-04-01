@@ -4,7 +4,7 @@ import { onNavigate } from "@/actions/navigation";
 import { Navbar } from "@/components/navbar";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
-import Image from 'next/image'
+import Image from "next/image";
 
 export default function PatientOverviewLayout({
   children,
@@ -79,19 +79,24 @@ export default function PatientOverviewLayout({
             </div>
             <div className="justify-between ml-4 mt-1 flex flex-col w-full ">
               <div>
-                <div className=" w-full justify-between text-2xl font-semibold flex">
+                <div className="w-full justify-between text-2xl font-bold flex ml-2">
                   <h1> Drake Ramos</h1>
                   <div className=" cursor-pointer items-center ml-10 flex ">
                     <p
-                      className="underline text-sm font-semibold text-[#07143799] text-right"
-                      onClick={() => handleSeeMoreDetails("/patient-overview/patientId/patient-details", -1)}
+                      className="underline text-sm font-semibold text-[#191D23] text-right mr-10"
+                      onClick={() =>
+                        handleSeeMoreDetails(
+                          "/patient-overview/patientId/patient-details",
+                          -1
+                        )
+                      }
                     >
                       See more details
                     </p>
                   </div>
                 </div>
                 <div>
-                  <div className="flex flex-row w-full mt-2">
+                  <div className="flex flex-row w-full mt-2 font-medium">
                     <Image
                       src="/imgs/profile-circle.svg"
                       className="px-1"
@@ -113,27 +118,25 @@ export default function PatientOverviewLayout({
                         <p className="flex items-center">
                           ID: SGY-5146846548465
                         </p>
-                        <Image src="/imgs/id.svg" alt="copy" width={20} height={20} />
                       </div>
                     </div>
                   </div>
                   <div className="mb-5"></div>
-                  <div className="flex flex-row w-full">
+                  <div className="flex flex-row w-full font-medium">
                     <Image
-                      src="/imgs/codestatus.svg"
+                      src="/imgs/notification-status.svg"
                       className="px-1"
                       alt="codestatus"
                       width="26"
                       height="26"
                     />
-                    <div>
-                      <p className="flex items-center mr-11">
-                        Code Status: DNR
-                      </p>
+                    <div className="flex items-center mr-11 gap-1">
+                      <p>Code Status:</p>
+                      <p className="text-[#DB3956]">DNR</p>
                     </div>
                     <div className="flex">
                       <div>
-                        <p className="flex items-center mr-11">
+                        <p className="flex items-center ml-7">
                           Allergy: Skin Allergy
                         </p>
                       </div>
@@ -144,18 +147,18 @@ export default function PatientOverviewLayout({
               <div className="flex gap-[50px] px-2">
                 {tabs.map((tab, index) => (
                   <p
-                  className={`cursor-pointer font-semibold  ${
-                    pathname === tab.url
-                      ? "text-[#007C85] border-b-[3px] border-[#007C85]"
-                      : "hover:text-[#007C85] hover:border-b-[3px] h-[27px] border-[#007C85]"
-                  }`}
-                  key={index}
-                  onClick={() => {
-                    handleTabClick(tab.url, index); // Pass both URL and tabIndex
-                  }}
-                >
-                  {tab.label}
-                </p>
+                    className={`cursor-pointer font-bold  ${
+                      pathname === tab.url
+                        ? "text-[#007C85] border-b-[3px] border-[#007C85]"
+                        : "hover:text-[#007C85] hover:border-b-[3px] h-[27px] border-[#007C85]"
+                    }`}
+                    key={index}
+                    onClick={() => {
+                      handleTabClick(tab.url, index); // Pass both URL and tabIndex
+                    }}
+                  >
+                    {tab.label}
+                  </p>
                 ))}
               </div>
             </div>
