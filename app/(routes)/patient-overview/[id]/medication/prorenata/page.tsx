@@ -48,7 +48,7 @@ const Prorenata = () => {
               }
               className="p-title cursor-pointer text-gray-600"
             >
-            Scheduled
+              Scheduled
             </h1>
             <h1 className="p-title mx-2">{">"} </h1>
             <h1 className="p-title cursor-pointer text-[#007C85]">PRN</h1>
@@ -59,12 +59,12 @@ const Prorenata = () => {
           </p>
         </div>
         <div className="flex flex-row justify-end mt-[15px]">
-        <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+          <button onClick={() => isModalOpen(true)}>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
@@ -110,7 +110,7 @@ const Prorenata = () => {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
-              <th scope="col" className="px-6 py-3 w-[300px] h-[60px] ">
+                <th scope="col" className="px-6 py-3 w-[300px] h-[70px] ">
                   Medication ID
                 </th>
                 <th scope="col" className="px-6 py-3 w-[300px]">
@@ -120,12 +120,12 @@ const Prorenata = () => {
                   Time
                 </th>
                 <th scope="col" className="px-6 py-3 w-[300px]">
-                 Medication
+                  Medication
                 </th>
                 <th scope="col" className="px-5 py-3 w-[400px]">
-                 Notes
+                  Notes
                 </th>
-                <th scope="col" className="px-6 py-3 w-[100px]">
+                <th scope="col" className="px-6 py-3 w-[200px]">
                   Status
                 </th>
                 <th scope="col" className=" px-20 py-4 w-[10px]">
@@ -134,26 +134,21 @@ const Prorenata = () => {
               </tr>
             </thead>
             <tbody>
-            <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                 MDL-7890144567891
+                  MDL-7890144567891
                 </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                10/24/99
-                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
                 <td className="px-6 py-4">6:00 am</td>
                 <td className="px-6 py-4">Losartan</td>
                 <td className="px-5 py-4">Patient felt nauseous.</td>
-                <td className="px-6 py-4">
-                 Held
-                </td>
+                <td className="px-6 py-4">Held</td>
 
                 <td className="px-[70px] py-4">
-                  <Edit>
-                  </Edit>
+                  <Edit></Edit>
                 </td>
               </tr>
               <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
@@ -161,24 +156,18 @@ const Prorenata = () => {
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
-                 MDL-7890144567891
+                  MDL-7890144567891
                 </th>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                10/24/99
-                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
                 <td className="px-6 py-4">6:00 am</td>
                 <td className="truncate max-w-[400px] px-6 py-4">Losartan</td>
                 <td className="px-5 py-4">Patient took a different brand.</td>
-                <td className="px-6 py-4">
-                 Held
-                </td>
+                <td className="px-6 py-4">Held</td>
 
                 <td className="px-[70px] py-4">
-                  <Edit>
-                  </Edit>
+                  <Edit></Edit>
                 </td>
               </tr>
-              
             </tbody>
           </table>
         </div>

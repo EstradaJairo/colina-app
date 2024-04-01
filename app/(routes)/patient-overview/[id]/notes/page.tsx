@@ -108,16 +108,16 @@ const Notes = () => {
           <table className="w-full text-left rtl:text-right">
             <thead>
               <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-7 py-3 w-[200px] h-[60px]">
+                <th scope="col" className="px-6 py-3 w-[250px] h-[70px]">
                   DATE
                 </th>
                 <th scope="col" className="px-6 py-3 w-[250px]">
                   SUBJECT
                 </th>
-                <th scope="col" className="px-6 py-3 w-[600px]">
+                <th scope="col" className="px-6 py-3 w-[1100px]">
                   NOTES
                 </th>
-                <th scope="col" className=" px-[90px] py-3 w-10">
+                <th scope="col" className=" px-[100px] py-3 w-10">
                   ACTION
                 </th>
               </tr>
@@ -134,8 +134,9 @@ const Notes = () => {
                   Health Problem
                 </td>
                 <td className="px-6 py-3">
-                  Get started with an enterprise-level, profesionally designed
-                  profesionally designed
+                  Patient reports occasional headaches. Advised to monitor and
+                  follow up. Patient reports occasional headaches. Advised to
+                  monitor and follow up.
                 </td>
                 <td className="px-[90px] py-3">
                   <Edit></Edit>
@@ -178,24 +179,6 @@ const Notes = () => {
                 </td>
               </tr>
               <tr className="odd:bg-white    border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className="  font-medium text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
-                >
-                  March 22, 2024
-                </th>
-                <td className="truncate max-w-[552px] px-6 py-3">
-                  Health Problem
-                </td>
-                <td className="px-6 py-3">
-                  Get started with an enterprise-level, profesionally designed
-                  profesionally designed
-                </td>
-                <td className="px-[90px] py-3">
-                  <Edit></Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white  even:bg-gray-50 hover:bg-[#f4f4f4] group">
                 <th
                   scope="row"
                   className="  font-medium text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "

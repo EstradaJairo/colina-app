@@ -59,12 +59,12 @@ const Allergies = () => {
           </p>
         </div>
         <div className="flex flex-row justify-end mt-[15px]">
-        <button onClick={() => isModalOpen(true)}>
-          <Add></Add>
+          <button onClick={() => isModalOpen(true)}>
+            <Add></Add>
           </button>
 
           <button>
-          <DownloadPDF></DownloadPDF>
+            <DownloadPDF></DownloadPDF>
           </button>
         </div>
       </div>
@@ -110,7 +110,7 @@ const Allergies = () => {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-6 py-3 w-[400px] h-[60px] ">
+                <th scope="col" className="px-6 py-3 w-[400px] h-[70px] ">
                   Allergy ID
                 </th>
                 <th scope="col" className="px-6 py-3 w-[300px]">
@@ -177,7 +177,6 @@ const Allergies = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-     
             </tbody>
           </table>
         </div>
