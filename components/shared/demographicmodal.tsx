@@ -66,10 +66,11 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                       className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                       value={selectedStatus}
                       onChange={(e) => setSelectedStatus(e.target.value)}
+                      style={{ cursor: 'pointer' }}
                     >
-                      <option value="">Select Gender</option>
-                      <option value="active">MALE</option>
-                      <option value="inactive">FEMALE</option>
+                      <option value="">input gender</option>
+                      <option value="active">Male</option>
+                      <option value="inactive">Female</option>
                     </select>
                 </div>
                 <div className="flex flex-row gap-x-[120px] mb-4">
@@ -90,6 +91,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     type="date"  id="" name="" required
                     className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input date of birth"
+                    style={{ cursor: 'pointer' }}
                   />
                 </div>
                 <div className="flex flex-row gap-x-[25px] mb-4">
@@ -181,6 +183,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                       className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                       value={selectedStatus}
                       onChange={(e) => setSelectedStatus(e.target.value)}
+                      style={{ cursor: 'pointer' }}
                     >
                       <option value="">Select status</option>
                       <option value="active">DNR</option>
