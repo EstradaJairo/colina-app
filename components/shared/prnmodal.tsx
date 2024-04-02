@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 interface ModalProps {
   label: string;
@@ -9,7 +7,6 @@ interface ModalProps {
 }
 
 export const Modal = ({ label, isOpen, isModalOpen }: ModalProps) => {
-  const [selectedDateTime, setSelectedDateTime] = useState<Date | null>(null);
   const [selectedStatus, setSelectedStatus] = useState("");
 
   return (

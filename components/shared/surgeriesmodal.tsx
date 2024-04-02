@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
 
 interface Modalprops {
   label: string;
@@ -10,7 +9,6 @@ interface Modalprops {
 }
 
 export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   return (
     
 
