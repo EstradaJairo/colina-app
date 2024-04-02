@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 
 interface Modalprops {
   label: string;
@@ -9,11 +9,11 @@ interface Modalprops {
 }
 
 export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
-
+  const [selectedStatus, setSelectedStatus] = useState("");
   return (
     <>
       <div
-        className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-40`}
+        className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-20`}
       >
         <div className="w-[600px] h-[650px] bg-[#FFFFFF] rounded-md">
           <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
@@ -61,11 +61,16 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                   <label className="mb-1 font-medium font-manrope mt-2 required-field">
                     Gender
                   </label>
-                  <input
-                    type="text"  id="" name="" required
-                    className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
-                    placeholder="input gender"
-                  />
+                  <select
+                      id="status"
+                      className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
+                      value={selectedStatus}
+                      onChange={(e) => setSelectedStatus(e.target.value)}
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="active">MALE</option>
+                      <option value="inactive">FEMALE</option>
+                    </select>
                 </div>
                 <div className="flex flex-row gap-x-[120px] mb-4">
                   <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
@@ -82,7 +87,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                     Date of Birth
                   </label>
                   <input
-                    type="text"  id="" name="" required
+                    type="date"  id="" name="" required
                     className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
                     placeholder="input date of birth"
                   />
@@ -171,11 +176,16 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                   <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
                     Code Status
                   </label>
-                  <input
-                    type="text" id="" name="" required
-                    className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333] text-normal rounded border border-gray-200"
-                    placeholder="input code status"
-                  />
+                  <select
+                      id="status"
+                      className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
+                      value={selectedStatus}
+                      onChange={(e) => setSelectedStatus(e.target.value)}
+                    >
+                      <option value="">Select status</option>
+                      <option value="active">DNR</option>
+                      <option value="inactive">FULL CODE</option>
+                    </select>
                 </div>
                 <div className="flex flex-row gap-x-[110px] mb-4">
                   <label className="mb-1 font-medium font-manrope mt-2 required-field">
