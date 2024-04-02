@@ -10,6 +10,10 @@ interface Modalprops {
 
 export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
   const [selectedStatus, setSelectedStatus] = useState("");
+  function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <>
       <div
@@ -25,6 +29,22 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
           <div className="pr-9 mb-9 pt-4">
           <div className="h-[600px] overflow-auto max-h-[500px] md:px-10 mt-5" >
             <form className="">
+            <div className="flex flex-row justify-center gap-x-[70px] mb-4">
+  <input
+    type="file"
+    id="imageUpload"
+    accept="image/*"
+    className="hidden"
+    onChange={(e) => handleImageUpload(e)}
+  />
+
+  <label
+    htmlFor="imageUpload"
+    className="w-[100px] h-[100px] bg-[#FCFCFC] border border-gray-200 flex justify-center items-center rounded-md cursor-pointer text-center"
+  >
+    Upload Image
+  </label>
+</div>
                 <div className="flex flex-row gap-x-[70px] mb-4">
                   <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
                     First Name
