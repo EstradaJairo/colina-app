@@ -37,12 +37,16 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
     className="hidden"
     onChange={(e) => handleImageUpload(e)}
   />
+  
 
   <label
     htmlFor="imageUpload"
-    className="w-[100px] h-[100px] bg-[#FCFCFC] border border-gray-200 flex justify-center items-center rounded-md cursor-pointer text-center"
+    className="w-[600px] h-[150px] bg-[#FCFCFC]  border border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center font-medium"
   >
-    Upload Image
+    Drag & Drop files or Browse
+    <span className="text-sm text-black-500 absolute bottom-2">
+        Maximum file size: 10MB
+    </span>
   </label>
 </div>
                 <div className="flex flex-row gap-x-[70px] mb-4">
