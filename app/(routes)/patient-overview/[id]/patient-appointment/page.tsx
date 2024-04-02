@@ -45,7 +45,7 @@ const Appointment = () => {
     { label: "Status", onClick: handleSortOptionClick },
     { label: "Date", onClick: handleSortOptionClick },
     { label: "Time", onClick: handleSortOptionClick },
-    { label: "End Time", onClick: handleSortOptionClick },
+    { label: "End ", onClick: handleSortOptionClick },
   ];
   // end of orderby & sortby function
 

@@ -7,10 +7,47 @@ import Edit from "@/components/shared/buttons/view";
 import { useRouter } from "next/navigation";
 import { Modal } from "@/components/shared/demographicmodal";
 import { useState } from "react";
+import DropdownMenu from "@/components/dropdown-menu";
 
 export default function PatientPage() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
+
+  const [sordOrder, setSortOrder] = useState("ASC");
+  const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
+
+  const [sortBy, setSortBy] = useState("firstName");
+
+  const handleOrderOptionClick = (option: string) => {
+    if (option === "Ascending") {
+      setSortOrder("ASC");
+    } else {
+      setSortOrder("DESC");
+    }
+  };
+
+  const handleSortOptionClick = (option: string) => {
+    if (option == "Age") {
+      setSortBy("age");
+    } else if (option == "Name") {
+      setSortBy("firstName");
+    } else if (option == "Gender") {
+      setSortBy("gender");
+    }
+    console.log(sortBy, "ooption");
+  };
+
+  const optionsOrderedBy = [
+    { label: "Ascending", onClick: handleOrderOptionClick },
+    { label: "Descending", onClick: handleOrderOptionClick },
+  ];
+  const optionsSortBy = [
+    { label: "Patient ID", onClick: handleSortOptionClick },
+    { label: "Name", onClick: handleSortOptionClick },
+    { label: "Age", onClick: handleSortOptionClick },
+    { label: "Gender", onClick: handleSortOptionClick },
+  ];
 
   const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
@@ -63,17 +100,37 @@ export default function PatientPage() {
               />
             </div>
           </form>
-          <div className="flex items-center">
-            <p className="text-[#191D23] opacity-[60%]">Order by</p>
-            <button className="bg-[#FFFFFF] w-[165px] h-[47px] mx-3 rounded-[5px] px-[20px] items-center flex justify-between">
-              Select
-              <img src="/imgs/dropdown.svg" alt="" />
-            </button>
-            <p className="text-[#191D23] opacity-[60%]">Sort by</p>
-            <button className="bg-[#FFFFFF] w-[165px] h-[47px] mx-3 rounded-[5px] px-[20px] items-center flex justify-between">
-              Choose
-              <img src="/imgs/dropdown.svg" alt="" />
-            </button>
+          <div className="flex w-full justify-end items-center gap-[12px]">
+            <p className="text-[#191D23] opacity-[60%] font-semibold">
+              Order by
+            </p>
+            <DropdownMenu
+              options={optionsOrderedBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                },
+              }))}
+              open={isOpenOrderedBy}
+              width={"165px"}
+              label={"Select"}
+            />
+
+            <p className="text-[#191D23] opacity-[60%] font-semibold">
+              Sort by
+            </p>
+            <DropdownMenu
+              options={optionsSortBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                  console.log("label", label);
+                },
+              }))}
+              open={isOpenSortedBy}
+              width={"165px"}
+              label={"Select"}
+            />
           </div>
         </div>
 
