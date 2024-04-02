@@ -200,12 +200,10 @@ body,
   box-shadow: #000000;
 }
 select {
-
-
-  /* Add a custom background image to replace the arrow-down icon if needed */
-  background-image: url('');
-  /* Position the background image (if added) */
-  background-position: right center;
-  /* Define padding to ensure text doesn't overlap with the background image */
-  padding-right: 1em; /* Adjust as needed */
+  /* Firefox */
+  -moz-appearance: none;
+  /* Chrome, Safari, Edge, Opera */
+  -webkit-appearance: none;
+  /* Remove default arrow in IE */
+  appearance: none;
 }

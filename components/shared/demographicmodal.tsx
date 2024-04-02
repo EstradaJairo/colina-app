@@ -61,17 +61,25 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                   <label className="mb-1 font-medium font-manrope mt-2 required-field">
                     Gender
                   </label>
-                  <select
-                      id="status"
-                      className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
-                      value={selectedStatus}
-                      onChange={(e) => setSelectedStatus(e.target.value)}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      <option value="">input gender</option>
-                      <option value="active">Male</option>
-                      <option value="inactive">Female</option>
-                    </select>
+                  <div className="relative">
+    <select
+      id="status"
+      className="h-10 w-[309px] bg-[#FCFCFC] px-3 py-2 text-sm text-[#333333] text-normal rounded border border-gray-200"
+      value={selectedStatus}
+      onChange={(e) => setSelectedStatus(e.target.value)}
+      style={{ cursor: 'pointer' }}
+    >
+      <option value="">input gender</option>
+      <option value="active">Male</option>
+      <option value="inactive">Female</option>
+    </select>
+    <img
+      className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
+      src="svgs/chevron-up.svg"
+      alt="Dropdown Arrow"
+      style={{ width: '1rem', height: '1rem' }}
+    />
+  </div>
                 </div>
                 <div className="flex flex-row gap-x-[120px] mb-4">
                   <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
@@ -175,21 +183,29 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                   />
                 </div>
                 <div className="flex flex-row gap-x-[56px] mb-4">
-                  <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
-                    Code Status
-                  </label>
-                  <select
-                      id="status"
-                      className="h-10 w-80 bg-[#FCFCFC]  px-3 py-2 text-sm text-[#333333]  text-normal rounded border border-gray-200"
-                      value={selectedStatus}
-                      onChange={(e) => setSelectedStatus(e.target.value)}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      <option value="">Select status</option>
-                      <option value="active">DNR</option>
-                      <option value="inactive">FULL CODE</option>
-                    </select>
-                </div>
+  <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
+    Code Status
+  </label>
+  <div className="relative">
+    <select
+      id="status"
+      className="h-10 w-[309px] bg-[#FCFCFC] px-3 py-2 text-sm text-[#333333] text-normal rounded border border-gray-200"
+      value={selectedStatus}
+      onChange={(e) => setSelectedStatus(e.target.value)}
+      style={{ cursor: 'pointer' }}
+    >
+      <option value="">Select status</option>
+      <option value="active">DNR</option>
+      <option value="inactive">FULL CODE</option>
+    </select>
+    <img
+      className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
+      src="svgs/chevron-up.svg"
+      alt="Dropdown Arrow"
+      style={{ width: '1rem', height: '1rem' }}
+    />
+  </div>
+</div>
                 <div className="flex flex-row gap-x-[110px] mb-4">
                   <label className="mb-1 font-medium font-manrope mt-2 required-field">
                     Email

@@ -75,7 +75,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: ModalProps) => {
                   <label htmlFor="status" className="block text-sm font-semibold leading-6 text-gray-900 required-field">
                     STATUS
                   </label>
-                  <div className="mt-2.5">
+                  <div className="relative">
                     <select
                       id="status"
                       className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
@@ -86,6 +86,12 @@ export const Modal = ({ label, isOpen, isModalOpen }: ModalProps) => {
                       <option value="active">HELD</option>
                       <option value="inactive">GIVEN</option>
                     </select>
+                    <img
+                    className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
+                    src="svgs/chevron-up.svg"
+                    alt="Dropdown Arrow"
+                    style={{ width: '1rem', height: '1rem' }}
+                      />
                   </div>
                 </div>
               </div>
