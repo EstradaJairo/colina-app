@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { Datepicker } from "flowbite-react"; 
-import TimePicker from "../shared/timepicker";
 
 interface ModalProps {
   label: string;
@@ -11,7 +7,6 @@ interface ModalProps {
 }
 
 export const Modal: React.FC<ModalProps> = ({ label, isOpen, isModalOpen }) => {
-  const [selectedDateTime, setSelectedDateTime] = useState<Date | null>(null); // State to hold the selected date and time
 
   return (
     <div className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-40`}>
