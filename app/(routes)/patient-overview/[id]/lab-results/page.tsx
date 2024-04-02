@@ -13,11 +13,42 @@ export default function Laboratoryresults() {
   const router = useRouter();
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
-
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
+  const [sordOrder, setSortOrder] = useState("ASC");
+  const [sortBy, setSortBy] = useState("firstName");
+  const handleOrderOptionClick = (option: string) => {
+    if (option === "Ascending") {
+      setSortOrder("ASC");
+    } else {
+      setSortOrder("DESC");
+    }
+  };
 
-  const optionsOrderedBy = ["Accending", "Decending"];
-  const optionsSortBy = ["Medication", "Notes", "Status"];
+  const handleSortOptionClick = (option: string) => {
+    if (option == "Age") {
+      setSortBy("age");
+    } else if (option == "Name") {
+      setSortBy("firstName");
+    } else if (option == "Gender") {
+      setSortBy("gender");
+    }
+    console.log(sortBy, "ooption");
+  };
+
+  const optionsOrderedBy = [
+    { label: "Ascending", onClick: handleOrderOptionClick },
+    { label: "Descending", onClick: handleOrderOptionClick },
+  ];
+  const optionsSortBy = [
+    { label: "Lab Result ID", onClick: handleSortOptionClick },
+    { label: "Date", onClick: handleSortOptionClick },
+    { label: "Hemoglobin A1C", onClick: handleSortOptionClick },
+    { label: "Fasting Blood Glucose", onClick: handleSortOptionClick },
+    { label: "Cholesterol", onClick: handleSortOptionClick },
+    { label: "LDC-C", onClick: handleSortOptionClick },
+    { label: "HDC-C", onClick: handleSortOptionClick },
+    { label: "Triglycerides", onClick: handleSortOptionClick },
+  ];
   // end of orderby & sortby function
 
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +101,12 @@ export default function Laboratoryresults() {
               Order by
             </p>
             <DropdownMenu
-              options={optionsOrderedBy}
+              options={optionsOrderedBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                },
+              }))}
               open={isOpenOrderedBy}
               width={"165px"}
               label={"Select"}
@@ -80,7 +116,13 @@ export default function Laboratoryresults() {
               Sort by
             </p>
             <DropdownMenu
-              options={optionsSortBy}
+              options={optionsSortBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                  console.log("label", label);
+                },
+              }))}
               open={isOpenSortedBy}
               width={"165px"}
               label={"Select"}

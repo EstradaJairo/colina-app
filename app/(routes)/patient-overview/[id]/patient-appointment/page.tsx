@@ -9,17 +9,44 @@ import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
 import { Modal } from "@/components/shared/appointmentmodal";
-import Image from 'next/image'
+import Image from "next/image";
 
 const Appointment = () => {
   const router = useRouter();
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
-
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
+  const [sordOrder, setSortOrder] = useState("ASC");
+  const [sortBy, setSortBy] = useState("firstName");
+  const handleOrderOptionClick = (option: string) => {
+    if (option === "Ascending") {
+      setSortOrder("ASC");
+    } else {
+      setSortOrder("DESC");
+    }
+  };
 
-  const optionsOrderedBy = ["Accending", "Decending"];
-  const optionsSortBy = ["Type", "Severity", "Reaction", "Notes"];
+  const handleSortOptionClick = (option: string) => {
+    if (option == "Age") {
+      setSortBy("age");
+    } else if (option == "Name") {
+      setSortBy("firstName");
+    } else if (option == "Gender") {
+      setSortBy("gender");
+    }
+    console.log(sortBy, "ooption");
+  };
+
+  const optionsOrderedBy = [
+    { label: "Ascending", onClick: handleOrderOptionClick },
+    { label: "Descending", onClick: handleOrderOptionClick },
+  ];
+  const optionsSortBy = [
+    { label: "Status", onClick: handleSortOptionClick },
+    { label: "Date", onClick: handleSortOptionClick },
+    { label: "Time", onClick: handleSortOptionClick },
+    { label: "End Time", onClick: handleSortOptionClick },
+  ];
   // end of orderby & sortby function
 
   const [isOpen, setIsOpen] = useState(false);
@@ -90,7 +117,12 @@ const Appointment = () => {
               Order by
             </p>
             <DropdownMenu
-              options={optionsOrderedBy}
+              options={optionsOrderedBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                },
+              }))}
               open={isOpenOrderedBy}
               width={"165px"}
               label={"Select"}
@@ -100,7 +132,13 @@ const Appointment = () => {
               Sort by
             </p>
             <DropdownMenu
-              options={optionsSortBy}
+              options={optionsSortBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                  console.log("label", label);
+                },
+              }))}
               open={isOpenSortedBy}
               width={"165px"}
               label={"Select"}
@@ -199,7 +237,6 @@ const Appointment = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              
             </tbody>
           </table>
         </div>

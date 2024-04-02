@@ -14,22 +14,51 @@ const Allergies = () => {
   const router = useRouter();
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
-
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
+  const [sordOrder, setSortOrder] = useState("ASC");
+  const [sortBy, setSortBy] = useState("firstName");
+  const handleOrderOptionClick = (option: string) => {
+    if (option === "Ascending") {
+      setSortOrder("ASC");
+    } else {
+      setSortOrder("DESC");
+    }
+  };
 
-  const optionsOrderedBy = ["Accending", "Decending"];
-  const optionsSortBy = ["Type", "Severity", "Reaction", "Notes"];
+  const handleSortOptionClick = (option: string) => {
+    if (option == "Date") {
+      setSortBy("Date");
+    } else if (option == "Allergen") {
+      setSortBy("firstName");
+    } else if (option == "Type") {
+      setSortBy("Type");
+    }
+    console.log(sortBy, "ooption");
+  };
+
+  const optionsOrderedBy = [
+    { label: "Ascending", onClick: handleOrderOptionClick },
+    { label: "Descending", onClick: handleOrderOptionClick },
+  ];
+  const optionsSortBy = [
+    { label: "Allergen ID", onClick: handleSortOptionClick },
+    { label: "Date", onClick: handleSortOptionClick },
+    { label: "Type", onClick: handleSortOptionClick },
+    { label: "Allergen", onClick: handleSortOptionClick },
+    { label: "Gender", onClick: handleSortOptionClick },
+    { label: "Reaction", onClick: handleSortOptionClick },
+    { label: "Notes", onClick: handleSortOptionClick },
+  ];
   // end of orderby & sortby function
+  // nav
+  const [isOpenNav, setIsNav] = useState(false);
+  const optionsNav = ["Language", "Account Settings", "Sign Out"];
+  //
 
   const [isOpen, setIsOpen] = useState(false);
 
   const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else if (!isOpen) {
-      document.body.style.overflow = "scroll";
-    }
   };
 
   return (
@@ -87,7 +116,12 @@ const Allergies = () => {
               Order by
             </p>
             <DropdownMenu
-              options={optionsOrderedBy}
+              options={optionsOrderedBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                },
+              }))}
               open={isOpenOrderedBy}
               width={"165px"}
               label={"Select"}
@@ -97,7 +131,13 @@ const Allergies = () => {
               Sort by
             </p>
             <DropdownMenu
-              options={optionsSortBy}
+              options={optionsSortBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                  console.log("label", label);
+                },
+              }))}
               open={isOpenSortedBy}
               width={"165px"}
               label={"Select"}

@@ -14,11 +14,40 @@ const Scheduled = () => {
   const router = useRouter();
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
-
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
+  const [sordOrder, setSortOrder] = useState("ASC");
+  const [sortBy, setSortBy] = useState("firstName");
+  const handleOrderOptionClick = (option: string) => {
+    if (option === "Ascending") {
+      setSortOrder("ASC");
+    } else {
+      setSortOrder("DESC");
+    }
+  };
 
-  const optionsOrderedBy = ["Accending", "Decending"];
-  const optionsSortBy = ["Type", "Severity", "Reaction", "Notes"];
+  const handleSortOptionClick = (option: string) => {
+    if (option == "Age") {
+      setSortBy("age");
+    } else if (option == "Name") {
+      setSortBy("firstName");
+    } else if (option == "Gender") {
+      setSortBy("gender");
+    }
+    console.log(sortBy, "ooption");
+  };
+
+  const optionsOrderedBy = [
+    { label: "Ascending", onClick: handleOrderOptionClick },
+    { label: "Descending", onClick: handleOrderOptionClick },
+  ];
+  const optionsSortBy = [
+    { label: "Medication ID", onClick: handleSortOptionClick },
+    { label: "Date", onClick: handleSortOptionClick },
+    { label: "Time", onClick: handleSortOptionClick },
+    { label: "Medication", onClick: handleSortOptionClick },
+    { label: "Notes", onClick: handleSortOptionClick },
+    { label: "Status", onClick: handleSortOptionClick },
+  ];
   // end of orderby & sortby function
 
   const [isOpen, setIsOpen] = useState(false);
@@ -87,7 +116,12 @@ const Scheduled = () => {
               Order by
             </p>
             <DropdownMenu
-              options={optionsOrderedBy}
+              options={optionsOrderedBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                },
+              }))}
               open={isOpenOrderedBy}
               width={"165px"}
               label={"Select"}
@@ -97,7 +131,13 @@ const Scheduled = () => {
               Sort by
             </p>
             <DropdownMenu
-              options={optionsSortBy}
+              options={optionsSortBy.map(({ label, onClick }) => ({
+                label,
+                onClick: () => {
+                  onClick(label);
+                  console.log("label", label);
+                },
+              }))}
               open={isOpenSortedBy}
               width={"165px"}
               label={"Select"}
