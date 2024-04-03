@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface ModalProps {
@@ -81,21 +82,24 @@ export const Modal = ({ label, isOpen, isModalOpen }: ModalProps) => {
                       className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       value={selectedStatus}
                       onChange={(e) => setSelectedStatus(e.target.value)}
+                      style={{ cursor: 'pointer' }}
                     >
                       <option value="">Select status</option>
                       <option value="active">HELD</option>
                       <option value="inactive">GIVEN</option>
                     </select>
-                    <img
+                    {/* <img
                     className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
-                    src="svgs/chevron-up.svg"
+                    src="svgs/chevron.svg"
                     alt="Dropdown Arrow"
                     style={{ width: '1rem', height: '1rem' }}
-                      />
+                      /> */}
+
+                      <Image className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none" width={20} height={20} src={"/svgs/chevron-up.svg"} alt={""} />
                   </div>
                 </div>
               </div>
-              <div className="mt-8 pb-3 flex grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
+              <div className="mt-8 pb-3 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
                 <button
                   onClick={() => isModalOpen(false)}
                   type="button"

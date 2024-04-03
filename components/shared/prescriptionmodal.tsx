@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 interface Modalprops {
@@ -92,12 +92,13 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                       <option value="active">ACTIVE</option>
                       <option value="inactive">INACTIVE</option>
                     </select>
-                    <img
+                    {/* <img
                     className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
                     src="svgs/chevron-up.svg"
                     alt="Dropdown Arrow"
                     style={{ width: '1rem', height: '1rem' }}
-                      />
+                      /> */}
+                      <Image className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none" width={20} height={20} src={"/svgs/chevron-up.svg"} alt={""} />
                   </div>
                 </div>
               </div>
