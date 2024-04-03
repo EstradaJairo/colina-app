@@ -145,7 +145,7 @@ export default function PatientPage() {
                 <th scope="col" className="px-6 py-3 w-[500px]">
                   DATE
                 </th>
-                <th scope="col" className="px-6 py-3 w-[500px]">
+                <th scope="col" className="px-6 py-3 w-[400px]">
                   TIME
                 </th>
                 <th scope="col" className="px-6 py-3 w-[200px] whitespace-nowrap">

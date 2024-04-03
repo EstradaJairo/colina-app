@@ -139,10 +139,10 @@ export default function PatientPage() {
           <table className="w-full text-left rtl:text-right">
             <thead className="">
               <tr className="uppercase text-[#64748B] border-y ">
-                <th scope="col" className="px-6 py-3 w-[286px] h-[70px]">
+                <th scope="col" className="px-6 py-3 w-[350px] h-[70px]">
                   Patient ID
                 </th>
-                <th scope="col" className="px-6 py-3 w-[552px]">
+                <th scope="col" className="px-6 py-3 w-[352px]">
                   Name
                 </th>
                 <th scope="col" className="px-5 py-3 w-[277px]">
