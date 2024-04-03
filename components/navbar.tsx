@@ -1,5 +1,4 @@
-"use client";
-
+ "use client"
 import { onNavigate } from "@/actions/navigation";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -9,7 +8,22 @@ import { useEffect, useRef, useState } from "react";
 export const Navbar = () => {
   const router = useRouter();
 
+  const [activeTab, setActiveTab] = useState(() => {
+    const savedTab = localStorage.getItem("activeTab");
+    return savedTab ? JSON.parse(savedTab) : 0;
+  });
+
+  const handleTabClick = (url: string, tabIndex: number) => {
+    setActiveTab(tabIndex);
+    localStorage.setItem("activeTab", JSON.stringify(tabIndex));
+    router.push(url);
+  };
+
   const routes = [
+    {
+      label: "Due Medications",
+      url: "/patient-list",
+    },
     {
       label: "Patients List",
       url: "/patient-list",
@@ -18,11 +32,22 @@ export const Navbar = () => {
       label: "Appointments",
       url: "/appointments",
     },
+    {
+      label: "Chart",
+      url: "/patient-list",
+    },
   ];
 
   const [OpenProfile, setOpenProfile] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const savedTab = localStorage.getItem("activeTab");
+    if (savedTab) {
+      setActiveTab(JSON.parse(savedTab));
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -39,25 +64,35 @@ export const Navbar = () => {
   }, []);
 
   return (
-
     <div className="fixed bg-[#007C85] w-full h-[70px] flex items-center justify-between px-[105px] z-10">
       <Image src={"/imgs/colina-logo.png"} alt={""} width={200} height={37} />
-      <div className="flex gap-[20px] items-center">
-        <div className="flex gap-[20px]">
+      <div className="flex gap-[30px] items-center">
+        <div className="flex gap-[40px]">
           {routes.map((route, index) => (
-            <p
-              className="cursor-pointer text-white"
-              onClick={() => onNavigate(router, route.url)}
-              key={index}
-            >
-              {route.label}
-            </p>
+           <p
+           className={`cursor-pointer text-white h-[27px] relative`}
+           onClick={() => handleTabClick(route.url, index)}
+           key={index}
+         >
+           <span className="relative">
+             {route.label}
+             <span
+               className={`absolute top-10 left-0 w-full ${
+                 activeTab === index ? 'border-b-[3px] border-[#ffffff] '  : ''
+               }`}
+               style={{ content: "''" }}
+             ></span>
+           </span>
+         </p>
           ))}
         </div>
         <div className="flex gap-3 items-center">
-
-          <Image src={"/imgs/admin 1.png"} alt={""} width={30} height={30} />
-
+          <Image
+            src={"/imgs/admin 1.png"}
+            alt={""}
+            width={30}
+            height={30}
+          />
           <Image
             className="cursor-pointer select-none"
             onClick={() => setOpenProfile((prev) => !prev)}
@@ -69,6 +104,6 @@ export const Navbar = () => {
           {OpenProfile && <NavBarBropdown ref={menuRef} />}
         </div>
       </div>
-    </div>
+   </div>
   );
 };
