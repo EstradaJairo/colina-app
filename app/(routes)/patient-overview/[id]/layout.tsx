@@ -47,6 +47,10 @@ export default function PatientOverviewLayout({
       label: "Notes",
       url: "/patient-overview/patientId/notes",
     },
+    {
+      label: "Forms",
+      url: "/patient-overview/patientId/forms",
+    },
   ];
 
   const handleSeeMoreDetails = (url: string, tabIndex: number) => {
