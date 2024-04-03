@@ -8,7 +8,8 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/medicationmodal";
+import { ScheduledModalContent } from "@/components/modal-content/scheduled-modal-content";
+import Modal from "@/components/reusable/modal";
 
 const Scheduled = () => {
   const router = useRouter();
@@ -288,10 +289,9 @@ const Scheduled = () => {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<ScheduledModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>

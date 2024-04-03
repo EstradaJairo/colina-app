@@ -8,7 +8,8 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/notesmodal";
+import { NotesModalContent } from "@/components/modal-content/notes-modal-content";
+import Modal from "@/components/reusable/modal";
 
 const Notes = () => {
   const router = useRouter();
@@ -308,10 +309,9 @@ const Notes = () => {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<NotesModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>

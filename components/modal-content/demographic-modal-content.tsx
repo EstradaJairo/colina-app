@@ -3,12 +3,11 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 interface Modalprops {
-  label: string;
-  isOpen: boolean;
+
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
+export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
   const [selectedCodeStatus, setSelectedCodeStatus] = useState("");
   const [selectedGender, setSelectedGender] = useState("");
   function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -17,10 +16,8 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
 
   return (
     <>
-      <div
-        className={`absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-8`}
-      >
-        <div className="w-[1000px] h-[760px] bg-[#FFFFFF] rounded-md">
+      
+        <div className="w-[1000px] h-[760px]">
           <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
             <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
               Patient Demographic 
@@ -266,7 +263,6 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
         </div>
         </div>
         </div>
-      </div>
     </>
   );
 };

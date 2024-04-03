@@ -8,7 +8,8 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/prnmodal";
+import { PrnModalContent } from "@/components/modal-content/prn-modal-content";
+import Modal from "@/components/reusable/modal";
 
 const Prorenata = () => {
   const router = useRouter();
@@ -280,10 +281,9 @@ const Prorenata = () => {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<PrnModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>

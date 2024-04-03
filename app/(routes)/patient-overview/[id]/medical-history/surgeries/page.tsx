@@ -7,7 +7,8 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/surgeriesmodal";
+import { SurgeriesModalContent } from "@/components/modal-content/surgeries-modal-content";
+import Modal from "@/components/reusable/modal";
 
 export default function Surgeries() {
   const router = useRouter();
@@ -279,10 +280,9 @@ export default function Surgeries() {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<SurgeriesModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>

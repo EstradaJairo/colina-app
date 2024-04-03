@@ -1,0 +1,21 @@
+// Modal.js
+import { useState } from "react";
+import ReactDOM from "react-dom";
+
+interface ModalProps {
+  isModalOpen: (isOpen: boolean) => void;
+  content: React.ReactNode;
+}
+
+const Modal = ({ isModalOpen, content }: ModalProps) => {
+
+  return (
+    <div className="absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center pb-40">
+      <div className="bg-[#FFFFFF] rounded-md">
+        {content}
+      </div>
+    </div>
+  );
+};
+
+export default Modal;

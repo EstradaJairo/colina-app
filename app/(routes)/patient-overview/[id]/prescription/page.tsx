@@ -7,7 +7,8 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/prescriptionmodal";
+import { PrescriptionModalContent } from "@/components/modal-content/prescription-modal-content";
+import Modal from "@/components/reusable/modal";
 
 export default function prescription() {
   const router = useRouter();
@@ -280,10 +281,9 @@ export default function prescription() {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<PrescriptionModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>

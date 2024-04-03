@@ -5,9 +5,11 @@ import Add from "@/components/shared/buttons/add";
 import DownloadPDF from "@/components/shared/buttons/downloadpdf";
 import Edit from "@/components/shared/buttons/view";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/demographicmodal";
+// import { Modal } from "@/components/shared/demographicmodal";
+import  Modal  from "@/components/reusable/modal"
 import { useState } from "react";
 import DropdownMenu from "@/components/dropdown-menu";
+import { DemographicModalContent } from "@/components/modal-content/demographic-modal-content";
 
 export default function PatientPage() {
   const router = useRouter();
@@ -430,7 +432,10 @@ export default function PatientPage() {
         </div>
       </div>
       {isOpen && (
-        <Modal isModalOpen={isModalOpen} isOpen={isOpen} label="sample label" />
+        <Modal
+        content={<DemographicModalContent isModalOpen={isModalOpen} />}
+        isModalOpen={isModalOpen}
+      />
       )}
     </div>
   );

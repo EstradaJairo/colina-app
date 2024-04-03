@@ -7,7 +7,9 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/labresultsmodal";
+import { LabresultsModalContent } from "@/components/modal-content/labresults-modal-content";
+import Modal from "@/components/reusable/modal";
+
 
 export default function Laboratoryresults() {
   const router = useRouter();
@@ -300,10 +302,9 @@ export default function Laboratoryresults() {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<LabresultsModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>

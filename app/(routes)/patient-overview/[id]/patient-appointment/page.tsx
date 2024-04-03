@@ -8,8 +8,9 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/appointmentmodal";
 import Image from "next/image";
+import { AppointmentModalContent } from "@/components/modal-content/appointment-modal-content";
+import Modal from "@/components/reusable/modal";
 
 const Appointment = () => {
   const router = useRouter();
@@ -309,10 +310,9 @@ const Appointment = () => {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<AppointmentModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>
