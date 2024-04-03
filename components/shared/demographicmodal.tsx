@@ -32,27 +32,27 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
             <form className="">
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
             <div className="">
-  <input
-    type="file"
-    id="imageUpload"
-    accept="image/*"
-    className="hidden"
-    onChange={(e) => handleImageUpload(e)}
-  />
+            <input
+              type="file"
+              id="imageUpload"
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => handleImageUpload(e)}
+            />
 
-  <label  
-    htmlFor="imageUpload"
-    className="relative h-[101px] w-[455px] bg-[#d7fafd] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center font-medium text-[#101828]"
-  >
-    <svg className="absolute top-2 w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 4l-8 8h5v8h6v-8h5z" />
-    </svg>
-    Drag & Drop files or Browse
-    <span className="text-sm text-black-500 absolute bottom-2 opacity-50">
-      Support PNG & JPG
-    </span>
-  </label>
-</div>         
+            <label  
+              htmlFor="imageUpload"
+              className="relative h-[101px] w-[455px] bg-[#d7fafd] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center font-medium text-[#101828]"
+            >
+              <svg className="absolute top-2 w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 4l-8 8h5v8h6v-8h5z" />
+              </svg>
+              Drag & Drop files or Browse
+              <span className="text-sm text-black-500 absolute bottom-2 opacity-50">
+                Support PNG & JPG
+              </span>
+            </label>
+              </div>         
                 <div className="flex flex-col gap-x-[70px]">
                 <div className="flex flex-row gap-x-[70px] mb-6">
                   <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field flex flex-row">
@@ -213,30 +213,30 @@ export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
                   />
                 </div>
                 <div className="flex flex-row gap-x-[56px] mb-4">
-  <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
-    Code Status
-  </label>
-  <div className="relative">
-    <select
-      id="status"
-      className="h-10 w-[292px] bg-[#FCFCFC] px-3 py-2 text-sm text-[#333333] text-normal rounded border border-gray-200"
-      value={selectedCodeStatus}
-      onChange={(e) => setSelectedCodeStatus(e.target.value)}
-      style={{ cursor: 'pointer' }}
-    >
-      <option value="">select status</option>
-      <option value="active">DNR</option>
-      <option value="inactive">FULL CODE</option>
-    </select>
-    {/* <img
-      className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
-      src="svgs/chevron-up.svg"
-      alt="Dropdown Arrow"
-      style={{ width: '1rem', height: '1rem' }}
-    /> */}
-    <Image className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none" width={20} height={20} src={"/svgs/chevron-up.svg"} alt={""} />
-  </div>
-</div>
+                <label className="mb-1 font-medium font-manrope text-nowrap mt-2 required-field">
+                  Code Status
+                </label>
+                <div className="relative">
+                  <select
+                    id="status"
+                    className="h-10 w-[292px] bg-[#FCFCFC] px-3 py-2 text-sm text-[#333333] text-normal rounded border border-gray-200"
+                    value={selectedCodeStatus}
+                    onChange={(e) => setSelectedCodeStatus(e.target.value)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <option value="">select status</option>
+                    <option value="active">DNR</option>
+                    <option value="inactive">FULL CODE</option>
+                  </select>
+                  {/* <img
+                    className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
+                    src="svgs/chevron-up.svg"
+                    alt="Dropdown Arrow"
+                    style={{ width: '1rem', height: '1rem' }}
+                  /> */}
+                  <Image className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none" width={20} height={20} src={"/svgs/chevron-up.svg"} alt={""} />
+                </div>
+              </div>
                 <div className="flex flex-row gap-x-[110px] mb-4">
                   <label className="mb-1 font-medium font-manrope mt-2 required-field">
                     Email
