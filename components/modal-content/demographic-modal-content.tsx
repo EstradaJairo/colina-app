@@ -16,7 +16,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
 
   return (
     <>
-      <div className="w-[1000px] h-[700px]">
+      <div className="w-[1200px] h-[700px]">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between px-8">
             <h2 className="p-title text-left text-[#071437] mt-5 w-full">
@@ -96,7 +96,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <input
                         type="text"
                         required
-                        className="block w-[140px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                        className="block w-[167px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                         placeholder="input age"
                       />
                     </div>
@@ -112,7 +112,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <div className="mt-2.5">
                         <select
                           id="status"
-                          className="block w-[140px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                          className="block w-[167px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                           value={selectedGender}
                           onChange={(e) => setSelectedGender(e.target.value)}
                           style={{ cursor: "pointer" }}
@@ -280,7 +280,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <input
                         type="date"
                         required
-                        className="block w-[140px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                        className="block w-[167px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                         placeholder="input addmission date"
                       />
                     </div>
@@ -296,7 +296,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <div className="mt-2.5">
                         <select
                           id="status"
-                          className="block w-[140px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                          className="block w-[167px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                           value={selectedCodeStatus}
                           onChange={(e) =>
                             setSelectedCodeStatus(e.target.value)
@@ -345,7 +345,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
 
                   <label
                     htmlFor="imageUpload"
-                    className="relative h-[101px] w-[919px] bg-[#d7fafd] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold"
+                    className="relative h-[110px] w-[1120px] bg-[#d7fafd] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold"
                   >
                     <Image
                       className="absolute top-2 w-8 h-8"
