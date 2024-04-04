@@ -150,7 +150,7 @@ const Appointment = () => {
         <div>
           <table className="w-full text-left rtl:text-right">
             <thead>
-              <tr className="uppercase text-[#64748B] border-y  ">
+              <tr className="htext border-y  ">
                 <th scope="col" className="px-6 py-3 w-[500px] h-[70px]">
                   STATUS
                 </th>
@@ -169,7 +169,7 @@ const Appointment = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className=" text-[#2A7D15] font-large text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
@@ -186,7 +186,7 @@ const Appointment = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white  border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white  border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className=" text-[#B81C1C] font-large text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
@@ -203,7 +203,7 @@ const Appointment = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className=" text-[#3C3C3C] font-large text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
@@ -220,7 +220,7 @@ const Appointment = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white  border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white  border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className=" text-[#3C3C3C] font-large text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "

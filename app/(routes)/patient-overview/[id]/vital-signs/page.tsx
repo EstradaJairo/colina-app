@@ -133,7 +133,7 @@ export default function vitalsigns() {
         <div>
           <table className="w-full text-left rtl:text-right">
             <thead className="">
-              <tr className="uppercase text-[#64748B] border-y  ">
+              <tr className="htext border-y  ">
                 <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
                   VITAL SIGN ID
                 </th>
@@ -162,7 +162,7 @@ export default function vitalsigns() {
               </tr>
             </thead>
             <tbody>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -180,7 +180,7 @@ export default function vitalsigns() {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"

@@ -207,3 +207,8 @@ select {
   /* Remove default arrow in IE */
   appearance: none;
 }
+.htext {
+  font-size: 15px;
+  color: #64748b;
+  transform: uppercase;
+}

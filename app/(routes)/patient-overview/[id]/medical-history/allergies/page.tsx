@@ -149,35 +149,35 @@ const Allergies = () => {
         <div>
           <table className="w-full text-left rtl:text-right">
             <thead className="">
-              <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-6 py-3 w-[400px] h-[70px] ">
+              <tr className=" border-y htext">
+                <th scope="col" className="px-6 py-3 w-[250px] h-[70px] ">
                   Allergy ID
                 </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
+                <th scope="col" className="px-6 py-3 w-[250px]">
                   Date
                 </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
+                <th scope="col" className="px-6 py-3 w-[250px]">
                   Type
                 </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
+                <th scope="col" className="px-6 py-3 w-[250px]">
                   Allergen
                 </th>
-                <th scope="col" className="px-5 py-3 w-[400px]">
+                <th scope="col" className="px-6 py-3 w-[250px]">
                   Severity
                 </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
+                <th scope="col" className="px-6 py-3 w-[250px]">
                   Reaction
                 </th>
-                <th scope="col" className="px-6 py-3 w-[300px]">
+                <th scope="col" className="px-6 py-3 w-[250px]">
                   Notes
                 </th>
-                <th scope="col" className=" px-20 py-4 w-[10px]">
+                <th scope="col" className=" px-[70px] py-3 w-[250px]">
                   Action
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
@@ -188,7 +188,31 @@ const Allergies = () => {
                 <td className="px-6 py-4">Skin Allergy</td>
                 <td className="px-6 py-4">Anesthesia</td>
                 <td className="px-6 py-4">Severe</td>
-                <td className="px-6 py-4">Redness and Itching</td>
+                <td className="truncate max-w-[552px] px-6 py-4 ">
+                  Redness and Itching
+                </td>
+                <td className="truncate max-w-[100px] px-6 py-4">
+                  Need Epipen for emergencies.
+                </td>
+
+                <td className="px-[70px] py-4">
+                  <Edit></Edit>
+                </td>
+              </tr>
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]">
+                <th
+                  scope="row"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  ALG-98765432HJK
+                </th>
+                <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
+                <td className="px-6 py-4">Skin Allergy</td>
+                <td className="px-6 py-4">Anesthesia</td>
+                <td className="px-6 py-4">Severe</td>
+                <td className="truncate max-w-[552px] px-6 py-4 ">
+                  Redness and Itching
+                </td>
                 <td className="truncate max-w-[552px] px-6 py-4">
                   Need Epipen for emergencies.
                 </td>
@@ -197,19 +221,45 @@ const Allergies = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group ">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                 >
                   ALG-98765432HJK
                 </th>
-                <td className="px-6 py-4">10/24/99</td>
+                <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
                 <td className="px-6 py-4">Skin Allergy</td>
                 <td className="px-6 py-4">Anesthesia</td>
                 <td className="px-6 py-4">Severe</td>
-                <td className="px-6 py-4">Redness and Itching</td>
-                <td className="px-6 py-4">Patient is under observation.</td>
+                <td className="truncate max-w-[552px] px-6 py-4 ">
+                  Redness and Itching
+                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">
+                  Need Epipen for emergencies.
+                </td>
+
+                <td className="px-[70px] py-4">
+                  <Edit></Edit>
+                </td>
+              </tr>
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]">
+                <th
+                  scope="row"
+                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  ALG-98765432HJK
+                </th>
+                <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
+                <td className="px-6 py-4">Skin Allergy</td>
+                <td className="px-6 py-4">Anesthesia</td>
+                <td className="px-6 py-4">Severe</td>
+                <td className="truncate max-w-[552px] px-6 py-4 ">
+                  Redness and Itching
+                </td>
+                <td className="truncate max-w-[552px] px-6 py-4">
+                  Need Epipen for emergencies.
+                </td>
 
                 <td className="px-[70px] py-4">
                   <Edit></Edit>

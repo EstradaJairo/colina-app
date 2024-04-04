@@ -144,7 +144,7 @@ const Notes = () => {
         <div>
           <table className="w-full text-left rtl:text-right">
             <thead>
-              <tr className="uppercase text-[#64748B] border-y  ">
+              <tr className="htext border-y  ">
                 <th scope="col" className="px-7 py-3 w-[400px] h-[70px]">
                   DATE
                 </th>
@@ -160,7 +160,7 @@ const Notes = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className="  font-medium text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
@@ -179,7 +179,7 @@ const Notes = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className="  font-medium text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
@@ -198,7 +198,7 @@ const Notes = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className="  font-medium text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
@@ -217,7 +217,7 @@ const Notes = () => {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white    border-b hover:bg-[#f4f4f4] group">
+              <tr className="odd:bg-white    border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className="  font-medium text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "

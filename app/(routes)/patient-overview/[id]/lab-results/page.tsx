@@ -134,7 +134,7 @@ export default function Laboratoryresults() {
         <div>
           <table className="w-full text-left rtl:text-right">
             <thead className="">
-              <tr className="uppercase text-[#64748B] border-y h-[70px] ">
+              <tr className="htext border-y h-[70px] ">
                 <th scope="col" className="px-6 py-3 w-[300px]">
                   LAB RESULT ID
                 </th>
@@ -162,13 +162,13 @@ export default function Laboratoryresults() {
                 <th scope="col" className="px-6  py-3 w-[200px]">
                   TRIGLYCERIDES
                 </th>
-                <th scope="col" className="pl-[80px] py-3 w-[10px] ">
+                <th scope="col" className="pl-[70px] py-3 w-[10px] ">
                   ACTION
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr className="odd:bg-white   border-b hover:bg-[#f4f4f4] group ">
+              <tr className="odd:bg-white   border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
@@ -188,7 +188,7 @@ export default function Laboratoryresults() {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white   border-b hover:bg-[#f4f4f4] group ">
+              <tr className="odd:bg-white   border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
@@ -208,7 +208,7 @@ export default function Laboratoryresults() {
                   <Edit></Edit>
                 </td>
               </tr>
-              <tr className="odd:bg-white   border-b hover:bg-[#f4f4f4] group ">
+              <tr className="odd:bg-white   border-b hover:bg-[#f4f4f4] group text-[15px]">
                 <th
                   scope="row"
                   className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
