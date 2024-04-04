@@ -66,7 +66,6 @@ export default function forms() {
       <div className="flex justify-between items-center">
         <div className="flex flex-col">
           <h1 className="p-title">Forms</h1>
-
         </div>
         <div className="flex flex-row justify-end">
           <button onClick={() => isModalOpen(true)}>
@@ -129,10 +128,8 @@ export default function forms() {
         {/* START OF TABLE */}
         <div>
           <table className="w-full text-left rtl:text-right">
-            <thead className="">
-            </thead>
-            <tbody>
-            </tbody>
+            <thead className=""></thead>
+            <tbody></tbody>
           </table>
         </div>
         {/* END OF TABLE */}
