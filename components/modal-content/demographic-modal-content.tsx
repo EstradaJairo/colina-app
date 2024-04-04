@@ -41,7 +41,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     htmlFor="first-name"
                     className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
-                    FirstName
+                    First Name
                   </label>
                   <div className="mt-1">
                     <input
@@ -112,7 +112,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <div className="mt-1">
                         <select
                           id="status"
-                          className="block w-[174px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                          className="block w-[173px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                           value={selectedGender}
                           onChange={(e) => setSelectedGender(e.target.value)}
                           style={{ cursor: "pointer" }}
@@ -328,10 +328,10 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div className="">
                   <label
                     htmlFor="imageUpload"
-                    className="relative h-[70px] w-[364 px] bg-[#daf3f5] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
+                    className="relative h-[70px] w-full bg-[#daf3f5] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
                   >
                     <Image
-                      className="w-10 h-10 mt-2"
+                      className="w-10 h-10 mt-2 mr-1"
                       width={50}
                       height={50}
                       src={"/svgs/gallery-export.svg"}
@@ -342,7 +342,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     <p className="underline decoration-solid text-blue-500 ml-1">
                       Browse
                     </p>
-                    <span className="text-sm text-black-500 absolute bottom-2 opacity-50">
+                    <span className="text-sm text-black-500 absolute bottom-2 opacity-50 pt-2">
                       Support PNG & JPG
                     </span>
                   </label>
