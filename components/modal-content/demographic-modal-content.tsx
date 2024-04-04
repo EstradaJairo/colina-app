@@ -16,7 +16,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
 
   return (
     <>
-      <div className="w-[1200px] h-[701px]">
+      <div className="w-[1200px] h-[645px]">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between px-8">
             <h2 className="p-title text-left text-[#071437] mt-5 w-full">
@@ -33,17 +33,17 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
           <div className="flex place-items-end mr-4"></div>
         </div>
         <div className=" mb-9 pt-4">
-          <div className="h-[600px] max-h-[500px] md:px-10 mt-5">
+          <div className="h-[600px] max-h-[480px] md:px-10 mt-5">
             <form className="">
               <div className="grid grid-cols-3 gap-x-4 gap-y-4">
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     FirstName
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -55,11 +55,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Middle Name
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -71,11 +71,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Last Name
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -88,11 +88,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                   <div>
                     <label
                       htmlFor="last-name"
-                      className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                      className="block text-md font-bold leading-6 text-gray-900 required-field"
                     >
                       Age
                     </label>
-                    <div className="mt-2.5 mr-4">
+                    <div className="mt-1 mr-4">
                       <input
                         type="text"
                         required
@@ -105,11 +105,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     <div>
                       <label
                         htmlFor="last-name"
-                        className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                        className="block text-md font-bold leading-6 text-gray-900 required-field"
                       >
                         Gender
                       </label>
-                      <div className="mt-2.5">
+                      <div className="mt-1">
                         <select
                           id="status"
                           className="block w-[174px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
@@ -135,11 +135,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Date of Birth
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="date"
                       required
@@ -151,11 +151,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Address 1
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -167,11 +167,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Address 2
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -184,11 +184,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                   <div>
                     <label
                       htmlFor="last-name"
-                      className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                      className="block text-md font-bold leading-6 text-gray-900 required-field"
                     >
                       City
                     </label>
-                    <div className="mt-2.5 mr-4">
+                    <div className="mt-1 mr-4">
                       <input
                         type="text"
                         required
@@ -201,11 +201,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     <div>
                       <label
                         htmlFor="last-name"
-                        className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                        className="block text-md font-bold leading-6 text-gray-900 required-field"
                       >
                         State
                       </label>
-                      <div className="mt-2.5">
+                      <div className="mt-1">
                         <input
                           type="text"
                           required
@@ -219,11 +219,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Country
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -235,11 +235,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Zip
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -251,11 +251,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Allergies
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -268,11 +268,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Code Status
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <select
                       id="status"
                       className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
@@ -296,11 +296,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Addmission Date
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="date"
                       required
@@ -312,11 +312,11 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                    className="block text-md font-bold leading-6 text-gray-900 required-field"
                   >
                     Email
                   </label>
-                  <div className="mt-2.5">
+                  <div className="mt-1">
                     <input
                       type="text"
                       required
@@ -357,21 +357,21 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
               </div>
             </form>
           </div>
-        </div>
-        <div className="justify-center flex border-t-2">
-          <button
-            onClick={() => isModalOpen(false)}
-            type="button"
-            className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-[#000] mt-2 mr-2"
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
-            className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-2"
-          >
-            Submit
-          </button>
+          <div className="justify-center flex border-t-2 ">
+            <button
+              onClick={() => isModalOpen(false)}
+              type="button"
+              className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] text-white font-medium mt-2 mr-2 rounded-bl-md"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff]  font-medium mt-2 rounded-br-md"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </>
