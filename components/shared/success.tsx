@@ -18,8 +18,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: AlertProps) => {
                 type="button"
                 className="text-gray-400 hover:text-gray-800 focus:outline-none"
                 onClick={() => isModalOpen(false)} // Close modal
-              >             
-              </button>
+              ></button>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-5 text-gray-400 w-[110px] h-[110px]">

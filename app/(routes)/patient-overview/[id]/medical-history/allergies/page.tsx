@@ -8,7 +8,8 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/allergiesmodal";
+import { AllergiesModalContent } from "@/components/modal-content/allergies-modal-content";
+import Modal from "@/components/reusable/modal";
 
 const Allergies = () => {
   const router = useRouter();
@@ -287,10 +288,9 @@ const Allergies = () => {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<AllergiesModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>

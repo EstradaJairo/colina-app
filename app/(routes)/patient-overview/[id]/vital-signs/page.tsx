@@ -7,7 +7,8 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/vitalsignmodal";
+import { VitalModalContent } from "@/components/modal-content/vital-modal-content";
+import Modal from "@/components/reusable/modal";
 
 export default function vitalsigns() {
   const router = useRouter();
@@ -270,10 +271,9 @@ export default function vitalsigns() {
         </div>
         {isOpen && (
           <Modal
-            isModalOpen={isModalOpen}
-            isOpen={isOpen}
-            label="sample label"
-          />
+          content={<VitalModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
         )}
       </div>
     </div>

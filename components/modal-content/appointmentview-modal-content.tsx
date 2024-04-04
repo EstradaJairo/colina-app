@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 interface Modalprops {
-  label: string;
-  isOpen: boolean;
+
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const Modal = ({ label, isOpen, isModalOpen }: Modalprops) => {
+export const AppointmentviewModalContent = ({ isModalOpen }: Modalprops) => {
   const [selectedStatus, setSelectedStatus] = useState("");
   const [isEditable, setIsEditable] = useState(false);
   const [date, setDate] = useState("March 26, 2024");
