@@ -16,7 +16,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
 
   return (
     <>
-      <div className="w-[1200px] h-[700px]">
+      <div className="w-[1200px] h-[701px]">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between px-8">
             <h2 className="p-title text-left text-[#071437] mt-5 w-full">
@@ -39,7 +39,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
                   >
                     FirstName
                   </label>
@@ -55,7 +55,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
                   >
                     Middle Name
                   </label>
@@ -71,7 +71,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
                   >
                     Last Name
                   </label>
@@ -88,7 +88,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                   <div>
                     <label
                       htmlFor="last-name"
-                      className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                      className="block text-sm font-bold leading-6 text-gray-900 required-field"
                     >
                       Age
                     </label>
@@ -96,7 +96,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <input
                         type="text"
                         required
-                        className="block w-[167px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                        className="block w-[174px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                         placeholder="input age"
                       />
                     </div>
@@ -105,14 +105,14 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     <div>
                       <label
                         htmlFor="last-name"
-                        className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                        className="block text-sm font-bold leading-6 text-gray-900 required-field"
                       >
                         Gender
                       </label>
                       <div className="mt-2.5">
                         <select
                           id="status"
-                          className="block w-[167px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                          className="block w-[174px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                           value={selectedGender}
                           onChange={(e) => setSelectedGender(e.target.value)}
                           style={{ cursor: "pointer" }}
@@ -135,7 +135,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
                   >
                     Date of Birth
                   </label>
@@ -151,7 +151,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
                   >
                     Address 1
                   </label>
@@ -167,7 +167,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
                   >
                     Address 2
                   </label>
@@ -184,7 +184,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                   <div>
                     <label
                       htmlFor="last-name"
-                      className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                      className="block text-sm font-bold leading-6 text-gray-900 required-field"
                     >
                       City
                     </label>
@@ -201,7 +201,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     <div>
                       <label
                         htmlFor="last-name"
-                        className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                        className="block text-sm font-bold leading-6 text-gray-900 required-field"
                       >
                         State
                       </label>
@@ -219,7 +219,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
                   >
                     Country
                   </label>
@@ -232,96 +232,87 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-row">
-                  <div>
-                    <label
-                      htmlFor="last-name"
-                      className="block text-sm font-semibold leading-6 text-gray-900 required-field"
-                    >
-                      Zip
-                    </label>
-                    <div className="mt-2.5 mr-4">
-                      <input
-                        type="text"
-                        required
-                        className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                        placeholder="input zip"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-row">
-                    <div>
-                      <label
-                        htmlFor="last-name"
-                        className="block text-sm font-semibold leading-6 text-gray-900 required-field"
-                      >
-                        Allergies
-                      </label>
-                      <div className="mt-2.5">
-                        <input
-                          type="text"
-                          required
-                          className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                          placeholder="input Allergies"
-                        />
-                      </div>
-                    </div>
+                <div>
+                  <label
+                    htmlFor="last-name"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                  >
+                    Zip
+                  </label>
+                  <div className="mt-2.5">
+                    <input
+                      type="text"
+                      required
+                      className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                      placeholder="input zip"
+                    />
                   </div>
                 </div>
-                <div className="flex flex-row">
-                  <div>
-                    <label
-                      htmlFor="last-name"
-                      className="block text-sm font-semibold leading-6 text-gray-900 required-field"
-                    >
-                      Addmission Date
-                    </label>
-                    <div className="mt-2.5 mr-4">
-                      <input
-                        type="date"
-                        required
-                        className="block w-[167px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                        placeholder="input addmission date"
-                      />
-                    </div>
+                <div>
+                  <label
+                    htmlFor="last-name"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                  >
+                    Allergies
+                  </label>
+                  <div className="mt-2.5">
+                    <input
+                      type="text"
+                      required
+                      className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                      placeholder="input Allergies"
+                    />
                   </div>
-                  <div className="flex flex-row">
-                    <div>
-                      <label
-                        htmlFor="last-name"
-                        className="block text-sm font-semibold leading-6 text-gray-900 required-field"
-                      >
-                        Code Status
-                      </label>
-                      <div className="mt-2.5">
-                        <select
-                          id="status"
-                          className="block w-[167px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                          value={selectedCodeStatus}
-                          onChange={(e) =>
-                            setSelectedCodeStatus(e.target.value)
-                          }
-                          style={{ cursor: "pointer" }}
-                        >
-                          <option value="">select status</option>
-                          <option value="active">DNR</option>
-                          <option value="inactive">FULL CODE</option>
-                        </select>
-                        <Image
-                          className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
-                          width={20}
-                          height={20}
-                          src={"/svgs/chevron-up.svg"}
-                          alt={""}
-                        />
-                      </div>
-                    </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="last-name"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                  >
+                    Code Status
+                  </label>
+                  <div className="mt-2.5">
+                    <select
+                      id="status"
+                      className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                      value={selectedCodeStatus}
+                      onChange={(e) => setSelectedCodeStatus(e.target.value)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <option value="">select status</option>
+                      <option value="active">DNR</option>
+                      <option value="inactive">FULL CODE</option>
+                    </select>
+                    <Image
+                      className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
+                      width={20}
+                      height={20}
+                      src={"/svgs/chevron-up.svg"}
+                      alt={""}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="last-name"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
+                  >
+                    Addmission Date
+                  </label>
+                  <div className="mt-2.5">
+                    <input
+                      type="date"
+                      required
+                      className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                      placeholder="input addmission date"
+                    />
                   </div>
                 </div>
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                    className="block text-sm font-bold leading-6 text-gray-900 required-field"
                   >
                     Email
                   </label>
@@ -334,7 +325,27 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     />
                   </div>
                 </div>
-                <div className="">
+                <div className="flex items-center">
+                  <label
+                    htmlFor="imageUpload"
+                    className="relative h-[70px] w-[365px] bg-[#d7fafd] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-3"
+                  >
+                    <Image
+                      className="w-10 h-10 mt-4"
+                      width={50}
+                      height={50}
+                      src={"/svgs/gallery-export.svg"}
+                      alt={""}
+                    />
+                    Drag & Drop files or
+                    <p className=""></p>
+                    <p className="underline decoration-solid text-blue-500 ml-1">
+                      Browse
+                    </p>
+                    <span className="text-sm text-black-500 absolute bottom-2 opacity-50">
+                      Support PNG & JPG
+                    </span>
+                  </label>
                   <input
                     type="file"
                     id="imageUpload"
@@ -342,26 +353,6 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     className="hidden"
                     onChange={(e) => handleImageUpload(e)}
                   />
-
-                  <label
-                    htmlFor="imageUpload"
-                    className="relative h-[110px] w-[1120px] bg-[#d7fafd] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold"
-                  >
-                    <Image
-                      className="absolute top-2 w-8 h-8"
-                      width={50}
-                      height={50}
-                      src={"/svgs/gallery-export.svg"}
-                      alt={""}
-                    />
-                    Drag & Drop files or
-                    <p className="underline decoration-solid text-blue-500">
-                      ‎ Browse
-                    </p>
-                    <span className="text-sm text-black-500 absolute bottom-2 opacity-50">
-                      Support PNG & JPG
-                    </span>
-                  </label>
                 </div>
               </div>
             </form>
@@ -382,7 +373,6 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
             Submit
           </button>
         </div>
-        <div></div>
       </div>
     </>
   );
