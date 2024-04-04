@@ -1,5 +1,6 @@
 "use client";
 
+import { X } from "lucide-react";
 import React, { useEffect } from "react";
 
 interface Modalprops {
@@ -10,9 +11,15 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
   return (
     <div className="w-[676px] h-[513px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
-        <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
-          Add an Appointment
-        </h2>
+        <div className="items-center flex justify-between">
+          <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
+            Add an Appointment
+          </h2>
+          <X
+            onClick={() => isModalOpen(false)}
+            className="w-7 h-7 text-black flex items-center mt-2 mr-4"
+          />
+        </div>
         <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">
           Submit your appointment schedule.
         </p>
@@ -83,13 +90,13 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
             <button
               onClick={() => isModalOpen(false)}
               type="button"
-              className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-[#000] mt-2 mr-2"
+              className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-[#000] mt-2 mr-2 rounded-bl-md"
             >
               Cancel
             </button>
             <button
               type="button"
-              className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-2"
+              className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-2 rounded-br-md"
             >
               Submit
             </button>

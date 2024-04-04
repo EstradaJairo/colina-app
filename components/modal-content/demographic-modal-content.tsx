@@ -325,13 +325,13 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     />
                   </div>
                 </div>
-                <div className="flex items-center">
+                <div className="">
                   <label
                     htmlFor="imageUpload"
-                    className="relative h-[70px] w-[365px] bg-[#d7fafd] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-3"
+                    className="relative h-[70px] w-[364 px] bg-[#daf3f5] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
                   >
                     <Image
-                      className="w-10 h-10 mt-4"
+                      className="w-10 h-10 mt-2"
                       width={50}
                       height={50}
                       src={"/svgs/gallery-export.svg"}

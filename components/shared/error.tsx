@@ -18,8 +18,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: ErrorProps) => {
                 type="button"
                 className="text-gray-400 hover:text-gray-800 focus:outline-none"
                 onClick={() => isModalOpen(false)} // Close modal
-              >             
-              </button>
+              ></button>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-5 text-gray-400 w-[110px] h-[110px]">
@@ -33,7 +32,7 @@ export const Modal = ({ label, isOpen, isModalOpen }: ErrorProps) => {
               </p>
               <button
                 onClick={() => isModalOpen(false)} // Close modal
-                className="text-white bg-[#1B84FF] hover:bg-blue-800 font-medium rounded-lg text-[26px] w-[330px] px-[31px] py-[18px] me-2 mx-2 dark:bg-blue-600 dark:hover:bg-blue-700"
+                className="text-white bg-[#BCBCBC] hover:bg-blue-800 font-medium rounded-lg text-[26px] w-[330px] px-[31px] py-[18px] me-2 mx-2 dark:bg-blue-600 dark:hover:bg-blue-700"
               >
                 Try again
               </button>
