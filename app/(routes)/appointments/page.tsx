@@ -5,9 +5,11 @@ import Add from "@/components/shared/buttons/add";
 import DownloadPDF from "@/components/shared/buttons/downloadpdf";
 import Edit from "@/components/shared/buttons/view";
 import { useRouter } from "next/navigation";
-import { Modal } from "@/components/shared/demographicmodal";
+
 import { useState } from "react";
 import DropdownMenu from "@/components/dropdown-menu";
+import { AppointmentModalContent } from "@/components/modal-content/appointment-modal-content";
+import Modal from "@/components/reusable/modal";
 
 export default function PatientPage() {
   const router = useRouter();
@@ -148,23 +150,24 @@ export default function PatientPage() {
                 <th scope="col" className="px-6 py-3 w-[400px]">
                   TIME
                 </th>
-                <th scope="col" className="px-6 py-3 w-[200px] whitespace-nowrap">
-                 END TIME
+                <th
+                  scope="col"
+                  className="px-6 py-3 w-[200px] whitespace-nowrap"
+                >
+                  END TIME
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr className="odd:bg-white  border-b hover:bg-[#F4F4F4] group">
-              <th
+                <th
                   scope="row"
                   className=" text-[#2A7D15] font-large text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
                 >
                   <span className="pr-1 text-[#2A7D15]">●</span>
                   Upcoming Schedule
                 </th>
-                <td className="px-6 py-3">
-                  March 22, 2024
-                </td>
+                <td className="px-6 py-3">March 22, 2024</td>
                 <td className="px-6 py-3">8:00 am </td>
                 <td className="px-6 py-3">2:00 pm </td>
               </tr>
@@ -197,16 +200,14 @@ export default function PatientPage() {
                 <td className="px-6 py-3">4:00pm </td>
               </tr>
               <tr className="odd:bg-white  border-b hover:bg-[#F4F4F4] group">
-              <th
+                <th
                   scope="row"
                   className=" text-[#2A7D15] font-large text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
                 >
                   <span className="pr-1 text-[#2A7D15]">●</span>
                   Upcoming Schedule
                 </th>
-                <td className="px-6 py-3">
-                  March 22, 2024
-                </td>
+                <td className="px-6 py-3">March 22, 2024</td>
                 <td className="px-6 py-3">8:00 am </td>
                 <td className="px-6 py-3">2:00 pm </td>
               </tr>
@@ -324,7 +325,10 @@ export default function PatientPage() {
         </div>
       </div>
       {isOpen && (
-        <Modal isModalOpen={isModalOpen} isOpen={isOpen} label="sample label" />
+        <Modal
+          content={<AppointmentModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
       )}
     </div>
   );

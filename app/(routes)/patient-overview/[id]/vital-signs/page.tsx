@@ -271,9 +271,9 @@ export default function vitalsigns() {
         </div>
         {isOpen && (
           <Modal
-          content={<VitalModalContent isModalOpen={isModalOpen} />}
-          isModalOpen={isModalOpen}
-        />
+            content={<VitalModalContent isModalOpen={isModalOpen} />}
+            isModalOpen={isModalOpen}
+          />
         )}
       </div>
     </div>
