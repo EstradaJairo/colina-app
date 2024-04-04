@@ -8,29 +8,29 @@ export const SuccessModaContent = ({ isModalOpen }: Modalprops) => {
   const [selectedStatus, setSelectedStatus] = useState(""); // State to hold the selected status
 
   return (
-    <div className="w-[480px] h-[280px]">
-      <div className=" mb-9 pt-4">
-        <div className=" h-[230px] md:px-10 mt-5">
-          <div className="text-center">
-            <div className="mx-auto mb-5 text-gray-400 w-[110px] h-[110px]">
+    <div>
+      <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+        <div className="fixed z-50 bg-white rounded-[10px] shadow-xl w-[670px] h-[326px] mx-auto top-[80px]">
+          <div className="text-center pt-[30px]">
+            <div className="mx-auto mb-5 text-gray-400 w-[110px] h-[110px] ">
               <img src="/svgs/successful.svg" alt="" />
             </div>
-            <h1 className="text-[34px] font-bold text-lg text-gray-500 mb-4">
+            <h1 className="text-[25px] font-bold text-md text-[#101828] mb-2">
               Submitted Successfully!
             </h1>
-            <p className="text-[24px] text-sm text-gray-400 mb-10">
+            <p className="text-[22px] text-sm text-[#667085] mb-[40px] ">
               Your data has been successfully added.
             </p>
           </div>
-        </div>
-        <div className="">
-          <div className="justify-center flex  ">
+          <div>
             <button
-              onClick={() => isModalOpen(false)}
-              type="button"
-              className="w-[700px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-2 rounded-b-md"
+              className="text-white bg-[#1B84FF] hover:bg-blue-800 font-medium 
+                 rounded-b-md text-[21px] w-[670px] py-[15px] dark:bg-blue-600 dark:hover:bg-blue-700
+                "
+              onClick={() => isModalOpen(false)} // Close modal
             >
-              Okay, Thanks
+              Okay, Thanks!
             </button>
           </div>
         </div>
