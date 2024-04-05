@@ -28,7 +28,7 @@ export const SuccessModaContent = ({ isModalOpen }: Modalprops) => {
               className="text-white bg-[#1B84FF] hover:bg-blue-800 font-medium 
                  rounded-b-md text-[21px] w-[670px] py-[15px] dark:bg-blue-600 dark:hover:bg-blue-700
                 "
-              onClick={() => isModalOpen(false)} // Close modal
+              onClick={() => isModalOpen(false)}
             >
               Okay, Thanks!
             </button>
