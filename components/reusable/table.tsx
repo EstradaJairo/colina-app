@@ -93,7 +93,7 @@ export default function Table<T>({
       <div className="text-[15px] flex flex-col gap-[20px]">
         <div className="">
           <div
-            className={`grid grid-cols-${columns} grid-rows-1 border-b border-[#E7EAEE] py-[12px] px-[24px] font-semibold gap-20`}
+            className={`grid grid-cols-${columns} grid-rows-1 border-b border-[#E7EAEE] py-[12px] px-[24px] flex font-semibold gap-20`}
           >
             {columnLabels.map((column, index) => (
               <div key={index} className="">
