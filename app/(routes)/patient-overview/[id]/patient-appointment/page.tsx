@@ -310,9 +310,9 @@ const Appointment = () => {
         </div>
         {isOpen && (
           <Modal
-          content={<AppointmentModalContent isModalOpen={isModalOpen} />}
-          isModalOpen={isModalOpen}
-        />
+            content={<AppointmentModalContent isModalOpen={isModalOpen} />}
+            isModalOpen={isModalOpen}
+          />
         )}
       </div>
     </div>
