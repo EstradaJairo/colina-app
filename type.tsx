@@ -23,3 +23,9 @@ export interface Surgeries {
   reaction: string;
   notes: string;
 }
+export interface DueMedications {
+  name: string;
+  date: string;
+  time: string;
+  medication: string;
+}
