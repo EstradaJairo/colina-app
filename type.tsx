@@ -36,3 +36,37 @@ export interface Appointments {
   time: string;
   endtime: string;
 }
+export interface Scheduled {
+  medicationUID:number;
+  date: string;
+  time: string;
+  medication: string;
+  notes: string;
+  status: string;
+}
+export interface Prorenata {
+  medicationUID:number;
+  date: string;
+  time: string;
+  medication: string;
+  notes: string;
+  status: string;
+}
+export interface Prescription{
+  prescriptionUID:number;
+  medicine: string;
+  frequency: string;
+  interval: string;
+  dosage: string;
+  status: string;
+}
+export interface VitalSign{
+  vitalsignUID:number;
+  date: string;
+  time: string;
+  bloodpressure: string;
+  heartrate: string;
+  temperature:string;
+  respiratory: string;
+
+}
