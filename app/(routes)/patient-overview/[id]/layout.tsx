@@ -76,7 +76,6 @@ export default function PatientOverviewLayout({
     onNavigate(router, url);
     setActiveTab(-1);
     setDetailsClicked(true);
-    
   };
 
   // const handleTabClick = (index: number, url: string) => {
@@ -89,8 +88,7 @@ export default function PatientOverviewLayout({
     onNavigate(router, url);
     setActiveTab(tabIndex);
     setDetailsClicked(false);
-    console.log(url, "url")
-    
+    console.log(url, "url");
   };
   console.log(pathname, "pathname");
   useEffect(() => {
@@ -158,7 +156,7 @@ export default function PatientOverviewLayout({
 
   const handleCopyClick = () => {
     if (inputRef.current) {
-      toast.success("Patient ID copied to clipboard")
+      toast.success("Patient ID copied to clipboard");
       const range = document.createRange();
       range.selectNodeContents(inputRef.current);
       const selection = window.getSelection();
@@ -172,7 +170,7 @@ export default function PatientOverviewLayout({
   return (
     <div className="flex flex-col w-full  px-4 lg:px-28 mt-[100px]">
       <div className="flex flex-col gap-[3px]">
-        <div className="text-2xl font-bold">
+        <div className="text-2xl font-bold select-none">
           <h1>Patient Overview</h1>
           <p className="text-[14px] font-medium text-[#64748B] mt-[-5px]">
             {detailsClicked
@@ -184,7 +182,7 @@ export default function PatientOverviewLayout({
         </div>
         <div className="form ring-1 w-full h-[220px] shadow-md ring-gray-300 px-5 pt-5 rounded-md">
           <div className="flex">
-            <div className="flex flex-col">
+            <div className="flex flex-col select-none">
               <img
                 src="/imgs/dennis.svg"
                 alt="profile"
@@ -194,10 +192,11 @@ export default function PatientOverviewLayout({
             </div>
             <div className="justify-between ml-4 mt-1 flex flex-col w-full ">
               <div>
-                <div className=" w-full justify-between text-2xl font-semibold flex">
+                <div className=" w-full justify-between text-2xl font-semibold flex select-none">
                   <h1>
                     {" "}
-                    {patientData[0]?.firstName} {patientData[0]?.middleName} {patientData[0]?.lastName}
+                    {patientData[0]?.firstName} {patientData[0]?.middleName}{" "}
+                    {patientData[0]?.lastName}
                   </h1>
                   <div className=" cursor-pointer items-center ml-10 flex ">
                     <p
@@ -214,7 +213,7 @@ export default function PatientOverviewLayout({
                   </div>
                 </div>
                 <div>
-                  <div className="flex flex-row w-full mt-2">
+                  <div className="flex flex-row w-full mt-2 select-none">
                     <img
                       src="/imgs/profile-circle.svg"
                       className="px-1"
@@ -227,18 +226,21 @@ export default function PatientOverviewLayout({
                     </div>
                     <div className="flex">
                       <div>
-                        <p className="flex items-center mr-11">
+                        <p className="flex items-center mr-11 select-none">
                           Age: {patientData[0]?.age}
                         </p>
                       </div>
                       <div>
-                        <p className="flex items-center mr-11">
+                        <p className="flex items-center mr-11 select-none">
                           Gender: {patientData[0]?.gender}
                         </p>
                       </div>
                       <div className="flex">
                         <p className="flex items-center">
-                          ID: <span ref={inputRef}>{patientData[0]?.uuid}</span>
+                          ID:{" "}
+                          <span className="select-text" ref={inputRef}>
+                            {patientData[0]?.uuid}
+                          </span>
                         </p>
                         <img
                           src="/imgs/id.svg"
@@ -250,7 +252,7 @@ export default function PatientOverviewLayout({
                     </div>
                   </div>
                   <div className="mb-5"></div>
-                  <div className="flex flex-row w-full ">
+                  <div className="flex flex-row w-full select-none ">
                     <div className="w-1/6 flex">
                       <img
                         src="/imgs/codestatus.svg"
@@ -260,7 +262,7 @@ export default function PatientOverviewLayout({
                         height="26"
                       />
                       <div className="">
-                        <h1 className={`flex items-center mr-11`}>
+                        <h1 className={`flex items-center mr-11 select-none`}>
                           Code Status:
                           <p
                             className={` 
@@ -277,7 +279,7 @@ export default function PatientOverviewLayout({
                     </div>
                     <div className="flex w-5/6">
                       <div>
-                        <p className="flex items-center mr-11">
+                        <p className="flex items-center mr-11 select-none">
                           Allergy:{" "}
                           {patientData[0]?.allergies
                             ? patientData[0]?.allergies
@@ -291,7 +293,7 @@ export default function PatientOverviewLayout({
               <div className="flex gap-[50px] px-2">
                 {tabs.map((tab, index) => (
                   <p
-                    className={`cursor-pointer font-semibold ${
+                    className={`cursor-pointer select-none font-semibold ${
                       pathname === tab.url ||
                       (tabUrl === "surgeries" &&
                         tab.label === "Medical History") ||

@@ -13,12 +13,20 @@ export const Navbar = () => {
 
   const routes = [
     {
+      label: "Due Medications",
+      url: "/patient-list",
+    },
+    {
       label: "Patients List",
       url: "/patient-list",
     },
     {
       label: "Appointments",
       url: "/appointments",
+    },
+    {
+      label: "Chart",
+      url: "/patient-list",
     },
   ];
 
@@ -40,7 +48,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`fixed bg-[#007C85] w-full h-[70px] flex items-center justify-between px-[105px] z-50 show`}
+      className={`fixed bg-[#007C85] w-full h-[70px] flex items-center justify-between px-[105px] z-50 show select-none`}
     >
       <Image
         src={"/imgs/colina-logo.png"}
