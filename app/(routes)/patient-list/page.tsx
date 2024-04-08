@@ -54,7 +54,7 @@ export default function PatientPage() {
     { label: "Gender", onClick: handleSortOptionClick },
   ];
 
-  const columnLabels = ["UID", "NAME", "AGE", "GENDER", "ACTION"];
+  const columnLabels = ["UID", "NAME", "AGE", "GENDER", "ACTIONS"];
 
   const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
@@ -423,8 +423,8 @@ export default function PatientPage() {
   ];
 
   return (
-    <div className="w-full mx-24 mt-24">
-      <div className="flex justify-end w-full mx-3">
+    <div className="w-full px-[150px] py-[90px]">
+      <div className="flex justify-end w-full">
         <p
           onClick={() => onNavigate(router, "/dashboard")}
           className="text-[#64748B] underline cursor-pointer select-none"
@@ -432,7 +432,7 @@ export default function PatientPage() {
           Back to Dashboard
         </p>
       </div>
-      <div className="flex justify-between items-center w-full mx-3">
+      <div className="flex justify-between items-center w-full">
         <div className="flex flex-col mb-5 ">
           <p className="p-title">Patients List Records</p>
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mt-2 ">

@@ -29,3 +29,10 @@ export interface DueMedications {
   time: string;
   medication: string;
 }
+export interface Appointments {
+  statusClassName: string | undefined;
+  status: string;
+  date: string;
+  time: string;
+  endtime: string;
+}

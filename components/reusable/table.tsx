@@ -63,7 +63,7 @@ export default function Table<T>({
 
   return (
     <div>
-      <div className="bg-[#F4F4F4] p-[15px] flex justify-between">
+      <div className="bg-[#F4F4F4] p-[15px] flex justify-between w-full">
         <div className="flex items-center gap-[10px] px-[15px] py-[10px] bg-white ring-[1px] ring-[#E7EAEE] rounded-[5px]">
           <Search width={20} height={20} />
           <input
@@ -93,7 +93,7 @@ export default function Table<T>({
       <div className="text-[15px] flex flex-col gap-[20px]">
         <div className="">
           <div
-            className={`grid grid-cols-${columns} grid-rows-1 border-b border-[#E7EAEE] py-[12px] px-[24px] font-semibold gap-4`}
+            className={`grid grid-cols-${columns} grid-rows-1 border-b border-[#E7EAEE] py-[12px] px-[24px] font-semibold gap-20`}
           >
             {columnLabels.map((column, index) => (
               <div key={index} className="">

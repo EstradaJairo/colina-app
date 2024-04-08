@@ -207,3 +207,19 @@ select {
   /* Remove default arrow in IE */
   appearance: none;
 }
+
+.status-icon-scheduled::before {
+  content: "●";
+  margin-right: 5px;
+  color: #48dc23;
+}
+.status-icon-done::before {
+  content: "●";
+  margin-right: 5px;
+  color: #a7a59b;
+}
+.status-icon-missed::before {
+  content: "●";
+  margin-right: 5px;
+  color: #ee4d4d;
+}
