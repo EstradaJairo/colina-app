@@ -2,7 +2,7 @@
 
 import { X } from "lucide-react";
 import React, { useEffect } from "react";
-
+import Image from "next/image";
 interface Modalprops {
   isModalOpen: (isOpen: boolean) => void;
 }
@@ -27,7 +27,7 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
       <div className=" mb-9 pt-4">
         <div className="h-[600px] max-h-[300px] md:px-10 mt-5">
           <form className="">
-            <div className="flex flex-col mt-6 pb-3">
+            <div className="flex flex-col mt-6 pb-3 relative">
               <div className="flex flex-col w-full">
                 <input
                   type="date"
@@ -35,22 +35,38 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
                   className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                   placeholder="input reaction"
                 />
+                <Image
+                  className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                  width={20}
+                  height={20}
+                  src={"/svgs/calendark.svg"}
+                  alt={""}
+                />
               </div>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
-              <div>
+              <div className="">
                 <label
                   htmlFor="first-name"
                   className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   Time From:
                 </label>
-                <input
-                  type="time"
-                  required
-                  className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                  placeholder="input reaction"
-                />
+                <div className="relative">
+                  <input
+                    type="time"
+                    required
+                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                    placeholder="input reaction"
+                  />
+                  <Image
+                    className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                    width={20}
+                    height={20}
+                    src={"/svgs/clock.svg"}
+                    alt={""}
+                  />
+                </div>
               </div>
               <div>
                 <label
@@ -59,12 +75,21 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
                 >
                   Time to:
                 </label>
-                <input
-                  type="time"
-                  required
-                  className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                  placeholder="input reaction"
-                />
+                <div className="relative">
+                  <input
+                    type="time"
+                    required
+                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                    placeholder="input reaction"
+                  />
+                  <Image
+                    className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                    width={20}
+                    height={20}
+                    src={"/svgs/clock.svg"}
+                    alt={""}
+                  />
+                </div>
               </div>
               <div className="sm:col-span-2">
                 <label

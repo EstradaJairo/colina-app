@@ -60,33 +60,47 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
                   />
                 </div>
               </div>
-              <div className="flex-grow md:mr-8 mb-4 md:mb-0">
+              <div className="">
                 <label
                   htmlFor="date"
                   className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   DATE
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2.5 relative">
                   <input
                     type="date"
                     className="block w-[287px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     placeholder="Input medication"
                   />
+                  <Image
+                    className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                    width={20}
+                    height={20}
+                    src={"/svgs/calendark.svg"}
+                    alt={""}
+                  />
                 </div>
               </div>
-              <div className="flex-grow md:mr-8 mb-4 md:mb-0">
+              <div className="">
                 <label
                   htmlFor="date"
                   className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   TIME
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2.5 relative">
                   <input
                     type="time"
                     className="block w-[287px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     placeholder="Input medication"
+                  />
+                  <Image
+                    className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                    width={20}
+                    height={20}
+                    src={"/svgs/clock.svg"}
+                    alt={""}
                   />
                 </div>
               </div>
@@ -113,8 +127,8 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
                     className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
                     src="svgs/chevron-up.svg"
                     alt="Dropdown Arrow"
-                    style={{ width: '1rem', height: '1rem' }}
-                      /> */}
+                    style={{ width: "1rem", height: "1rem" }}
+                  />   */}
                   <Image
                     className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
                     width={20}
