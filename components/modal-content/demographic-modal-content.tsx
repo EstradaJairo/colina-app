@@ -283,14 +283,14 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <option value="">select status</option>
                       <option value="active">DNR</option>
                       <option value="inactive">FULL CODE</option>
+                      <Image
+                        className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
+                        width={20}
+                        height={20}
+                        src={"/svgs/chevron-up.svg"}
+                        alt={""}
+                      />
                     </select>
-                    <Image
-                      className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
-                      width={20}
-                      height={20}
-                      src={"/svgs/chevron-up.svg"}
-                      alt={""}
-                    />
                   </div>
                 </div>
                 <div>
