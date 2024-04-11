@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import React, { useEffect, useState } from "react";
-
+import Image from "next/image";
 interface Modalprops {
   isModalOpen: (isOpen: boolean) => void;
 }
@@ -50,11 +50,18 @@ export const FormsModalContent = ({ isModalOpen }: Modalprops) => {
                 >
                   DATE ISSUED
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2.5 relative">
                   <input
                     type="date"
                     className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     placeholder="Select date"
+                  />
+                  <Image
+                    className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                    width={20}
+                    height={20}
+                    src={"/svgs/calendark.svg"}
+                    alt={""}
                   />
                 </div>
               </div>

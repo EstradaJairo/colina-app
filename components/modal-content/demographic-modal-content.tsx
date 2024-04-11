@@ -109,7 +109,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       >
                         Gender
                       </label>
-                      <div className="mt-1">
+                      <div className="mt-1 relative">
                         <select
                           id="status"
                           className="block w-[173px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
@@ -122,7 +122,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                           <option value="inactive">Female</option>
                         </select>
                         <Image
-                          className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
+                          className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
                           width={20}
                           height={20}
                           src={"/svgs/chevron-up.svg"}
@@ -139,12 +139,19 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                   >
                     Date of Birth
                   </label>
-                  <div className="mt-1">
+                  <div className="mt-1 relative">
                     <input
                       type="date"
                       required
                       className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       placeholder="input date"
+                    />
+                    <Image
+                      className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                      width={20}
+                      height={20}
+                      src={"/svgs/calendark.svg"}
+                      alt={""}
                     />
                   </div>
                 </div>
@@ -265,14 +272,14 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                   </div>
                 </div>
 
-                <div>
+                <div className="">
                   <label
                     htmlFor="last-name"
                     className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Code Status
                   </label>
-                  <div className="mt-1">
+                  <div className="mt-1 relative">
                     <select
                       id="status"
                       className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
@@ -283,14 +290,14 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <option value="">select status</option>
                       <option value="active">DNR</option>
                       <option value="inactive">FULL CODE</option>
-                      <Image
-                        className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
-                        width={20}
-                        height={20}
-                        src={"/svgs/chevron-up.svg"}
-                        alt={""}
-                      />
                     </select>
+                    <Image
+                      className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                      width={20}
+                      height={20}
+                      src={"/svgs/chevron-up.svg"}
+                      alt={""}
+                    />
                   </div>
                 </div>
                 <div>
