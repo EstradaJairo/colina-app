@@ -325,24 +325,26 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     />
                   </div>
                 </div>
+
                 <div className="">
                   <label
                     htmlFor="imageUpload"
-                    className="relative h-[70px] w-full bg-[#daf3f5] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
+                    className="relative h-[70px] w-full bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
                   >
                     <Image
-                      className="w-10 h-10 mt-2 mr-1"
+                      className="w-10 h-10 mr-1"
                       width={50}
                       height={50}
                       src={"/svgs/gallery-export.svg"}
                       alt={""}
                     />
-                    Drag & Drop files or
-                    <p className=""></p>
-                    <p className="underline decoration-solid text-blue-500 ml-1">
-                      Browse
-                    </p>
-                    <span className="text-sm text-black-500 absolute bottom-2 opacity-50 pt-2">
+                    <div className="flex pb-5">
+                      <p className="">Drag & Drop files or</p>
+                      <p className="underline decoration-solid text-blue-500 ml-1">
+                        Browse
+                      </p>
+                    </div>
+                    <span className="text-sm font-normal absolute bottom-2 text-[#667085] ml-10 pb-1">
                       Support PNG & JPG
                     </span>
                   </label>
