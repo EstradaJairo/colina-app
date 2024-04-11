@@ -10,12 +10,16 @@ import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
 import { AllergiesModalContent } from "@/components/modal-content/allergies-modal-content";
 import Modal from "@/components/reusable/modal";
+import Table from "@/components/reusable/table";
+import {Allergies} from "@/type";
+import AllergiesTableData from "@/components/table-data-components/allergies-table-data";
 
 const Allergies = () => {
   const router = useRouter();
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
+  const [currentData, setCurrentData] = useState<Allergies[]>([]);
   const [sordOrder, setSortOrder] = useState("ASC");
   const [sortBy, setSortBy] = useState("firstName");
   const handleOrderOptionClick = (option: string) => {
@@ -50,6 +54,19 @@ const Allergies = () => {
     { label: "Reaction", onClick: handleSortOptionClick },
     { label: "Notes", onClick: handleSortOptionClick },
   ];
+
+  const columnLabels = [
+    "ALLERGY ID",
+    "DATE",
+    "TYPE",
+    "ALLERGEN",
+    "SEVERITY",
+    "REACTION",
+    "NOTES",
+  ];
+  const pageData = (data: Allergies[]) => {
+    setCurrentData(data);
+  };
   // end of orderby & sortby function
   // nav
   const [isOpenNav, setIsNav] = useState(false);
@@ -61,6 +78,189 @@ const Allergies = () => {
   const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
   };
+
+  const allergy = [
+    {
+      allergyId: 1,
+      date: "9/30/2023",
+      type: "skin allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Itching",
+      notes: "note 4 sample",
+    },
+    {
+      allergyId: 2,
+      date: "5/19/2023",
+      type: "skin allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Itching",
+      notes: "note 3 sample",
+    },
+    {
+      allergyId: 3,
+      date: "7/31/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Itching",
+      notes: "note 3 sample",
+    },
+    {
+      allergyId: 4,
+      date: "11/16/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Redness and Itching",
+      notes: "note 2 sample",
+    },
+    {
+      allergyId: 5,
+      date: "10/4/2023",
+      type: "skin allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Itching",
+      notes: "note 1 sample",
+    },
+    {
+      allergyId: 6,
+      date: "12/31/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Itching",
+      notes: "note 3 sample",
+    },
+    {
+      allergyId: 7,
+      date: "1/5/2024",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Cough",
+      notes: "note 2 sample",
+    },
+    {
+      allergyId: 8,
+      date: "9/23/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Redness and Itching",
+      notes: "note 4 sample",
+    },
+    {
+      allergyId: 9,
+      date: "1/26/2024",
+      type: "skin allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Redness and Itching",
+      notes: "note 2 sample",
+    },
+    {
+      allergyId: 10,
+      date: "8/10/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Itching",
+      notes: "note 3 sample",
+    },
+    {
+      allergyId: 11,
+      date: "7/5/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Redness and Itching",
+      notes: "note 2 sample",
+    },
+    {
+      allergyId: 12,
+      date: "5/9/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Redness and Itching",
+      notes: "note 1 sample",
+    },
+    {
+      allergyId: 13,
+      date: "4/13/2023",
+      type: "skin allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Redness and Itching",
+      notes: "note 3 sample",
+    },
+    {
+      allergyId: 14,
+      date: "10/12/2023",
+      type: "skin allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Cough",
+      notes: "note 3 sample",
+    },
+    {
+      allergyId: 15,
+      date: "8/17/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Redness and Itching",
+      notes: "note 4 sample",
+    },
+    {
+      allergyId: 16,
+      date: "10/11/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Itching",
+      notes: "note 1 sample",
+    },
+    {
+      allergyId: 17,
+      date: "10/27/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Cough",
+      notes: "note 1 sample",
+    },
+    {
+      allergyId: 18,
+      date: "2/23/2024",
+      type: "skin allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Redness and Itching",
+      notes: "note 4 sample",
+    },
+    {
+      allergyId: 19,
+      date: "6/30/2023",
+      type: "skin allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Itching",
+      notes: "note 3 sample",
+    },
+    {
+      allergyId: 20,
+      date: "5/7/2023",
+      type: "peanut allergy",
+      allergen: "Anesthesia",
+      severity: "Servere",
+      reaction: "Cough",
+      notes: "note 4 sample",
+    },
+  ];
 
   return (
     <div className="  w-full">
@@ -99,200 +299,16 @@ const Allergies = () => {
         </div>
       </div>
 
-      <div className="w-full m:rounded-lg items-center">
-        <div className="w-full justify-between flex items-center bg-[#F4F4F4] h-[75px] px-5">
-          <form className="">
-            {/* search bar */}
-            <label className=""></label>
-            <div className="flex">
-              <input
-                className=" py-3 px-5  w-[573px] h-[47px] pt-[14px]  ring-[1px] ring-[#E7EAEE]"
-                type="text"
-                placeholder="Search by reference no. or name..."
-              />
-            </div>
-          </form>
-          <div className="flex w-full justify-end items-center gap-[12px]">
-            <p className="text-[#191D23] opacity-[60%] font-semibold">
-              Order by
-            </p>
-            <DropdownMenu
-              options={optionsOrderedBy.map(({ label, onClick }) => ({
-                label,
-                onClick: () => {
-                  onClick(label);
-                },
-              }))}
-              open={isOpenOrderedBy}
-              width={"165px"}
-              label={"Select"}
-            />
-
-            <p className="text-[#191D23] opacity-[60%] font-semibold">
-              Sort by
-            </p>
-            <DropdownMenu
-              options={optionsSortBy.map(({ label, onClick }) => ({
-                label,
-                onClick: () => {
-                  onClick(label);
-                  console.log("label", label);
-                },
-              }))}
-              open={isOpenSortedBy}
-              width={"165px"}
-              label={"Select"}
-            />
-          </div>
-        </div>
-
-        {/* START OF TABLE */}
-        <div>
-          <table className="w-full text-left rtl:text-right">
-            <thead className="">
-              <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-6 py-3 w-[400px] h-[70px] ">
-                  Allergy ID
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
-                  Date
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
-                  Type
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
-                  Allergen
-                </th>
-                <th scope="col" className="px-5 py-3 w-[400px]">
-                  Severity
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
-                  Reaction
-                </th>
-                <th scope="col" className="px-6 py-3 w-[300px]">
-                  Notes
-                </th>
-                <th scope="col" className=" px-20 py-4 w-[10px]">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group">
-                <th
-                  scope="row"
-                  className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                >
-                  ALG-98765432HJK
-                </th>
-                <td className="truncate max-w-[552px] px-6 py-4">10/24/99</td>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Anesthesia</td>
-                <td className="px-6 py-4">Severe</td>
-                <td className="px-6 py-4">Redness and Itching</td>
-                <td className="truncate max-w-[552px] px-6 py-4">
-                  Need Epipen for emergencies.
-                </td>
-
-                <td className="px-[70px] py-4">
-                  <Edit></Edit>
-                </td>
-              </tr>
-              <tr className="odd:bg-white border-b hover:bg-[#f4f4f4] group ">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                >
-                  ALG-98765432HJK
-                </th>
-                <td className="px-6 py-4">10/24/99</td>
-                <td className="px-6 py-4">Skin Allergy</td>
-                <td className="px-6 py-4">Anesthesia</td>
-                <td className="px-6 py-4">Severe</td>
-                <td className="px-6 py-4">Redness and Itching</td>
-                <td className="px-6 py-4">Patient is under observation.</td>
-
-                <td className="px-[70px] py-4">
-                  <Edit></Edit>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        {/* END OF TABLE */}
-      </div>
-      {/* pagination */}
-      <div className="mt-5 pb-5">
-        <div className="flex justify-between">
-          <p className="font-medium text-[14px] w-[138px] items-center">
-            Page 1 of 10
-          </p>
-          <div>
-            <nav>
-              <div className="flex -space-x-px text-sm">
-                <div>
-                  <a
-                    href="#"
-                    className="flex border border-px items-center justify-center  w-[77px] h-full"
-                  >
-                    Prev
-                  </a>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    className="flex border border-px items-center justify-center  w-[49px] h-full"
-                  >
-                    1
-                  </a>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    className="flex border border-px items-center justify-center  w-[49px] h-full"
-                  >
-                    2
-                  </a>
-                </div>
-                <div>
-                  <a
-                    href="#"
-                    aria-current="page"
-                    className="flex border border-px items-center justify-center  w-[49px] h-full"
-                  >
-                    3
-                  </a>
-                </div>
-
-                <div className="">
-                  <a
-                    href="#"
-                    className="flex border border-px items-center justify-center  w-[77px] h-full mr-5"
-                  >
-                    Next
-                  </a>
-                </div>
-                <div className="flex">
-                  <input
-                    className="ipt-pagination border text-center"
-                    type="text"
-                    placeholder="-"
-                  />
-                  <div className="">
-                    <button className="btn-pagination ">Go </button>
-                  </div>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-        {isOpen && (
-          <Modal
-          content={<AllergiesModalContent isModalOpen={isModalOpen} />}
-          isModalOpen={isModalOpen}
-        />
-        )}
-      </div>
+      <Table<Allergies>
+        data={allergy}
+        columnLabels={columnLabels}
+        columns={"7"}
+        rows={4}
+        pageData={pageData}
+        component={
+          <AllergiesTableData currentPageData={currentData} columns={"7"} />
+        }
+      />
     </div>
   );
 };

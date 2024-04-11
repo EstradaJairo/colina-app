@@ -17,10 +17,10 @@ export const ErrorModalContent = ({ isModalOpen }: Modalprops) => {
               <img src="/svgs/successful.svg" alt="" />
             </div>
             <h1 className="text-[25px] font-bold text-md text-[#101828] mb-2">
-              Submitted Successfully!
+              Uh oh! Something went wrong!
             </h1>
             <p className="text-[22px] text-sm text-[#667085] mb-[40px] ">
-              Your data has been successfully added.
+              There was a problem with your request.
             </p>
           </div>
           <div>
@@ -30,7 +30,7 @@ export const ErrorModalContent = ({ isModalOpen }: Modalprops) => {
                 "
               onClick={() => isModalOpen(false)} // Close modal
             >
-              Okay, Thanks!
+              Try Again!
             </button>
           </div>
         </div>

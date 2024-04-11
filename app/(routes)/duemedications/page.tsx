@@ -11,14 +11,14 @@ import { useState } from "react";
 import DropdownMenu from "@/components/dropdown-menu";
 import { DemographicModalContent } from "@/components/modal-content/demographic-modal-content";
 import Table from "@/components/reusable/table";
-import { Patients } from "@/type";
-import PatientListTableData from "@/components/table-data-components/patient-list-table-data";
+import { DueMedications } from "@/type";
+import DueMedicationsTableData from "@/components/table-data-components/due-medications-table-data";
 
-export default function PatientPage() {
+export default function DueMedication() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
-  const [currentData, setCurrentData] = useState<Patients[]>([]);
+  const [currentData, setCurrentData] = useState<DueMedications[]>([]);
   const [sordOrder, setSortOrder] = useState("ASC");
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
 
@@ -54,7 +54,7 @@ export default function PatientPage() {
     { label: "Gender", onClick: handleSortOptionClick },
   ];
 
-  const columnLabels = ["UID", "NAME", "AGE", "GENDER", "ACTIONS"];
+  const columnLabels = ["NAME", "DATE", "TIME", "MEDICATIONS"];
 
   const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
@@ -65,101 +65,74 @@ export default function PatientPage() {
     }
   };
 
-  const pageData = (data: Patients[]) => {
+  const pageData = (data: DueMedications[]) => {
     setCurrentData(data);
   };
 
-  const patients = [
+  const duemedications = [
     {
-      uid: "A12233583839291128HDHD",
-      name: "Toddy Pechan",
-      age: 65,
+      image: "/imgs/boy1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Isavuconazonium Sulfate",
       gender: "Male",
-      action: "View",
     },
     {
-      uid: "A12233583839291128HDHD",
-      name: "Tove Beceril",
-      age: 85,
-      gender: "Female",
-      action: "View",
+      image: "/imgs/boy2.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Umeclidinium Bromide",
+      gender: "Male",
     },
     {
-      uid: "A12233583839291128HDHD",
-      name: "Alisa Olenchikov",
-      age: 14,
-      gender: "Female",
-      action: "View",
+      image: "/imgs/girl1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Levetiracetam",
+      gender: "Male",
     },
     {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
+      image: "/imgs/boy3.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Idarucizumab",
+      gender: "Male",
     },
     {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
+      image: "/imgs/boy1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Isavuconazonium Sulfate",
+      gender: "Male",
     },
     {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
+      image: "/imgs/boy1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Umeclidinium Bromide",
+      gender: "Male",
     },
     {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
+      image: "/imgs/boy1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Idarucizumab",
+      gender: "Male",
     },
     {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
+      image: "/imgs/boy1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Levetiracetam",
+      gender: "Male",
     },
   ];
 
@@ -175,9 +148,9 @@ export default function PatientPage() {
       </div>
       <div className="flex justify-between items-center w-full">
         <div className="flex flex-col mb-5 ">
-          <p className="p-title">Patients List Records</p>
+          <p className="p-title">List of Due Medications</p>
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mt-2 ">
-            Total of {patients.length} Patients
+            Total of {duemedications.length} medication
           </p>
         </div>
         <div className="flex flex-row justify-end">
@@ -191,14 +164,17 @@ export default function PatientPage() {
         </div>
       </div>
 
-      <Table<Patients>
-        data={patients}
+      <Table<DueMedications>
+        data={duemedications}
         columnLabels={columnLabels}
-        columns={"5"}
+        columns={"4"}
         rows={8}
         pageData={pageData}
         component={
-          <PatientListTableData currentPageData={currentData} columns={"5"} />
+          <DueMedicationsTableData
+            currentPageData={currentData}
+            columns={"4"}
+          />
         }
       />
 

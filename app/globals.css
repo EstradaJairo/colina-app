@@ -207,9 +207,19 @@ select {
   /* Remove default arrow in IE */
   appearance: none;
 }
-input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
+
+.status-icon-scheduled::before {
+  content: "●";
+  margin-right: 5px;
+  color: #48dc23;
 }
-input[type="time"]::-webkit-calendar-picker-indicator {
-  opacity: 0;
+.status-icon-done::before {
+  content: "●";
+  margin-right: 5px;
+  color: #a7a59b;
+}
+.status-icon-missed::before {
+  content: "●";
+  margin-right: 5px;
+  color: #ee4d4d;
 }
