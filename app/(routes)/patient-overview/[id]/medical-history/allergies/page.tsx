@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import { AllergiesModalContent } from "@/components/modal-content/allergies-modal-content";
 import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
-import { Allergies } from "@/type";
+import {Allergies} from "@/type";
 import AllergiesTableData from "@/components/table-data-components/allergies-table-data";
 
 const Allergies = () => {

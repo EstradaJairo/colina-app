@@ -66,9 +66,9 @@ export default function PatientOverviewLayout({
   };
 
   return (
-    <div className="flex flex-col w-full px-4 lg:px-28 mt-[100px]">
-      <div className="flex flex-col gap-[3px]">
-        <div className="text-2xl font-bold pb-2">
+    <div className="flex flex-col w-full px-[150px] py-[90px]">
+      <div className="flex flex-col ">
+        <div className="text-2xl font-bold pb-3">
           <h1>Patient Overview</h1>
         </div>
         <div className="form ring-1 w-full h-[220px] shadow-md ring-gray-300 px-5 pt-5 rounded-md">
@@ -81,7 +81,7 @@ export default function PatientOverviewLayout({
                 height="200"
               />
             </div>
-            <div className="justify-between ml-4 mt-1 flex flex-col w-full ">
+            <div className="justify-between ml-4 mt-1 flex flex-col w-full">
               <div>
                 <div className="w-full justify-between text-2xl font-bold flex ml-2">
                   <h1> Drake Ramos</h1>

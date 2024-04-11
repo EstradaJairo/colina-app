@@ -1,31 +1,30 @@
 "use client";
 
 import { onNavigate } from "@/actions/navigation";
-import { Patients } from "@/type";
+import { Appointments, Note } from "@/type";
 import { useRouter } from "next/navigation";
 
 interface TableDataProps {
-  currentPageData: Patients[];
+  currentPageData: Note[];
   columns: string;
 }
 
-export default function PatientListTableData({
+export default function AppointmentTableData({
   currentPageData,
   columns,
 }: TableDataProps) {
   const router = useRouter();
   return (
     <>
-      {currentPageData.map((patient, index) => (
+      {currentPageData.map((notes, index) => (
         <div
           key={index}
-          className={`grid grid-cols-${columns} p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE] gap-60 items-center group`}
+          className={`grid grid-cols-${columns}  p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE] gap-20 items-center group`}
         >
-          <div>{patient.uid}</div>
-          <div>{patient.name}</div>
-          <div>{patient.age}</div>
-          <div>{patient.gender}</div>
-          <div className="flex gap-[10px]">
+          <div>{notes.date}</div>
+          <div>{notes.subject}</div>
+          <div className="flex">{notes.notes}</div>
+          <div>
             <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
               View
             </button>
