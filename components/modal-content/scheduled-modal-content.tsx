@@ -13,7 +13,7 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
     <div className="w-[676px] h-[620px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
-          <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
+          <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
             Add Scheduled Medication Log
           </h2>
           <X
@@ -21,7 +21,7 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
             className="w-7 h-7 text-black flex items-center mt-2 mr-4"
           />
         </div>
-        <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">
+        <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
           Submit your log details.
         </p>
       </div>
@@ -32,7 +32,7 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="company"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   MEDICATION
                 </label>
@@ -47,7 +47,7 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   NOTES
                 </label>
@@ -63,14 +63,14 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
               <div className="flex-grow md:mr-8 mb-4 md:mb-0">
                 <label
                   htmlFor="date"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   DATE
                 </label>
                 <div className="mt-2.5">
                   <input
                     type="date"
-                    className="block w-[290px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    className="block w-[287px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     placeholder="Input medication"
                   />
                 </div>
@@ -78,14 +78,14 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
               <div className="flex-grow md:mr-8 mb-4 md:mb-0">
                 <label
                   htmlFor="date"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   TIME
                 </label>
                 <div className="mt-2.5">
                   <input
                     type="time"
-                    className="block w-[290px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    className="block w-[287px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     placeholder="Input medication"
                   />
                 </div>
@@ -93,14 +93,15 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
               <div>
                 <label
                   htmlFor="status"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field pb-2"
                 >
                   STATUS
                 </label>
+
                 <div className="relative">
                   <select
                     id="status"
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    className="block w-[287px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                     value={selectedStatus}
                     onChange={(e) => setSelectedStatus(e.target.value)}
                   >

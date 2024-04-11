@@ -12,7 +12,7 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
     <div className="w-[676px] h-[513px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
-          <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
+          <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
             Add an Appointment
           </h2>
           <X
@@ -20,7 +20,7 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
             className="w-7 h-7 text-black flex items-center mt-2 mr-4"
           />
         </div>
-        <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">
+        <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
           Submit your appointment schedule.
         </p>
       </div>
@@ -41,7 +41,7 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   Time From:
                 </label>
@@ -55,7 +55,7 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   Time to:
                 </label>
@@ -69,7 +69,7 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   Details
                 </label>

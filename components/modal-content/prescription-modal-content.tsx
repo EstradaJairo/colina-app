@@ -13,7 +13,7 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
     <div className="w-[676px] h-[469px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
-          <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
+          <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
             Add Prescription Schedule
           </h2>
           <X
@@ -21,7 +21,7 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
             className="w-7 h-7 text-black flex items-center mt-2 mr-4"
           />
         </div>
-        <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">
+        <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
           Submit your log details.
         </p>
       </div>
@@ -32,7 +32,7 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   MEDICINE NAME
                 </label>
@@ -48,7 +48,7 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   FREQUENCY
                 </label>
@@ -64,7 +64,7 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   INTERVAL
                 </label>
@@ -80,7 +80,7 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   DOSAGE
                 </label>
@@ -96,7 +96,7 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="status"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field pb-2"
                 >
                   STATUS
                 </label>

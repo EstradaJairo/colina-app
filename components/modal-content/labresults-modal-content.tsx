@@ -12,7 +12,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
     <div className="w-[676px] h-[485px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
-          <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
+          <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
             Add Laboratory Result
           </h2>
           <X
@@ -20,7 +20,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
             className="w-7 h-7 text-black flex items-center mt-2 mr-4"
           />
         </div>
-        <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">
+        <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
           Submit your log details.
         </p>
       </div>
@@ -31,7 +31,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   HEMOGLOBIN A1c
                 </label>
@@ -47,7 +47,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   FASTING BLOOD GLUCOSE
                 </label>
@@ -63,7 +63,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   TOTAL CHOLESTEROL
                 </label>
@@ -79,7 +79,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   LDL CHOLESTEROL
                 </label>
@@ -95,7 +95,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   HDL CHOLESTEROL
                 </label>
@@ -111,7 +111,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
               <div>
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   TRIGLYCERIDES
                 </label>
