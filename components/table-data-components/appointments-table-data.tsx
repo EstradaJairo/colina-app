@@ -19,7 +19,7 @@ export default function AppointmentTableData({
       {currentPageData.map((appointments, index) => (
         <div
           key={index}
-          className={`grid grid-cols-${columns} p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE] gap-20 items-center group`}
+          className={`grid grid-cols-${columns} p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE] gap-40 items-center group`}
         >
           <div className={appointments.statusClassName}>
             {appointments.status}

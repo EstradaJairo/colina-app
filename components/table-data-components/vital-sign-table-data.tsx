@@ -2,11 +2,11 @@
 
 import { onNavigate } from "@/actions/navigation";
 import Vitalsign from "@/app/(routes)/patient-overview/[id]/vital-signs/page";
-import {  VitalSign } from "@/type";
+import { VitalSign } from "@/type";
 import { useRouter } from "next/navigation";
-Vitalsign
+Vitalsign;
 interface TableDataProps {
-  currentPageData:VitalSign[];
+  currentPageData: VitalSign[];
   columns: string;
 }
 
@@ -33,7 +33,6 @@ export default function VitalsignTableData({
             <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
               View
             </button>
-       
           </div>
         </div>
       ))}

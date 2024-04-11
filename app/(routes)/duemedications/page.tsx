@@ -54,7 +54,7 @@ export default function DueMedication() {
     { label: "Gender", onClick: handleSortOptionClick },
   ];
 
-  const columnLabels = ["NAME", "DATE", "TIME", "MEDICATION", "ACTIONS"];
+  const columnLabels = ["NAME", "DATE", "TIME", "MEDICATIONS"];
 
   const isModalOpen = (isOpen: boolean) => {
     setIsOpen(isOpen);
@@ -71,164 +71,68 @@ export default function DueMedication() {
 
   const duemedications = [
     {
+      image: "/imgs/boy1.png",
       name: "Pamela Lamela",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Isavuconazonium Sulfate",
       gender: "Male",
-      action: "View",
     },
     {
-      name: "Denis Albite",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
-      name: "Ree Lamok",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
-      name: "Kent Vincent",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
+      image: "/imgs/boy2.png",
       name: "Pamela Lamela",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Umeclidinium Bromide",
       gender: "Male",
-      action: "View",
     },
     {
-      name: "Denis Albite",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
-      name: "Ree Lamok",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
-      name: "Kent Vincent",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
+      image: "/imgs/girl1.png",
       name: "Pamela Lamela",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Levetiracetam",
       gender: "Male",
-      action: "View",
     },
     {
-      name: "Denis Albite",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
-      name: "Ree Lamok",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
-      name: "Kent Vincent",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
+      image: "/imgs/boy3.png",
       name: "Pamela Lamela",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Idarucizumab",
       gender: "Male",
-      action: "View",
     },
     {
-      name: "Denis Albite",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
-      name: "Ree Lamok",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
-      name: "Kent Vincent",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
-      gender: "Male",
-      action: "View",
-    },
-    {
+      image: "/imgs/boy1.png",
       name: "Pamela Lamela",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Isavuconazonium Sulfate",
       gender: "Male",
-      action: "View",
     },
     {
-      name: "Denis Albite",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
+      image: "/imgs/boy1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Umeclidinium Bromide",
       gender: "Male",
-      action: "View",
     },
     {
-      name: "Ree Lamok",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
+      image: "/imgs/boy1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Idarucizumab",
       gender: "Male",
-      action: "View",
     },
     {
-      name: "Kent Vincent",
-      date: "10-02-199",
-      time: "11:00",
-      medication: "Losartan",
+      image: "/imgs/boy1.png",
+      name: "Pamela Lamela",
+      date: "1-02-1999",
+      time: "11:00 AM",
+      medication: "Levetiracetam",
       gender: "Male",
-      action: "View",
     },
   ];
 
@@ -244,7 +148,7 @@ export default function DueMedication() {
       </div>
       <div className="flex justify-between items-center w-full">
         <div className="flex flex-col mb-5 ">
-          <p className="p-title">List of Medications</p>
+          <p className="p-title">List of Due Medications</p>
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mt-2 ">
             Total of {duemedications.length} medication
           </p>
@@ -263,13 +167,13 @@ export default function DueMedication() {
       <Table<DueMedications>
         data={duemedications}
         columnLabels={columnLabels}
-        columns={"5"}
+        columns={"4"}
         rows={8}
         pageData={pageData}
         component={
           <DueMedicationsTableData
             currentPageData={currentData}
-            columns={"5"}
+            columns={"4"}
           />
         }
       />

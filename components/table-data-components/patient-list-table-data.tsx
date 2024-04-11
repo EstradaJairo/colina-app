@@ -19,7 +19,7 @@ export default function PatientListTableData({
       {currentPageData.map((patient, index) => (
         <div
           key={index}
-          className={`grid grid-cols-${columns} p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE] gap-20 items-center group`}
+          className={`grid grid-cols-${columns} p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE] gap-60 items-center group`}
         >
           <div>{patient.uid}</div>
           <div>{patient.name}</div>
