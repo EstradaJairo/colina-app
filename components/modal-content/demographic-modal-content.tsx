@@ -24,7 +24,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
             </h2>
             <X
               onClick={() => isModalOpen(false)}
-              className="w-7 h-7 text-black flex items-center mt-2"
+              className="w-7 h-7 text-red-500 flex items-center mt-2"
             />
           </div>
           <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
