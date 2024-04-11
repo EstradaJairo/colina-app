@@ -12,7 +12,7 @@ export const NotesModalContent = ({ isModalOpen }: Modalprops) => {
     <div className="w-[676px] h-[465px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
-          <h2 className="p-title text-left text-[#071437] pl-9 mt-7">
+          <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
             Add Note and Compose
           </h2>
           <X
@@ -20,7 +20,7 @@ export const NotesModalContent = ({ isModalOpen }: Modalprops) => {
             className="w-7 h-7 text-black flex items-center mt-2 mr-4"
           />
         </div>
-        <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">
+        <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
           Submit your log details.
         </p>
       </div>
@@ -31,7 +31,7 @@ export const NotesModalContent = ({ isModalOpen }: Modalprops) => {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="company"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   SUBJECT
                 </label>
@@ -39,14 +39,14 @@ export const NotesModalContent = ({ isModalOpen }: Modalprops) => {
                   <input
                     type="text"
                     className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    placeholder="input medication"
+                    placeholder="input subject"
                   />
                 </div>
               </div>
               <div className="sm:col-span-2">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold leading-6 text-gray-900 required-field"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
                   NOTES
                 </label>

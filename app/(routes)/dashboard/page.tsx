@@ -6,7 +6,7 @@ import React from "react";
 const Dashboard = () => {
   return (
     <div className="w-full">
-      <div className="justify-center items-center mx-[154px] mt-[90px]">
+      <div className="justify-center items-center mx-[154px] mt-[90px] overflow-hidden">
         <div className="w-full">
           <p className="font-bold text-[25px] select-none">
             WELCOME TO DASHBOARD!

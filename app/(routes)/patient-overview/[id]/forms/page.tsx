@@ -7,7 +7,7 @@ import Edit from "@/components/shared/buttons/view";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
-import { SuccessModaContent } from "@/components/modal-content/success-modal-content";
+import { FormsModalContent } from "@/components/modal-content/forms-modal-content";
 import Modal from "@/components/reusable/modal";
 
 export default function forms() {
@@ -202,7 +202,7 @@ export default function forms() {
         </div>
         {isOpen && (
           <Modal
-            content={<SuccessModaContent isModalOpen={isModalOpen} />}
+            content={<FormsModalContent isModalOpen={isModalOpen} />}
             isModalOpen={isModalOpen}
           />
         )}

@@ -4,7 +4,7 @@ interface Modalprops {
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const SuccessModaContent = ({ isModalOpen }: Modalprops) => {
+export const SuccessModalContent = ({ isModalOpen }: Modalprops) => {
   const [selectedStatus, setSelectedStatus] = useState(""); // State to hold the selected status
 
   return (

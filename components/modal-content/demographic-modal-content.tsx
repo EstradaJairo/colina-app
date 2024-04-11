@@ -19,7 +19,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
       <div className="w-[1200px] h-[645px]">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between px-8">
-            <h2 className="p-title text-left text-[#071437] mt-5 w-full">
+            <h2 className="p-title text-left text-[#071437] mt-5 w-full pl-2">
               Patient Demographic
             </h2>
             <X
@@ -27,7 +27,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
               className="w-7 h-7 text-black flex items-center mt-2"
             />
           </div>
-          <p className="text-sm pl-9 text-gray-600 pb-10 pt-2">
+          <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
             Add patient demographic and make sure to submit.
           </p>
           <div className="flex place-items-end mr-4"></div>
@@ -39,7 +39,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     First Name
                   </label>
@@ -55,7 +55,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Middle Name
                   </label>
@@ -71,7 +71,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Last Name
                   </label>
@@ -88,7 +88,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                   <div>
                     <label
                       htmlFor="last-name"
-                      className="block text-md font-bold leading-6 text-gray-900 required-field"
+                      className="block text-lg font-bold leading-6 text-gray-900 required-field"
                     >
                       Age
                     </label>
@@ -105,7 +105,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     <div>
                       <label
                         htmlFor="last-name"
-                        className="block text-md font-bold leading-6 text-gray-900 required-field"
+                        className="block text-lg font-bold leading-6 text-gray-900 required-field"
                       >
                         Gender
                       </label>
@@ -135,7 +135,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Date of Birth
                   </label>
@@ -151,7 +151,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Address 1
                   </label>
@@ -167,7 +167,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Address 2
                   </label>
@@ -184,7 +184,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                   <div>
                     <label
                       htmlFor="last-name"
-                      className="block text-md font-bold leading-6 text-gray-900 required-field"
+                      className="block text-lg font-bold leading-6 text-gray-900 required-field"
                     >
                       City
                     </label>
@@ -201,7 +201,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     <div>
                       <label
                         htmlFor="last-name"
-                        className="block text-md font-bold leading-6 text-gray-900 required-field"
+                        className="block text-lg font-bold leading-6 text-gray-900 required-field"
                       >
                         State
                       </label>
@@ -219,7 +219,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Country
                   </label>
@@ -235,7 +235,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Zip
                   </label>
@@ -251,7 +251,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Allergies
                   </label>
@@ -268,7 +268,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Code Status
                   </label>
@@ -283,20 +283,20 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       <option value="">select status</option>
                       <option value="active">DNR</option>
                       <option value="inactive">FULL CODE</option>
+                      <Image
+                        className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
+                        width={20}
+                        height={20}
+                        src={"/svgs/chevron-up.svg"}
+                        alt={""}
+                      />
                     </select>
-                    <Image
-                      className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
-                      width={20}
-                      height={20}
-                      src={"/svgs/chevron-up.svg"}
-                      alt={""}
-                    />
                   </div>
                 </div>
                 <div>
                   <label
                     htmlFor="last-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Addmission Date
                   </label>
@@ -312,7 +312,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                 <div>
                   <label
                     htmlFor="first-name"
-                    className="block text-md font-bold leading-6 text-gray-900 required-field"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
                     Email
                   </label>
@@ -325,24 +325,26 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     />
                   </div>
                 </div>
+
                 <div className="">
                   <label
                     htmlFor="imageUpload"
-                    className="relative h-[70px] w-full bg-[#daf3f5] border-black border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
+                    className="relative h-[70px] w-full bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
                   >
                     <Image
-                      className="w-10 h-10 mt-2 mr-1"
+                      className="w-10 h-10 mr-1"
                       width={50}
                       height={50}
                       src={"/svgs/gallery-export.svg"}
                       alt={""}
                     />
-                    Drag & Drop files or
-                    <p className=""></p>
-                    <p className="underline decoration-solid text-blue-500 ml-1">
-                      Browse
-                    </p>
-                    <span className="text-sm text-black-500 absolute bottom-2 opacity-50 pt-2">
+                    <div className="flex pb-5">
+                      <p className="">Drag & Drop files or</p>
+                      <p className="underline decoration-solid text-blue-500 ml-1">
+                        Browse
+                      </p>
+                    </div>
+                    <span className="text-sm font-normal absolute bottom-2 text-[#667085] ml-10 pb-1">
                       Support PNG & JPG
                     </span>
                   </label>
