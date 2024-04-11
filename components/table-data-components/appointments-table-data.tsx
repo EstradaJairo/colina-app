@@ -21,7 +21,9 @@ export default function AppointmentTableData({
           key={index}
           className={`grid grid-cols-${columns} p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE] gap-60 items-center group`}
         >
-          <div className={appointments.statusClassName}>
+          <div
+            className={`w-[300px] text-nowrap ${appointments.statusClassName}`}
+          >
             {appointments.status}
           </div>
           <div>{appointments.date}</div>
