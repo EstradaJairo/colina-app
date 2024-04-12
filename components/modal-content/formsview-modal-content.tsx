@@ -79,7 +79,7 @@ export const FormsviewModalContent = ({ isModalOpen }: Modalprops) => {
         </div>
       </div>
       <div className="pt-10">
-        <div className="justify-center flex border-t-2">
+        <div className="justify-center flex border-t-2 ">
           <button
             onClick={() => isModalOpen(false)}
             type="button"
