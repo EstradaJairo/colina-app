@@ -5,7 +5,7 @@ interface ModalProps {
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const LabResultsViewModalContent = ({ isModalOpen }: ModalProps) => {
+export const LabResultsviewModalContent = ({ isModalOpen }: ModalProps) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
