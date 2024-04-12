@@ -174,9 +174,9 @@ export default function PatientPage() {
         </p>
       </div>
       <div className="flex justify-between items-center w-full">
-        <div className="flex flex-col mb-5 ">
-          <p className="text-[25px] font-bold">Patients List Records</p>
-          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] mt-2 ">
+        <div className="flex flex-col mb-5">
+          <p className="p-title">Patients List Records</p>
+          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] ">
             Total of {patients.length} Patients
           </p>
         </div>

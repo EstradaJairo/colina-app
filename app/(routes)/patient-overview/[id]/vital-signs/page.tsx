@@ -107,7 +107,7 @@ const vitalsign = () => {
       <div className="flex justify-between ">
         <div className="flex flex-col">
           <div className="flex flex-row items-center">
-            <h1 className="font-bold text-[20px]">Vital Signs</h1>
+            <h1 className="p-title">Vital Signs</h1>
           </div>
           {/* number of patiens */}
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] mb-4 ">

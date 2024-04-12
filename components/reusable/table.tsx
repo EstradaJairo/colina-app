@@ -67,7 +67,7 @@ export default function Table<T>({
         <div className="flex items-center gap-[10px] px-[15px] py-[10px] bg-white ring-[1px] ring-[#E7EAEE] rounded-[5px]">
           <Search width={20} height={20} />
           <input
-            className="outline-none w-[573px] "
+            className="outline-none w-[573px] text-[15px] "
             type="text"
             placeholder="Search by reference no. or name..."
           />
@@ -107,7 +107,7 @@ export default function Table<T>({
           {component}
         </div>
         <div className="flex justify-between items-center">
-          <p className="font-medium text-[14px]">
+          <p className="font-medium text-[15px]">
             Page {currentPage} of {totalPages}
           </p>
           <div className="flex gap-[20px] items-center">

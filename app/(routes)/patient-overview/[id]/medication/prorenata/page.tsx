@@ -102,10 +102,10 @@ const Prorenata = () => {
       <div className="flex justify-between ">
         <div className="flex flex-col">
           <div className="flex flex-row items-center">
-            <h1 className="font-bold text-[20px]">Medication</h1>
-            <h1 className="p-title mx-2">{">"} </h1>
+            <h1 className="p-title">Medication Logs</h1>
+            <h1 className="slash mx-2">{"/"} </h1>
             <h1
-              className="font-bold text-[20px] cursor-pointer text-gray-600"
+              className="font-medium text-[20px] cursor-pointer text-gray-600"
               onClick={() =>
                 onNavigate(
                   router,
@@ -115,8 +115,8 @@ const Prorenata = () => {
             >
               Scheduled
             </h1>
-            <h1 className="p-title mx-2">{">"} </h1>
-            <h1 className="font-bold text-[20px] cursor-pointer text-[#007C85]">
+            <h1 className="slash mx-2">{"/"} </h1>
+            <h1 className="font-medium text-[20px] cursor-pointer text-[#007C85]">
               PRN
             </h1>
           </div>

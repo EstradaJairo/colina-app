@@ -102,12 +102,12 @@ const Scheduled = () => {
       <div className="flex justify-between ">
         <div className="flex flex-col">
           <div className="flex flex-row items-center">
-            <h1 className="font-bold text-[20px]">Medication</h1>
-            <h1 className="p-title mx-2">{">"} </h1>
-            <h1 className="font-bold text-[20px] text-[#007C85] cursor-pointer">
+            <h1 className="p-title">Medication Logs</h1>
+            <h1 className="slash mx-2">{"/"} </h1>
+            <h1 className="font-medium text-[20px] text-[#007C85] cursor-pointer">
               Scheduled
             </h1>
-            <h1 className="p-title mx-2">{">"} </h1>
+            <h1 className="slash mx-2">{"/"} </h1>
             <h1
               onClick={() =>
                 onNavigate(
@@ -115,7 +115,7 @@ const Scheduled = () => {
                   "/patient-overview/patientId/medication/prorenata"
                 )
               }
-              className="font-bold text-[20px] cursor-pointer text-gray-600"
+              className="font-medium text-[20px] cursor-pointer text-gray-600"
             >
               PRN
             </h1>

@@ -94,8 +94,8 @@ export default function Surgeries() {
       <div className="flex justify-between items-center">
         <div className="flex flex-col">
           <div className="flex flex-row items-center">
-            <h1 className="font-bold text-[20px]">Medical History</h1>
-            <h1 className="p-title mx-2">{">"} </h1>
+            <h1 className="p-title">Medical History</h1>
+            <h1 className="slash mx-2">{"/"} </h1>
             <h1
               onClick={() =>
                 onNavigate(
@@ -103,12 +103,12 @@ export default function Surgeries() {
                   "/patient-overview/patiendId/medical-history/allergies"
                 )
               }
-              className="font-bold text-[20px]  cursor-pointer text-gray-600"
+              className="font-medium text-[20px]  cursor-pointer text-gray-600"
             >
               Allergies
             </h1>
-            <h1 className="p-title mx-2">{">"} </h1>
-            <h1 className="font-bold text-[20px] cursor-pointer text-[#007C85]">
+            <h1 className="slash mx-2">{"/"} </h1>
+            <h1 className="font-medium text-[20px] cursor-pointer text-[#007C85]">
               Surgeries
             </h1>
           </div>

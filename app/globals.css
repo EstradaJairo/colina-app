@@ -35,7 +35,7 @@ body,
   justify-content: center;
   border-radius: 5.23px;
   color: #000000;
-  font-size: 18px;
+  font-size: 15px;
   padding: 10px 20px 10px 20px;
   border: solid #d0d5dd 2px;
   text-decoration: none;
@@ -129,9 +129,17 @@ body,
 
 .p-title {
   height: 32px;
-  line-height: 32px;
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 20px;
+  /* w-[1157px] h-[32px] leading-[42px] font-bold */
+}
+
+.slash {
+  height: 32px;
+  font-weight: 500;
   font-size: 24px;
+  color: #191d23;
+  opacity: 60%;
   /* w-[1157px] h-[32px] leading-[42px] font-bold */
 }
 
