@@ -115,7 +115,7 @@ const Scheduled = () => {
                   "/patient-overview/patientId/medication/prorenata"
                 )
               }
-              className="font-bold text-[25px] cursor-pointer text-gray-600"
+              className="font-bold text-[20px] cursor-pointer text-gray-600"
             >
               PRN
             </h1>
