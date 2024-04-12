@@ -155,7 +155,7 @@ const Dashboard = () => {
           </div>
           {/* {/ End of Upcoming Appointments /}
       {/ Start of Due Medications /} */}
-          <div className="w-[621px] max-h-[670px] h-[670px] border-[1px] border-[#E4E4E7] py-3 select-none px-[40px]">
+          <div className="w-[621px] h-[666px] border-[1px] border-[#E4E4E7] py-3 select-none px-[40px]">
             <div className="">
               <p className="p-title pt-2">Due Medications</p>
               <p className="font-normal text-[15px] text-[#71717A] pt-3 mb-3">
