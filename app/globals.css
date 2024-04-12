@@ -223,3 +223,9 @@ select {
   margin-right: 5px;
   color: #ee4d4d;
 }
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
