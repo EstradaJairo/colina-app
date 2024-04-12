@@ -110,7 +110,7 @@ const vitalsign = () => {
             <h1 className="p-title">Vital Signs</h1>
           </div>
           {/* number of patiens */}
-          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
+          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] mb-4 ">
             Total of 6 Patients
           </p>
         </div>

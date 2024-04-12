@@ -65,7 +65,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="fixed bg-[#007C85] w-full h-[70px] flex items-center justify-between px-[145px] z-10">
+    <div className="fixed bg-[#007C85] w-full h-[70px] flex items-center justify-between px-[145px] z-10 text-[15px]">
       <Image src={"/imgs/colina-logo.png"} alt={""} width={200} height={37} />
       <div className="flex gap-[30px] items-center">
         <div className="flex gap-[40px] items-end">

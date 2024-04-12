@@ -116,7 +116,7 @@ export const AllergiesModalContent = ({ isModalOpen }: Modalprops) => {
         <button
           onClick={() => isModalOpen(false)}
           type="button"
-          className="w-[600px] h-[50px] bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-[#000] mt-2 mr-[3px] rounded-bl-md"
+          className="w-[600px] h-[50px] bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-2 mr-[3px] rounded-bl-md"
         >
           Cancel
         </button>

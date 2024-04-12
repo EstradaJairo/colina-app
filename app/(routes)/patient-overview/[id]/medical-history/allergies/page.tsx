@@ -263,14 +263,16 @@ const Allergies = () => {
   ];
 
   return (
-    <div className="  w-full">
+    <div className=" w-full">
       <div className="flex justify-between ">
         <div className="flex flex-col">
           <div className="flex flex-row items-center">
             <h1 className="p-title">Medical History</h1>
-            <h1 className="p-title mx-2">{">"} </h1>
-            <h1 className="p-title text-[#007C85] cursor-pointer">Allergies</h1>
-            <h1 className="p-title mx-2">{">"} </h1>
+            <h1 className="slash mx-2">{"/"} </h1>
+            <h1 className="font-medium text-[20px] text-[#007C85] cursor-pointer">
+              Allergies
+            </h1>
+            <h1 className="slash mx-2">{"/"} </h1>
             <h1
               onClick={() =>
                 onNavigate(
@@ -278,13 +280,13 @@ const Allergies = () => {
                   "/patient-overview/patientId/medical-history/surgeries"
                 )
               }
-              className="p-title cursor-pointer text-gray-600"
+              className="font-medium text-[20px] cursor-pointer text-gray-600"
             >
               Surgeries
             </h1>
           </div>
           {/* number of patiens */}
-          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
+          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] mb-4 ">
             Total of 6 Patients
           </p>
         </div>

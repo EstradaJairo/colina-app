@@ -141,7 +141,7 @@ export default function DueMedication() {
       <div className="flex justify-end w-full">
         <p
           onClick={() => onNavigate(router, "/dashboard")}
-          className="text-[#64748B] underline cursor-pointer select-none"
+          className="text-[#64748B] underline cursor-pointer select-none text-[15px]"
         >
           Back to Dashboard
         </p>
@@ -149,7 +149,7 @@ export default function DueMedication() {
       <div className="flex justify-between items-center w-full">
         <div className="flex flex-col mb-5 ">
           <p className="p-title">List of Due Medications</p>
-          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mt-2 ">
+          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px]">
             Total of {duemedications.length} medication
           </p>
         </div>
