@@ -12,6 +12,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { Prorenata } from "@/type";
 import ProrenataTableData from "@/components/table-data-components/prorenata-table-data";
+import { PrnModalContent } from "@/components/modal-content/prn-modal-content";
 
 const Prorenata = () => {
   const router = useRouter();
@@ -143,6 +144,12 @@ const Prorenata = () => {
           <ProrenataTableData currentPageData={currentData} columns={"7"} />
         }
       />
+      {isOpen && (
+        <Modal
+          content={<PrnModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };

@@ -13,6 +13,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { LabResults } from "@/type";
 import LabResultsTableData from "@/components/table-data-components/lab-results-table-data";
+import { LabresultsModalContent } from "@/components/modal-content/labresults-modal-content";
 
 const LabResults = () => {
   const router = useRouter();
@@ -161,6 +162,12 @@ const LabResults = () => {
           <LabResultsTableData currentPageData={currentData} columns={"8"} />
         }
       />
+      {isOpen && (
+        <Modal
+          content={<LabresultsModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };

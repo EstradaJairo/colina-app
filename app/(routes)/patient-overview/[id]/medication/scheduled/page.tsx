@@ -10,7 +10,7 @@ import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
-import { Schedule } from "@/type";
+import { Scheduled } from "@/type";
 import ScheduledTableData from "@/components/table-data-components/scheduled-table-data";
 import { ScheduledModalContent } from "@/components/modal-content/scheduled-modal-content";
 

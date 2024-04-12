@@ -13,6 +13,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { PatientAppointment } from "@/type";
 import PatientAppointmentTableData from "@/components/table-data-components/patient-appointment-table-data";
+import { AppointmentModalContent } from "@/components/modal-content/appointment-modal-content";
 
 const PatientAppointments = () => {
   const router = useRouter();
@@ -156,6 +157,12 @@ const PatientAppointments = () => {
           />
         }
       />
+      {isOpen && (
+        <Modal
+          content={<AppointmentModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };
