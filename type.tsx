@@ -5,7 +5,7 @@ export interface Patients {
   gender: string;
 }
 
-export interface Allergies {
+export interface Allergy {
   allergyId: number;
   date: string;
   type: string;
@@ -57,4 +57,39 @@ export interface Note {
   date: string;
   subject: string;
   notes: string;
+}
+
+export interface Schedule {
+  medicationUID: string;
+  date: string;
+  time: number;
+  medication: string;
+  notes: string;
+  status: string;
+}
+export interface vitalsign {
+  vitalsignUID: string;
+  date: string;
+  time: number;
+  bloodpressure: string;
+  heartrate: string;
+  temperature: string;
+  respiratory: string;
+}
+
+export interface prorenata {
+  medicationUID: string;
+  date: string;
+  time: string;
+  medication: string;
+  notes: string;
+  status: string;
+}
+export interface prescription {
+  prescriptionUID: string;
+  medicine: string;
+  frequency: string;
+  interval: string;
+  dosage: string;
+  status: string;
 }

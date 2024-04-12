@@ -1,11 +1,11 @@
 "use client";
 
 import { onNavigate } from "@/actions/navigation";
-import {  Prescription } from "@/type";
+import { prescription } from "@/type";
 import { useRouter } from "next/navigation";
 
 interface TableDataProps {
-  currentPageData: Prescription[];
+  currentPageData: prescription[];
   columns: string;
 }
 
@@ -27,7 +27,7 @@ export default function PrescriptionTableData({
           <div>{prescription.interval}</div>
           <div>{prescription.dosage}</div>
           <div>{prescription.status}</div>
-          <div className="flex gap-[10px]">
+          <div className="flex justify-center gap-[10px]">
             <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
               View
             </button>

@@ -20,7 +20,7 @@ export default function DueMedicationsTableData({
       {currentPageData.map((duemedications, index) => (
         <div
           key={index}
-          className={`grid grid-cols-${columns} p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE]  gap-60 items-center group`}
+          className={`grid grid-cols-4 p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE]  gap-20 items-center group`}
         >
           <div className="flex items-center gap-5">
             {duemedications.image && (

@@ -1,11 +1,11 @@
 "use client";
 
 import { onNavigate } from "@/actions/navigation";
-import { Prorenata } from "@/type";
+import { prorenata } from "@/type";
 import { useRouter } from "next/navigation";
 
 interface ProrenataDataProps {
-  currentPageData: Prorenata[];
+  currentPageData: prorenata[];
   columns: string;
 }
 
@@ -27,7 +27,7 @@ export default function ProrenataTableData({
           <div>{prorenata.medication}</div>
           <div>{prorenata.notes}</div>
           <div>{prorenata.status}</div>
-          <div className="flex gap-[10px]">
+          <div className="flex justify-center gap-[10px]">
             <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
               Edit
             </button>

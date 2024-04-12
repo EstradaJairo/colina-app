@@ -24,7 +24,7 @@ export default function AppointmentTableData({
           <div>{notes.date}</div>
           <div>{notes.subject}</div>
           <div className="flex">{notes.notes}</div>
-          <div>
+          <div className="flex justify-center gap-[10px]">
             <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
               View
             </button>

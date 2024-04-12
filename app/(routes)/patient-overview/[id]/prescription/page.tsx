@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import { AllergiesModalContent } from "@/components/modal-content/allergies-modal-content";
 import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
-import {Prescription} from "@/type";
+import { Prescription } from "@/type";
 import PrescriptionTableData from "@/components/table-data-components/prescription-table-data";
 
 const Prescription = () => {
@@ -62,7 +62,7 @@ const Prescription = () => {
     "INTERVAL",
     "DOSAGE",
     "STATUS",
-    "ACTION",
+    "ACTIONS",
   ];
   const pageData = (data: Prescription[]) => {
     setCurrentData(data);

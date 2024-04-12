@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import { AllergiesModalContent } from "@/components/modal-content/allergies-modal-content";
 import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
-import {VitalSign} from "@/type";
+import { VitalSign } from "@/type";
 import VitalSignTableData from "@/components/table-data-components/vital-sign-table-data";
 
 const vitalsign = () => {
@@ -63,7 +63,7 @@ const vitalsign = () => {
     "HEART RATE",
     "TEMPERATURE",
     "RESPIRATORY",
-    "ACTION",
+    "ACTIONS",
   ];
   const pageData = (data: VitalSign[]) => {
     setCurrentData(data);

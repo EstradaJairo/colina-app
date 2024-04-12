@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import { AllergiesModalContent } from "@/components/modal-content/allergies-modal-content";
 import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
-import {Allergies} from "@/type";
+import { Allergy } from "@/type";
 import AllergiesTableData from "@/components/table-data-components/allergies-table-data";
 
 const Allergies = () => {
@@ -19,7 +19,7 @@ const Allergies = () => {
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
-  const [currentData, setCurrentData] = useState<Allergies[]>([]);
+  const [currentData, setCurrentData] = useState<Allergy[]>([]);
   const [sordOrder, setSortOrder] = useState("ASC");
   const [sortBy, setSortBy] = useState("firstName");
   const handleOrderOptionClick = (option: string) => {
@@ -62,9 +62,9 @@ const Allergies = () => {
     "ALLERGEN",
     "SEVERITY",
     "REACTION",
-    "NOTES",
+    "ACTIONS",
   ];
-  const pageData = (data: Allergies[]) => {
+  const pageData = (data: Allergy[]) => {
     setCurrentData(data);
   };
   // end of orderby & sortby function
@@ -275,7 +275,7 @@ const Allergies = () => {
               onClick={() =>
                 onNavigate(
                   router,
-                  "/patient-overview/patiendId/medical-history/surgeries"
+                  "/patient-overview/patientId/medical-history/surgeries"
                 )
               }
               className="p-title cursor-pointer text-gray-600"
@@ -299,7 +299,7 @@ const Allergies = () => {
         </div>
       </div>
 
-      <Table<Allergies>
+      <Table<Allergy>
         data={allergy}
         columnLabels={columnLabels}
         columns={"7"}

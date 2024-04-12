@@ -51,7 +51,6 @@ const Scheduled = () => {
     { label: "Medication", onClick: handleSortOptionClick },
     { label: "Notes", onClick: handleSortOptionClick },
     { label: "Status", onClick: handleSortOptionClick },
-  
   ];
 
   const columnLabels = [
@@ -61,8 +60,7 @@ const Scheduled = () => {
     "MEDICATION",
     "NOTES",
     "STATUS",
-    "ACTION",
-   
+    "ACTIONS",
   ];
   const pageData = (data: Scheduled[]) => {
     setCurrentData(data);
@@ -79,7 +77,7 @@ const Scheduled = () => {
     setIsOpen(isOpen);
   };
 
-  const scheduled = [
+  const Schedule = [
     {
       medicationUID: 1,
       date: "9/30/2023",
@@ -96,7 +94,6 @@ const Scheduled = () => {
       notes: "Servere",
       status: "Itching",
     },
-
   ];
 
   return (
@@ -112,7 +109,7 @@ const Scheduled = () => {
               onClick={() =>
                 onNavigate(
                   router,
-                  "/patient-overview/patiendId/medical-history/surgeries"
+                  "/patient-overview/patientId/medication/prorenata"
                 )
               }
               className="p-title cursor-pointer text-gray-600"
@@ -137,7 +134,7 @@ const Scheduled = () => {
       </div>
 
       <Table<Scheduled>
-        data={scheduled}
+        data={Schedule}
         columnLabels={columnLabels}
         columns={"7"}
         rows={4}
@@ -149,6 +146,5 @@ const Scheduled = () => {
     </div>
   );
 };
-
 
 export default Scheduled;

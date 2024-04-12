@@ -58,7 +58,7 @@ const LabResults = () => {
   const columnLabels = [
     "LAB ID",
     "DATE",
-    "FBG",
+    "FASTING BLOOD GLUCOSE",
     "TOTAL CHOLESTEROL",
     "LDL-C",
     "HDL-C",

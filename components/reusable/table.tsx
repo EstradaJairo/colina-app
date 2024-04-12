@@ -59,7 +59,7 @@ export default function Table<T>({
 
   useEffect(() => {
     pageData(currentPageData);
-  }, [currentPageData]);
+  }, [currentPage]);
 
   return (
     <div>
@@ -93,10 +93,13 @@ export default function Table<T>({
       <div className="text-[15px] flex flex-col gap-[20px]">
         <div className="">
           <div
-            className={`grid grid-cols-${columns} grid-rows-1 border-b border-[#E7EAEE] py-[12px] px-[24px] flex font-semibold  gap-60 justify-between`}
+            className={`grid grid-cols-${columns} grid-rows-1 border-b border-[#E7EAEE] py-[12px] px-[24px] flex font-semibold gap-20 justify-between`}
           >
             {columnLabels.map((column, index) => (
-              <div key={index} className="">
+              <div
+                key={index}
+                className={column === "ACTIONS" ? "flex justify-center" : ""}
+              >
                 {column}
               </div>
             ))}

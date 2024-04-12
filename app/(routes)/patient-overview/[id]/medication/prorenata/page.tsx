@@ -51,7 +51,6 @@ const Prorenata = () => {
     { label: "Medication", onClick: handleSortOptionClick },
     { label: "Notes", onClick: handleSortOptionClick },
     { label: "Status", onClick: handleSortOptionClick },
-  
   ];
 
   const columnLabels = [
@@ -61,8 +60,7 @@ const Prorenata = () => {
     "MEDICATION",
     "NOTES",
     "STATUS",
-    "ACTION",
-   
+    "ACTIONS",
   ];
   const pageData = (data: Prorenata[]) => {
     setCurrentData(data);
@@ -96,7 +94,6 @@ const Prorenata = () => {
       notes: "Servere",
       status: "goods",
     },
-
   ];
 
   return (
@@ -104,21 +101,21 @@ const Prorenata = () => {
       <div className="flex justify-between ">
         <div className="flex flex-col">
           <div className="flex flex-row items-center">
-            <h1 className="p-title">Medical History</h1>
-            <h1 className="p-title mx-2">{">"} </h1>
-            <h1 className="p-title text-[#007C85] cursor-pointer">Scheduled</h1>
+            <h1 className="p-title">Medication</h1>
             <h1 className="p-title mx-2">{">"} </h1>
             <h1
+              className="p-title cursor-pointer text-gray-600"
               onClick={() =>
                 onNavigate(
                   router,
-                  "/patient-overview/patiendId/medical-history/surgeries"
+                  "/patient-overview/patientId/medication/scheduled"
                 )
               }
-              className="p-title cursor-pointer text-gray-600"
             >
-              PRN
+              Scheduled
             </h1>
+            <h1 className="p-title mx-2">{">"} </h1>
+            <h1 className="p-title cursor-pointer text-[#007C85]">PRN</h1>
           </div>
           {/* number of patiens */}
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
@@ -149,6 +146,5 @@ const Prorenata = () => {
     </div>
   );
 };
-
 
 export default Prorenata;

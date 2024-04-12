@@ -1,11 +1,11 @@
 "use client";
 
 import { onNavigate } from "@/actions/navigation";
-import { Allergies, Patients, Scheduled } from "@/type";
+import { Schedule } from "@/type";
 import { useRouter } from "next/navigation";
 
 interface ScheduledDataProps {
-  currentPageData: Scheduled[];
+  currentPageData: Schedule[];
   columns: string;
 }
 
@@ -27,7 +27,7 @@ export default function ScheduledTableData({
           <div>{scheduled.medication}</div>
           <div>{scheduled.notes}</div>
           <div>{scheduled.status}</div>
-          <div className="flex gap-[10px]">
+          <div className="flex justify-center gap-[10px]">
             <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
               Edit
             </button>

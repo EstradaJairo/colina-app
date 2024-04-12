@@ -76,7 +76,7 @@ export default function Surgeries() {
     "ALLERGEN",
     "SEVERITY",
     "REACTION",
-    "NOTES",
+    "ACTIONS",
   ];
   const pageData = (data: Surgeries[]) => {
     setCurrentData(data);
@@ -100,7 +100,7 @@ export default function Surgeries() {
               onClick={() =>
                 onNavigate(
                   router,
-                  "/patient-overview/patiendId/medical-history/surgeries"
+                  "/patient-overview/patiendId/medical-history/allergies"
                 )
               }
               className=" p-title  cursor-pointer text-gray-600"
