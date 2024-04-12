@@ -7,26 +7,17 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 
 export async function searchPatientList(
-  term: string,
-  currentPage: number,
-  sortBy: string,
-  sortOrder: "ASC" | "DESC",
+
   router: any // Pass router instance as a parameter
 ): Promise<any> {
-  const requestData = {
-    term: term,
-    page: currentPage,
-    sortBy: sortBy,
-    sortOrder: sortOrder,
-  };
+
   try {
-    console.log("searchPatient", requestData);
     const accessToken = getAccessToken();
     if (!accessToken) {
       setAccessToken("");
       onNavigate(router, "/login");
       throw new Error("Access token not found in local storage");
-      
+
     }
 
     const headers = {
@@ -35,7 +26,7 @@ export async function searchPatientList(
 
     const response = await axios.post(
       `${apiUrl}/patient-information/list`,
-      requestData,
+      {},
       { headers }
     );
 

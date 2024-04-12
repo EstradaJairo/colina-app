@@ -7,12 +7,13 @@ import Edit from "@/components/shared/buttons/view";
 import { useRouter } from "next/navigation";
 // import { Modal } from "@/components/shared/demographicmodal";
 import Modal from "@/components/reusable/modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DropdownMenu from "@/components/dropdown-menu";
 import { DemographicModalContent } from "@/components/modal-content/demographic-modal-content";
 import Table from "@/components/reusable/table";
 import { Patients } from "@/type";
 import PatientListTableData from "@/components/table-data-components/patient-list-table-data";
+import { searchPatientList } from "@/app/api/patients-api/patientList.api";
 
 export default function PatientPage() {
   const router = useRouter();
@@ -69,99 +70,119 @@ export default function PatientPage() {
     setCurrentData(data);
   };
 
-  const patients = [
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Toddy Pechan",
-      age: 65,
-      gender: "Male",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Tove Beceril",
-      age: 85,
-      gender: "Female",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Alisa Olenchikov",
-      age: 14,
-      gender: "Female",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-    {
-      uid: "A12233583839291128HDHD",
-      name: "Roxane Tollow",
-      age: 4,
-      gender: "Agender",
-      action: "View",
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await searchPatientList(router);
+        if (response.data.length === 0) {
+          setCurrentData([]);
+          // setIsLoading(false);
+          return;
+        }
+        setCurrentData(response.data);
+        console.log("Data:", response.data);
+      } catch (error: any) {
+        // setError(error.message);
+        // setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // const patients = [
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Toddy Pechan",
+  //     age: 65,
+  //     gender: "Male",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Tove Beceril",
+  //     age: 85,
+  //     gender: "Female",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Alisa Olenchikov",
+  //     age: 14,
+  //     gender: "Female",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  //   {
+  //     uid: "A12233583839291128HDHD",
+  //     name: "Roxane Tollow",
+  //     age: 4,
+  //     gender: "Agender",
+  //     action: "View",
+  //   },
+  // ];
 
   return (
     <div className="w-full px-[150px] py-[90px]">
@@ -177,7 +198,7 @@ export default function PatientPage() {
         <div className="flex flex-col mb-5">
           <p className="p-title">Patients List Records</p>
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] ">
-            Total of {patients.length} Patients
+            Total of {currentData.length} Patients
           </p>
         </div>
         <div className="flex flex-row justify-end">
@@ -192,7 +213,7 @@ export default function PatientPage() {
       </div>
 
       <Table<Patients>
-        data={patients}
+        data={currentData}
         columnLabels={columnLabels}
         columns={"5"}
         rows={8}

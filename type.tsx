@@ -1,10 +1,11 @@
 export interface Patients {
-  uid: string;
-  name: string;
   age: number;
+  codeStatus: string;
+  firstName: string;
   gender: string;
+  lastName: string;
+  uuid: string;
 }
-
 export interface Allergy {
   allergyId: number;
   date: string;

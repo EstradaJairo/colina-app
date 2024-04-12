@@ -21,8 +21,10 @@ export default function PatientListTableData({
           key={index}
           className={`grid grid-cols-${columns} p-[10px] py-[12px] px-[24px] hover:bg-[#F4F4F4] border-b border-[#E7EAEE] gap-20 items-center group`}
         >
-          <div>{patient.uid}</div>
-          <div>{patient.name}</div>
+          <div>{patient.uuid}</div>
+          <div>
+            {patient.firstName} {patient.lastName}
+          </div>
           <div>{patient.age}</div>
           <div>{patient.gender}</div>
           <div className="flex justify-center gap-[10px]">

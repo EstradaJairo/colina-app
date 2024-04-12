@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 
 export const Login = () => {
   const router = useRouter();
-  if(getAccessToken()){
+  if (getAccessToken()) {
     onNavigate(router, "/dashboard");
   }
 
@@ -19,9 +19,6 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [isInvalid, setIsInvalid] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  
-
-
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,7 +47,6 @@ export const Login = () => {
   };
 
   console.log("email", email);
-
 
   return (
     <div>
@@ -90,7 +86,11 @@ export const Login = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                     />
-                    <div className={`${isInvalid? "block":"hidden"} absolute right-3 flex items-center justify-center h-full `}>
+                    <div
+                      className={`${
+                        isInvalid ? "block" : "hidden"
+                      } absolute right-3 flex items-center justify-center h-full `}
+                    >
                       <img
                         className=""
                         src="/icons/invalidIcon.svg"
@@ -113,7 +113,11 @@ export const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                       required
                     />
-                    <div className={`${isInvalid? "block":"hidden"} absolute right-3 flex items-center justify-center h-full `}>
+                    <div
+                      className={`${
+                        isInvalid ? "block" : "hidden"
+                      } absolute right-3 flex items-center justify-center h-full `}
+                    >
                       <img
                         className=""
                         src="/icons/invalidIcon.svg"
