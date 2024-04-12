@@ -9,7 +9,7 @@ interface Modalprops {
 
 export const LabresultsviewModalContent = ({ isModalOpen }: Modalprops) => {
   return (
-    <div className="w-[676px] h-[485px]">
+    <div className="w-[676px] h-[655px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
           <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
@@ -21,124 +21,44 @@ export const LabresultsviewModalContent = ({ isModalOpen }: Modalprops) => {
           />
         </div>
         <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
-          View your log details.
+          Submit your log details.
         </p>
       </div>
       <div className=" mb-9 pt-4">
-        <div className="h-[600px] max-h-[320px] md:px-10 mt-5">
-          <form className="">
-            <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="first-name"
-                  className="block text-md font-bold leading-6 text-gray-900 required-field"
-                >
-                  HEMOGLOBIN A1c
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    required
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    placeholder="input hemoglobin a1c"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="last-name"
-                  className="block text-md font-bold leading-6 text-gray-900 required-field"
-                >
-                  FASTING BLOOD GLUCOSE
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    required
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    placeholder="input fasting blood glucose"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="first-name"
-                  className="block text-md font-bold leading-6 text-gray-900 required-field"
-                >
-                  TOTAL CHOLESTEROL
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    required
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    placeholder="input total cholesterol"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="last-name"
-                  className="block text-md font-bold leading-6 text-gray-900 required-field"
-                >
-                  LDL CHOLESTEROL
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    required
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                    placeholder="input ldl cholesterol"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="first-name"
-                  className="block text-md font-bold leading-6 text-gray-900 required-field"
-                >
-                  HDL CHOLESTEROL
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    required
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    placeholder="input hdl cholesterol"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="last-name"
-                  className="block text-md font-bold leading-6 text-gray-900 required-field"
-                >
-                  TRIGLYCERIDES
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    required
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                    placeholder="input triglycerides"
-                  />
-                </div>
-              </div>
+        <div className="h-[600px] max-h-[480px] md:px-10 mt-5">
+          <div className="even:bg-gray-50 cursor-pointer">
+            <div className="w-full max-w-xl">
+              <iframe
+                src={"/imgs/docs.png"}
+                width="400px"
+                height="400px"
+                className=""
+              ></iframe>
             </div>
-          </form>
+
+            <div className="flex space-x-4 mt-4 ml-[80px] text-[15px]">
+              <button className=" w-[100px] h-[35px] px-2 py-2 text-blue-500 bg-white-500 border-2 border-blue-500 ">
+                Previous
+              </button>
+
+              <button className=" w-[100px] h-[35px] px-2 py-2 text-white bg-blue-500 hover:bg-blue-700 ">
+                Next
+              </button>
+            </div>
+          </div>
         </div>
         <div className="">
-          <div className="justify-center flex border-t-2 ">
+          <div className="justify-center flex border-t-4 ">
             <button
               onClick={() => isModalOpen(false)}
               type="button"
-              className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-2 mr-[3px] rounded-bl-md"
+              className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-4 mr-[3px] rounded-bl-md"
             >
               Cancel
             </button>
             <button
               type="button"
-              className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-2 rounded-br-md"
+              className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
             >
               Submit
             </button>
