@@ -66,7 +66,7 @@ export default function forms() {
     <div className="  w-full">
       <div className="flex justify-between items-center">
         <div className="flex flex-col">
-          <h1 className="p-title">Forms</h1>
+          <h1 className="font-bold text-[20px]">Forms</h1>
         </div>
         <div className="flex flex-row justify-end">
           <button onClick={() => isModalOpen(true)}>
