@@ -13,6 +13,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { Note } from "@/type";
 import NotesTableData from "@/components/table-data-components/notes-table-data";
+import { NotesModalContent } from "@/components/modal-content/notes-modal-content";
 
 const Notes = () => {
   const router = useRouter();
@@ -137,6 +138,12 @@ const Notes = () => {
           <NotesTableData currentPageData={currentData} columns={"4"} />
         }
       />
+      {isOpen && (
+        <Modal
+          content={<NotesModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };

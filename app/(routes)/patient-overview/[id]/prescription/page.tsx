@@ -13,6 +13,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { Prescription } from "@/type";
 import PrescriptionTableData from "@/components/table-data-components/prescription-table-data";
+import { PrescriptionModalContent } from "@/components/modal-content/prescription-modal-content";
 
 const Prescription = () => {
   const router = useRouter();
@@ -131,6 +132,12 @@ const Prescription = () => {
           <PrescriptionTableData currentPageData={currentData} columns={"7"} />
         }
       />
+      {isOpen && (
+        <Modal
+          content={<PrescriptionModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };

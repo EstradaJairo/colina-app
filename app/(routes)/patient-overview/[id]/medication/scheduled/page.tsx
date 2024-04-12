@@ -12,6 +12,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { Scheduled } from "@/type";
 import ScheduledTableData from "@/components/table-data-components/scheduled-table-data";
+import { ScheduledModalContent } from "@/components/modal-content/scheduled-modal-content";
 
 const Scheduled = () => {
   const router = useRouter();
@@ -143,6 +144,12 @@ const Scheduled = () => {
           <ScheduledTableData currentPageData={currentData} columns={"7"} />
         }
       />
+      {isOpen && (
+        <Modal
+          content={<ScheduledModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };

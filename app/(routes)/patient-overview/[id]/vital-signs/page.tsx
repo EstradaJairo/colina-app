@@ -13,6 +13,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { VitalSign } from "@/type";
 import VitalSignTableData from "@/components/table-data-components/vital-sign-table-data";
+import { VitalModalContent } from "@/components/modal-content/vital-modal-content";
 
 const vitalsign = () => {
   const router = useRouter();
@@ -134,6 +135,12 @@ const vitalsign = () => {
           <VitalSignTableData currentPageData={currentData} columns={"8"} />
         }
       />
+      {isOpen && (
+        <Modal
+          content={<VitalModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };

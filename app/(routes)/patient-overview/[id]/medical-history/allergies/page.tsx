@@ -309,6 +309,12 @@ const Allergies = () => {
           <AllergiesTableData currentPageData={currentData} columns={"7"} />
         }
       />
+      {isOpen && (
+        <Modal
+          content={<AllergiesModalContent isModalOpen={isModalOpen} />}
+          isModalOpen={isModalOpen}
+        />
+      )}
     </div>
   );
 };
