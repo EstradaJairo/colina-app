@@ -131,7 +131,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
               </div>
               <div className="grid-cols-1 grid">
                 <label
-                  htmlFor="formControlsFile"
+                  htmlFor="imageUpload"
                   className="relative h-[70px] w-[596px] bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
                 >
                   <Image

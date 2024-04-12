@@ -10,7 +10,7 @@ export const PrnModalContent = ({ isModalOpen }: ModalProps) => {
   const [selectedStatus, setSelectedStatus] = useState("");
 
   return (
-    <div className="w-[676px] h-[633px]">
+    <div className="w-[676px] h-[631px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
           <h2 className="p-title text-left text-[#071437] pl-10 mt-7">

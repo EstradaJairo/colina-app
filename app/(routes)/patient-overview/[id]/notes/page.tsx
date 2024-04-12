@@ -13,7 +13,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { Note } from "@/type";
 import NotesTableData from "@/components/table-data-components/notes-table-data";
-import { NotesModalContent } from "@/components/modal-content/notes-modal-content";
+import { NursenotesModalContent } from "@/components/modal-content/nursenotes-modal-content";
 
 const Notes = () => {
   const router = useRouter();
@@ -140,7 +140,7 @@ const Notes = () => {
       />
       {isOpen && (
         <Modal
-          content={<NotesModalContent isModalOpen={isModalOpen} />}
+          content={<NursenotesModalContent isModalOpen={isModalOpen} />}
           isModalOpen={isModalOpen}
         />
       )}
