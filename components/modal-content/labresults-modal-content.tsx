@@ -14,7 +14,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
   }
 
   return (
-    <div className="w-[676px] h-[565px]">
+    <div className="w-[676px] h-[575px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
           <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
@@ -30,7 +30,7 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
         </p>
       </div>
       <div className=" mb-9 pt-4">
-        <div className="h-[600px] max-h-[390px] md:px-10 mt-5">
+        <div className="h-[600px] max-h-[400px] md:px-10 mt-5">
           <form className="">
             <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
               <div>
@@ -129,10 +129,33 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
                   />
                 </div>
               </div>
-              <div className="grid-cols-1 grid">
+              <div>
+                <label
+                  htmlFor="last-name"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
+                >
+                  DATE
+                </label>
+                <div className="mt-2.5 relative">
+                  <input
+                    type="date"
+                    required
+                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                    placeholder="input triglycerides"
+                  />
+                  <Image
+                    className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                    width={20}
+                    height={20}
+                    src={"/svgs/calendark.svg"}
+                    alt={""}
+                  />
+                </div>
+              </div>
+              <div className="">
                 <label
                   htmlFor="imageUpload"
-                  className="relative h-[70px] w-[596px] bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
+                  className="relative h-12 w-full bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-[33px]"
                 >
                   <Image
                     className="w-10 h-10 mr-1"
@@ -141,14 +164,14 @@ export const LabresultsModalContent = ({ isModalOpen }: Modalprops) => {
                     src={"/svgs/folder-add.svg"}
                     alt={""}
                   />
-                  <div className="flex pb-5 text-nowrap text-[15px] ">
-                    <p className="">Upload or Attach Files or</p>
-                    <p className="underline decoration-solid text-blue-500 ml-1">
+                  <div className="flex pb-5 text-nowrap text-[12px] ">
+                    <p className="mt-2">Upload or Attach Files or</p>
+                    <p className="underline decoration-solid text-blue-500 ml-1 mt-2">
                       Browse
                     </p>
                   </div>
-                  <span className="text-[14px] font-normal absolute bottom-2 text-[#667085] ml-10 pb-1">
-                    Minimum file size 100 MB.
+                  <span className="text-[10px] font-normal absolute bottom-2 text-[#667085] ml-10 ">
+                    Minimum file size
                   </span>
                 </label>
                 <input
