@@ -45,7 +45,7 @@ export default function PatientOverviewLayout({
     },
     {
       label: "Notes",
-      url: "/patient-overview/patientId/notes",
+      url: "/patient-overview/patientId/notes/nurses-notes",
     },
     {
       label: "Forms",

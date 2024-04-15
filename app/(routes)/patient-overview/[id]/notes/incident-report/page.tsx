@@ -11,16 +11,17 @@ import { useRouter } from "next/navigation";
 import { AllergiesModalContent } from "@/components/modal-content/allergies-modal-content";
 import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
-import { Note } from "@/type";
+import { IncidentReport, Note } from "@/type";
 import NotesTableData from "@/components/table-data-components/notes-table-data";
 import { NotesModalContent } from "@/components/modal-content/notes-modal-content";
+import IncidentReportTableData from "@/components/table-data-components/incident-report-table-data";
 
-const Notes = () => {
+const IncidentReports = () => {
   const router = useRouter();
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
-  const [currentData, setCurrentData] = useState<Note[]>([]);
+  const [currentData, setCurrentData] = useState<IncidentReport[]>([]);
   const [sordOrder, setSortOrder] = useState("ASC");
   const [sortBy, setSortBy] = useState("firstName");
   const handleOrderOptionClick = (option: string) => {
@@ -56,8 +57,8 @@ const Notes = () => {
     { label: "Notes", onClick: handleSortOptionClick },
   ];
 
-  const columnLabels = ["DATE", "SUBJECT", "NOTES", "ACTIONS"];
-  const pageData = (data: Note[]) => {
+  const columnLabels = ["DATE", "TIME", "SUBJECT", "DETAILS OF INCIDENT", "REPORTED BY", "ACTIONS"];
+  const pageData = (data: IncidentReport[]) => {
     setCurrentData(data);
   };
   // end of orderby & sortby function
@@ -77,36 +78,14 @@ const Notes = () => {
     }
   };
 
-  const notes = [
+  const reports = [
     {
       date: "9/30/2023",
-      subject: "10:00AM",
-      notes:
-        "Patient reports occasional headaches. Advised to monitor and follow up.",
-    },
-    {
-      date: "9/30/2023",
-      subject: "10:00AM",
-      notes:
-        "Patient reports occasional headaches. Advised to monitor and follow up.",
-    },
-    {
-      date: "9/30/2023",
-      subject: "10:00AM",
-      notes:
-        "Patient reports occasional headaches. Advised to monitor and follow up.",
-    },
-    {
-      date: "9/30/2023",
-      subject: "10:00AM",
-      notes:
-        "Patient reports occasional headaches. Advised to monitor and follow up.",
-    },
-    {
-      date: "9/30/2023",
-      subject: "10:00AM",
-      notes:
-        "Patient reports occasional headaches. Advised to monitor and follow up.",
+      time:"10:00",
+      subject: "Falls Report",
+      detailsOfincident:"Falls",
+      reportedBy:
+        "Ahmad M. Ahmad, MD",
     },
   ];
 
@@ -116,6 +95,21 @@ const Notes = () => {
         <div className="flex flex-col">
           <div className="flex flex-row items-center">
             <h1 className="p-title">Notes</h1>
+            <h1 className="slash mx-2">{"/"} </h1>
+            <h1 className="font-medium text-[20px] text-gray-600 cursor-pointer" onClick={() =>
+                onNavigate(
+                  router,
+                  "/patient-overview/patientId/notes/nurses-notes"
+                )
+              }>
+              Nurses Notes
+            </h1>
+            <h1 className="slash mx-2">{"/"} </h1>
+            <h1
+              className="font-medium text-[20px] cursor-pointer text-[#007C85]"
+            >
+              Incident Report
+            </h1>
           </div>
           {/* number of patiens */}
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] mb-4 ">
@@ -133,14 +127,14 @@ const Notes = () => {
         </div>
       </div>
 
-      <Table<Note>
-        data={notes}
+      <Table<IncidentReport>
+        data={reports}
         columnLabels={columnLabels}
-        columns={"4"}
+        columns={"6"}
         rows={4}
         pageData={pageData}
         component={
-          <NotesTableData currentPageData={currentData} columns={"4"} />
+          <IncidentReportTableData currentPageData={currentData} columns={"5"} />
         }
       />
       {isOpen && (
@@ -153,4 +147,4 @@ const Notes = () => {
   );
 };
 
-export default Notes;
+export default IncidentReports;

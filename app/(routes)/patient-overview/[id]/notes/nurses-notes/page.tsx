@@ -11,17 +11,16 @@ import { useRouter } from "next/navigation";
 import { AllergiesModalContent } from "@/components/modal-content/allergies-modal-content";
 import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
-import PrescriptionTableData from "@/components/table-data-components/prescription-table-data";
-import { PrescriptionModalContent } from "@/components/modal-content/prescription-modal-content";
-import FormsTableData from "@/components/table-data-components/forms-table-data";
-import { forms } from "@/type";
+import { Note } from "@/type";
+import NotesTableData from "@/components/table-data-components/notes-table-data";
+import { NotesModalContent } from "@/components/modal-content/notes-modal-content";
 
-const Prescription = () => {
+const Notes = () => {
   const router = useRouter();
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
-  const [currentData, setCurrentData] = useState<forms[]>([]);
+  const [currentData, setCurrentData] = useState<Note[]>([]);
   const [sordOrder, setSortOrder] = useState("ASC");
   const [sortBy, setSortBy] = useState("firstName");
   const handleOrderOptionClick = (option: string) => {
@@ -57,13 +56,8 @@ const Prescription = () => {
     { label: "Notes", onClick: handleSortOptionClick },
   ];
 
-  const columnLabels = [
-    "NAME OF DOCUMENT",
-    "DATE ISSUED",
-    "NOTES",
-    "ACTIONS"
-  ];
-  const pageData = (data: forms[]) => {
+  const columnLabels = ["DATE", "TIME", "SUBJECT", "NOTES", "ACTIONS"];
+  const pageData = (data: Note[]) => {
     setCurrentData(data);
   };
   // end of orderby & sortby function
@@ -83,13 +77,22 @@ const Prescription = () => {
     }
   };
 
-  const forms = [
+  const notes = [
     {
-      nameOfDocument: "Patient Details",
-      dateIssued: "10/12/2024",
-      notes: "Patient reports occasional headaches. Advised to monitor and follow up.",
-     
+      date: "9/30/2023",
+      time:"10:00",
+      subject: "Falls Report",
+      notes:
+        "Patient reports occasional headaches. Advised to monitor and follow up.",
     },
+    {
+      date: "9/30/2023",
+      time:"10:00",
+      subject: "Falls Report",
+      notes:
+        "Patient reports occasional headaches. Advised to monitor and follow up.",
+    },
+    
   ];
 
   return (
@@ -97,11 +100,27 @@ const Prescription = () => {
       <div className="flex justify-between ">
         <div className="flex flex-col">
           <div className="flex flex-row items-center">
-            <h1 className="p-title">Forms</h1>
+            <h1 className="p-title">Notes</h1>
+            <h1 className="slash mx-2">{"/"} </h1>
+            <h1 className="font-medium text-[20px] text-[#007C85] cursor-pointer">
+              Nurses Notes
+            </h1>
+            <h1 className="slash mx-2">{"/"} </h1>
+            <h1
+              onClick={() =>
+                onNavigate(
+                  router,
+                  "/patient-overview/patientId/notes/incident-report"
+                )
+              }
+              className="font-medium text-[20px] cursor-pointer text-gray-600"
+            >
+              Incident Report
+            </h1>
           </div>
           {/* number of patiens */}
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] mb-4 ">
-            Total of 6 logs
+            Total of 6 Patients
           </p>
         </div>
         <div className="flex flex-row justify-end">
@@ -115,19 +134,19 @@ const Prescription = () => {
         </div>
       </div>
 
-      <Table<forms>
-        data={forms}
+      <Table<Note>
+        data={notes}
         columnLabels={columnLabels}
-        columns={"4"}
+        columns={"5"}
         rows={4}
         pageData={pageData}
         component={
-          <FormsTableData currentPageData={currentData} columns={"7"} />
+          <NotesTableData currentPageData={currentData} columns={"5"} />
         }
       />
       {isOpen && (
         <Modal
-          content={<PrescriptionModalContent isModalOpen={isModalOpen} />}
+          content={<NotesModalContent isModalOpen={isModalOpen} />}
           isModalOpen={isModalOpen}
         />
       )}
@@ -135,4 +154,4 @@ const Prescription = () => {
   );
 };
 
-export default Prescription;
+export default Notes;
