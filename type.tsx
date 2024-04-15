@@ -56,8 +56,16 @@ export interface PatientAppointment {
 }
 export interface Note {
   date: string;
+  time:string;
   subject: string;
   notes: string;
+}
+export interface IncidentReport {
+  date: string;
+  time:string;
+  subject: string;
+  detailsOfincident: string;
+  reportedBy: string;
 }
 
 export interface Schedule {
@@ -93,4 +101,10 @@ export interface prescription {
   interval: string;
   dosage: string;
   status: string;
+}
+
+export interface forms{
+  nameOfDocument: string;
+  dateIssued: string;
+  notes: string;
 }
