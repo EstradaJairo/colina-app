@@ -33,7 +33,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
           <div className="flex place-items-end mr-4"></div>
         </div>
         <div className=" mb-9 pt-4">
-          <div className="h-[600px] max-h-[480px] md:px-10 mt-5">
+          <div className="h-[600px] max-h-[470px] md:px-10 mt-5">
             <form className="">
               <div className="grid grid-cols-3 gap-x-4 gap-y-4">
                 <div>
@@ -305,14 +305,21 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     htmlFor="last-name"
                     className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
-                    Addmission Date
+                    Admission Date
                   </label>
-                  <div className="mt-1">
+                  <div className="mt-1 relative">
                     <input
                       type="date"
                       required
                       className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
                       placeholder="input addmission date"
+                    />
+                    <Image
+                      className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
+                      width={20}
+                      height={20}
+                      src={"/svgs/calendark.svg"}
+                      alt={""}
                     />
                   </div>
                 </div>
@@ -366,17 +373,17 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
               </div>
             </form>
           </div>
-          <div className="justify-center flex border-t-2 ">
+          <div className="justify-center flex border-t-4 ">
             <button
               onClick={() => isModalOpen(false)}
               type="button"
-              className="w-[600px] h-[50px]  bg-[#BCBCBC] hover:bg-[#D9D9D9] text-white font-medium mt-2 mr-[3px] rounded-bl-md"
+              className="w-[600px] h-[50px]  bg-[#BCBCBC] hover:bg-[#D9D9D9] text-white font-medium mt-4 mr-[3px] rounded-bl-md"
             >
               Cancel
             </button>
             <button
               type="button"
-              className="w-[600px] bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff]  font-medium mt-2 rounded-br-md"
+              className="w-[600px] bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff]  font-medium mt-4 rounded-br-md"
             >
               Submit
             </button>

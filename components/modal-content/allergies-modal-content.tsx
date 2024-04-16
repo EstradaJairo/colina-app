@@ -9,7 +9,7 @@ interface Modalprops {
 
 export const AllergiesModalContent = ({ isModalOpen }: Modalprops) => {
   return (
-    <div className="w-[676px] h-[543px]">
+    <div className="w-[676px] h-[554px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
           <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
@@ -25,7 +25,7 @@ export const AllergiesModalContent = ({ isModalOpen }: Modalprops) => {
         </p>
       </div>
       <div className=" mb-9 pt-4">
-        <div className="w-full max-h-[400px] md:px-10 mt-5">
+        <div className="w-full max-h-[380px] md:px-10 mt-5">
           <form className="">
             <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
               <div>
@@ -112,17 +112,17 @@ export const AllergiesModalContent = ({ isModalOpen }: Modalprops) => {
           </form>
         </div>
       </div>
-      <div className="justify-center flex border-t-2">
+      <div className="justify-center flex border-t-4">
         <button
           onClick={() => isModalOpen(false)}
           type="button"
-          className="w-[600px] h-[50px] bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-2 mr-[3px] rounded-bl-md"
+          className="w-[600px] h-[50px] bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-4 mr-[3px] rounded-bl-md"
         >
           Cancel
         </button>
         <button
           type="button"
-          className="w-[600px] bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-2 rounded-br-md"
+          className="w-[600px] bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
         >
           Submit
         </button>
