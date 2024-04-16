@@ -2,9 +2,11 @@
 import { useEffect, useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { Navbar } from "@/components/navbar";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { searchPatientList } from "@/app/api/patients-api/patientList.api";
+import { Patients } from "@/type";
 
 export default function PatientOverviewLayout({
   children,
@@ -13,43 +15,50 @@ export default function PatientOverviewLayout({
 }>) {
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams<{
+    id: any;
+    tag: string;
+    item: string;
+  }>();
+  const patientId = params.id.toUpperCase();
 
   const [activeTab, setActiveTab] = useState<number>(0);
   const [tabUrl, setTabUrl] = useState<string>("");
   const [detailsClicked, setDetailsClicked] = useState<boolean>(false);
+  const [currentData, setCurrentData] = useState<Patients[]>([]);
 
   const tabs = [
     {
       label: "Medical History",
-      url: "/patient-overview/patientId/medical-history/allergies",
+      url: `/patient-overview/${patientId}/medical-history/allergies`,
     },
     {
       label: "Medications",
-      url: "/patient-overview/patientId/medication/scheduled",
+      url: `/patient-overview/${patientId}/medication/scheduled`,
     },
     {
       label: "Prescription",
-      url: "/patient-overview/patientId/prescription",
+      url: `/patient-overview/${patientId}/prescription`,
     },
     {
       label: "Vital Signs",
-      url: "/patient-overview/patientId/vital-signs",
+      url: `/patient-overview/${patientId}/vital-signs`,
     },
     {
       label: "Laboratory Results",
-      url: "/patient-overview/patientId/lab-results",
+      url: `/patient-overview/${patientId}/lab-results`,
     },
     {
       label: "Appointment",
-      url: "/patient-overview/patientId/patient-appointment",
+      url: `/patient-overview/${patientId}/patient-appointment`,
     },
     {
       label: "Notes",
-      url: "/patient-overview/patientId/notes",
+      url: `/patient-overview/${patientId}/notes`,
     },
     {
       label: "Forms",
-      url: "/patient-overview/patientId/forms",
+      url: `/patient-overview/${patientId}/forms`,
     },
   ];
 
@@ -64,6 +73,28 @@ export default function PatientOverviewLayout({
     setActiveTab(tabIndex);
     setDetailsClicked(false);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await searchPatientList(router);
+        if (response.data[0].uuid === patientId) {
+          if (response.data.length === 0) {
+            setCurrentData([]);
+            // setIsLoading(false);
+            return;
+          }
+          setCurrentData(response.data);
+          console.log("Data:", response.data);
+        }
+      } catch (error: any) {
+        // setError(error.message);
+        // setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="flex flex-col w-full px-[150px] py-[90px]">
@@ -84,7 +115,9 @@ export default function PatientOverviewLayout({
             <div className="justify-between ml-4 mt-1 flex flex-col w-full">
               <div>
                 <div className="w-full justify-between p-title flex ml-2">
-                  <h1> Drake Ramos</h1>
+                  <h1>
+                    {currentData[0]?.firstName} {currentData[0]?.lastName}
+                  </h1>
                   <div className=" cursor-pointer items-center ml-10 flex ">
                     <p
                       className="underline text-[15px] font-semibold text-[#191D23] text-right mr-10"
@@ -113,14 +146,19 @@ export default function PatientOverviewLayout({
                     </div>
                     <div className="flex">
                       <div>
-                        <p className="flex items-center mr-11">Age: 100</p>
+                        <p className="flex items-center mr-11">
+                          Age: {currentData[0]?.age}
+                        </p>
                       </div>
                       <div>
-                        <p className="flex items-center mr-11">Gender: Male</p>
+                        <p className="flex items-center mr-11">
+                          Gender:
+                          {currentData[0]?.gender}
+                        </p>
                       </div>
                       <div className="flex">
                         <p className="flex items-center">
-                          ID: SGY-5146846548465
+                          ID: {currentData[0]?.uuid}
                         </p>
                       </div>
                     </div>
@@ -136,7 +174,9 @@ export default function PatientOverviewLayout({
                     />
                     <div className="flex items-center mr-11 gap-1">
                       <p>Code Status:</p>
-                      <p className="text-[#DB3956]">DNR</p>
+                      <p className="text-[#DB3956]">
+                        {currentData[0]?.codeStatus}
+                      </p>
                     </div>
                     <div className="flex">
                       <div>
@@ -158,7 +198,7 @@ export default function PatientOverviewLayout({
                     }`}
                     key={index}
                     onClick={() => {
-                      handleTabClick(tab.url, index); // Pass both URL and tabIndex
+                      handleTabClick(tab.url, index);
                     }}
                   >
                     {tab.label}

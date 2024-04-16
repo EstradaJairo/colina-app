@@ -33,7 +33,7 @@ export default function PatientListTableData({
               onClick={() =>
                 onNavigate(
                   router,
-                  `/patient-overview/patientId/medical-history/allergies`
+                  `/patient-overview/${patient.uuid}/medical-history/allergies`
                 )
               }
             >
