@@ -14,13 +14,11 @@ export interface Allergy {
   reaction: string;
   notes: string;
 }
-export interface Surgeries {
-  surgeryId: number;
+export interface Surgery {
+  surgeryuid: number;
   date: string;
   type: string;
-  allergen: string;
-  severity: string;
-  reaction: string;
+  surgery: string;
   notes: string;
 }
 export interface DueMedications {

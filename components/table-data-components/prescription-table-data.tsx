@@ -3,7 +3,9 @@
 import { onNavigate } from "@/actions/navigation";
 import { prescription } from "@/type";
 import { useRouter } from "next/navigation";
-
+import Modal from "@/components/reusable/modal";
+import { PrescriptionviewModalContent } from "../modal-content/prescriptionview-modal-content";
+import { useState } from "react";
 interface TableDataProps {
   currentPageData: prescription[];
   columns: string;
@@ -14,6 +16,13 @@ export default function PrescriptionTableData({
   columns,
 }: TableDataProps) {
   const router = useRouter();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isModalOpen = (isOpen: boolean) => {
+    setIsOpen(isOpen);
+  };
+
   return (
     <>
       {currentPageData.map((prescription, index) => (
@@ -28,13 +37,24 @@ export default function PrescriptionTableData({
           <div>{prescription.dosage}</div>
           <div>{prescription.status}</div>
           <div className="flex justify-center gap-[10px]">
-            <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
+            <button
+              className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white"
+              onClick={() => isModalOpen(true)}
+            >
               View
             </button>
             <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
-              View
+              Edit
             </button>
           </div>
+          {isOpen && (
+            <Modal
+              content={
+                <PrescriptionviewModalContent isModalOpen={isModalOpen} />
+              }
+              isModalOpen={isModalOpen}
+            />
+          )}
         </div>
       ))}
     </>

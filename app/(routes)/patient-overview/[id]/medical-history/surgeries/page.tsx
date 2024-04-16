@@ -9,7 +9,7 @@ import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
 import { SurgeriesModalContent } from "@/components/modal-content/surgeries-modal-content";
 import Modal from "@/components/reusable/modal";
-import { Surgeries } from "@/type";
+import { Surgery } from "@/type";
 import Table from "@/components/reusable/table";
 import SurgeriesTableData from "@/components/table-data-components/surgeries-table-data";
 
@@ -18,7 +18,7 @@ export default function Surgeries() {
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
-  const [currentData, setCurrentData] = useState<Surgeries[]>([]);
+  const [currentData, setCurrentData] = useState<Surgery[]>([]);
   const [sordOrder, setSortOrder] = useState("ASC");
   const [sortBy, setSortBy] = useState("firstName");
   const handleOrderOptionClick = (option: string) => {
@@ -60,25 +60,22 @@ export default function Surgeries() {
   const [isOpen, setIsOpen] = useState(false);
   const surgeries = [
     {
-      surgeryId: 1,
+      surgeryuid: 1,
       date: "9/30/2023",
       type: "skin allergy",
-      allergen: "Anesthesia",
-      severity: "Servere",
-      reaction: "Itching",
+      surgery: "Anesthesia",
       notes: "note 4 sample",
     },
   ];
   const columnLabels = [
-    "ALLERGY ID",
+    "SURGERY UID",
     "DATE",
     "TYPE",
-    "ALLERGEN",
-    "SEVERITY",
-    "REACTION",
+    "SURGERY",
+    "NOTES",
     "ACTIONS",
   ];
-  const pageData = (data: Surgeries[]) => {
+  const pageData = (data: Surgery[]) => {
     setCurrentData(data);
   };
   const isModalOpen = (isOpen: boolean) => {
@@ -128,14 +125,14 @@ export default function Surgeries() {
         </div>
       </div>
 
-      <Table<Surgeries>
+      <Table<Surgery>
         data={surgeries}
         columnLabels={columnLabels}
-        columns={"7"}
+        columns={"6"}
         rows={4}
         pageData={pageData}
         component={
-          <SurgeriesTableData currentPageData={currentData} columns={"7"} />
+          <SurgeriesTableData currentPageData={currentData} columns={"6"} />
         }
       />
 

@@ -3,6 +3,9 @@
 import { onNavigate } from "@/actions/navigation";
 import { LabResults } from "@/type";
 import { useRouter } from "next/navigation";
+import Modal from "@/components/reusable/modal";
+import { useState } from "react";
+import { LabresultsviewModalContent } from "../modal-content/labresultsview-modal-content";
 
 interface TableDataProps {
   currentPageData: LabResults[];
@@ -14,6 +17,13 @@ export default function LabResultsTableData({
   columns,
 }: TableDataProps) {
   const router = useRouter();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isModalOpen = (isOpen: boolean) => {
+    setIsOpen(isOpen);
+  };
+
   return (
     <>
       {currentPageData.map((labresults, index) => (
@@ -29,10 +39,19 @@ export default function LabResultsTableData({
           <div>{labresults.hdl}</div>
           <div>{labresults.triglycerides}</div>
           <div className="flex justify-center gap-[10px]">
-            <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
+            <button
+              className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white"
+              onClick={() => isModalOpen(true)}
+            >
               View
             </button>
           </div>
+          {isOpen && (
+            <Modal
+              content={<LabresultsviewModalContent isModalOpen={isModalOpen} />}
+              isModalOpen={isModalOpen}
+            />
+          )}
         </div>
       ))}
     </>

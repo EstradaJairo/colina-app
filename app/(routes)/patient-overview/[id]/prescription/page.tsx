@@ -13,7 +13,7 @@ import Modal from "@/components/reusable/modal";
 import Table from "@/components/reusable/table";
 import { Prescription } from "@/type";
 import PrescriptionTableData from "@/components/table-data-components/prescription-table-data";
-import { PrescriptionviewModalContent } from "@/components/modal-content/prescriptionview-modal-content";
+import { PrescriptionModalContent } from "@/components/modal-content/prescription-modal-content";
 
 const Prescription = () => {
   const router = useRouter();
@@ -134,7 +134,7 @@ const Prescription = () => {
       />
       {isOpen && (
         <Modal
-          content={<PrescriptionviewModalContent isModalOpen={isModalOpen} />}
+          content={<PrescriptionModalContent isModalOpen={isModalOpen} />}
           isModalOpen={isModalOpen}
         />
       )}
