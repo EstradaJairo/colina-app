@@ -6,7 +6,7 @@ interface ModalProps {
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const LabresultsviewModalContent = ({ isModalOpen }: ModalProps) => {
+export const FormsviewModalContent = ({ isModalOpen }: ModalProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [showCheckboxes, setShowCheckboxes] = useState(false);
@@ -44,7 +44,7 @@ export const LabresultsviewModalContent = ({ isModalOpen }: ModalProps) => {
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between">
             <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
-              View Laboratory Results
+              View Document Form
             </h2>
             <X
               onClick={() => isModalOpen(false)}
