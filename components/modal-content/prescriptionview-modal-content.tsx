@@ -10,6 +10,8 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [showCheckboxes, setShowCheckboxes] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
@@ -93,25 +95,51 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                     </button>
                   </div>
 
-                  <div className="mt-2 h-[30px] bg-gray-100 shadow-sm">
-                    <input type="checkbox" id="labCheckbox1" />
-                    <label className="ml-2">labresult.jpg</label>
+                  <div className="flex justify-between bg-white shadow-sm mt-2">
+                    {editMode && (
+                      <input
+                        type="checkbox"
+                        className="h-[40px] bg-white w-full"
+                        placeholder="labresult.jpg"
+                      />
+                    )}
+                    <p className="h-[40px] bg-white shadow-sm ">
+                      <span className="ml-10">labresult.jpg</span>
+                    </p>
                   </div>
-                  <div className="mt-2 h-[30px] bg-gray-100 shadow-sm">
-                    <input type="checkbox" id="labCheckbox2" />
-                    <label className="ml-2">pamela.jpg</label>
+                  <div className="flex justify-between bg-white shadow-sm mt-2">
+                    {editMode && (
+                      <input
+                        type="checkbox"
+                        className="h-[40px] bg-white w-full"
+                        placeholder="labresult.jpg"
+                      />
+                    )}
+                    <p className="h-[40px] bg-white shadow-sm ">
+                      <span className="ml-10">labresult.jpg</span>
+                    </p>
                   </div>
-                  <div className="mt-2 h-[30px] bg-gray-100 shadow-sm">
-                    <input type="checkbox" id="labCheckbox3" />
-                    <label className="ml-2">jas.jpg</label>
+                  <div className="flex justify-between bg-white shadow-sm mt-2">
+                    {editMode && (
+                      <input
+                        type="checkbox"
+                        className="h-[40px] bg-white w-full"
+                        placeholder="labresult.jpg"
+                      />
+                    )}
+                    <p className="h-[40px] bg-white shadow-sm ">
+                      <span className="ml-10">labresult.jpg</span>
+                    </p>
                   </div>
                   <div className="mt-4 ml-[70px]">
-                    <button
-                      className=" w-[80px] h-[30px] text-white bg-blue-500 hover:bg-blue-700  "
-                      onClick={toggleDeleteModal}
-                    >
-                      <label className="">delete</label>
-                    </button>
+                    {editMode && (
+                      <button
+                        className="w-[80px] h-[30px] text-white bg-blue-500 hover:bg-blue-700"
+                        onClick={toggleDeleteModal}
+                      >
+                        <label className="">delete</label>
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -123,7 +151,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                 <div className="bg-white p-6 max-w-lg rounded-lg">
                   <button
                     type="button"
-                    className="absolute top-0 left-0 m-4 ml-10 text-white hover:text-gray-800 flex text-[20px] "
+                    className="absolute top-0 left-0 m-4 ml-10 text-white hover:underline flex text-[20px] "
                   >
                     <Image
                       className="mr-2"
@@ -136,7 +164,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                   </button>
                   <button
                     type="button"
-                    className="absolute top-0 left-0 m-4 ml-36 text-white hover:text-gray-800 flex text-[20px] "
+                    className="absolute top-0 left-0 m-4 ml-36 text-white hover:underline flex text-[20px] "
                   >
                     <Image
                       className="mr-2"
@@ -148,7 +176,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                     Download
                   </button>
                   <button
-                    className="absolute top-0 right-0 m-4 text-white hover:text-gray-800"
+                    className="absolute top-0 right-0 m-4 text-white hover:underline text-[20px]"
                     onClick={toggleModal}
                   >
                     Close
@@ -159,14 +187,13 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                     width={700}
                     height={500}
                     className=""
-                    onClick={closeModal}
                   />
                 </div>
               </div>
             )}
             {deleteModalOpen && (
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#76898A99]">
-                <div className="bg-white max-w-lg rounded-lg w-[700px] h-[147px]">
+                <div className="bg-white max-w-lg rounded-lg w-[700px] h-[146px]">
                   <div className="flex justify-center items-center pt-6 pb-6">
                     <h2 className="font-semibold text-[20px] text-[#667085]">
                       Are you sure to delete this?

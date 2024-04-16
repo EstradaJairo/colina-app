@@ -93,25 +93,51 @@ export const LabresultsviewModalContent = ({ isModalOpen }: ModalProps) => {
                     </button>
                   </div>
 
-                  <div className="mt-2 h-[30px] bg-gray-100 shadow-sm">
-                    <input type="checkbox" id="labCheckbox1" />
-                    <label className="ml-2">labresult.jpg</label>
+                  <div className="flex justify-between bg-white shadow-md mt-2">
+                    {editMode && (
+                      <input
+                        type="checkbox"
+                        className="h-[40px] bg-white w-full"
+                        placeholder="labresult.jpg"
+                      />
+                    )}
+                    <p className="h-[40px] bg-white shadow-sm ">
+                      <span className="ml-10">labresult.jpg</span>
+                    </p>
                   </div>
-                  <div className="mt-2 h-[30px] bg-gray-100 shadow-sm">
-                    <input type="checkbox" id="labCheckbox2" />
-                    <label className="ml-2">pamela.jpg</label>
+                  <div className="flex justify-between bg-white shadow-md mt-2">
+                    {editMode && (
+                      <input
+                        type="checkbox"
+                        className="h-[40px] bg-white w-full"
+                        placeholder="labresult.jpg"
+                      />
+                    )}
+                    <p className="h-[40px] bg-white shadow-sm ">
+                      <span className="ml-10">labresult.jpg</span>
+                    </p>
                   </div>
-                  <div className="mt-2 h-[30px] bg-gray-100 shadow-sm">
-                    <input type="checkbox" id="labCheckbox3" />
-                    <label className="ml-2">jas.jpg</label>
+                  <div className="flex justify-between bg-white shadow-md mt-2">
+                    {editMode && (
+                      <input
+                        type="checkbox"
+                        className="h-[40px] bg-white w-full"
+                        placeholder="labresult.jpg"
+                      />
+                    )}
+                    <p className="h-[40px] bg-white shadow-sm ">
+                      <span className="ml-10">labresult.jpg</span>
+                    </p>
                   </div>
                   <div className="mt-4 ml-[70px]">
-                    <button
-                      className=" w-[80px] h-[30px] text-white bg-blue-500 hover:bg-blue-700  "
-                      onClick={toggleDeleteModal}
-                    >
-                      <label className="">delete</label>
-                    </button>
+                    {editMode && (
+                      <button
+                        className="w-[80px] h-[30px] text-white bg-blue-500 hover:bg-blue-700"
+                        onClick={toggleDeleteModal}
+                      >
+                        <label className="">delete</label>
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
