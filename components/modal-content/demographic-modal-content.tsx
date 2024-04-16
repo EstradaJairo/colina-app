@@ -305,7 +305,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     htmlFor="last-name"
                     className="block text-lg font-bold leading-6 text-gray-900 required-field"
                   >
-                    Addmission Date
+                    Admission Date
                   </label>
                   <div className="mt-1 relative">
                     <input
