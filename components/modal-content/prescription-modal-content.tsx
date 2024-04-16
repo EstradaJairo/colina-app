@@ -9,8 +9,12 @@ interface Modalprops {
 
 export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
   const [selectedStatus, setSelectedStatus] = useState("");
+  function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
-    <div className="w-[676px] h-[469px]">
+    <div className="w-[676px] h-[487px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
           <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
@@ -126,22 +130,52 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
                   />
                 </div>
               </div>
+              <div className="">
+                <label
+                  htmlFor="imageUpload"
+                  className="relative h-12 w-full bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-[31px]"
+                >
+                  <Image
+                    className="w-10 h-10 mr-1"
+                    width={50}
+                    height={50}
+                    src={"/svgs/folder-add.svg"}
+                    alt={""}
+                  />
+                  <div className="flex pb-5 text-nowrap text-[12px] ">
+                    <p className="mt-2">Upload or Attach Files or</p>
+                    <p className="underline decoration-solid text-blue-500 ml-1 mt-2">
+                      Browse
+                    </p>
+                  </div>
+                  <span className="text-[10px] font-normal absolute bottom-2 text-[#667085] ml-10 ">
+                    Minimum file size
+                  </span>
+                </label>
+                <input
+                  type="file"
+                  id="imageUpload"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => handleImageUpload(e)}
+                />
+              </div>
             </div>
           </form>
         </div>
       </div>
       <div className="">
-        <div className="justify-center flex border-t-2 pt-26">
+        <div className="justify-center flex border-t-4 pt-26">
           <button
             onClick={() => isModalOpen(false)}
             type="button"
-            className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-2 mr-[3pxs] rounded-bl-md"
+            className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-4 mr-[3px] rounded-bl-md"
           >
             Cancel
           </button>
           <button
             type="button"
-            className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-2 rounded-br-md"
+            className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
           >
             Submit
           </button>

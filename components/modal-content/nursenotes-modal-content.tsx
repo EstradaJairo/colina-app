@@ -1,19 +1,19 @@
-"use client";
-
 import { X } from "lucide-react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 interface Modalprops {
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
+export const NursenotesModalContent = ({ isModalOpen }: Modalprops) => {
+  const [selectedStatus, setSelectedStatus] = useState(""); // State to hold the selected status
+
   return (
-    <div className="w-[676px] h-[523px] bg-[#FFFFFF] rounded-md">
+    <div className="w-[676px] h-[538px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
           <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
-            Add an Appointment
+            Add Note and Compose
           </h2>
           <X
             onClick={() => isModalOpen(false)}
@@ -21,66 +21,47 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
           />
         </div>
         <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
-          Submit your appointment schedule.
+          Submit your log details.
         </p>
       </div>
       <div className=" mb-9 pt-4">
-        <div className="h-[600px] max-h-[300px] md:px-10 mt-5">
+        <div className="h-[600px] max-h-[365px] md:px-10 mt-5">
           <form className="">
-            <div className="flex flex-col mt-6 pb-3 relative">
-              <div className="flex flex-col w-full">
-                <input
-                  type="date"
-                  required
-                  className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                  placeholder="input reaction"
-                />
-                <Image
-                  className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
-                  width={20}
-                  height={20}
-                  src={"/svgs/calendark.svg"}
-                  alt={""}
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
               <div className="">
                 <label
-                  htmlFor="first-name"
+                  htmlFor="date"
                   className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
-                  Time From:
+                  DATE
                 </label>
-                <div className="relative">
+                <div className="mt-2.5 relative">
                   <input
-                    type="time"
-                    required
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                    placeholder="input reaction"
+                    type="date"
+                    className="block w-[287px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    placeholder="Input medication"
                   />
                   <Image
                     className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
                     width={20}
                     height={20}
-                    src={"/svgs/clock.svg"}
+                    src={"/svgs/calendark.svg"}
                     alt={""}
                   />
                 </div>
               </div>
-              <div>
+              <div className="">
                 <label
-                  htmlFor="last-name"
+                  htmlFor="date"
                   className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
-                  Time to:
+                  TIME
                 </label>
-                <div className="relative">
+                <div className="mt-2.5 relative">
                   <input
                     type="time"
-                    required
-                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                    placeholder="input reaction"
+                    className="block w-[287px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    placeholder="Input medication"
                   />
                   <Image
                     className="absolute top-0 right-0 mt-3.5 mr-3 pointer-events-none"
@@ -93,16 +74,31 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
               </div>
               <div className="sm:col-span-2">
                 <label
+                  htmlFor="company"
+                  className="block text-md font-bold leading-6 text-gray-900 required-field"
+                >
+                  SUBJECT
+                </label>
+                <div className="mt-2.5">
+                  <input
+                    type="text"
+                    className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                    placeholder="input subject"
+                  />
+                </div>
+              </div>
+              <div className="sm:col-span-2">
+                <label
                   htmlFor="message"
                   className="block text-md font-bold leading-6 text-gray-900 required-field"
                 >
-                  Details
+                  NOTES
                 </label>
                 <div className="mt-2.5">
                   <textarea
-                    rows={5}
+                    rows={4}
                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                    placeholder="input details"
+                    placeholder="input notes"
                     style={{ resize: "none" }}
                   />
                 </div>
@@ -110,8 +106,8 @@ export const AppointmentModalContent = ({ isModalOpen }: Modalprops) => {
             </div>
           </form>
         </div>
-        <div className="pt-11">
-          <div className="justify-center flex border-t-4 pt-26">
+        <div className="">
+          <div className="justify-center flex border-t-4">
             <button
               onClick={() => isModalOpen(false)}
               type="button"
