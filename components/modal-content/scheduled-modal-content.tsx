@@ -44,8 +44,8 @@ export const ScheduledModalContent = ({ isModalOpen }: ModalProps) => {
                     onChange={(e) => setSelectedStatus(e.target.value)}
                   >
                     <option value="">Select status</option>
-                    <option value="active">HELD</option>
-                    <option value="inactive">GIVEN</option>
+                    <option value="active">...</option>
+                    <option value="inactive">...</option>
                   </select>
                   {/* <img
                     className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"

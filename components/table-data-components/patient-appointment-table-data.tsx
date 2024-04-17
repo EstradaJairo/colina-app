@@ -3,7 +3,9 @@
 import { onNavigate } from "@/actions/navigation";
 import { LabResults, PatientAppointment } from "@/type";
 import { useRouter } from "next/navigation";
-
+import Modal from "@/components/reusable/modal";
+import { useState } from "react";
+import { AppointmentviewModalContent } from "../modal-content/appointmentview-modal-content";
 interface TableDataProps {
   currentPageData: PatientAppointment[];
   columns: string;
@@ -14,6 +16,12 @@ export default function PatientAppointmentTableData({
   columns,
 }: TableDataProps) {
   const router = useRouter();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isModalOpen = (isOpen: boolean) => {
+    setIsOpen(isOpen);
+  };
   return (
     <>
       {currentPageData.map((patientappointment, index) => (
@@ -28,10 +36,21 @@ export default function PatientAppointmentTableData({
           <div>{patientappointment.time}</div>
           <div>{patientappointment.endtime}</div>
           <div className="flex justify-center gap-[10px]">
-            <button className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white">
+            <button
+              className="bg-[#E7EAEE] hover:!bg-[#007C85] hover:!text-white rounded-[5px] px-[25px] py-[7px] group-hover:bg-white"
+              onClick={() => isModalOpen(true)}
+            >
               View
             </button>
           </div>
+          {isOpen && (
+            <Modal
+              content={
+                <AppointmentviewModalContent isModalOpen={isModalOpen} />
+              }
+              isModalOpen={isModalOpen}
+            />
+          )}
         </div>
       ))}
     </>

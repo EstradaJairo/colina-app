@@ -62,7 +62,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
 
     return (
       <>
-        <div className="w-[676px] h-[690px]">
+        <div className="w-[676px] h-[590px]">
           <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
             <div className="items-center flex justify-between">
               <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
@@ -78,9 +78,9 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
             </p>
           </div>
           <div className=" mb-9 pt-4">
-            <div className="h-[600px] max-h-[480px] md:px-8 mt-5">
+            <div className="max-h-[400px] md:px-8 mt-5">
               <div className="even:bg-gray-50 cursor-pointer">
-                <div className="w-full max-w-xl flex justify-between gap-4">
+                <div className="w-full max-w-xl flex justify-between gap-6">
                   <div
                     style={{
                       overflow: "scroll",
@@ -250,12 +250,18 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                 </div>
               )}
               {toastVisible && (
-                <div className="flex ">
+                <div className="flex absolute top-0 right-0 pr-[120px] pt-[200px]">
                   <div className="flex w-full p-1 gap-5 pl-8 bg-[#F0F0F0]">
-                    <div className=" flex w-[32px] h-[32px] ">
-                      <img src="/imgs/successful-icon.svg" alt="" />
+                    <div className="flex w-[50px] h-[50px] ">
+                      <Image
+                        src="/svgs/checked.svg"
+                        alt={"image"}
+                        width={50}
+                        height={50}
+                        className="pt-6"
+                      />
                     </div>
-                    <div className="text-[20px] font-medium pr-20 ">
+                    <div className="text-[20px] flex justify-center items-center font-medium pr-20 ">
                       Successfully Deleted!
                     </div>
                   </div>

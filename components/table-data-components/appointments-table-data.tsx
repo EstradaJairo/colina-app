@@ -3,7 +3,10 @@
 import { onNavigate } from "@/actions/navigation";
 import { Appointments } from "@/type";
 import { useRouter } from "next/navigation";
-
+import { AppointmentModalContent } from "@/components/modal-content/appointment-modal-content";
+import Modal from "@/components/reusable/modal";
+import { useState } from "react";
+import { AppointmentviewModalContent } from "../modal-content/appointmentview-modal-content";
 interface TableDataProps {
   currentPageData: Appointments[];
   columns: string;
@@ -14,6 +17,12 @@ export default function AppointmentTableData({
   columns,
 }: TableDataProps) {
   const router = useRouter();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isModalOpen = (isOpen: boolean) => {
+    setIsOpen(isOpen);
+  };
   return (
     <>
       {currentPageData.map((appointments, index) => (
@@ -34,6 +43,14 @@ export default function AppointmentTableData({
               View
             </button>
           </div>
+          {isOpen && (
+            <Modal
+              content={
+                <AppointmentviewModalContent isModalOpen={isModalOpen} />
+              }
+              isModalOpen={isModalOpen}
+            />
+          )}
         </div>
       ))}
     </>
