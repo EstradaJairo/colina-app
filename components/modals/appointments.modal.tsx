@@ -29,7 +29,7 @@ export const AppointmentsModal = ({
     tag: string;
     item: string;
   }>();
-  const patientId = params.id.toUpperCase();
+  const patientId = params.id?.toUpperCase();
 
   const [selectedStatus, setSelectedStatus] = useState("");
   const [isEditable, setIsEditable] = useState(false);
