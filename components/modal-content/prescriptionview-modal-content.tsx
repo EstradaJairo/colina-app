@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface ModalProps {
@@ -12,7 +12,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
   const [showCheckboxes, setShowCheckboxes] = useState(false);
   const [toast, setToast] = useState(false);
   const [editMode, setEditMode] = useState(false);
-
+  const [toastVisible, setToastVisible] = useState(false);
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
@@ -41,6 +41,24 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
         (checkbox as HTMLInputElement).checked = true;
       });
     };
+    const handleDeleteConfirmation = () => {
+      // Perform delete action here
+      // Show toast message
+      setToastVisible(true);
+      // Close delete modal
+      setDeleteModalOpen(false);
+    };
+
+    useEffect(() => {
+      let timeoutId: NodeJS.Timeout;
+      if (toastVisible) {
+        timeoutId = setTimeout(() => {
+          setToastVisible(false);
+        }, 2000); // Hide toast after 4 seconds
+      }
+
+      return () => clearTimeout(timeoutId);
+    }, [toastVisible]);
 
     return (
       <>
@@ -218,6 +236,10 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                         Cancel
                       </button>
                       <button
+                        onClick={() => {
+                          setDeleteModalOpen(false);
+                          setToastVisible(true);
+                        }}
                         type="button"
                         className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
                       >
@@ -225,6 +247,19 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                       </button>
                     </div>
                   </div>
+                </div>
+              )}
+              {toastVisible && (
+                <div className="flex ">
+                  <div className="flex w-full p-1 gap-5 pl-8 bg-[#F0F0F0]">
+                    <div className=" flex w-[32px] h-[32px] ">
+                      <img src="/imgs/successful-icon.svg" alt="" />
+                    </div>
+                    <div className="text-[20px] font-medium pr-20 ">
+                      Successfully Deleted!
+                    </div>
+                  </div>
+                  <div className="bg-[#63b84d] w-[17px] h-[79px]"></div>
                 </div>
               )}
 

@@ -8,12 +8,9 @@ interface ModalProps {
 }
 
 const Modal = ({ isModalOpen, content }: ModalProps) => {
-
   return (
     <div className="absolute inset-[-100px] bg-[#76898A99] flex items-center justify-center">
-      <div className="bg-[#FFFFFF] rounded-md">
-        {content}
-      </div>
+      <div className="bg-[#FFFFFF] rounded-md">{content}</div>
     </div>
   );
 };
