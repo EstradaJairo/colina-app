@@ -9,6 +9,7 @@ import { onNavigate } from "@/actions/navigation";
 import { useRouter } from "next/navigation";
 import { FormsviewModalContent } from "@/components/modal-content/formsview-modal-content";
 import Modal from "@/components/reusable/modal";
+import { NofileviewModalContent } from "@/components/modal-content/nofileview-modal-content";
 
 export default function forms() {
   const router = useRouter();
@@ -202,7 +203,7 @@ export default function forms() {
         </div>
         {isOpen && (
           <Modal
-            content={<FormsviewModalContent isModalOpen={isModalOpen} />}
+            content={<NofileviewModalContent isModalOpen={isModalOpen} />}
             isModalOpen={isModalOpen}
           />
         )}

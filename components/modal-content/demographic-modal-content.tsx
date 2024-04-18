@@ -94,9 +94,9 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     </label>
                     <div className="mt-1 mr-4">
                       <input
-                        type="text"
+                        type="number"
                         required
-                        className="block w-[174px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                        className="block w-[174px] h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6 appearance-none"
                         placeholder="input age"
                       />
                     </div>
@@ -255,22 +255,6 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                     />
                   </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="last-name"
-                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
-                  >
-                    Allergies
-                  </label>
-                  <div className="mt-1">
-                    <input
-                      type="text"
-                      required
-                      className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
-                      placeholder="input Allergies"
-                    />
-                  </div>
-                </div>
 
                 <div className="">
                   <label
@@ -336,6 +320,22 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
                       required
                       className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
                       placeholder="input email"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    htmlFor="last-name"
+                    className="block text-lg font-bold leading-6 text-gray-900 required-field"
+                  >
+                    Phone Number
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      type="text"
+                      required
+                      className="block w-full h-12 rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400t sm:text-sm sm:leading-6"
+                      placeholder="input phone number"
                     />
                   </div>
                 </div>
