@@ -443,7 +443,8 @@ const Prorenata = () => {
         </div>
       )}
       {isOpen && (
-        <PRNMedModal
+        <Modal
+          content={<PrnModalContent isModalOpen={isModalOpen} />}
           isModalOpen={isModalOpen}
           isOpen={isOpen}
           uuid={""}

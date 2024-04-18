@@ -377,7 +377,7 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
             <button
               onClick={() => isModalOpen(false)}
               type="button"
-              className="w-[600px] h-[50px]  bg-[#ffffff] hover:text-red-500 text-black font-medium mt-4 mr-[3px] rounded-bl-md border-2  "
+              className="w-[600px] h-[50px]  bg-[#F3F3F3] hover:text-red-500 text-black font-medium mt-4 mr-[3px] rounded-bl-md"
             >
               Cancel
             </button>

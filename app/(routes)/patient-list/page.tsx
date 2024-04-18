@@ -14,12 +14,10 @@ import Add from "@/components/shared/buttons/add";
 import DownloadPDF from "@/components/shared/buttons/downloadpdf";
 import Modal from "@/components/reusable/modal";
 import { DemographicModalContent } from "@/components/modal-content/demographic-modal-content";
-export default function PatientPage({}: { patient: any }) {
 import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 
 export default function PatientPage({ patient }: { patient: any }) {
-
   const router = useRouter();
   if (!getAccessToken()) {
     onNavigate(router, "/login");
@@ -162,9 +160,16 @@ export default function PatientPage({ patient }: { patient: any }) {
           variant: "destructive",
           title: "Uh oh! Something went wrong.",
           description: error.message,
-          action: <ToastAction altText="Try again" onClick={() => {
-            window.location.reload();
-          }}>Try again</ToastAction>,
+          action: (
+            <ToastAction
+              altText="Try again"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Try again
+            </ToastAction>
+          ),
         });
       }
     };
