@@ -62,7 +62,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
 
     return (
       <>
-        <div className="w-[676px] h-[590px]">
+        <div className="w-[676px] h-[605px]">
           <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
             <div className="items-center flex justify-between">
               <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
@@ -176,7 +176,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
               {/* Modal */}
               {modalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black ">
-                  <div className="bg-white p-6 max-w-lg rounded-lg">
+                  <div className="">
                     <button
                       type="button"
                       className="absolute top-0 left-0 m-4 ml-10 text-white hover:underline flex text-[20px] "
@@ -212,7 +212,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                     <Image
                       src="/imgs/docs.png"
                       alt="Document"
-                      width={700}
+                      width={1000}
                       height={500}
                       className=""
                     />

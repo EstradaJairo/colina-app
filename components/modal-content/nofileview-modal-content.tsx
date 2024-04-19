@@ -40,50 +40,40 @@ export const NofileviewModalContent = ({ isModalOpen }: ModalProps) => {
     };
 
     return (
-      <div className="w-[676px] h-[590px]">
-        <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
-          <div className="items-center flex justify-between">
-            <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
-              View Document Form
-            </h2>
-            <X
-              onClick={() => isModalOpen(false)}
-              className="w-7 h-7 text-black flex items-center mt-2 mr-4"
-            />
-          </div>
-          <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
-            No Attached Files
-          </p>
-        </div>
-        <div className=" mb-9 pt-4">
-          <div className="h-[380px] md:px-10 mt-5">
+      <div className="w-[676px] h-[540px]">
+        <div className="mb-9 ">
+          <div className="h-[400px] md:px-10 mt-5 flex justify-center items-center">
             <div className="even:bg-gray-50 cursor-pointer">
-              <div className="w-full max-w-xl flex justify-between">
-                <div
-                  style={{
-                    overflow: "block",
-                    width: "350px",
-                    height: "350px",
-                  }}
-                >
-                  <Image
-                    src="/imgs/nofile.png"
-                    alt="Document"
-                    width={500}
-                    height={350}
-                    className="w-89"
-                  />
-                </div>
-                <div className="w-[200px]"></div>
-                <p className="text-sm pl-10 text-gray-600 pb-10 pt-2 text-nowrap">
-                  No Documents Found
+              <div
+                style={{ overflow: "hidden", width: "400px", height: "400px" }}
+              >
+                <Image
+                  src="/imgs/nodocs.png"
+                  alt="Document"
+                  width={500}
+                  height={200}
+                  className="w-89 mt-8"
+                />
+              </div>
+              <div className="flex justify-center font-bold mb-4 mt-2">
+                No image/document found!
+              </div>
+              <div className="flex flex-row justify-center">
+                <p className="border-2 rounded-l-lg px-2 py-2 text-gray-400 text-[15px]">
+                  Upload or Attach Files or
                 </p>
+                <label
+                  htmlFor="imageUpload"
+                  className="decoration-solid text-[15px] bg-[#007C85] px-2 py-2 text-white border-r-lg cursor-pointer rounded-r-lg"
+                >
+                  Browse
+                </label>
               </div>
             </div>
           </div>
         </div>
-        <div className="">
-          <div className="justify-center flex border-t-4 ">
+        <div className="pt-10">
+          <div className="justify-center flex ">
             <button
               onClick={() => isModalOpen(false)}
               type="button"

@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { FormsviewModalContent } from "@/components/modal-content/formsview-modal-content";
 import Modal from "@/components/reusable/modal";
 import { NofileviewModalContent } from "@/components/modal-content/nofileview-modal-content";
+import { FormsviewsModalContent } from "@/components/modal-content/formsviews-modal-content";
 
 export default function forms() {
   const router = useRouter();
@@ -203,7 +204,7 @@ export default function forms() {
         </div>
         {isOpen && (
           <Modal
-            content={<NofileviewModalContent isModalOpen={isModalOpen} />}
+            content={<FormsviewsModalContent isModalOpen={isModalOpen} />}
             isModalOpen={isModalOpen}
           />
         )}
