@@ -52,7 +52,7 @@ export const FormsviewsModalContent = ({ isModalOpen }: ModalProps) => {
 
     return (
       <>
-        <div className="w-[676px] h-[605px]">
+        <div className="w-[676px] h-[607  px]">
           <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
             <div className="items-center flex justify-between">
               <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
@@ -88,19 +88,19 @@ export const FormsviewsModalContent = ({ isModalOpen }: ModalProps) => {
                     />
                   </div>
                   <div className="w-[220px]">
-                    <div className="w-full flex justify-between flex-row h-6">
-                      <p className="border-2 rounded-l-md text-gray-400 px-1 text-[13px] text-nowrap w-full flex justify-center hover:border-[#686868]  ">
+                    <div className="w-full flex justify-between flex-row">
+                      <p className="border-2 rounded-l-md text-gray-400 px-2 py-1 text-[13px] text-nowrap w-full flex justify-center hover:border-[#686868]  ">
                         Choose files to upload
                       </p>
                       <label
                         htmlFor="imageUpload"
-                        className="text-[13px] bg-[#007C85] px-1  text-white cursor-pointer rounded-r-md flex justify-center border-2 border-[#007C85]"
+                        className="text-[13px] bg-[#007C85] px-2 py-1 text-white cursor-pointer rounded-r-md flex justify-center border-2 border-[#007C85]"
                       >
                         Browse
                       </label>
                     </div>
 
-                    <div className="flex justify-between bg-white rounded-lg border-2 mt-4 hover:border-[#686868]">
+                    <div className="flex justify-between px-1 bg-white rounded-md border-2 mt-4 hover:border-[#686868]">
                       <h2 className="text-[12px] px-1  text-gray-400 py-1">
                         Clinic.png
                       </h2>
@@ -109,7 +109,7 @@ export const FormsviewsModalContent = ({ isModalOpen }: ModalProps) => {
                         className="w-3 h-3 text-gray-400 flex items-center mt-[6px] mr-2 "
                       />
                     </div>
-                    <div className="flex justify-between bg-white rounded-lg border-2 mt-4 hover:border-[#686868]">
+                    <div className="flex justify-between px-1 bg-white rounded-md border-2 mt-4 hover:border-[#686868]">
                       <h2 className="text-[12px] px-1  text-gray-400 py-1">
                         Clinic.png
                       </h2>
@@ -118,7 +118,7 @@ export const FormsviewsModalContent = ({ isModalOpen }: ModalProps) => {
                         className="w-3 h-3 text-gray-400 flex items-center mt-[6px] mr-2 "
                       />
                     </div>
-                    <div className="flex justify-between bg-white rounded-lg border-2 mt-4 hover:border-[#686868]">
+                    <div className="flex justify-between px-1 bg-white rounded-md border-2 mt-4 hover:border-[#686868]">
                       <h2 className="text-[12px] px-1  text-gray-400 py-1">
                         Clinic.png
                       </h2>
@@ -243,7 +243,7 @@ export const FormsviewsModalContent = ({ isModalOpen }: ModalProps) => {
               <button
                 onClick={() => isModalOpen(false)}
                 type="button"
-                className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-4 mr-[3px] rounded-bl-md"
+                className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[5px] rounded-bl-md"
               >
                 Cancel
               </button>
