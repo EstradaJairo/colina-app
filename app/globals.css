@@ -35,7 +35,7 @@ body,
   justify-content: center;
   border-radius: 5.23px;
   color: #000000;
-  font-size: 15px;
+  font-size: 18px;
   padding: 10px 20px 10px 20px;
   border: solid #d0d5dd 2px;
   text-decoration: none;
@@ -129,17 +129,9 @@ body,
 
 .p-title {
   height: 32px;
-  font-weight: bold;
-  font-size: 20px;
-  /* w-[1157px] h-[32px] leading-[42px] font-bold */
-}
-
-.slash {
-  height: 32px;
-  font-weight: 500;
+  line-height: 32px;
+  font-weight: 700;
   font-size: 24px;
-  color: #191d23;
-  opacity: 60%;
   /* w-[1157px] h-[32px] leading-[42px] font-bold */
 }
 
@@ -163,7 +155,6 @@ body,
 }
 ::-webkit-scrollbar {
   width: 13px;
-  height: 13px; /* Added height property for vertical scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -173,22 +164,6 @@ body,
   max-height: 400px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d9d9d9;
-  border-radius: 10px;
-  opacity: 100;
-  width: 10px;
-}
-.vertical-scroll ::-webkit-scrollbar {
-  width: 13px;
-}
-
-.vertical-scroll ::-webkit-scrollbar-track {
-  background: #f3f0f0;
-  opacity: 30;
-  border-radius: 10px;
-  max-height: 400px;
-}
-.vertical-scroll ::-webkit-scrollbar-thumb {
   background: #d9d9d9;
   border-radius: 10px;
   opacity: 100;
@@ -253,8 +228,4 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
-}
-input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
-  appearance: textfield; /* Other browsers */
 }
