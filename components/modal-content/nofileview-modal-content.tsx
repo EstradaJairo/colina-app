@@ -55,7 +55,7 @@ export const NofileviewModalContent = ({ isModalOpen }: ModalProps) => {
                   className="w-89 mt-10"
                 />
               </div>
-              <div className="flex justify-center text-[17px] font-bold mb-4 mt-2">
+              <div className="flex justify-center text-[15px] font-medium mb-4 mt-2">
                 No image/document found!
               </div>
               <div className="flex flex-row justify-center">
