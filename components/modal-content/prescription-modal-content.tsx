@@ -115,12 +115,6 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
                     <option value="active">ACTIVE</option>
                     <option value="inactive">INACTIVE</option>
                   </select>
-                  {/* <img
-                    className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
-                    src="svgs/chevron-up.svg"
-                    alt="Dropdown Arrow"
-                    style={{ width: '1rem', height: '1rem' }}
-                      /> */}
                   <Image
                     className="absolute top-0 right-0 mt-3 mr-3 pointer-events-none"
                     width={20}
@@ -136,10 +130,10 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
                   className="relative h-12 w-full bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-[31px]"
                 >
                   <Image
-                    className="w-10 h-10 mr-1"
+                    className="w-7 h-7 mr-1"
                     width={50}
                     height={50}
-                    src={"/svgs/folder-add.svg"}
+                    src={"/svgs/filein.svg"}
                     alt={""}
                   />
                   <div className="flex pb-5 text-nowrap text-[12px] ">
