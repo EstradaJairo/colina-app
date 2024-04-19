@@ -16,8 +16,23 @@ import {
   fetchAllAppointments,
   fetchUpcomingAppointments,
 } from "@/app/api/appointments-api/upcoming-appointments-api";
+import Image from "next/image";
+import * as React from "react";
+import { format } from "date-fns";
+import { Calendar as CalendarIcon, Search } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export default function AppointmentPage() {
+  const [date, setDate] = React.useState<Date>();
+  const [todate, tosetDate] = React.useState<Date>();
   const router = useRouter();
   if (!getAccessToken()) {
     onNavigate(router, "/login");
@@ -220,54 +235,98 @@ export default function AppointmentPage() {
         </div>
       </div>
 
-      <div className="w-full sm:rounded-lg items-center">
-        <div className="w-full justify-between flex items-center bg-[#F4F4F4] h-[75px]">
-          <form className=" mr-5">
-            {/* search bar */}
-            <label className=""></label>
-            <div className="flex">
-              <input
-                className="py-3 px-5 m-5 w-[573px] outline-none h-[47px] pt-[14px]  ring-[1px] ring-[#E7EAEE] text-[15px]"
-                type="text"
-                placeholder="Search by reference no. or name..."
-                value={term}
-                onChange={(e) => {
-                  setTerm(e.target.value);
-                  setCurrentPage(1);
-                }}
+      <div className="w-full">
+        <div className="w-full bg-[#F4F4F4] justify-between items-center flex px-5 h-[75px] rounded-sm gap-5">
+          <div className="flex items-center bg-white rounded-sm border border-gray-300 shadow-sm px-4 py-2 h-[47px] w-[460px]">
+            <Search className="h-4 w-4 text-gray-500 mr-2" />
+            <input
+              type="text"
+              placeholder="Search by reference no. or name..."
+              className="flex-grow focus:outline-none text-gray-700"
+            />
+          </div>
+
+          <div className="w-[500px]">
+            <div className="flex w-full justify-end items-center gap-3">
+              <p>Filter Date</p>
+
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant={"outline"}
+                    className={cn(
+                      "w-[166px] justify-start text-left font-normal h-[47px]",
+                      !date && "text-muted-foreground"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {date ? format(date, "PPP") : <span>From</span>}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={setDate}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant={"outline"}
+                    className={cn(
+                      "w-[166px] justify-start text-left font-normal h-[47px]",
+                      !date && "text-muted-foreground"
+                    )}
+                  >
+                    <CalendarIcon className="mr-2 h-4 w-4" />
+                    {date ? format(date, "PPP") : <span>To</span>}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0">
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={setDate}
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
+          </div>
+          <div className="w-[500px]">
+            <div className="w-full justify-end items-center flex gap-3">
+              <p className="flex">Order by</p>
+              <DropdownMenu
+                options={optionsOrderedBy.map(({ label, onClick }) => ({
+                  label,
+                  onClick: () => {
+                    onClick(label);
+                  },
+                }))}
+                open={isOpenOrderedBy}
+                width={"165px"}
+                label={"Select"}
+              />
+              <p className="text-[#191D23] opacity-[60%] font-semibold text-[15px]">
+                Sort by
+              </p>
+              <DropdownMenu
+                options={optionsSortBy.map(({ label, onClick }) => ({
+                  label,
+                  onClick: () => {
+                    onClick(label);
+                    console.log("label", label);
+                  },
+                }))}
+                open={isOpenSortedBy}
+                width={"165px"}
+                label={"Select"}
               />
             </div>
-          </form>
-          <div className="flex w-full justify-end items-center gap-[12px] mr-3">
-            <p className="text-[#191D23] opacity-[60% font-semibold] text-[15px]">
-              Order by
-            </p>
-            <DropdownMenu
-              options={optionsOrderedBy.map(({ label, onClick }) => ({
-                label,
-                onClick: () => {
-                  onClick(label);
-                },
-              }))}
-              open={isOpenOrderedBy}
-              width={"165px"}
-              label={"Select"}
-            />
-            <p className="text-[#191D23] opacity-[60%] font-semibold text-[15px]">
-              Sort by
-            </p>
-            <DropdownMenu
-              options={optionsSortBy.map(({ label, onClick }) => ({
-                label,
-                onClick: () => {
-                  onClick(label);
-                  console.log("label", label);
-                },
-              }))}
-              open={isOpenSortedBy}
-              width={"165px"}
-              label={"Select"}
-            />
           </div>
         </div>
 
@@ -283,7 +342,7 @@ export default function AppointmentPage() {
           ) : (
             <table className="w-full h-full justify-center items-start text-[15px]">
               <thead className=" text-left rtl:text-right">
-                <tr className="uppercase text-[#64748B] border border-[#E7EAEE]">
+                <tr className="uppercase text-[#64748B] border-b border-[#E7EAEE]">
                   <th scope="col" className="px-6 py-3 w-[286px] h-[70px]">
                     Status
                   </th>
