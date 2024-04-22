@@ -70,7 +70,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
               </h2>
               <X
                 onClick={() => isModalOpen(false)}
-                className="w-7 h-7 text-black flex items-center mt-2 mr-4"
+                className="w-7 h-7 text-black flex items-center mt-2 mr-4 cursor-pointer"
               />
             </div>
             <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
