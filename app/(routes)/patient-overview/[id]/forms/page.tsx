@@ -11,6 +11,7 @@ import { FormsviewModalContent } from "@/components/modal-content/formsview-moda
 import Modal from "@/components/reusable/modal";
 import { NofileviewModalContent } from "@/components/modal-content/nofileview-modal-content";
 import { FormsviewsModalContent } from "@/components/modal-content/formsviews-modal-content";
+import { AppointmentemailModalContent } from "@/components/modal-content/appointmentemail-modal-content";
 
 export default function forms() {
   const router = useRouter();
@@ -204,7 +205,7 @@ export default function forms() {
         </div>
         {isOpen && (
           <Modal
-            content={<NofileviewModalContent isModalOpen={isModalOpen} />}
+            content={<AppointmentemailModalContent isModalOpen={isModalOpen} />}
             isModalOpen={isModalOpen}
           />
         )}
