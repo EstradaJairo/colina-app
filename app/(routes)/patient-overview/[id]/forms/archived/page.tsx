@@ -11,10 +11,8 @@ import { useParams, useRouter } from "next/navigation";
 import { NotesModal } from "@/components/modals/notes.modal";
 import { fetchNotesByPatient } from "@/app/api/notes-api/notes-api";
 import { SuccessModal } from "@/components/shared/success";
-import { NursenotesModalContent } from "@/components/modal-content/nursenotes-modal-content";
-import Modal from "@/components/reusable/modal";
 
-const Notes = () => {
+const Archived = () => {
   const router = useRouter();
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
@@ -173,49 +171,31 @@ const Notes = () => {
     setIsEdit(false);
   };
 
-  if (isLoading) {
-    return (
-      <div className="w-full h-full flex justify-center items-center ">
-        <img src="/imgs/colina-logo-animation.gif" alt="logo" width={100} />
-      </div>
-    );
-  }
-
   return (
-    <div className="w-full">
-      <div className="flex justify-between ">
-        <div className="flex flex-col">
-          <div className="flex flex-row items-center gap-2">
-            <h1 className="p-title">Notes</h1>
-            <span className="slash">/</span>
-            <span className="active">Nurse's Notes</span>
-            <span className="slash">/</span>
-            <span
+    <div className="  w-full">
+      <div className="w-full justify-between flex mb-2">
+        <div className="flex-row">
+          <div className="flex gap-2">
+            <p
               onClick={() => {
-                setIsLoading(true);
                 onNavigate(
                   router,
-                  `/patient-overview/${patientId.toLowerCase()}/notes/incident-report`
+                  `/patient-overview/${patientId.toLowerCase()}/forms/`
                 );
+                setIsLoading(true);
               }}
-              className="bread"
+              className="p-title cursor-pointer hover:underline"
             >
-              Incident Report
-            </span>
+              Form
+            </p>
+            <span className="slash">/</span>
+            <span className="active">Archived</span>
           </div>
-          {/* number of patiens */}
-          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
-            Total of {totalNotes} Notes
-          </p>
+          <div>
+            <p>Total of 6 logs</p>
+          </div>
         </div>
         <div className="flex gap-2">
-          <button
-            onClick={() => isModalOpen(true)}
-            className="flex items-center justify-center bg-[#1b84ff] text-white font-semibold w-[100px] h-[52px] rounded gap-2"
-          >
-            <img src="/imgs/add.svg" alt="" />
-            <p className="text-[18px]">Add</p>
-          </button>
           <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
             <img src="/imgs/downloadpdf.svg" alt="" />
             <p className="text-[18px]">Download PDF</p>
@@ -269,76 +249,30 @@ const Notes = () => {
             />
           </div>
         </div>
-      </div>
 
-      {/* START OF TABLE */}
-      <div>
-        {patientNotes.length === 0 ? (
-          <h1 className="border-1 w-[180vh] py-5 absolute flex justify-center items-center">
-            <p className="text-xl font-semibold text-gray-700 text-center">
-              No Notes <br />
-              •ω•
-            </p>
-          </h1>
-        ) : (
-          <table className="w-full text-left rtl:text-right">
-            <thead>
-              <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-7 py-3 w-[200px] h-[60px]">
-                  NOTES ID
-                </th>
-                <th scope="col" className="px-7 py-3 w-[200px] h-[60px]">
-                  DATE
-                </th>
-                <th scope="col" className="px-6 py-3 w-[250px]">
-                  SUBJECT
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
-                  NOTES
-                </th>
-                <th scope="col" className=" px-[90px] py-3 w-10">
-                  ACTION
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {patientNotes.map((note, index) => (
-                <tr
-                  key={index}
-                  className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group"
-                >
-                  <td className="truncate max-w-[552px] px-6 py-3">
-                    {note.notes_uuid}
-                  </td>
-                  <th
-                    scope="row"
-                    className="font-medium text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
-                  >
-                    {new Date(note.notes_createdAt).toLocaleDateString()}
-                  </th>
-                  <td className="truncate max-w-[552px] px-6 py-3">
-                    {note.notes_subject}
-                  </td>
-                  <td className="px-6 py-3">{note.notes_notes}</td>
-                  <td className="px-[90px] py-3">
-                    <p
-                      onClick={() => {
-                        isModalOpen(true);
-                        setIsEdit(true);
-                        setNotesToEdit(note);
-                      }}
-                    >
-                      <Edit></Edit>
-                    </p>
-                  </td>
+        {/* START OF TABLE */}
+        <div className="w-full">
+          {patientNotes.length === 0 ? (
+            <h1 className="border-1 w-[180vh] py-5 absolute flex justify-center items-center">
+              <p className="text-xl font-semibold text-gray-700 text-center">
+                No Archived <br />
+                •ω•
+              </p>
+            </h1>
+          ) : (
+            <table className="w-full flex text-left rtl:text-right">
+              <thead className="w-full">
+                <tr className="w-full uppercase text-[#64748B] border-b h-[70px] flex items-center">
+                  <th className="w-[700px] ml-5">NAME OF DOCUMENT</th>
+                  <th className="w-[700px]">DATE ISSUED</th>
+                  <th className="w-full">NOTES</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+              </thead>
+            </table>
+          )}
+        </div>
+        {/* END OF TABLE */}
       </div>
-      {/* END OF TABLE */}
-
       {/* pagination */}
       {totalPages <= 1 ? (
         <div></div>
@@ -405,15 +339,13 @@ const Notes = () => {
         </div>
       )}
       {isOpen && (
-        <Modal
-          content={<NursenotesModalContent isModalOpen={isModalOpen} />}
+        <NotesModal
+          isEdit={isEdit}
           isModalOpen={isModalOpen}
-          // isEdit={isEdit}
-          // isModalOpen={isModalOpen}
-          // isOpen={isOpen}
-          // label={isEdit ? "Edit Note" : "Add Note"}
-          // notesToEdit={notesToEdit}
-          // onSuccess={onSuccess}
+          isOpen={isOpen}
+          label={isEdit ? "Edit Note" : "Add Note"}
+          notesToEdit={notesToEdit}
+          onSuccess={onSuccess}
         />
       )}
 
@@ -430,4 +362,4 @@ const Notes = () => {
   );
 };
 
-export default Notes;
+export default Archived;

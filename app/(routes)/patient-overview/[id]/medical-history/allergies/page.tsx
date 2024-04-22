@@ -187,34 +187,41 @@ const Allergies = () => {
     <div className="w-full">
       <div className="flex justify-between ">
         <div className="flex flex-col">
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center gap-2">
             <h1 className="p-title">Medical History</h1>
-            <h1 className="slash mx-2">{"/"} </h1>
-            <h1 className="font-medium text-[20px] text-[#007C85] cursor-pointer">
-              Allergies
-            </h1>
-            <h1 className="slash mx-2">{"/"} </h1>
+            <h1 className="slash">{"/"} </h1>
             <h1
+              className="bread"
               onClick={() => {
-                setIsLoading(true);
                 onNavigate(
                   router,
                   `/patient-overview/${patientId.toLowerCase()}/medical-history/surgeries`
                 );
+                setIsLoading(true);
               }}
-              className="font-medium text-[20px] cursor-pointer text-gray-600"
             >
               Surgeries
             </h1>
+            <h1 className="slash">{"/"} </h1>
+            <h1 className="active">Allergies</h1>
           </div>
           {/* number of patiens */}
-          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] mb-4 ">
-            Total of {totalAllergies} Allergies
+          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
+            Total of {totalAllergies} Notes
           </p>
         </div>
-        <div className="flex flex-row justify-end mt-[15px]">
-          <Add onClick={() => isModalOpen(true)} />
-          <DownloadPDF></DownloadPDF>
+        <div className="flex gap-2">
+          <button
+            onClick={() => isModalOpen(true)}
+            className="flex items-center justify-center bg-[#1b84ff] text-white font-semibold w-[100px] h-[52px] rounded gap-2"
+          >
+            <img src="/imgs/add.svg" alt="" />
+            <p className="text-[18px]">Add</p>
+          </button>
+          <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
+            <img src="/imgs/downloadpdf.svg" alt="" />
+            <p className="text-[18px]">Download PDF</p>
+          </button>
         </div>
       </div>
 

@@ -203,37 +203,34 @@ export default function Surgeries() {
   console.log(patientSurgeries, "PatientSurgeries");
   return (
     <div className="  w-full">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between ">
         <div className="flex flex-col">
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center gap-2">
             <h1 className="p-title">Medical History</h1>
-            <h1 className="slash mx-2">{"/"} </h1>
-            <h1
+            <span className="slash">/</span>
+            <span className="active">Surgeries</span>
+            <span className="slash">/</span>
+            <span
               onClick={() => {
-                setIsLoading(true);
                 onNavigate(
                   router,
-                  `/patient-overview/${patientId.toLowerCase()}/medical-history/allergies`
+                  `/patient-overview/${patientId.toLowerCase()}/medical-history/allergies `
                 );
                 setIsLoading(true);
               }}
-              className=" font-medium text-[20px] cursor-pointer text-gray-600"
+              className="bread"
             >
               Allergies
-            </h1>
-            <h1 className="slash mx-2">{"/"}</h1>
-            <h1 className="font-medium text-[20px] cursor-pointer text-[#007C85]">
-              Surgeries
-            </h1>
+            </span>
           </div>
           {/* number of patiens */}
-          <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[15px] mb-4 ">
-            Total of {totalSurgeries} Surgeries
+          <p className="text-[#007C85] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
+            Total of {totalSurgeries} Allergies
           </p>
         </div>
-        <div className="flex flex-row justify-end">
+        <div className="flex gap-2">
           <Add onClick={() => isModalOpen(true)} />
-          <DownloadPDF></DownloadPDF>
+          <DownloadPDF />
         </div>
       </div>
 

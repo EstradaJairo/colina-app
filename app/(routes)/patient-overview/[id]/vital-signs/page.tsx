@@ -205,19 +205,28 @@ export default function vitalsigns() {
 
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between ">
         <div className="flex flex-col">
-          <h1 className="p-title">Vital Signs</h1>
+          <div className="flex flex-row items-center gap-2">
+            <h1 className="p-title">Vital Signs</h1>
+          </div>
           {/* number of patiens */}
           <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
-            Total of {totalVitalSigns} Vital Sign/s
+            Total of {totalVitalSigns} Vital Signs
           </p>
         </div>
-        <div className="flex flex-row justify-end">
-          <div className="flex flex-row justify-end">
-            <Add onClick={() => isModalOpen(true)} />
-            <DownloadPDF></DownloadPDF>
-          </div>
+        <div className="flex gap-2">
+          <button
+            onClick={() => isModalOpen(true)}
+            className="flex items-center justify-center bg-[#1b84ff] text-white font-semibold w-[100px] h-[52px] rounded gap-2"
+          >
+            <img src="/imgs/add.svg" alt="" />
+            <p className="text-[18px]">Add</p>
+          </button>
+          <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
+            <img src="/imgs/downloadpdf.svg" alt="" />
+            <p className="text-[18px]">Download PDF</p>
+          </button>
         </div>
       </div>
 
