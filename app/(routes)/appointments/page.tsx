@@ -255,7 +255,7 @@ export default function AppointmentPage() {
                   <Button
                     variant={"outline"}
                     className={cn(
-                      "w-[166px] justify-start text-left font-normal h-[47px]",
+                      "w-[166px] justify-start text-left font-normal h-[47px] rounded-[5px]",
                       !date && "text-muted-foreground"
                     )}
                   >
@@ -278,7 +278,7 @@ export default function AppointmentPage() {
                   <Button
                     variant={"outline"}
                     className={cn(
-                      "w-[166px] justify-start text-left font-normal h-[47px]",
+                      "w-[166px] justify-start text-left font-normal h-[47px] rounded-[5px] *:",
                       !date && "text-muted-foreground"
                     )}
                   >
@@ -299,7 +299,9 @@ export default function AppointmentPage() {
           </div>
           <div className="w-[500px]">
             <div className="w-full justify-end items-center flex gap-3">
-              <p className="flex">Order by</p>
+              <p className="flex text-[#191D23] opacity-[60%] font-semibold">
+                Order by
+              </p>
               <DropdownMenu
                 options={optionsOrderedBy.map(({ label, onClick }) => ({
                   label,
@@ -343,37 +345,55 @@ export default function AppointmentPage() {
             <table className="w-full h-full justify-center items-start text-[15px]">
               <thead className=" text-left rtl:text-right">
                 <tr className="uppercase text-[#64748B] border-b border-[#E7EAEE]">
-                  <th scope="col" className="px-6 py-3 w-[286px] h-[70px]">
+                  <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
                     Status
                   </th>
-                  <th scope="col" className="px-6 py-3 w-[352px]">
+                  <th scope="col" className="px-6 py-3 w-[200px]">
                     Date
                   </th>
-                  <th scope="col" className="px-6 py-3 w-[277px]">
+                  <th scope="col" className="px-6 py-3 w-[200px]">
                     Time
                   </th>
-                  <th scope="col" className="px-6 py-3 w-[277px]">
+                  <th scope="col" className="px-6 py-3 w-10">
                     End time
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {appointmentList.map((appointment, index) => (
-                  <tr
-                    key={index}
-                    className=" group  odd:bg-white hover:bg-gray-100 even:bg-gray-50 border-b"
-                  >
-                    <th
-                      scope="row"
-                      className="truncate max-w-[286px] text-left px-6 py-5  font-medium text-gray-900 whitespace-nowrap"
-                    >
-                      {appointment.appointmentStatus}
-                    </th>
-                    <td className="px-6">{appointment.appointmentDate}</td>
-                    <td className="px-6">{appointment.appointmentTime}</td>
-                    <td className="px-6">{appointment.appointmentEndTime}</td>
-                  </tr>
-                ))}
+                <tr className="odd:bg-white hover:bg-[#f4f4f4] group border-b">
+                  <td className="px-6 py-4">
+                    <span className="w-[400px] h-[5px] px-3 bg-[#dfffea] mr-2 font-semibold text-[#17C653] rounded-[30px]">
+                      <span className="inline-block h-3 w-3 rounded-full bg-[#0EB146] mr-2 shadow-md"></span>
+                      Upcoming Appointment
+                    </span>
+                  </td>
+
+                  <td className="px-6 py-4">10/02/1992</td>
+                  <td className="px-6 py-4">10:00AM</td>
+                  <td className="px-6 py-4">3:00PM</td>
+                </tr>
+                <tr className="odd:bg-white hover:bg-[#f4f4f4] group border-b">
+                  <td className="px-6 py-4">
+                    <span className="w-[400px] h-[5px] px-3 bg-[#E7EAEE] mr-2 font-semibold text-[#71717A] rounded-[30px]">
+                      <span className="inline-block h-3 w-3 rounded-full bg-[#7E7E7E] mr-2 shadow-md"></span>
+                      Done Appointment
+                    </span>
+                  </td>
+                  <td className="px-6 py-4">10/02/1992</td>
+                  <td className="px-6 py-4">10:00AM</td>
+                  <td className="px-6 py-4">3:00PM</td>
+                </tr>
+                <tr className="odd:bg-white hover:bg-[#f4f4f4] group border-b">
+                  <td className="px-6 py-4">
+                    <span className="w-[400px] h-[5px] px-3 bg-[#FFE8EC] mr-2 font-semibold text-[#EF4C6A] rounded-[30px]">
+                      <span className="inline-block h-3 w-3 rounded-full bg-[#EE4D4D] mr-2 shadow-md"></span>
+                      Missed Appointment
+                    </span>
+                  </td>
+                  <td className="px-6 py-4">10/02/1992</td>
+                  <td className="px-6 py-4">10:00AM</td>
+                  <td className="px-6 py-4">3:00PM</td>
+                </tr>
               </tbody>
             </table>
           )}
