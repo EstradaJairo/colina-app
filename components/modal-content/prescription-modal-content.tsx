@@ -7,6 +7,66 @@ interface Modalprops {
   isModalOpen: (isOpen: boolean) => void;
 }
 
+interface ModalProps {
+  isModalOpen: (isOpen: boolean) => void;
+}
+
+const FileUploadWithHover = () => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <label
+        htmlFor="imageUpload"
+        className="relative h-12 w-full bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold"
+      >
+        <Image
+          className="w-7 h-7 mr-1"
+          width={50}
+          height={50}
+          src="/svgs/filein.svg"
+          alt=""
+        />
+        <div className="flex pb-5 text-nowrap text-[12px]">
+          <p className="mt-2">Upload or Attach Files or</p>
+          <p className="underline decoration-solid text-blue-500 ml-1 mt-2">
+            Browse
+          </p>
+        </div>
+        <span className="text-[10px] font-normal absolute bottom-2 text-[#667085] ml-10">
+          Minimum file size
+        </span>
+      </label>
+      <input
+        type="file"
+        id="imageUpload"
+        accept="image/*"
+        className="hidden"
+        onChange={(e) => console.log("File uploaded")}
+      />
+      {isHovering && (
+        <div className="absolute bg-white p-2 border rounded-md shadow-md top-[-60px] left-0">
+          <p>Minimum file size of 1 MB</p>
+          <p>Maximum file size of 100 MB</p>
+          <p>Supported formats: PNG, JPG, JPEG</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
   const [selectedStatus, setSelectedStatus] = useState("");
   function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -124,35 +184,8 @@ export const PrescriptionModalContent = ({ isModalOpen }: Modalprops) => {
                   />
                 </div>
               </div>
-              <div className="">
-                <label
-                  htmlFor="imageUpload"
-                  className="relative h-12 w-full bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-[31px]"
-                >
-                  <Image
-                    className="w-7 h-7 mr-1"
-                    width={50}
-                    height={50}
-                    src={"/svgs/filein.svg"}
-                    alt={""}
-                  />
-                  <div className="flex pb-5 text-nowrap text-[12px] ">
-                    <p className="mt-2">Upload or Attach Files or</p>
-                    <p className="underline decoration-solid text-blue-500 ml-1 mt-2">
-                      Browse
-                    </p>
-                  </div>
-                  <span className="text-[10px] font-normal absolute bottom-2 text-[#667085] ml-10 ">
-                    Minimum file size
-                  </span>
-                </label>
-                <input
-                  type="file"
-                  id="imageUpload"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => handleImageUpload(e)}
-                />
+              <div className="pt-[30px]">
+                <FileUploadWithHover />
               </div>
             </div>
           </form>
