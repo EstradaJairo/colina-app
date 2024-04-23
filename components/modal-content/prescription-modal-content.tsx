@@ -57,7 +57,7 @@ const FileUploadWithHover = () => {
         onChange={(e) => console.log("File uploaded")}
       />
       {isHovering && (
-        <div className="absolute bg-black p-2 text-white border rounded-md shadow-md top-[-60px] left-0">
+        <div className="absolute bg-[#4E4E4E] p-2 text-white border rounded-md shadow-md top-[-60px] left-0">
           <p>Minimum file size of 1 MB</p>
           <p>Maximum file size of 100 MB</p>
           <p>Supported formats: PNG, JPG, JPEG</p>
