@@ -287,129 +287,90 @@ export default function vitalsigns() {
         </div>
         {/* START OF TABLE */}
         <div>
-          {patientVitalSign.length == 0 ? (
-            <div>
-              <div className="w-full flex-col justify-center items-center">
-                <table className="w-full block text-left rtl:text-right">
-                  <thead className="">
-                    <tr className=" text-[#64748B] border-b text-[15px]">
-                      <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
-                        VITAL SIGN ID
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-[400px]">
-                        DATE
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-[300px]">
-                        TIME
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 truncate max-w-[300px]"
-                      >
-                        BLOOD PRESSURE (mmHg)
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-[400px]">
-                        HEART RATE (bpm)
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-[400px]">
-                        TEMPERATURE (°F)
-                      </th>
-                      <th scope="col" className="px-1 py-3 w-[400px]">
-                        RESPIRATORY (brths/min)
-                      </th>
+          <table className="w-full text-left rtl:text-right">
+            <thead className="">
+              <tr className=" text-[#64748B] border-y text-[15px]">
+                <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
+                  VITAL SIGN ID
+                </th>
+                <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
+                  DATE
+                </th>
+                <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
+                  TIME
+                </th>
+                <th scope="col" className="px-6 py-3 truncate max-w-[300px]">
+                  BLOOD PRESSURE (mmHg)
+                </th>
+                <th scope="col" className="px-6 py-3 w-[400px]">
+                  HEART RATE (bpm)
+                </th>
+                <th scope="col" className="px-6 py-3 w-[400px]">
+                  TEMPERATURE (°F)
+                </th>
+                <th scope="col" className="px-1 py-3 w-[400px]">
+                  RESPIRATORY (brths/min)
+                </th>
 
-                      <th scope="col" className="px-[80px] py-3 w-[10px] ">
-                        ACTION
-                      </th>
-                    </tr>
-                  </thead>
-                </table>
-                <div className="py-5 flex justify-center items-center">
+                <th scope="col" className="px-[80px] py-3 w-[10px] ">
+                  ACTION
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {patientVitalSign.length == 0 && (
+                <div className="border-1 w-[180vh] py-5 absolute flex justify-center items-center">
                   <p className="text-[15px] font-normal text-gray-700 text-center">
                     No Vital Sign/s <br />
                   </p>
                 </div>
-              </div>
-            </div>
-          ) : (
-            <table className="w-full text-left rtl:text-right">
-              <thead className="">
-                <tr className=" text-[#64748B] border-y text-[15px]">
-                  <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
-                    VITAL SIGN ID
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
-                    DATE
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
-                    TIME
-                  </th>
-                  <th scope="col" className="px-6 py-3 truncate max-w-[300px]">
-                    BLOOD PRESSURE (mmHg)
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[400px]">
-                    HEART RATE (bpm)
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[400px]">
-                    TEMPERATURE (°F)
-                  </th>
-                  <th scope="col" className="px-1 py-3 w-[400px]">
-                    RESPIRATORY (brths/min)
-                  </th>
-
-                  <th scope="col" className="px-[80px] py-3 w-[10px] ">
-                    ACTION
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {patientVitalSign.map((vitalSign, index) => (
-                  <tr
-                    key={index}
-                    className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]"
+              )}
+              {patientVitalSign.map((vitalSign, index) => (
+                <tr
+                  key={index}
+                  className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]"
+                >
+                  <th
+                    scope="row"
+                    className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                   >
-                    <th
-                      scope="row"
-                      className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                    >
-                      {vitalSign.vitalsign_uuid}
-                    </th>
-                    <td className="px-6 py-4">
-                      {formatDate(vitalSign.vitalsign_date)}
-                    </td>
-                    <td className="px-6 py-4">
-                      {formatTime(vitalSign.vitalsign_time)}
-                    </td>
-                    <td className="px-6 py-4">
-                      {vitalSign.vitalsign_bloodPressure}mmHg
-                    </td>
-                    <td className="px-6 py-4">
-                      {vitalSign.vitalsign_heartRate}bpm
-                    </td>
-                    <td className="px-6 py-4">
-                      {vitalSign.vitalsign_temperature}°F
-                    </td>
-                    <td className="px-1 py-4">
-                      {vitalSign.vitalsign_respiratoryRate}breaths/min
-                    </td>
+                    {vitalSign.vitalsign_uuid}
+                  </th>
+                  <td className="px-6 py-4">
+                    {formatDate(vitalSign.vitalsign_date)}
+                  </td>
+                  <td className="px-6 py-4">
+                    {formatTime(vitalSign.vitalsign_time)}
+                  </td>
+                  <td className="px-6 py-4">
+                    {vitalSign.vitalsign_bloodPressure}mmHg
+                  </td>
+                  <td className="px-6 py-4">
+                    {vitalSign.vitalsign_heartRate}bpm
+                  </td>
+                  <td className="px-6 py-4">
+                    {vitalSign.vitalsign_temperature}°F
+                  </td>
+                  <td className="px-1 py-4">
+                    {vitalSign.vitalsign_respiratoryRate}breaths/min
+                  </td>
 
-                    <td className="px-[70px] py-4">
-                      <p
-                        onClick={() => {
-                          isModalOpen(true);
-                          setIsEdit(true);
-                          setVitalSignData(vitalSign);
-                        }}
-                      >
-                        <Edit></Edit>
-                      </p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
+                  <td className="px-[70px] py-4">
+                    <p
+                      onClick={() => {
+                        isModalOpen(true);
+                        setIsEdit(true);
+                        setVitalSignData(vitalSign);
+                      }}
+                    >
+                      <Edit></Edit>
+                    </p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         {/* END OF TABLE */}
       </div>
