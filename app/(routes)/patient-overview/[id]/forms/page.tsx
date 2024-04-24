@@ -7,8 +7,8 @@ import Edit from "@/components/shared/buttons/view";
 import { useEffect, useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useParams, useRouter } from "next/navigation";
-import { FormsModalContent } from "@/components/modals/forms.modal";
-import { FormsviewModalContent } from "@/components/modal-content/formsview-modal-content";
+import { FormsviewModalContent } from "@/components/modals/forms.modal";
+import { FormsModalContent } from "@/components/modal-content/forms-modal-content";
 import Modal from "@/components/reusable/modal";
 import { fetchFormsByPatient } from "@/app/api/forms-api/forms.api";
 import { SuccessModal } from "@/components/shared/success";
@@ -302,7 +302,7 @@ export default function FormsTab() {
                 </td>
 
                 <td className="px-7 py-3 h-[60px]">
-                  <Edit></Edit>
+                  <Edit onClick={() => isModalOpen(true)}></Edit>
                 </td>
               </tr>
             </tbody>
@@ -316,33 +316,34 @@ export default function FormsTab() {
       ) : (
         <div className="mt-5 pb-5">
           <div className="flex justify-between">
-            <p className="font-medium size-[18px] text-[15px] w-[138px] items-center">
+            <p className="font-medium size-[18px] w-[138px] items-center">
               Page {currentPage} of {totalPages}
             </p>
             <div>
               <nav>
-                <div className="flex text-[15px] ">
-                  <div className="flex">
+                <div className="flex -space-x-px text-sm">
+                  <div>
                     <button
                       onClick={goToPreviousPage}
-                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
+                      className="flex border border-px items-center justify-center  w-[77px] h-full"
                     >
                       Prev
                     </button>
+                  </div>
+                  {renderPageNumbers()}
 
-                    {renderPageNumbers()}
-
+                  <div className="ml-5">
                     <button
                       onClick={goToNextPage}
-                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
+                      className="flex border border-px items-center justify-center  w-[77px] h-full"
                     >
                       Next
                     </button>
                   </div>
                   <form onSubmit={handleGoToPage}>
-                    <div className="flex pl-4 ">
+                    <div className="flex px-5 ">
                       <input
-                        className={`ipt-pagination appearance-none  text-center ring-1 ${
+                        className={`ipt-pagination appearance-none  text-center border ring-1 ${
                           gotoError ? "ring-red-500" : "ring-gray-300"
                         } border-gray-100`}
                         type="text"
@@ -361,11 +362,8 @@ export default function FormsTab() {
                           }
                         }}
                       />
-                      <div className="">
-                        <button
-                          type="submit"
-                          className="btn-pagination ring-1 ring-[#007C85]"
-                        >
+                      <div className="px-5">
+                        <button type="submit" className="btn-pagination ">
                           Go{" "}
                         </button>
                       </div>
@@ -380,7 +378,7 @@ export default function FormsTab() {
       {isOpen && (
         <Modal
           content={
-            <FormsviewModalContent
+            <FormsModalContent
               isModalOpen={isModalOpen}
               onSuccess={onSuccess}
             />
