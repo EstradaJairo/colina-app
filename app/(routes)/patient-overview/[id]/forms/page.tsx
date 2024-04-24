@@ -302,7 +302,7 @@ export default function FormsTab() {
                 </td>
 
                 <td className="px-7 py-3 h-[60px]">
-                  <Edit onClick={() => isModalOpen(true)}></Edit>
+                  <Edit></Edit>
                 </td>
               </tr>
             </tbody>
