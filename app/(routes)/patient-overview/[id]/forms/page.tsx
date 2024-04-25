@@ -7,11 +7,12 @@ import Edit from "@/components/shared/buttons/view";
 import { useEffect, useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { useParams, useRouter } from "next/navigation";
-import { FormsModalContent } from "@/components/modals/forms.modal";
+import { FormsModalContent } from "@/components/modal-content/forms-modal-content";
 import { FormsviewModalContent } from "@/components/modal-content/formsview-modal-content";
 import Modal from "@/components/reusable/modal";
 import { fetchFormsByPatient } from "@/app/api/forms-api/forms.api";
 import { SuccessModal } from "@/components/shared/success";
+
 export default function FormsTab() {
   const router = useRouter();
   const params = useParams<{
@@ -83,6 +84,18 @@ export default function FormsTab() {
     }
   };
 
+  // add form
+  const [isAddOpen, setIsAddOpen] = useState(false);
+  const isAddModalOpen = (isAddOpen: boolean) => {
+    setIsAddOpen(isAddOpen);
+    if (isAddOpen) {
+      document.body.style.overflow = "hidden";
+    } else if (!isAddOpen) {
+      document.body.style.overflow = "visible";
+    }
+  };
+  // add form
+
   const goToPreviousPage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
@@ -152,6 +165,7 @@ export default function FormsTab() {
           router
         );
         setPatientForms(response.data);
+        console.log("DATAAAAA:", response.data);
         setTotalPages(response.totalPages);
         setTotalForms(response.totalCount);
         setIsLoading(false);
@@ -176,7 +190,7 @@ export default function FormsTab() {
       </div>
     );
   }
-  console.log(patientForms, "patientForms");
+
   return (
     <div className="  w-full">
       <div className="w-full justify-between flex mb-2">
@@ -187,8 +201,7 @@ export default function FormsTab() {
             <span
               onClick={() => {
                 setIsLoading(true);
-                onNavigate(
-                  router,
+                router.push(
                   `/patient-overview/${patientId.toLowerCase()}/forms/archived`
                 );
                 setIsLoading(true);
@@ -199,22 +212,20 @@ export default function FormsTab() {
             </span>
           </div>
           <div>
-            <p>Total of 6 logs</p>
+            <p>Total of {totalForms} logs</p>
           </div>
         </div>
         <div className="flex gap-2">
-          <button className="flex items-center justify-center hover:bg-[#E7EAEE] border-[2px] text-black font-semibold w-[139px] h-[52px] rounded gap-2">
-            <img src="/svgs/archive.svg" alt="" />
-            <p className="text-[18px]">Archive</p>
-          </button>
           <button
-            onClick={() => isModalOpen(true)}
-            className="flex items-center justify-center hover:bg-[#2267B9] bg-[#1B84FF] text-white font-semibold w-[100px] h-[52px] rounded gap-2"
+            onClick={() => {
+              setIsAddOpen(true);
+            }}
+            className="btn-add gap-2"
           >
             <img src="/imgs/add.svg" alt="" />
             <p className="text-[18px]">Add</p>
           </button>
-          <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
+          <button className="btn-pdfs gap-2">
             <img src="/imgs/downloadpdf.svg" alt="" />
             <p className="text-[18px]">Download PDF</p>
           </button>
@@ -282,38 +293,93 @@ export default function FormsTab() {
 
         {/* START OF TABLE */}
         <div>
-          <table className="w-full text-left rtl:text-right">
-            <thead>
-              <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-7 py-3 h-[60px] w-[250px]">
-                  NAME OF DOCUMENT
-                </th>
-                <th scope="col" className="px-7 py-3 h-[60px] w-[200px]">
-                  DATE ISSUED
-                </th>
-                <th scope="col" className="px-7 py-3 h-[60px] w-[900px]">
-                  NOTES
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  ACTION
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group">
-                <th className="px-7 py-3 h-[60px] ">Patient Details</th>
-                <td className="px-7 py-3 h-[60px]">10/12/2024</td>
-                <td className="px-7 py-3 h-[60px]">
-                  Patient reports occasional headaches. Advised to monitor and
-                  follow up.
-                </td>
+          {patientForms.length == 0 ? (
+            <div>
+              <div className="w-full flex-col justify-center items-center">
+                <table className="w-full block text-left rtl:text-right border-b">
+                  <thead className="w-full ">
+                    <tr className=" text-[#64748B] text-[15px]">
+                      <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
+                        NAME OF DOCUMENT
+                      </th>
+                      <th scope="col" className="px-6 py-3 w-[400px]">
+                        DATE ISSUED
+                      </th>
+                      <th scope="col" className="px-6 py-3 w-[750px]">
+                        NOTES
+                      </th>
+                      <th scope="col" className="px-6 py-3 max-w-[300px]">
+                        ACTION
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+                <div className="py-5 flex justify-center items-center">
+                  <p className="text-xl font-semibold text-gray-700 text-center">
+                    No Form/s
+                  </p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <table className="w-full block text-left rtl:text-right border-b">
+              <thead className="w-full">
+                <tr className=" text-[#64748B] text-[15px]">
+                  <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
+                    NAME OF DOCUMENT
+                  </th>
+                  <th scope="col" className="px-6 py-3 w-[400px]">
+                    DATE ISSUED
+                  </th>
+                  <th scope="col" className="px-6 py-3 w-[750px]">
+                    NOTES
+                  </th>
+                  <th scope="col" className="px-6 py-3 max-w-[300px]">
+                    ACTION
+                  </th>
+                </tr>
+              </thead>
 
-                <td className="px-7 py-3 h-[60px]">
-                  <Edit></Edit>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <tbody className="overflow-y-scroll">
+                {patientForms.map((form, index) => (
+                  <tr
+                    key={index}
+                    className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]"
+                  >
+                    <th
+                      scope="row"
+                      className="truncate px-6 py-3 w-[400px] font-medium text-gray-900 whitespace-nowrap"
+                    >
+                      {form.forms_nameOfDocument}
+                    </th>
+                    <td className="px-6 py-3 w-[400px]">
+                      {form.forms_dateIssued}
+                    </td>
+                    <td className="px-6 py-3 w-[750px] max-w-[750px] truncate">
+                      {form.forms_notes}
+                    </td>
+
+                    <td className="px-6 py-3 max-w-[300px] flex gap-2">
+                      <p
+                        onClick={() => {
+                          isModalOpen(true);
+                          setIsEdit(true);
+                          setFormsToEdit(form);
+                        }}
+                      >
+                        <Edit />
+                      </p>
+                      <p>
+                        <button className="w-[90px] h-[35px] rounded bg-[#E7EAEE]  hover:!text-white hover:!bg-[#007C85] group-hover:bg-white group-hover:text-black ">
+                          Archive
+                        </button>
+                      </p>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
         {/* END OF TABLE */}
       </div>
@@ -323,34 +389,33 @@ export default function FormsTab() {
       ) : (
         <div className="mt-5 pb-5">
           <div className="flex justify-between">
-            <p className="font-medium size-[18px] w-[138px] items-center">
+            <p className="font-medium size-[18px] text-[15px] w-[138px] items-center">
               Page {currentPage} of {totalPages}
             </p>
             <div>
               <nav>
-                <div className="flex -space-x-px text-sm">
-                  <div>
+                <div className="flex text-[15px] ">
+                  <div className="flex">
                     <button
                       onClick={goToPreviousPage}
-                      className="flex border border-px items-center justify-center  w-[77px] h-full"
+                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
                     >
                       Prev
                     </button>
-                  </div>
-                  {renderPageNumbers()}
 
-                  <div className="ml-5">
+                    {renderPageNumbers()}
+
                     <button
                       onClick={goToNextPage}
-                      className="flex border border-px items-center justify-center  w-[77px] h-full"
+                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
                     >
                       Next
                     </button>
                   </div>
                   <form onSubmit={handleGoToPage}>
-                    <div className="flex px-5 ">
+                    <div className="flex pl-4 ">
                       <input
-                        className={`ipt-pagination appearance-none  text-center border ring-1 ${
+                        className={`ipt-pagination appearance-none  text-center ring-1 ${
                           gotoError ? "ring-red-500" : "ring-gray-300"
                         } border-gray-100`}
                         type="text"
@@ -369,8 +434,11 @@ export default function FormsTab() {
                           }
                         }}
                       />
-                      <div className="px-5">
-                        <button type="submit" className="btn-pagination ">
+                      <div className="">
+                        <button
+                          type="submit"
+                          className="btn-pagination ring-1 ring-[#007C85]"
+                        >
                           Go{" "}
                         </button>
                       </div>
@@ -395,11 +463,22 @@ export default function FormsTab() {
       )}
       {isSuccessOpen && (
         <SuccessModal
-          label={isEdit ? "Edit Note" : "Add Note"}
+          label={isEdit ? "Edit Form" : "Add Form"}
           isAlertOpen={isSuccessOpen}
           toggleModal={setIsSuccessOpen}
           isUpdated={isUpdated}
           setIsUpdated={setIsUpdated}
+        />
+      )}
+      {isAddOpen && (
+        <Modal
+          content={
+            <FormsModalContent
+              isModalOpen={setIsAddOpen}
+              onSuccess={onSuccess}
+            />
+          }
+          isModalOpen={isAddModalOpen}
         />
       )}
     </div>

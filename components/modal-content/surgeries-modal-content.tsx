@@ -51,7 +51,7 @@ export const SurgeriesModalContent = ({
   }>();
 
   const patientId = params.id.toUpperCase();
-const {toast} = useToast()
+  const { toast } = useToast();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -137,7 +137,7 @@ const {toast} = useToast()
   console.log(surgeryData, "surgeryData");
   console.log(formData, "formData");
   return (
-    <div className={`w-[676px] ${charactersFull ? "h-[578px]" : "h-[554px]"}`}>
+    <div className={`w-[676px] ${charactersFull ? "h-[577px]" : "h-[550px]"}`}>
       <form className="h-full" onSubmit={handleSubmit}>
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between">
@@ -249,17 +249,17 @@ const {toast} = useToast()
             </div>
           </div>
         </div>
-        <div className="relative justify-center flex border-t-4">
+        <div className="justify-end flex mr-10">
           <button
             onClick={() => isModalOpen(false)}
             type="button"
-            className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[3px] rounded-bl-md"
+            className="w-[170px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mr-4 rounded-sm"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
+            className="w-[170px] h-[50px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium  rounded-sm"
           >
             {isEdit ? "Update" : "Submit"}
           </button>

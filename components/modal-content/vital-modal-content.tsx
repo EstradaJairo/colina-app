@@ -113,7 +113,7 @@ export const VitalModalContent = ({
   console.log(vitalSignData, "prescriptionData");
   console.log(formData, "formData");
   return (
-    <div className="w-[676px] h-[492px]">
+    <div className="w-[676px] h-[489px]">
       <form className="" onSubmit={handleSubmit}>
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between">
@@ -263,17 +263,17 @@ export const VitalModalContent = ({
             </div>
           </div>
           <div className="pt-20">
-            <div className="justify-center flex border-t-4 pt-26">
+            <div className="justify-end flex mr-10">
               <button
                 onClick={() => isModalOpen(false)}
                 type="button"
-                className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[3px] rounded-bl-md"
+                className="w-[170px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mr-4 rounded-sm"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
+                className="w-[170px] h-[50px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium rounded-sm"
               >
                 {isEdit ? "Update" : "Add"}
               </button>
