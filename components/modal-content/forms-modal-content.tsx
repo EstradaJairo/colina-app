@@ -13,7 +13,7 @@ export const FormsModalContent = ({ isModalOpen }: Modalprops) => {
   }
 
   return (
-    <div className="w-[676px] h-[621px] bg-[#FFFFFF] rounded-md">
+    <div className="w-[676px] h-[625px] bg-[#FFFFFF] rounded-md">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <div className="items-center flex justify-between">
           <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
@@ -120,11 +120,11 @@ export const FormsModalContent = ({ isModalOpen }: Modalprops) => {
         </div>
       </div>
       <div className="pt-10">
-        <div className="justify-center flex ">
+        <div className="justify-center flex border-t-4">
           <button
             onClick={() => isModalOpen(false)}
             type="button"
-            className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[3px] rounded-bl-md"
+            className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-4 mr-[3px] rounded-bl-md"
           >
             Cancel
           </button>
