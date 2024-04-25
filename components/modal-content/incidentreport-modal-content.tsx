@@ -119,7 +119,7 @@ export const IncidentreportModalContent = ({
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    required
+                    required  
                   />
                 </div>
               </div>
