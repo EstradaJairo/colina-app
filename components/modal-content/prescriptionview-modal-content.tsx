@@ -51,6 +51,43 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
       return () => clearTimeout(timeoutId);
     }, [toastVisible]);
 
+    const FileUploadWithHover = () => {
+      const [isHovering, setIsHovering] = useState(false);
+
+      const handleMouseEnter = () => {
+        setIsHovering(true);
+      };
+
+      const handleMouseLeave = () => {
+        setIsHovering(false);
+      };
+
+      return (
+        <div
+          className="flex flex-row justify-between relative"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <p className="border-2 rounded-l-md text-gray-400 px-2 py-1 text-[13px] text-nowrap w-full flex justify-center hover:border-[#686868]  ">
+            Upload or Attach Files or
+          </p>
+          {isHovering && (
+            <div className="absolute bg-[#4E4E4E] p-2 text-white rounded-md shadow-md bottom-[-90px] left-18">
+              <p>Minimum file size of 1 MB</p>
+              <p>Maximum file size of 100 MB</p>
+              <p>Supported formats: PNG, JPG, JPEG</p>
+            </div>
+          )}
+          <label
+            htmlFor="imageUpload"
+            className="text-[13px] bg-[#007C85] px-2 py-1 text-white cursor-pointer rounded-r-md flex justify-center border-2 border-[#007C85]"
+          >
+            Browse
+          </label>
+        </div>
+      );
+    };
+
     return (
       <>
         <div className="w-[676px] h-[607  px]">
@@ -89,17 +126,7 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                     />
                   </div>
                   <div className="w-[220px]">
-                    <div className="w-full flex justify-between flex-row">
-                      <p className="border-2 rounded-l-md text-gray-400 px-2 py-1 text-[13px] text-nowrap w-full flex justify-center hover:border-[#686868]  ">
-                        Choose files to upload
-                      </p>
-                      <label
-                        htmlFor="imageUpload"
-                        className="text-[13px] bg-[#007C85] px-2 py-1 text-white cursor-pointer rounded-r-md flex justify-center border-2 border-[#007C85]"
-                      >
-                        Browse
-                      </label>
-                    </div>
+                    <FileUploadWithHover />
 
                     <div className="flex justify-between px-1 bg-white rounded-md border-2 mt-4 hover:border-[#686868]">
                       <h2 className="text-[12px] px-1  text-gray-400 py-1">

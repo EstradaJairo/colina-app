@@ -205,7 +205,7 @@ export default function forms() {
         </div>
         {isOpen && (
           <Modal
-            content={<FormsviewModalContent isModalOpen={isModalOpen} />}
+            content={<NofileviewModalContent isModalOpen={isModalOpen} />}
             isModalOpen={isModalOpen}
           />
         )}
