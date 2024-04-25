@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import React, { useRef } from "react";
 
 export default function PatientOverviewLayout({
   children,
@@ -65,6 +66,28 @@ export default function PatientOverviewLayout({
     setDetailsClicked(false);
   };
 
+  const fileInputRef = useRef(null);
+
+  const previewImage = (event) => {
+    const input = event.target;
+    const preview = document.getElementById("preview");
+
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        preview.innerHTML =
+          '<img src="' + e.target.result + '" alt="Uploaded Image" />';
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  };
+
+  const handlePreviewClick = () => {
+    fileInputRef.current.click();
+  };
+
   return (
     <div className="flex flex-col w-full px-[150px] py-[90px]">
       <div className="flex flex-col ">
@@ -74,14 +97,27 @@ export default function PatientOverviewLayout({
         <div className="form ring-1 w-full h-[220px] shadow-md ring-gray-300 px-5 pt-5 rounded-md">
           <div className="flex">
             <div className="flex flex-col">
-              <Image
-                src="/imgs/dennis.svg"
-                alt="profile"
-                width="200"
-                height="200"
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={previewImage}
+                style={{ display: "none" }}
               />
+
+              <div
+                id="preview"
+                style={{ width: "200px", height: "230px", cursor: "pointer" }}
+                onClick={handlePreviewClick}
+              >
+                <img
+                  src="icons/Bimage.png" // Replace default_image_url.jpg with your default image URL
+                  alt="Default Image"
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
             </div>
-            <div className="justify-between ml-4 mt-1 flex flex-col w-full">
+            <div className=" ml-4 mt-1 w-full">
               <div>
                 <div className="w-full justify-between p-title flex ml-2">
                   <h1> Drake Ramos</h1>
@@ -148,7 +184,7 @@ export default function PatientOverviewLayout({
                   </div>
                 </div>
               </div>
-              <div className="flex gap-[50px] px-2 ">
+              <div className="flex gap-[50px] px-2 mt-8">
                 {tabs.map((tab, index) => (
                   <p
                     className={`cursor-pointer font-bold  ${
