@@ -107,11 +107,11 @@ export default function PatientOverviewLayout({
 
               <div
                 id="preview"
-                style={{ width: "200px", height: "230px", cursor: "pointer" }}
+                style={{ width: "199px", height: "183px", cursor: "pointer" }}
                 onClick={handlePreviewClick}
               >
                 <img
-                  src="icons/Bimage.png" // Replace default_image_url.jpg with your default image URL
+                  src="/imgs/profile3.png" // Replace default_image_url.jpg with your default image URL
                   alt="Default Image"
                   style={{ width: "100%", height: "100%" }}
                 />
