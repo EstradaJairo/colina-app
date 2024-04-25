@@ -285,9 +285,9 @@ export default function prescription() {
               </p>
             </div>
           ) : (
-            <table className=" text-left rtl:text-right">
+            <table className="text-left rtl:text-right">
               <thead>
-                <tr className=" text-[#64748B] border-y text-[15px] h-[70px] font-semibold">
+                <tr className="text-[#64748B] border-y text-[15px] h-[70px] font-semibold">
                   <td className="px-6 py-3 ">PRESCRIPTION ID</td>
                   <td className="px-6 py-3 ">MEDICINE NAME</td>
                   <td className="px-6 py-3 ">FREQUENCY</td>
