@@ -6,8 +6,9 @@ interface ModalProps {
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const NofileviewModalContent = ({ isModalOpen }: ModalProps) => {
+export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [hasFile, setHasFile] = useState(false);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [showCheckboxes, setShowCheckboxes] = useState(false);
   const toggleModal = () => {
@@ -69,44 +70,137 @@ export const NofileviewModalContent = ({ isModalOpen }: ModalProps) => {
     );
   };
 
+  function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
-    <div className="w-[676px] h-[545px]">
-      <div className="mb-9 ">
-        <div className="h-[400px] md:px-10 mt-10 flex justify-center items-center">
-          <div className="even:bg-gray-50 cursor-pointer">
-            <div
-              style={{ overflow: "hidden", width: "400px", height: "400px" }}
-            >
-              <Image
-                src="/imgs/nodocs.png"
-                alt="Document"
-                width={500}
-                height={200}
-                className="w-89 mt-10"
-              />
-            </div>
-            <div className="flex justify-center text-[15px] font-medium mb-4 mt-2">
-              No image/document found!
-            </div>
-            <FileUploadWithHover />
-          </div>
-        </div>
-      </div>
-      <div className="pt-10">
-        <div className="justify-center flex border-t-4">
-          <button
+    <div className="w-[676px] h-[490px] p-[30px]">
+      <div className="mb-9 h-full w-full">
+        <div className="items-center flex justify-between">
+          <p className="p-title text-left text-[#071437]">
+            Prescription Files Attachment
+          </p>
+          <X
             onClick={() => isModalOpen(false)}
-            type="button"
-            className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[4px] rounded-bl-md"
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
-            className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
-          >
-            Submit
-          </button>
+            className="w-7 h-7 text-black flex items-center mb-4 ml-6"
+          />
+        </div>
+        <div className="h-full w-full flex flex-col justify-start items-center">
+          {hasFile === false ? (
+            <div className="w-full h-[380px]  bg-[#007C851A] border-[#007C85] border-dashed border-2 flex justify-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-2">
+              <div className="text-[15px] p-[60px] w-full">
+                <div className="flex gap-[9px] justify-center items-center">
+                  <div className="flex items-start">
+                    <Image
+                      className="w-7 h-7 mb-5 "
+                      width={50}
+                      height={50}
+                      src={"/svgs/folder-add.svg"}
+                      alt={""}
+                    />
+                  </div>
+                  <div className="">
+                    <p className="flex">
+                      Upload or Attach Files or
+                      <span className="underline decoration-solid text-blue-500 ml-1">
+                        Browse
+                      </span>
+                    </p>
+                    <p className="text-[14px] font-normal   text-[#667085] ">
+                      Minimum file size 100 MB.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex justify-center">
+                  <Image
+                    src="/svgs/nofileviews.png"
+                    alt="Document"
+                    width={200}
+                    height={200}
+                    className="w-89 mt-8"
+                  />
+                </div>
+                <div className="flex justify-center text-[15px] font-medium mb-4 mt-2">
+                  No image/document found!
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="grid-cols-1 grid">
+              <label
+                htmlFor="imageUpload"
+                className="relative h-[70px] w-[615px] bg-[#daf3f5] border-[#007C85] border-dashed border-2 flex justify-center items-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-1.5"
+              >
+                <Image
+                  className="w-10 h-10 mr-1"
+                  width={50}
+                  height={50}
+                  src={"/svgs/folder-add.svg"}
+                  alt={""}
+                />
+                <div className="flex pb-5 text-nowrap text-[15px] ">
+                  <p className="">Upload or Attach Files or</p>
+                  <p className="underline decoration-solid text-blue-500 ml-1">
+                    Browse
+                  </p>
+                </div>
+                <span className="text-[14px] font-normal absolute bottom-2 text-[#667085] ml-10 pb-1">
+                  Minimum file size 100 MB.
+                </span>
+              </label>
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => handleImageUpload(e)}
+              />
+
+              <div className="items-center flex justify-between mt-4">
+                <p className=" text-left text-[#071437]">Samplexxxx</p>
+                <X
+                  onClick={() => isModalOpen(false)}
+                  className="w-4 h-4 text-black flex items-center"
+                />
+              </div>
+              <div className="items-center flex justify-between mt-4">
+                <p className=" text-left text-[#071437]">Samplexxxx</p>
+                <X
+                  onClick={() => isModalOpen(false)}
+                  className="w-4 h-4 text-black flex items-center"
+                />
+              </div>
+              <div className="items-center flex justify-between mt-4">
+                <p className=" text-left text-[#071437]">Samplexxxx</p>
+                <X
+                  onClick={() => isModalOpen(false)}
+                  className="w-4 h-4 text-black flex items-center"
+                />
+              </div>
+              <div className="justify-end flex mr-10">
+                <button
+                  onClick={() => isModalOpen(false)}
+                  type="button"
+                  className={`
+            w-[200px] h-[50px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black  mr-4 rounded-sm `}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className={`w-[170px] h-[50px] bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium rounded-sm  `}
+                ></button>
+              </div>
+            </div>
+          )}
+          <input
+            type="file"
+            id="imageUpload"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) => handleImageUpload(e)}
+          />
         </div>
       </div>
     </div>
