@@ -70,6 +70,22 @@ export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
     );
   };
 
+  function dropHandler(ev: any) {
+    ev.preventDefault();
+    const files = ev.dataTransfer.files;
+    const syntheticEvent = {
+      target: {
+        files,
+        value: "", // add this property to satisfy the type
+      },
+    };
+    handleFile(syntheticEvent as React.ChangeEvent<HTMLInputElement>);
+  }
+
+  function dragOverHandler(ev: any) {
+    ev.preventDefault();
+  }
+
   function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>): void {
     throw new Error("Function not implemented.");
   }
@@ -88,12 +104,17 @@ export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
         </div>
         <div className="h-full w-full flex flex-col justify-start items-center">
           {hasFile === false ? (
-            <div className="w-full h-[380px]  bg-[#007C851A] border-[#007C85] border-dashed border-2 flex justify-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-2">
+            <label
+              htmlFor="imageUpload"
+              className="w-full h-[380px] bg-[#007C851A] border-[#007C85] border-dashed border-2 flex justify-center rounded-md cursor-pointer text-center text-[#101828] font-bold mt-2"
+              onDrop={dropHandler}
+              onDragOver={dragOverHandler}
+            >
               <div className="text-[15px] p-[60px] w-full">
                 <div className="flex gap-[9px] justify-center items-center">
                   <div className="flex items-start">
                     <Image
-                      className="w-7 h-7 mb-5 "
+                      className="w-7 h-7 mb-5"
                       width={50}
                       height={50}
                       src={"/svgs/folder-add.svg"}
@@ -107,7 +128,7 @@ export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
                         Browse
                       </span>
                     </p>
-                    <p className="text-[14px] font-normal   text-[#667085] ">
+                    <p className="text-[14px] font-normal text-[#667085] ">
                       Minimum file size 100 MB.
                     </p>
                   </div>
@@ -125,7 +146,13 @@ export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
                   No image/document found!
                 </div>
               </div>
-            </div>
+              <input
+                id="imageUpload"
+                type="file"
+                className="hidden"
+                onChange={(e) => handleFile(e)}
+              />
+            </label>
           ) : (
             <div className="grid-cols-1 grid">
               <label
@@ -158,7 +185,8 @@ export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
               />
 
               <div className="items-center flex justify-between mt-4">
-                <p className=" text-left text-[#071437]">Samplexxxx</p>
+                <h2 className=" text-left text-[#071437]">Samplexxxx</h2>
+
                 <X
                   onClick={() => isModalOpen(false)}
                   className="w-4 h-4 text-black flex items-center"
@@ -182,14 +210,14 @@ export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
                 <button
                   onClick={() => isModalOpen(false)}
                   type="button"
-                  className={`
-            w-[200px] h-[50px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black  mr-4 rounded-sm `}
+                  className="
+            w-[200px] h-[50px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black  mr-4 rounded-sm"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className={`w-[170px] h-[50px] bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium rounded-sm  `}
+                  className="w-[170px] h-[50px] bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium rounded-sm"
                 ></button>
               </div>
             </div>
@@ -206,3 +234,6 @@ export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
     </div>
   );
 };
+function handleFile(arg0: React.ChangeEvent<HTMLInputElement>) {
+  throw new Error("Function not implemented.");
+}
