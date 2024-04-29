@@ -23,10 +23,11 @@ export const IncidentreportModalContent = ({
     tag: string;
     item: string;
   }>();
-const {toast } =useToast()
+  const { toast } = useToast();
   const patientId = params.id.toUpperCase();
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     subject: "",
     notes: "",
@@ -48,6 +49,7 @@ const {toast } =useToast()
   };
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setIsSubmitted(true);
     try {
       const notes = await createNotesOfPatient(patientId, formData, router);
       console.log("notesadded successfully:", notes);
@@ -60,7 +62,8 @@ const {toast } =useToast()
       });
 
       onSuccess();
-    } catch (error:any) {
+      isModalOpen(false);
+    } catch (error: any) {
       if (error.message == "Network Error") {
         toast({
           variant: "destructive",
@@ -81,29 +84,29 @@ const {toast } =useToast()
       console.error("Error adding note:", error);
       setError("Failed to add note");
     }
+    setIsSubmitted(false);
   };
   console.log(formData, "formData");
   return (
-    <div className="w-[676px] h-[545px] bg-[#FFFFFF] rounded-md">
-       <form className="" onSubmit={handleSubmit}>
-      <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
-        <div className="items-center flex justify-between">
-          <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
-            Add Incident Report {" - "}
-            <span className="text-gray-500"> Incident Report</span>
-          </h2>
-          <X
-            onClick={() => isModalOpen(false)}
-            className="w-7 h-7 text-black flex items-center mt-2 mr-4"
-          />
+    <div className="w-[676px] h-[541px] bg-[#FFFFFF] rounded-md">
+      <form className="" onSubmit={handleSubmit}>
+        <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
+          <div className="items-center flex justify-between">
+            <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
+              Add Incident Report {" - "}
+              <span className="text-gray-500"> Incident Report</span>
+            </h2>
+            <X
+              onClick={() => isModalOpen(false)}
+              className="w-7 h-7 text-black flex items-center mt-2 mr-4"
+            />
+          </div>
+          <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
+            Submit your Report.
+          </p>
         </div>
-        <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
-          Submit your Report.
-        </p>
-      </div>
-      <div className=" mb-9 pt-4">
-        <div className="h-[600px] max-h-[370px] md:px-10 mt-5">
-         
+        <div className=" mb-9 pt-4">
+          <div className="h-[600px] max-h-[370px] md:px-10 mt-5">
             <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label
@@ -160,25 +163,31 @@ const {toast } =useToast()
                 </div>
               </div> */}
             </div>
-        </div>
-        <div className="">
-          <div className="justify-center flex border-t-4">
-            <button
-              onClick={() => isModalOpen(false)}
-              type="button"
-              className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[3px] rounded-bl-md"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
-            >
-              Submit
-            </button>
+          </div>
+          <div className="">
+            <div className="justify-end flex mr-10">
+              <button
+                onClick={() => isModalOpen(false)}
+                disabled={isSubmitted}
+                type="button"
+                className={`
+                ${isSubmitted && " cursor-not-allowed"}
+                w-[200px] h-[50px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black  mr-4 rounded-sm `}
+              >
+                Cancel
+              </button>
+              <button
+                disabled={isSubmitted}
+                type="submit"
+                className={`
+               ${isSubmitted && " cursor-not-allowed"}
+               w-[170px] h-[50px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium  rounded-sm`}
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </div>
-      </div>
       </form>
     </div>
   );

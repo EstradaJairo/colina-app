@@ -3,32 +3,45 @@ import { onNavigate } from "@/actions/navigation";
 import { getAccessToken, setAccessToken } from "../login-api/accessToken";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-// Function to get the access token from local storage
 
-export async function fetchCountryList(
+export async function fetchAllAppointments(
+  term: string,
+  currentPage: number,
+  sortBy: string,
+  sortOrder: "ASC" | "DESC",
+  startDate: string,
+  endDate: string,
   router: any // Pass router instance as a parameter
 ): Promise<any> {
-  const requestData = {};
-
+  const requestData = {
+    term: term,
+    page: currentPage,
+    sortBy: sortBy,
+    sortOrder: sortOrder,
+    startDate: startDate,
+    endDate: endDate,
+  };
   try {
-    const accessToken = getAccessToken(); // Retrieve access token from local storage
+    console.log("searchPatient", requestData);
+    const accessToken = getAccessToken();
     if (!accessToken) {
       throw new Error("Unauthorized Access");
     }
 
-    // Set the Authorization header with the JWT token
     const headers = {
       Authorization: `Bearer ${accessToken}`,
     };
 
-    // Make the API request to fetch the patient list
-    const response = await axios.get(`${apiUrl}/countries`, { headers });
+    const response = await axios.post(
+      `${apiUrl}/appointments/get/all`,
+      requestData,
+      { headers }
+    );
 
-    // Handle the response data
-    const countryList = response.data;
-
-    console.log("api coutnry list", countryList);
-    return countryList;
+    console.log(response.data);
+    const { patientId, id, ...patientAppointmentsNoId } = response.data;
+    console.log(patientAppointmentsNoId, "patient appointments after search");
+    return patientAppointmentsNoId;
   } catch (error: any) {
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError;

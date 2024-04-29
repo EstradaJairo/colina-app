@@ -15,6 +15,9 @@ import Modal from "@/components/reusable/modal";
 import { AppointmentModalContent } from "@/components/modal-content/appointment-modal-content";
 const Appointment = () => {
   const router = useRouter();
+  if (typeof window === "undefined") {
+    return null;
+  }
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -142,7 +145,7 @@ const Appointment = () => {
       pageNumbers.push(
         <button
           key={i}
-          className={`flex border border-px items-center justify-center  w-[49px]  ${
+          className={`flex ring-1 ring-gray-300 items-center justify-center  w-[49px]  ${
             currentPage === i ? "btn-pagination" : ""
           }`}
           onClick={() => setCurrentPage(i)}
@@ -191,6 +194,13 @@ const Appointment = () => {
 
     fetchData();
   }, [currentPage, sortOrder, sortBy, term, isOpen]);
+  if (isLoading) {
+    return (
+      <div className="w-full h-full flex justify-center items-center ">
+        <img src="/imgs/colina-logo-animation.gif" alt="logo" width={100} />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full">
@@ -199,20 +209,17 @@ const Appointment = () => {
           <p className="p-title">Appointment</p>
 
           <div>
-            <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
+            <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] ">
               Total of {totalAppointments} Appointments
             </p>
           </div>
         </div>
         <div className="flex gap-2">
-          <button
-            onClick={() => isModalOpen(true)}
-            className="flex items-center justify-center hover:bg-[#2267B9] bg-[#1B84FF] text-white font-semibold w-[100px] h-[52px] rounded gap-2"
-          >
+          <button onClick={() => isModalOpen(true)} className="btn-add gap-2">
             <img src="/imgs/add.svg" alt="" />
             <p className="text-[18px]">Add</p>
           </button>
-          <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
+          <button className="btn-pdfs gap-2">
             <img src="/imgs/downloadpdf.svg" alt="" />
             <p className="text-[18px]">Download PDF</p>
           </button>
@@ -226,7 +233,7 @@ const Appointment = () => {
             <label className=""></label>
             <div className="flex">
               <input
-                className="py-3 px-5 m-5 w-[573px] outline-none h-[47px] pt-[14px] ring-[1px] ring-[#E7EAEE] text-[15px] rounded pl-10 relative bg-[#fff] bg-no-repeat bg-[573px] bg-[center] bg-[calc(100%-20px)]"
+                className="py-3 px-5 m-5 w-[573px] outline-none h-[47px] pt-[14px] ring-[1px] ring-[#E7EAEE] text-[15px] rounded pl-10 relative bg-[#fff] bg-no-repeat"
                 type="text"
                 placeholder="Search by reference no. or name..."
                 value={term}
@@ -279,36 +286,23 @@ const Appointment = () => {
         </div>
         {/* START OF TABLE */}
         <div>
-          <table className="w-full text-left rtl:text-right">
+          <table className="text-left rtl:text-right">
             <thead>
-              <tr className="uppercase text-[#64748B] border-y text-[15px]">
-                <th scope="col" className="px-7 py-3 w-[300px] h-[70px]">
-                  STATUS
-                </th>
-                <th scope="col" className="px-6 py-3 w-[400px]">
-                  DATE
-                </th>
-                <th scope="col" className="px-6 py-3 w-[300px]">
-                  TIME
-                </th>
-                <th scope="col" className="px-6 py-3 w-[300px]">
-                  END TIME
-                </th>
-                <th scope="col" className="px-6 py-3 w-[300px]">
-                  DETAILS
-                </th>
-                <th scope="col" className=" px-[90px] py-3 w-10">
-                  ACTION
-                </th>
+              <tr className="uppercase text-[#64748B] border-y text-[15px] h-[70px] font-semibold">
+                <th className="px-6 py-3 ">STATUS</th>
+                <th className="px-6 py-3 ">DATE</th>
+                <th className="px-6 py-3 ">TIME</th>
+                <th className="px-4 py-3 ">END TIME</th>
+                <th className="px-4 py-3 ">DETAILS</th>
+                <th className="px-24 py-3">ACTION</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="h-[220px]">
               {patientAppointments.length === 0 && (
                 <tr>
                   <td className="border-1 w-[180vh] py-5 absolute flex justify-center items-center">
                     <p className="font-semibold text-gray-700 text-center text-[15px]">
                       No Appointment/s <br />
-                      •ω•
                     </p>
                   </td>
                 </tr>
@@ -320,43 +314,68 @@ const Appointment = () => {
                       key={index}
                       className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group"
                     >
-                      <th
-                        className={`text-15px me-1 px-6 py-5 rounded-full flex justify-start ${
-                          appointments.appointments_appointmentStatus ===
-                          "Scheduled"
-                            ? "text-[#2A7D15]" // Green color for Scheduled
-                            : appointments.appointments_appointmentStatus ===
-                              "Done"
-                            ? "text-[#3C3C3C]" // Dark color for Done
-                            : appointments.appointments_appointmentStatus ===
-                                "Patient-IN" ||
+                      <td className="text-15px me-1 px-6 py-5 rounded-full flex items-center">
+                        <div
+                          className={`px-2 font-semibold rounded-[20px] relative flex items-center ${
+                            appointments.appointments_appointmentStatus ===
+                            "Scheduled"
+                              ? "bg-[#dfffea] text-[#17C653] text-[15px]" // Green color for Scheduled
+                              : appointments.appointments_appointmentStatus ===
+                                "Done"
+                              ? "bg-[#E7EAEE] text-[#3C3C3C] text-[15px]" // Dark color for Done
+                              : appointments.appointments_appointmentStatus ===
+                                  "Patient-IN" ||
+                                appointments.appointments_appointmentStatus ===
+                                  "On-going"
+                              ? "bg-[#FFFCDB] text-[#E0BD03] text-[15px]" // Yellow for On Going
+                              : appointments.appointments_appointmentStatus ===
+                                  "Missed" ||
+                                appointments.appointments_appointmentStatus ===
+                                  "Cancelled"
+                              ? "bg-[#FEE9E9] text-[#EF4C6A] text-[15px]" // Red color for Missed and Cancelled
+                              : ""
+                          }`}
+                        >
+                          <span
+                            className={`inline-block h-2 w-2 rounded-full mr-1 ${
                               appointments.appointments_appointmentStatus ===
-                                "On-going"
-                            ? "text-[#E0BD03]" // Yellow for On Going
-                            : appointments.appointments_appointmentStatus ===
-                              "Missed"
-                            ? "text-[#B81C1C]" // Red color for Missed
-                            : ""
-                        }`}
-                      >
-                        <span className="pr-1">●</span>
-                        {appointments.appointments_appointmentStatus}
-                      </th>
-                      <td className="px-6 py-3">
+                              "Scheduled"
+                                ? "bg-green-500" // Green color for Scheduled
+                                : appointments.appointments_appointmentStatus ===
+                                  "Done"
+                                ? "bg-[#E7EAEE]" // Dark color for Done
+                                : appointments.appointments_appointmentStatus ===
+                                    "Patient-IN" ||
+                                  appointments.appointments_appointmentStatus ===
+                                    "On-going"
+                                ? "bg-[#E0BD03]" // Yellow for On Going
+                                : appointments.appointments_appointmentStatus ===
+                                    "Missed" ||
+                                  appointments.appointments_appointmentStatus ===
+                                    "Cancelled"
+                                ? "bg-[#EF4C6A]" // Red color for Missed and Cancelled
+                                : ""
+                            }`}
+                          ></span>
+                          {appointments.appointments_appointmentStatus}
+                        </div>
+                      </td>
+
+                      <td className="px-6 py-3 text-[15px]">
                         {formatDate(appointments.appointments_appointmentDate)}
                       </td>
-                      <td className="px-6 py-3">
+                      <td className="px-6 py-3 text-[15px]">
                         {formatTime(appointments.appointments_appointmentTime)}
                       </td>
-                      <td className="px-6 py-3">
+                      <td className="px-6 py-3 text-[15px]">
                         {formatTime(
                           appointments.appointments_appointmentEndTime
                         )}
                       </td>
-                      <td className="px-6 py-3">
+                      <td className="px-6 py-3 text-[15px]">
                         {appointments.appointments_details}
                       </td>
-                      <td className="px-[90px] py-3">
+                      <td className="px-[90px] py-3 items-center">
                         <p
                           onClick={() => {
                             isModalOpen(true);
@@ -382,34 +401,33 @@ const Appointment = () => {
       ) : (
         <div className="mt-5 pb-5">
           <div className="flex justify-between">
-            <p className="font-medium size-[18px] w-[138px] items-center">
+            <p className="font-medium size-[18px] text-[15px] w-[138px] items-center">
               Page {currentPage} of {totalPages}
             </p>
             <div>
               <nav>
-                <div className="flex -space-x-px text-sm">
-                  <div>
+                <div className="flex text-[15px] ">
+                  <div className="flex">
                     <button
                       onClick={goToPreviousPage}
-                      className="flex border border-px items-center justify-center  w-[77px] h-full"
+                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
                     >
                       Prev
                     </button>
-                  </div>
-                  {renderPageNumbers()}
 
-                  <div className="ml-5">
+                    {renderPageNumbers()}
+
                     <button
                       onClick={goToNextPage}
-                      className="flex border border-px items-center justify-center  w-[77px] h-full"
+                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
                     >
                       Next
                     </button>
                   </div>
                   <form onSubmit={handleGoToPage}>
-                    <div className="flex px-5 ">
+                    <div className="flex pl-4 ">
                       <input
-                        className={`ipt-pagination appearance-none  text-center border ring-1 ${
+                        className={`ipt-pagination appearance-none  text-center ring-1 ${
                           gotoError ? "ring-red-500" : "ring-gray-300"
                         } border-gray-100`}
                         type="text"
@@ -428,8 +446,11 @@ const Appointment = () => {
                           }
                         }}
                       />
-                      <div className="px-5">
-                        <button type="submit" className="btn-pagination ">
+                      <div className="">
+                        <button
+                          type="submit"
+                          className="btn-pagination ring-1 ring-[#007C85]"
+                        >
                           Go{" "}
                         </button>
                       </div>

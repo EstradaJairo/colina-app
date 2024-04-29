@@ -13,9 +13,14 @@ import { SuccessModal } from "@/components/shared/success";
 import { ErrorModal } from "@/components/shared/error";
 import Modal from "@/components/reusable/modal";
 import { PrescriptionModalContent } from "@/components/modal-content/prescription-modal-content";
+import View from "@/components/shared/buttons/view";
+import { PrescriptionViewModalContent } from "@/components/modal-content/prescriptionview-modal-content";
 
 export default function prescription() {
   const router = useRouter();
+  if (typeof window === "undefined") {
+    return null;
+  }
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [sortOrder, setSortOrder] = useState("ASC");
@@ -31,6 +36,7 @@ export default function prescription() {
   const [gotoError, setGotoError] = useState(false);
   const [term, setTerm] = useState("");
   const [isEdit, setIsEdit] = useState(false);
+  const [isView, setIsView] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [isErrorOpen, setIsErrorOpen] = useState(false);
@@ -48,6 +54,7 @@ export default function prescription() {
       document.body.style.overflow = "visible";
       setPrescriptionData([]);
       setIsEdit(false);
+      setIsView(false);
     }
   };
 
@@ -181,12 +188,22 @@ export default function prescription() {
   const onSuccess = () => {
     setIsSuccessOpen(true);
     setIsEdit(false);
+    setIsView(false);
     isModalOpen(false);
   };
   const onFailed = () => {
     setIsErrorOpen(true);
     setIsEdit(false);
+    setIsView(false);
   };
+
+  if (isLoading) {
+    return (
+      <div className="w-full h-full flex justify-center items-center ">
+        <img src="/imgs/colina-logo-animation.gif" alt="logo" width={100} />
+      </div>
+    );
+  }
   return (
     <div className=" w-full">
       <div className="w-full justify-between flex mb-2">
@@ -194,20 +211,17 @@ export default function prescription() {
           <p className="p-title">Prescription</p>
 
           <div>
-            <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
+            <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px]">
               Total of {totalPrescription} Prescriptions
             </p>
           </div>
         </div>
         <div className="flex gap-2">
-          <button
-            onClick={() => isModalOpen(true)}
-            className="flex items-center justify-center hover:bg-[#2267B9] bg-[#1B84FF] text-white font-semibold w-[100px] h-[52px] rounded gap-2"
-          >
+          <button onClick={() => isModalOpen(true)} className="btn-add gap-2">
             <img src="/imgs/add.svg" alt="" />
             <p className="text-[18px]">Add</p>
           </button>
-          <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
+          <button className="btn-pdfs gap-2">
             <img src="/imgs/downloadpdf.svg" alt="" />
             <p className="text-[18px]">Download PDF</p>
           </button>
@@ -279,37 +293,22 @@ export default function prescription() {
             <div className="border-1 w-[180vh] py-5 absolute flex justify-center items-center">
               <p className="text-xl font-semibold text-gray-700 text-center text-[15px]">
                 No Prescription/s <br />
-                •ω•
               </p>
             </div>
           ) : (
-            <table className="w-full text-left rtl:text-right">
-              <thead className="">
-                <tr className=" text-[#64748B] border-y text-[15px]  ">
-                  <th scope="col" className="px-6 py-3 w-[300px]">
-                    PRESCRIPTION ID
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
-                    MEDICINE NAME
-                  </th>
-                  <th scope="col" className="px-0 py-3 w-[300px]">
-                    FREQUENCY
-                  </th>
-                  <th scope="col" className="px-3 py-3 w-[300px]">
-                    INTERVAL (hr/s)
-                  </th>
-                  <th scope="col" className="px-20  py-3 w-[300px]">
-                    DOSAGE
-                  </th>
-                  <th scope="col" className="pl-10 pr-6 py-3 w-[200px] ">
-                    STATUS
-                  </th>
-                  <th scope="col" className="px-[80px] py-3 w-[10px] ">
-                    ACTION
-                  </th>
+            <table className="text-left rtl:text-right">
+              <thead>
+                <tr className=" text-[#64748B] border-y text-[15px] h-[70px] font-semibold">
+                  <td className="px-6 py-3 w-[230px]">PRESCRIPTION ID</td>
+                  <td className="px-6 py-3 w-[230px]">MEDICINE NAME</td>
+                  <td className="px-6 py-3 w-[230px]">FREQUENCY</td>
+                  <td className="px-6 py-3 w-[230px]">INTERVAL (hr/s)</td>
+                  <td className="px-6 py-3 w-[230px]">DOSAGE</td>
+                  <td className="px-6 py-3 w-[170px] ">STATUS</td>
+                  <td className="px-6 py-3 text-center">ACTION</td>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="h-[220px]">
                 {patientPrescriptions.length > 0 && (
                   <>
                     {patientPrescriptions.map((prescription, index) => (
@@ -317,29 +316,42 @@ export default function prescription() {
                         key={index}
                         className="group  even:bg-gray-50  border-b hover:bg-[#f4f4f4] text-[15px]"
                       >
-                        <td className="truncate max-w-[286px] px-6 py-4">
+                        <td className="truncate px-6 py-3 w-[230px]">
                           {prescription.prescriptions_uuid}
                         </td>
-                        <th
-                          scope="row"
-                          className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
-                        >
+                        <td className="truncate  px-6 py-3 w-[230px] ">
                           {prescription.prescriptions_name}
-                        </th>
-                        <td className="truncate max-w-[286px] px-0 py-4">
+                        </td>
+                        <td className="truncate  px-6 py-3 w-[230px]">
                           {prescription.prescriptions_frequency}
                         </td>
-                        <td className="truncate max-w-[286px] px-3 py-4 tb-med">
+                        <td className="truncate  px-6 py-3 w-[230px]">
                           {prescription.prescriptions_interval} hours
                         </td>
-                        <td className="truncate max-w-[286px] px-20 py-4">
+                        <td className="truncate  px-6 py-3 w-[230px] ">
                           {prescription.prescriptions_dosage}
                         </td>
-                        <td className="px-12 py-4">
-                          {" "}
-                          {prescription.prescriptions_status}
+                        <td className="px-6 py-3">
+                          <div
+                            className={`px-2 font-semibold rounded-[20px] ${
+                              prescription.prescriptions_status === "active"
+                                ? "bg-[#dfffea] text-[#17C653] text-[15px]"
+                                : prescription.prescriptions_status ===
+                                  "inactive"
+                                ? "bg-[#FEE9E9] text-[#EF4C6A]  text-[15px]"
+                                : prescription.prescriptions_status
+                            }`}
+                            style={{
+                              width: `${
+                                prescription.prescriptions_status.length * 10
+                              }px`,
+                            }}
+                          >
+                            {prescription.prescriptions_status}
+                          </div>
                         </td>
-                        <td className="px-[70px] py-4">
+
+                        <td className="px-6 py-3 flex gap-2 justify-center">
                           <p
                             onClick={() => {
                               isModalOpen(true);
@@ -348,6 +360,16 @@ export default function prescription() {
                             }}
                           >
                             <Edit></Edit>
+                          </p>
+                          <p
+                            onClick={() => {
+                              isModalOpen(true);
+                              setIsView(true);
+
+                              setPrescriptionData(prescription);
+                            }}
+                          >
+                            <View></View>
                           </p>
                         </td>
                       </tr>
@@ -438,6 +460,18 @@ export default function prescription() {
               onFailed={onFailed}
               setErrorMessage={setError}
               setIsUpdated={setIsUpdated}
+            />
+          }
+          isModalOpen={isModalOpen}
+        />
+      )}
+      {isView && (
+        <Modal
+          content={
+            <PrescriptionViewModalContent
+              isModalOpen={isModalOpen}
+              isView={isView}
+              prescriptionData={prescriptionData}
             />
           }
           isModalOpen={isModalOpen}

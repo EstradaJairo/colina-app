@@ -16,7 +16,7 @@ export const AppointmentemailModalContent = ({ isModalOpen }: Modalprops) => {
 
   return (
     <>
-      <div className="w-[1200px] h-[645px]">
+      <div className="w-[1200px] h-[641px]">
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between px-8">
             <h2 className="p-title text-left text-[#071437] mt-5 w-full pl-2">
@@ -87,17 +87,17 @@ export const AppointmentemailModalContent = ({ isModalOpen }: Modalprops) => {
               </div>
             </form>
           </div>
-          <div className="justify-center flex border-t-4 ">
+          <div className="justify-end flex mr-10">
             <button
               onClick={() => isModalOpen(false)}
               type="button"
-              className="w-[600px] h-[50px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[3px] rounded-bl-md"
+              className="w-[170px] h-[50px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mr-4 rounded-sm"
             >
               Cancel
             </button>
             <button
               type="button"
-              className="w-[600px] bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff]  font-medium mt-4 rounded-br-md"
+              className="w-[170px] h-[50px] bg-[#007C85] hover:bg-[#03595B]  text-[#ffff]  font-medium rounded-sm"
             >
               Submit
             </button>

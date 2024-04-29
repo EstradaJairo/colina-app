@@ -43,7 +43,7 @@ export const ScheduledModalContent = ({
     tag: string;
     item: string;
   }>();
-  const {toast } =useToast()
+  const { toast } = useToast();
   const patientId = params.id ? params.id.toUpperCase() : uuid.toUpperCase();
   console.log(patientId, "patientId");
   console.log(aschData, "aschData");
@@ -51,6 +51,7 @@ export const ScheduledModalContent = ({
   const [charactersFull, setCharactersFull] = useState<boolean>(false);
   const [prescriptionList, setPrescriptionList] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     prescriptionUuid: scheduledMedData.medicationlogs_prescriptionUuid || "",
     medicationLogsName:
@@ -72,6 +73,20 @@ export const ScheduledModalContent = ({
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    if (label === "charting") {
+      const now = new Date();
+      const formattedDate = now.toISOString().split("T")[0];
+      const formattedTime = now.toTimeString().split(" ")[0];
+
+      setFormData({
+        ...formData,
+        medicationLogsDate: formattedDate,
+        medicationLogsTime: formattedTime,
+      });
+    }
+  }, [label]);
 
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -101,6 +116,7 @@ export const ScheduledModalContent = ({
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setIsSubmitted(true);
     try {
       if (isEdit) {
         await updateScheduledMedOfPatient(
@@ -140,6 +156,7 @@ export const ScheduledModalContent = ({
       }
       setError("Failed to add Scheduled Med");
     }
+    setIsSubmitted(false);
   };
   console.log(formData, "formData");
 
@@ -151,25 +168,25 @@ export const ScheduledModalContent = ({
           router
         );
         setPrescriptionList(prescriptionList.data);
-      } catch (error:any) {
+      } catch (error: any) {
         console.error("Error fetching prescription list:");
         if (error.message == "Network Error") {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: error.message,
-          action: (
-            <ToastAction
-              altText="Try again"
-              onClick={() => {
-                window.location.reload();
-              }}
-            >
-              Try again
-            </ToastAction>
-          ),
-        });
-      }
+          toast({
+            variant: "destructive",
+            title: "Uh oh! Something went wrong.",
+            description: error.message,
+            action: (
+              <ToastAction
+                altText="Try again"
+                onClick={() => {
+                  window.location.reload();
+                }}
+              >
+                Try again
+              </ToastAction>
+            ),
+          });
+        }
       }
     };
 
@@ -213,7 +230,7 @@ export const ScheduledModalContent = ({
   console.log(scheduledMedData.length, "scheduledMedData length");
   console.log(formData, "formData");
   return (
-    <div className={`w-[676px] ${charactersFull ? "h-[650px]" : "h-[632px]"} `}>
+    <div className={`w-[676px] ${charactersFull ? "h-[646px]" : "h-[628px]"} `}>
       <form onSubmit={handleSubmit}>
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between">
@@ -223,8 +240,12 @@ export const ScheduledModalContent = ({
               <span className="text-[#007C85]">{name ? name : ""}</span>
             </h2>
             <X
-              onClick={() => isModalOpen(false)}
-              className="w-7 h-7 text-black flex items-center mt-2 mr-4"
+              onClick={() => {
+                isSubmitted ? null : isModalOpen(false);
+              }}
+              className={`
+              ${isSubmitted && " cursor-not-allowed"}
+              w-7 h-7 text-black flex items-center mt-2 mr-4 cursor-pointer`}
             />
           </div>
           <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
@@ -263,7 +284,7 @@ export const ScheduledModalContent = ({
                           data-uuid={aschData.uuid}
                         >
                           {aschData.medicationLogsName} @{" "}
-                          {aschData.medicationLogsTime}
+                          {formatTime(aschData.medicationLogsTime)}
                         </option>
                       </>
                     )}
@@ -429,17 +450,23 @@ export const ScheduledModalContent = ({
           </div>
         </div>
         <div className="">
-          <div className="justify-center flex border-t-4 pt-26">
+          <div className="justify-end flex mr-10">
             <button
               onClick={() => isModalOpen(false)}
+              disabled={isSubmitted}
               type="button"
-              className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[3px] rounded-bl-md"
+              className={`
+                ${isSubmitted && " cursor-not-allowed"}
+                w-[200px] h-[50px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black  mr-4 rounded-sm `}
             >
               Cancel
             </button>
             <button
+              disabled={isSubmitted}
               type="submit"
-              className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
+              className={`
+               ${isSubmitted && " cursor-not-allowed"}
+               w-[170px] h-[50px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium  rounded-sm`}
             >
               {isEdit ? "Update" : "Submit"}
             </button>

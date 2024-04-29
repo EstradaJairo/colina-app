@@ -66,13 +66,11 @@ const PatientCard = ({
   const handlePatientClick = (patientId: any) => {
     const lowercasePatientId = patientId.toLowerCase();
 
-    onNavigate(
-      router,
+    router.replace(
       `/patient-overview/${lowercasePatientId}/medical-history/allergies`
     );
   };
 
-  
   return (
     <div className="w-full pl-3 mt-[46px] ">
       <div className="flex w-full  flex-col  bg-[#F4F4F4] items-center  md:border-dashed md:border-r md:border-r-black   right-0 ">
@@ -80,10 +78,15 @@ const PatientCard = ({
           Prior
         </p>
         {patientWithMedicationLogsToday.map((patient: any, index: number) => (
-          <div className="w-full " key={index}>
+          <div
+            className={`
+          ${patientWithMedicationLogsToday.length === 2 ? "mb-[103px]" : ""}
+          w-full `}
+            key={index}
+          >
             <div className="flex flex-row  bg-white border-2 border-b-8 border-l-8  h-[203px] w-full rounded-lg border-[#F4F4F4] right-0">
               <div
-                className="w-4/6 h-full cursor-pointer"
+                className="w-4/6 h-full cursor-pointer min-w-[250px] "
                 onClick={() => {
                   setIsLoading(true);
                   handlePatientClick(patient.uuid);

@@ -14,6 +14,9 @@ import Modal from "@/components/reusable/modal";
 import { VitalModalContent } from "@/components/modal-content/vital-modal-content";
 export default function vitalsigns() {
   const router = useRouter();
+  if (typeof window === "undefined") {
+    return null;
+  }
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [sortOrder, setSortOrder] = useState("ASC");
@@ -203,6 +206,14 @@ export default function vitalsigns() {
     isModalOpen(false);
   };
 
+  if (isLoading) {
+    return (
+      <div className="w-full h-full flex justify-center items-center ">
+        <img src="/imgs/colina-logo-animation.gif" alt="logo" width={100} />
+      </div>
+    );
+  }
+
   return (
     <div className="w-full">
       <div className="w-full justify-between flex mb-2">
@@ -210,20 +221,17 @@ export default function vitalsigns() {
           <p className="p-title">Vital Signs</p>
 
           <div>
-            <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
+            <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px]">
               Total of {totalVitalSigns} Vital Signs
             </p>
           </div>
         </div>
         <div className="flex gap-2">
-          <button
-            onClick={() => isModalOpen(true)}
-            className="flex items-center justify-center hover:bg-[#2267B9] bg-[#1B84FF] text-white font-semibold w-[100px] h-[52px] rounded gap-2"
-          >
+          <button onClick={() => isModalOpen(true)} className="btn-add gap-2">
             <img src="/imgs/add.svg" alt="" />
             <p className="text-[18px]">Add</p>
           </button>
-          <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
+          <button className="btn-pdfs gap-2">
             <img src="/imgs/downloadpdf.svg" alt="" />
             <p className="text-[18px]">Download PDF</p>
           </button>
@@ -290,130 +298,69 @@ export default function vitalsigns() {
         </div>
         {/* START OF TABLE */}
         <div>
-          {patientVitalSign.length == 0 ? (
-            <div>
-              <div className="w-full flex-col justify-center items-center">
-                <table className="w-full block text-left rtl:text-right">
-                  <thead className="">
-                    <tr className=" text-[#64748B] border-b text-[15px]">
-                      <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
-                        VITAL SIGN ID
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-[400px]">
-                        DATE
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-[300px]">
-                        TIME
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 truncate max-w-[300px]"
-                      >
-                        BLOOD PRESSURE (mmHg)
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-[400px]">
-                        HEART RATE (bpm)
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-[400px]">
-                        TEMPERATURE (°F)
-                      </th>
-                      <th scope="col" className="px-1 py-3 w-[400px]">
-                        RESPIRATORY (brths/min)
-                      </th>
+          <table className="text-left rtl:text-right">
+            <thead>
+              <tr className=" text-[#64748B] border-y text-[15px] h-[70px] font-semibold">
+                <td className="px-6 py-3">VITAL SIGN ID</td>
+                <td className="px-6 py-3">DATE</td>
+                <td className="px-6 py-3">TIME</td>
+                <td className="px-5 py-3">BLOOD PRESSURE (mmHg)</td>
+                <td className="px-4 py-3">HEART RATE (bpm)</td>
+                <td className="px-4 py-3">TEMPERATURE (°F)</td>
+                <td className="px-6 py-3">RESPIRATORY (brtds/min)</td>
 
-                      <th scope="col" className="px-[80px] py-3 w-[10px] ">
-                        ACTION
-                      </th>
-                    </tr>
-                  </thead>
-                </table>
-                <div className="py-5 flex justify-center items-center">
-                  <p className="text-xl font-semibold text-gray-700 text-center">
+                <td className="px-6 py-3">ACTION</td>
+              </tr>
+            </thead>
+
+            <tbody className="h-[220px]">
+              {patientVitalSign.length == 0 && (
+                <div className="border-1 w-[180vh] py-5 absolute flex justify-center items-center">
+                  <p className="text-[15px] font-normal text-gray-700 text-center">
                     No Vital Sign/s <br />
-                    •ω•
                   </p>
                 </div>
-              </div>
-            </div>
-          ) : (
-            <table className="w-full text-left rtl:text-right">
-              <thead className="">
-                <tr className=" text-[#64748B] border-y text-[15px]">
-                  <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
-                    VITAL SIGN ID
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
-                    DATE
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[300px] h-[70px]">
-                    TIME
-                  </th>
-                  <th scope="col" className="px-6 py-3 truncate max-w-[300px]">
-                    BLOOD PRESSURE (mmHg)
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[400px]">
-                    HEART RATE (bpm)
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[400px]">
-                    TEMPERATURE (°F)
-                  </th>
-                  <th scope="col" className="px-1 py-3 w-[400px]">
-                    RESPIRATORY (brths/min)
-                  </th>
+              )}
+              {patientVitalSign.map((vitalSign, index) => (
+                <tr
+                  key={index}
+                  className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]"
+                >
+                  <td className="px-6 py-3">{vitalSign.vitalsign_uuid}</td>
+                  <td className="px-6 py-3">
+                    {formatDate(vitalSign.vitalsign_date)}
+                  </td>
+                  <td className="px-6 py-3">
+                    {formatTime(vitalSign.vitalsign_time)}
+                  </td>
+                  <td className="px-6 py-3">
+                    {vitalSign.vitalsign_bloodPressure}mmHg
+                  </td>
+                  <td className="px-6 py-3">
+                    {vitalSign.vitalsign_heartRate}bpm
+                  </td>
+                  <td className="px-6 py-3">
+                    {vitalSign.vitalsign_temperature}°F
+                  </td>
+                  <td className="px-6 py-3">
+                    {vitalSign.vitalsign_respiratoryRate}breaths/min
+                  </td>
 
-                  <th scope="col" className="px-[80px] py-3 w-[10px] ">
-                    ACTION
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {patientVitalSign.map((vitalSign, index) => (
-                  <tr
-                    key={index}
-                    className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]"
-                  >
-                    <th
-                      scope="row"
-                      className="truncate max-w-[286px] px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                  <td className="px-5 py-3">
+                    <p
+                      onClick={() => {
+                        isModalOpen(true);
+                        setIsEdit(true);
+                        setVitalSignData(vitalSign);
+                      }}
                     >
-                      {vitalSign.vitalsign_uuid}
-                    </th>
-                    <td className="px-6 py-4">
-                      {formatDate(vitalSign.vitalsign_date)}
-                    </td>
-                    <td className="px-6 py-4">
-                      {formatTime(vitalSign.vitalsign_time)}
-                    </td>
-                    <td className="px-6 py-4">
-                      {vitalSign.vitalsign_bloodPressure}mmHg
-                    </td>
-                    <td className="px-6 py-4">
-                      {vitalSign.vitalsign_heartRate}bpm
-                    </td>
-                    <td className="px-6 py-4">
-                      {vitalSign.vitalsign_temperature}°F
-                    </td>
-                    <td className="px-1 py-4">
-                      {vitalSign.vitalsign_respiratoryRate}breaths/min
-                    </td>
-
-                    <td className="px-[70px] py-4">
-                      <p
-                        onClick={() => {
-                          isModalOpen(true);
-                          setIsEdit(true);
-                          setVitalSignData(vitalSign);
-                        }}
-                      >
-                        <Edit></Edit>
-                      </p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
+                      <Edit></Edit>
+                    </p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         {/* END OF TABLE */}
       </div>

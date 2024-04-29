@@ -37,6 +37,7 @@ export const SurgeriesModalContent = ({
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [charactersFull, setCharactersFull] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     dateOfSurgery: surgeryData.surgeries_dateOfSurgery,
     typeOfSurgery: surgeryData.surgeries_typeOfSurgery,
@@ -51,7 +52,7 @@ export const SurgeriesModalContent = ({
   }>();
 
   const patientId = params.id.toUpperCase();
-const {toast} = useToast()
+  const { toast } = useToast();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -79,6 +80,7 @@ const {toast} = useToast()
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setIsSubmitted(true);
     try {
       if (isEdit) {
         await updateSurgeryOfPatient(
@@ -87,6 +89,7 @@ const {toast} = useToast()
           router
         );
         setIsUpdated(true);
+        setIsSubmitted(false);
         onSuccess();
         isModalOpen(false);
         return;
@@ -105,12 +108,14 @@ const {toast} = useToast()
           surgery: "",
           notes: "",
         });
+        setIsSubmitted(false);
         onSuccess();
       }
     } catch (error: any) {
       console.log(error.message, "error");
       if (error.message === "Request failed with status code 409") {
         setErrorMessage("Surgery already exist");
+        setIsSubmitted(false);
         onFailed();
         isModalOpen(false);
         console.log("conflict error");
@@ -137,7 +142,7 @@ const {toast} = useToast()
   console.log(surgeryData, "surgeryData");
   console.log(formData, "formData");
   return (
-    <div className={`w-[676px] ${charactersFull ? "h-[578px]" : "h-[554px]"}`}>
+    <div className={`w-[676px] ${charactersFull ? "h-[577px]" : "h-[550px]"}`}>
       <form className="h-full" onSubmit={handleSubmit}>
         <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
           <div className="items-center flex justify-between">
@@ -145,8 +150,12 @@ const {toast} = useToast()
               {isEdit ? "Update" : "Add"} Medical History Surgeries Log
             </h2>
             <X
-              onClick={() => isModalOpen(false)}
-              className="w-7 h-7 text-black flex items-center mt-2 mr-4"
+              onClick={() => {
+                isSubmitted ? null : isModalOpen(false);
+              }}
+              className={`
+              ${isSubmitted && " cursor-not-allowed"}
+              w-7 h-7 text-black flex items-center mt-2 mr-4 cursor-pointer`}
             />
           </div>
           <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
@@ -249,17 +258,23 @@ const {toast} = useToast()
             </div>
           </div>
         </div>
-        <div className="relative justify-center flex border-t-4">
+        <div className="justify-end flex mr-10">
           <button
             onClick={() => isModalOpen(false)}
+            disabled={isSubmitted}
             type="button"
-            className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[3px] rounded-bl-md"
+            className={`
+                ${isSubmitted && " cursor-not-allowed"}
+                w-[200px] h-[50px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black  mr-4 rounded-sm `}
           >
             Cancel
           </button>
           <button
+            disabled={isSubmitted}
             type="submit"
-            className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
+            className={`
+             ${isSubmitted && " cursor-not-allowed"}
+             w-[170px] h-[50px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium  rounded-sm`}
           >
             {isEdit ? "Update" : "Submit"}
           </button>

@@ -123,8 +123,8 @@ body,
   background-color: #1b84ff;
   color: white;
   font-weight: bold;
-  width: 104px;
-  height: 40px;
+  width: 100px;
+  height: 45px;
 
   border-radius: 5px;
 }
@@ -144,8 +144,8 @@ body,
   padding: 10px 20px 10px 20px;
   border: solid #d0d5dd 2px;
   text-decoration: none;
-  width: 228px;
-  height: 52px;
+  width: 229px;
+  height: 45px;
 }
 
 .btn-pdfs:hover {
@@ -354,3 +354,20 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
+
+tbody {
+  display: block;
+  overflow: auto;
+}
+
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table {
+  width: 100%;
+}
+

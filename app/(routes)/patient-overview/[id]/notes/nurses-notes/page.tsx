@@ -7,15 +7,18 @@ import DownloadPDF from "@/components/shared/buttons/downloadpdf";
 import Edit from "@/components/shared/buttons/edit";
 import { useState } from "react";
 import { onNavigate } from "@/actions/navigation";
-import { useParams, useRouter } from "next/navigation";
-import { NotesModal } from "@/components/modals/notes.modal";
 import { fetchNotesByPatient } from "@/app/api/notes-api/notes-api";
 import { SuccessModal } from "@/components/shared/success";
 import { NursenotesModalContent } from "@/components/modal-content/nursenotes-modal-content";
 import Modal from "@/components/reusable/modal";
+import View from "@/components/shared/buttons/view";
+import { useParams, useRouter } from "next/navigation";
 
 const Notes = () => {
   const router = useRouter();
+  if (typeof window === "undefined") {
+    return null;
+  }
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
   const [sortOrder, setSortOrder] = useState<string>("ASC");
@@ -131,7 +134,7 @@ const Notes = () => {
       pageNumbers.push(
         <button
           key={i}
-          className={`flex border border-px items-center justify-center  w-[49px]  ${
+          className={`flex ring-1 ring-gray-300 items-center justify-center  w-[49px]  ${
             currentPage === i ? "btn-pagination" : ""
           }`}
           onClick={() => setCurrentPage(i)}
@@ -190,15 +193,14 @@ const Notes = () => {
           <div className="flex gap-2">
             <p className="p-title">Notes</p>
             <span className="slash">{">"}</span>
-            <span className="active">Nurse's Notes</span>
-            <span className="slash">{">"}</span>
+            <span className="active">Nurse&apos;s Notes</span>
+            <span className="slash">{"/"}</span>
             <span
               onClick={() => {
-                onNavigate(
-                  router,
+                setIsLoading(true);
+                router.replace(
                   `/patient-overview/${patientId.toLowerCase()}/notes/incident-report`
                 );
-                setIsLoading(true);
               }}
               className="bread"
             >
@@ -206,20 +208,17 @@ const Notes = () => {
             </span>
           </div>
           <div>
-            <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px] mb-4 ">
+            <p className="text-[#64748B] font-normal w-[1157px] h-[22px] text-[14px]">
               Total of {totalNotes} Notes
             </p>
           </div>
         </div>
         <div className="flex gap-2">
-          <button
-            onClick={() => isModalOpen(true)}
-            className="flex items-center justify-center hover:bg-[#2267B9] bg-[#1B84FF] text-white font-semibold w-[100px] h-[52px] rounded gap-2"
-          >
+          <button onClick={() => isModalOpen(true)} className="btn-add gap-2">
             <img src="/imgs/add.svg" alt="" />
             <p className="text-[18px]">Add</p>
           </button>
-          <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
+          <button className="btn-pdfs gap-2">
             <img src="/imgs/downloadpdf.svg" alt="" />
             <p className="text-[18px]">Download PDF</p>
           </button>
@@ -287,55 +286,57 @@ const Notes = () => {
 
         {/* START OF TABLE */}
         <div>
-          {patientNotes.length === 0 ? (
-            <h1 className="border-1 w-[180vh] py-5 absolute flex justify-center items-center">
-              <p className="text-xl font-semibold text-gray-700 text-center">
-                No Notes <br />
-                •ω•
-              </p>
-            </h1>
-          ) : (
-            <table className="w-full text-left rtl:text-right">
-              <thead>
-                <tr className="uppercase text-[#64748B] border-y  ">
-                  <th scope="col" className="px-7 py-3 w-[200px] h-[60px]">
-                    NOTES ID
-                  </th>
-                  <th scope="col" className="px-7 py-3 w-[200px] h-[60px]">
-                    DATE
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[250px]">
-                    SUBJECT
-                  </th>
-                  <th scope="col" className="px-6 py-3 w-[400px]">
-                    NOTES
-                  </th>
+          <table className="text-left rtl:text-right">
+            <thead>
+              <tr className="uppercase text-[#64748B] border-y text-[15px] h-[70px] font-semibold">
+                <td className="px-6 py-3">NOTES UID</td>
+                <td className="px-6 py-3">DATE</td>
+                <td className="px-6 py-3">TIME</td>
+                <td className="px-6 py-3">SUBJECT</td>
+                <td className="px-6 py-3 w-[200px]">NOTES</td>
+                <td className="px-6 py-3 text-center">ACTION</td>
+              </tr>
+            </thead>
+            <tbody className="h-[220px]">
+              {patientNotes.length === 0 && (
+                <h1 className="border-1 w-[180vh] py-5 absolute flex justify-center items-center">
+                  <p className="text-[15px] font-normal text-gray-700 text-center">
+                    No Note/s <br />
+                  </p>
+                </h1>
+              )}
+              {patientNotes.map((note, index) => (
+                <tr
+                  key={index}
+                  className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group"
+                >
+                  <td className="truncate px-6 py-3">{note.notes_uuid}</td>
+                  <td className="truncate px-6 py-3">
+                    {new Date(note.notes_createdAt).toLocaleDateString()}
+                  </td>
+                  <td className="truncate max-w-[552px] px-6 py-3">
+                    {new Date(
+                      new Date(note.notes_createdAt).getTime() -
+                        new Date().getTimezoneOffset() * 60000
+                    ).toLocaleTimeString(navigator.language, {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: true,
+                    })}
+                  </td>
+                  <td className="truncate px-6 py-3">{note.notes_subject}</td>
+                  <td className="truncate px-6 py-3 w-[200px]">
+                    {note.notes_notes}
+                  </td>
+                  <td className="flex justify-center px-6 py-3">
+                    <p>
+                      <View></View>
+                    </p>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {patientNotes.map((note, index) => (
-                  <tr
-                    key={index}
-                    className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group"
-                  >
-                    <td className="truncate max-w-[552px] px-6 py-3">
-                      {note.notes_uuid}
-                    </td>
-                    <th
-                      scope="row"
-                      className="font-medium text-[16px] me-1 px-6 py-5 rounded-full flex justify-start "
-                    >
-                      {new Date(note.notes_createdAt).toLocaleDateString()}
-                    </th>
-                    <td className="truncate max-w-[552px] px-6 py-3">
-                      {note.notes_subject}
-                    </td>
-                    <td className="px-6 py-3">{note.notes_notes}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
+              ))}
+            </tbody>
+          </table>
         </div>
         {/* END OF TABLE */}
       </div>
@@ -345,34 +346,33 @@ const Notes = () => {
       ) : (
         <div className="mt-5 pb-5">
           <div className="flex justify-between">
-            <p className="font-medium size-[18px] w-[138px] items-center">
+            <p className="font-medium size-[18px] text-[15px] w-[138px] items-center">
               Page {currentPage} of {totalPages}
             </p>
             <div>
               <nav>
-                <div className="flex -space-x-px text-sm">
-                  <div>
+                <div className="flex text-[15px] ">
+                  <div className="flex">
                     <button
                       onClick={goToPreviousPage}
-                      className="flex border border-px items-center justify-center  w-[77px] h-full"
+                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
                     >
                       Prev
                     </button>
-                  </div>
-                  {renderPageNumbers()}
 
-                  <div className="ml-5">
+                    {renderPageNumbers()}
+
                     <button
                       onClick={goToNextPage}
-                      className="flex border border-px items-center justify-center  w-[77px] h-full"
+                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
                     >
                       Next
                     </button>
                   </div>
                   <form onSubmit={handleGoToPage}>
-                    <div className="flex px-5 ">
+                    <div className="flex pl-4 ">
                       <input
-                        className={`ipt-pagination appearance-none  text-center border ring-1 ${
+                        className={`ipt-pagination appearance-none  text-center ring-1 ${
                           gotoError ? "ring-red-500" : "ring-gray-300"
                         } border-gray-100`}
                         type="text"
@@ -391,8 +391,11 @@ const Notes = () => {
                           }
                         }}
                       />
-                      <div className="px-5">
-                        <button type="submit" className="btn-pagination ">
+                      <div className="">
+                        <button
+                          type="submit"
+                          className="btn-pagination ring-1 ring-[#007C85]"
+                        >
                           Go{" "}
                         </button>
                       </div>

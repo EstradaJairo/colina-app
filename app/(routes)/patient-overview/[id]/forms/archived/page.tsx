@@ -35,7 +35,7 @@ export default function ArchiveTab() {
   const [error, setError] = useState("");
   const [term, setTerm] = useState<string>("");
   const [isEdit, setIsEdit] = useState(false);
-  const [notesToEdit, setNotesToEdit] = useState<any[]>([]);
+  const [formsToView, setFormsToView] = useState<any[]>([]);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [isErrorOpen, setIsErrorOpen] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
@@ -150,6 +150,7 @@ export default function ArchiveTab() {
           currentPage,
           sortBy,
           sortOrder as "ASC" | "DESC",
+          true,
           router
         );
         setPatientForms(response.data);
@@ -186,11 +187,9 @@ export default function ArchiveTab() {
             <p
               onClick={() => {
                 setIsLoading(true);
-                onNavigate(
-                  router,
+                router.replace(
                   `/patient-overview/${patientId.toLowerCase()}/forms`
                 );
-                setIsLoading(true);
               }}
               className="p-title hover:underline cursor-pointer"
             >
@@ -204,7 +203,7 @@ export default function ArchiveTab() {
           </div>
         </div>
         <div className="flex gap-2">
-          <button className="btn-pdfs flex items-center justify-center border-[2px] text-black font-semibold w-[228px] rounded h-[52px] gap-2">
+          <button className="btn-pdfs gap-2">
             <img src="/imgs/downloadpdf.svg" alt="" />
             <p className="text-[18px]">Download PDF</p>
           </button>
@@ -272,31 +271,73 @@ export default function ArchiveTab() {
 
         {/* START OF TABLE */}
         <div>
-          <table className="w-full text-left rtl:text-right">
-            <thead>
-              <tr className="uppercase text-[#64748B] border-y  ">
-                <th scope="col" className="px-7 py-3 h-[60px] w-[250px]">
-                  NAME OF DOCUMENT
-                </th>
-                <th scope="col" className="px-7 py-3 h-[60px] w-[200px]">
-                  DATE ISSUED
-                </th>
-                <th scope="col" className="px-7 py-3 h-[60px] w-[900px]">
-                  NOTES
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="odd:bg-white  even:bg-gray-50  border-b hover:bg-[#f4f4f4] group">
-                <th className="px-7 py-3 h-[60px] ">Patient Details</th>
-                <td className="px-7 py-3 h-[60px]">10/12/2024</td>
-                <td className="px-7 py-3 h-[60px]">
-                  Patient reports occasional headaches. Advised to monitor and
-                  follow up.
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          {patientForms.length == 0 ? (
+            <div>
+              <div className="w-full flex-col justify-center items-center">
+                <table className="w-full block text-left rtl:text-right">
+                  <thead className="w-full ">
+                    <tr className=" text-[#64748B] border-b-[1px] text-[15px]">
+                      <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
+                        NAME OF DOCUMENT
+                      </th>
+                      <th scope="col" className="px-6 py-3 w-[400px]">
+                        DATE ISSUED
+                      </th>
+                      <th scope="col" className="px-6 py-3 w-[750px]">
+                        NOTES
+                      </th>
+                      <th scope="col" className="px-6 py-3 max-w-[300px]">
+                        ACTION
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+                <div className="py-5 flex justify-center items-center">
+                  <p className="text-xl font-semibold text-gray-700 text-center">
+                    No Form/s
+                  </p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <table className="w-full block text-left rtl:text-right">
+              <thead className="w-full">
+                <tr className=" text-[#64748B] border-b-[1px] text-[15px]">
+                  <th scope="col" className="px-6 py-3 w-[400px] h-[70px]">
+                    NAME OF DOCUMENT
+                  </th>
+                  <th scope="col" className="px-6 py-3 w-[400px]">
+                    DATE ISSUED
+                  </th>
+                  <th scope="col" className="px-6 py-3 w-[750px]">
+                    NOTES
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody className="overflow-y-scroll">
+                {patientForms.map((form, index) => (
+                  <tr
+                    key={index}
+                    className="odd:bg-white border-b hover:bg-[#f4f4f4] group text-[15px]"
+                  >
+                    <th
+                      scope="row"
+                      className="truncate px-6 py-3 w-[400px] font-medium text-gray-900 whitespace-nowrap"
+                    >
+                      {form.forms_nameOfDocument}
+                    </th>
+                    <td className="px-6 py-3 w-[400px]">
+                      {form.forms_dateIssued}
+                    </td>
+                    <td className="px-6 py-3 w-[750px] max-w-[750px] truncate">
+                      {form.forms_notes}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
         {/* END OF TABLE */}
       </div>
@@ -306,34 +347,33 @@ export default function ArchiveTab() {
       ) : (
         <div className="mt-5 pb-5">
           <div className="flex justify-between">
-            <p className="font-medium size-[18px] w-[138px] items-center">
+            <p className="font-medium size-[18px] text-[15px] w-[138px] items-center">
               Page {currentPage} of {totalPages}
             </p>
             <div>
               <nav>
-                <div className="flex -space-x-px text-sm">
-                  <div>
+                <div className="flex text-[15px] ">
+                  <div className="flex">
                     <button
                       onClick={goToPreviousPage}
-                      className="flex border border-px items-center justify-center  w-[77px] h-full"
+                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
                     >
                       Prev
                     </button>
-                  </div>
-                  {renderPageNumbers()}
 
-                  <div className="ml-5">
+                    {renderPageNumbers()}
+
                     <button
                       onClick={goToNextPage}
-                      className="flex border border-px items-center justify-center  w-[77px] h-full"
+                      className="flex ring-1 text-[15px] ring-gray-300 items-center justify-center  w-[77px] h-full"
                     >
                       Next
                     </button>
                   </div>
                   <form onSubmit={handleGoToPage}>
-                    <div className="flex px-5 ">
+                    <div className="flex pl-4 ">
                       <input
-                        className={`ipt-pagination appearance-none  text-center border ring-1 ${
+                        className={`ipt-pagination appearance-none  text-center ring-1 ${
                           gotoError ? "ring-red-500" : "ring-gray-300"
                         } border-gray-100`}
                         type="text"
@@ -352,8 +392,11 @@ export default function ArchiveTab() {
                           }
                         }}
                       />
-                      <div className="px-5">
-                        <button type="submit" className="btn-pagination ">
+                      <div className="">
+                        <button
+                          type="submit"
+                          className="btn-pagination ring-1 ring-[#007C85]"
+                        >
                           Go{" "}
                         </button>
                       </div>
@@ -370,7 +413,7 @@ export default function ArchiveTab() {
           content={
             <FormsviewModalContent
               isModalOpen={isModalOpen}
-              onSuccess={onSuccess}
+              formData={setFormsToView}
             />
           }
           isModalOpen={isModalOpen}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { X } from "lucide-react";
 interface Modalprops {
   isModalOpen: (isOpen: boolean) => void;
 }
@@ -12,17 +13,22 @@ export const AppointmentviewModalContent = ({ isModalOpen }: Modalprops) => {
   const [time, setTime] = useState("1:30pm");
   const [endTime, setEndTime] = useState("2:00pm");
   const [details, setDetails] = useState("Input details");
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const handleEditToggle = () => {
     setIsEditable(!isEditable);
   };
 
   return (
-    <div className="w-[676px] h-[644px]">
+    <div className="w-[676px] h-[640px]">
       <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md">
         <h2 className="p-title text-left text-[#071437] pl-10 mt-7">
           Appointment Details
         </h2>
+        <X
+          onClick={() => isModalOpen(false)}
+          className="w-7 h-7 text-black flex items-center mt-2 mr-4"
+        />
         <p className="text-sm pl-10 text-gray-600 pb-10 pt-2">
           List of Upcoming Schedules.
           <button
@@ -173,17 +179,17 @@ export const AppointmentviewModalContent = ({ isModalOpen }: Modalprops) => {
           </form>
         </div>
         <div className="">
-          <div className="justify-center flex border-t-4 pt-26">
+          <div className="justify-end flex mr-10">
             <button
               onClick={() => isModalOpen(false)}
               type="button"
-              className="w-[600px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mt-4 mr-[3px] rounded-bl-md"
+              className="w-[170px] h-[50px] px-3 py-2 bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black mr-4 rounded-sm"
             >
               Cancel
             </button>
             <button
               type="button"
-              className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
+              className="w-[170px] h-[50px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium  rounded-sm"
             >
               Submit
             </button>
