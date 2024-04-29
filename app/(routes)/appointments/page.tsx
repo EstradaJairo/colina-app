@@ -1,6 +1,5 @@
 "use client";
 
-import { onNavigate } from "@/actions/navigation";
 import { searchPatientList } from "@/app/api/patients-api/patientList.api";
 import DropdownMenu from "@/components/dropdown-menu";
 import Edit from "@/components/shared/buttons/view";
@@ -30,10 +29,14 @@ import { fetchAllAppointments } from "@/app/api/appointments-api/fetch-all-appoi
 
 export default function AppointmentPage() {
   const router = useRouter();
+  if (typeof window === "undefined") {
+    return null;
+  }
 
   if (!getAccessToken()) {
-    router.push("/login");
+    router.replace("/login");
   }
+
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
 
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
@@ -167,7 +170,6 @@ export default function AppointmentPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(false);
       try {
         const upcomingAppoinments = await fetchAllAppointments(
           term,
@@ -183,20 +185,21 @@ export default function AppointmentPage() {
         setTotalPages(upcomingAppoinments.totalPages);
         setAppointmentList(appointmentsArray);
         setTotalAppointments(upcomingAppoinments.totalCount);
+        setIsLoading(false);
         return upcomingAppoinments;
       } catch (error) {}
     };
     fetchData();
   }, [currentPage, startDate, endDate, sortBy, sortOrder, term]);
 
-  const handlePatientClick = (patientId: any) => {
-    const lowercasePatientId = patientId.toLowerCase();
-    setIsLoading(true);
-    onNavigate(
-      router,
-      `/patient-overview/${lowercasePatientId}/medical-history/allergies`
-    );
-  };
+  // const handlePatientClick = (patientId: any) => {
+  //   const lowercasePatientId = patientId.toLowerCase();
+  //   setIsLoading(true);
+  //   onNavigate(
+  //     router,
+  //     `/patient-overview/${lowercasePatientId}/medical-history/allergies`
+  //   );
+  // };
   console.log(startD, "startDate");
   console.log(appointmentList, "appointmentList");
   if (isLoading) {
@@ -218,7 +221,7 @@ export default function AppointmentPage() {
     <div className="w-full px-[150px] pt-[90px]">
       <div className="flex justify-end">
         <p
-          onClick={() => onNavigate(router, "/dashboard")}
+          onClick={() => router.push("/dashboard")}
           className="text-[#64748B] underline cursor-pointer text-[15px]"
         >
           Back to Dashboard
@@ -339,22 +342,16 @@ export default function AppointmentPage() {
           </div>
         </div>
 
-        <div className="w-full h-full">
+        <div>
           <table className="w-full h-full justify-center items-start text-[15px]">
-            <thead className=" text-left rtl:text-right">
-              <tr className="uppercase text-[#64748B] border-b border-[#E7EAEE]">
-                <th scope="col" className="px-6 py-3 w-[250px] h-[70px]">
-                  Status
-                </th>
-                <th scope="col" className="px-6 py-3 w-[230px]">
-                  Date
-                </th>
-                <th scope="col" className="px-6 py-3 w-[200px]">
-                  Time
-                </th>
-                <th scope="col" className="px-6 py-3 w-10">
-                  End time
-                </th>
+            <thead className="text-left rtl:text-right">
+              <tr className="uppercase font-semibold text-[#64748B] border-b border-[#E7EAEE] h-[70px]">
+                <td className="px-6 py-5 ">Name</td>
+                <td className="px-6 py-5 ">Appointment UID</td>
+                <td className="px-6 py-5 ">Date</td>
+                <td className="px-6 py-5 ">Time</td>
+                <td className="px-6 py-5 ">End time</td>
+                <td className="px-6 py-5  flex justify-start">Status</td>
               </tr>
             </thead>
             <tbody>
@@ -370,11 +367,37 @@ export default function AppointmentPage() {
               {appointmentList.map((appointment, index) => (
                 <tr
                   key={index}
-                  className="odd:bg-white hover:bg-[#f4f4f4] group border-b"
+                  className="bg-white hover:bg-[#f4f4f4] group border-b "
                 >
-                  <td className="text-15px me-1 px-6 py-5 rounded-full flex items-center">
+                  <td className="px-6 py-5 flex items-center">
+                    <Image
+                      className="rounded-full mr-2 "
+                      src="/imgs/dennis.svg"
+                      alt="Icon"
+                      width={45}
+                      height={45}
+                    />
+                    <span>
+                      {appointment.patient_firstName} {""}
+                      {appointment.patient_lastName}
+                    </span>
+                  </td>
+                  <td className="px-6 py-5 ">
+                    {appointment.appointments_uuid}
+                  </td>
+                  <td className="px-6 py-5">
+                    {appointment.appointments_appointmentDate}
+                  </td>
+                  <td className="px-6 py-5 ">
+                    {appointment.appointments_appointmentTime}
+                  </td>
+                  <td className=" px-6 py-5">
+                    {appointment.appointments_appointmentEndTime}
+                  </td>
+
+                  <td className="text-15px text-nowrap  px-6 py-5 rounded-full">
                     <div
-                      className={`px-2 font-semibold rounded-[20px] relative flex items-center ${
+                      className={`px-2 font-semibold rounded-[20px] relative flex items-center w-fit ${
                         appointment.appointments_appointmentStatus ===
                         "Scheduled"
                           ? "bg-[#dfffea] text-[#17C653]" // Green color for Scheduled
@@ -419,16 +442,6 @@ export default function AppointmentPage() {
                       {appointment.appointments_appointmentStatus} Appointment
                     </div>
                   </td>
-
-                  <td className="px-6 py-4">
-                    {appointment.appointments_appointmentDate}
-                  </td>
-                  <td className="px-6 py-4">
-                    {appointment.appointments_appointmentTime}
-                  </td>
-                  <td className="px-6 py-4">
-                    {appointment.appointments_appointmentEndTime}
-                  </td>
                 </tr>
               ))}
             </tbody>
@@ -441,12 +454,12 @@ export default function AppointmentPage() {
       ) : (
         <div className="mt-5">
           <div className="flex justify-between">
-            <p className="font-medium size-[18px] w-[138px] items-center">
+            <p className="font-medium text-[15px] w-[138px] items-center">
               Page {currentPage} of {totalPages}
             </p>
             <div>
               <nav>
-                <div className="flex -space-x-px text-sm">
+                <div className="flex -space-x-px text-[15px]">
                   <div>
                     <button
                       onClick={goToPreviousPage}
