@@ -77,7 +77,7 @@ export default function PatientOverviewLayout({
   const [seeMoreHovered, setSeeMoreHovered] = useState(
     localStorage.getItem("seeMoreHovered") === "true" ? true : false
   );
-  const [seeMoreDetailsClicked, setSeeMoreDetailsClicked] = useState(false);
+  const [seeMoreDetailsClicked, setSeeMoreDetailsClicked] = useState(true);
   const handleSeeMoreDetails = (url: string, tabIndex: number) => {
     if (url) {
       setActiveTab(-1);
