@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { onNavigate } from "@/actions/navigation";
 import { Navbar } from "@/components/navbar";
 import { useParams, useRouter } from "next/navigation";
@@ -32,6 +32,7 @@ export default function PatientOverviewLayout({
   const [error, setError] = useState<string>("");
   const [detailsClicked, setDetailsClicked] = useState<boolean>(false); // State to track if "See more details" is clicked
   const patientId = params.id.toUpperCase();
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const pathname = usePathname();
   const inputRef = useRef<HTMLSpanElement>(null);
   const tabs = [
@@ -179,8 +180,19 @@ export default function PatientOverviewLayout({
 
   const handleSeeMoreClick = () => {
     setIsLoading(true);
-    setSeeMoreDetailsClicked(!seeMoreDetailsClicked);
+    setSeeMoreDetailsClicked(true);
   };
+
+  // State to manage the popup
+
+  // Function to toggle the popup state
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
+  };
+
+  function handleImageChange(event: ChangeEvent<HTMLInputElement>): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <div className="flex flex-col w-full px-[150px] pt-[90px]">
@@ -198,17 +210,43 @@ export default function PatientOverviewLayout({
                   width="200"
                   height="200"
                 />
-                {seeMoreDetailsClicked && (
-                  <button className="absolute bottom-2 right-[-20px]  ">
+                {currentRoute === "patient-details" && (
+                  <label
+                    htmlFor="fileInput"
+                    className="absolute bottom-2 right-[-20px] cursor-pointer"
+                  >
                     <img
                       src="/svgs/editprof.svg"
                       alt="edit button"
                       width="35"
                       height="35"
                     />
-                  </button>
+                  </label>
                 )}
+                <input
+                  id="fileInput"
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageChange}
+                />
               </div>
+
+              {isPopupOpen && (
+                <div className="popup first-letter:">
+                  <div className="popup-content">
+                    <button className="" onClick={togglePopup}>
+                      Close
+                    </button>
+                    <input
+                      className="pt-11"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
             <div className="justify-between ml-4 mt-1 flex flex-col w-full ">
               <div>
