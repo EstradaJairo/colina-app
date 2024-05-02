@@ -15,8 +15,7 @@ import Modal from "@/components/reusable/modal";
 import Pagination from "@/components/shared/pagination";
 
 export default function Surgeries() {
-  if (typeof window === "undefined") {
-  }
+
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
   const [patientSurgeries, setPatientSurgeries] = useState<any[]>([]);

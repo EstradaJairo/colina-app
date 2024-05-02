@@ -95,7 +95,9 @@ export const Navbar = ({
             if (pathname === "/dashboard") {
               event.preventDefault();
               setIsLoading(true);
-              window.location.reload();
+              if (typeof window !== "undefined") {
+                window.location.reload();
+              }
             }
           }}
         />
@@ -110,7 +112,9 @@ export const Navbar = ({
               onClick={() => {
                 setIsLoading(true);
                 if (pathname === route.url) {
-                  window.location.reload();
+                  if (typeof window !== "undefined") {
+                    window.location.href = route.url;
+                  }
                 }
               }}
             >

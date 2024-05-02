@@ -16,8 +16,7 @@ import { PrnModalContent } from "@/components/modal-content/prn-modal-content";
 import Pagination from "@/components/shared/pagination";
 const Prorenata = () => {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
+
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [sortOrder, setSortOrder] = useState("DESC");

@@ -16,8 +16,7 @@ import { LabResultsViewModalContent } from "@/components/modal-content/labresult
 import Pagination from "@/components/shared/pagination";
 export default function Laboratoryresults() {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
+
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [totalPages, setTotalPages] = useState<number>(0);

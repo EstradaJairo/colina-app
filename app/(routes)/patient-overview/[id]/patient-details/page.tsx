@@ -11,8 +11,7 @@ import { fetchCountryList } from "@/app/api/country-api/countryList.api";
 import { set } from "date-fns";
 
 export default function PatientDetails() {
-  if (typeof window === "undefined") {
-  }
+
   const [patientDetails, setPatientDetails] = useState<any>([]);
   const [patientEditMode, setPatientEditMode] = useState(false);
   const [emergencyEditMode, setEmergencyEditMode] = useState(false);

@@ -18,8 +18,6 @@ import Pagination from "@/components/shared/pagination";
 
 const Notes = () => {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
   const [sortOrder, setSortOrder] = useState<string>("ASC");

@@ -3,7 +3,7 @@
 import { searchPatientList } from "@/app/api/patients-api/patientList.api";
 import DropdownMenu from "@/components/dropdown-menu";
 import Edit from "@/components/shared/buttons/view";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { SuccessModal } from "@/components/shared/success";
 import { getAccessToken } from "@/app/api/login-api/accessToken";
@@ -13,6 +13,7 @@ import Image from "next/image";
 import * as React from "react";
 import { format, set } from "date-fns";
 import { Calendar as CalendarIcon, Search } from "lucide-react";
+import dynamic from 'next/dynamic';
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -28,8 +29,8 @@ import Pagination from "@/components/shared/pagination";
 
 export default function AppointmentPage() {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
+ 
+
 
   if (!getAccessToken()) {
     router.replace("/login");
@@ -66,6 +67,10 @@ export default function AppointmentPage() {
       appointments_appointmentTime: string;
     }[]
   >([]);
+  if (typeof window !== 'undefined') {
+    // Now it's safe to use location
+    const currentUrl = window.location.href;
+  }
   const startD = startDate
     ? startDate.toISOString().slice(0, 10)
     : "2021-01-01";

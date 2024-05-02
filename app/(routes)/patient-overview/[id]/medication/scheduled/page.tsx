@@ -18,8 +18,7 @@ import Pagination from "@/components/shared/pagination";
 
 const Scheduled = () => {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
+
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [sortOrder, setSortOrder] = useState("DESC");

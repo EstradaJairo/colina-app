@@ -155,7 +155,9 @@ export const AppointmentModalContent = ({
             <ToastAction
               altText="Try again"
               onClick={() => {
-                window.location.reload();
+                if (typeof window !== "undefined") {
+                  window.location.reload();
+                }
               }}
             >
               Try again

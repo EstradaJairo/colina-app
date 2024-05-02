@@ -15,8 +15,6 @@ import { VitalModalContent } from "@/components/modal-content/vital-modal-conten
 import Pagination from "@/components/shared/pagination";
 export default function vitalsigns() {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [sortOrder, setSortOrder] = useState("ASC");

@@ -73,7 +73,7 @@ export const IncidentreportModalContent = ({
             <ToastAction
               altText="Try again"
               onClick={() => {
-                window.location.reload();
+                window.location.href = window.location.href;
               }}
             >
               Try again

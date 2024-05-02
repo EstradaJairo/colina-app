@@ -7,14 +7,15 @@ import { getAccessToken } from "@/app/api/login-api/accessToken";
 import { fetchDueMedication } from "@/app/api/medication-logs-api/due-medication-api";
 import { ToastAction } from "@/components/ui/toast";
 import { Edit, View } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
 const Dashboard = () => {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  
+  if (typeof window !== 'undefined') {
+    // Now it's safe to use location
+    const currentUrl = window.location.href;
   }
   if (!getAccessToken()) {
     router.replace("/login");
@@ -131,7 +132,9 @@ const Dashboard = () => {
             <ToastAction
               altText="Try again"
               onClick={() => {
-                window.location.reload();
+                if (typeof window !== "undefined") {
+                  window.location.reload();
+                }
               }}
             >
               Try again

@@ -76,7 +76,9 @@ export const NursenotesModalContent = ({
             <ToastAction
               altText="Try again"
               onClick={() => {
-                window.location.reload();
+                if (typeof window !== "undefined") {
+                  window.location.href = window.location.href;
+                }
               }}
             >
               Try again

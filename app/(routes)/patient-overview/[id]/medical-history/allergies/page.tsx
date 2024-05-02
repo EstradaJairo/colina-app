@@ -23,8 +23,7 @@ import Pagination from "@/components/shared/pagination";
 
 const Allergies = () => {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
+
   const { toast } = useToast();
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isOpenSortedBy, setIsOpenSortedBy] = useState(false);
@@ -208,7 +207,9 @@ const Allergies = () => {
           <ToastAction
             altText="Try again"
             onClick={() => {
-              window.location.reload();
+              if (typeof window !== "undefined") {
+                window.location.href = window.location.href;
+              }
             }}
           >
             Try again

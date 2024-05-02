@@ -13,17 +13,21 @@ import TimeGraph from "@/components/timeGraph";
 import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 import { formUrlQuery } from "@/lib/utils";
-import { useRouter, useSearchParams } from "next/navigation";
+import {useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
+
 import { useEffect, useState } from "react";
 
 export default function ChartPage() {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
+
   if (!getAccessToken()) {
     router.replace("/login");
   }
-
+  if (typeof window !== 'undefined') {
+    // Now it's safe to use location
+    const currentUrl = window.location.href;
+  }
   const { toast } = useToast();
   const [patientList, setPatientList] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -159,7 +163,12 @@ export default function ChartPage() {
             <ToastAction
               altText="Try again"
               onClick={() => {
-                window.location.reload();
+                if (typeof window !== "undefined") {
+                  // Now it's safe to use location
+                  const currentUrl = window.location.href;
+
+                  window.location.reload();
+                }
               }}
             >
               Try again
@@ -187,7 +196,7 @@ export default function ChartPage() {
       key: "id",
       value: patientId,
     });
-    router.replace(newUrl, { scroll: true }); // Update URL immediately
+    router.replace(newUrl); // Update URL immediately
   };
 
   const onSuccess = () => {

@@ -4,7 +4,7 @@ import { onNavigate } from "@/actions/navigation";
 import { searchPatientList } from "@/app/api/patients-api/patientList.api";
 import DropdownMenu from "@/components/dropdown-menu";
 import Edit from "@/components/shared/buttons/view";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ErrorModal } from "@/components/shared/error";
 import { SuccessModal } from "@/components/shared/success";
@@ -20,7 +20,9 @@ import Pagination from "@/components/shared/pagination";
 
 export default function PatientPage() {
   const router = useRouter();
-  if (typeof window === "undefined") {
+  if (typeof window !== 'undefined') {
+    // Now it's safe to use location
+    const currentUrl = window.location.href;
   }
   if (!getAccessToken()) {
     router.replace("/login");
@@ -172,7 +174,9 @@ export default function PatientPage() {
             <ToastAction
               altText="Try again"
               onClick={() => {
-                window.location.reload();
+                if (typeof window !== "undefined") {
+                  window.location.reload();
+                }
               }}
             >
               Try again

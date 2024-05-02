@@ -20,8 +20,7 @@ import { ErrorModal } from "@/components/shared/error";
 import Pagination from "@/components/shared/pagination";
 const Appointment = () => {
   const router = useRouter();
-  if (typeof window === "undefined") {
-  }
+
   // start of orderby & sortby function
   const [isOpenOrderedBy, setIsOpenOrderedBy] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);

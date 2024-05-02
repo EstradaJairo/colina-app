@@ -3,7 +3,7 @@
 import { onNavigate } from "@/actions/navigation";
 import DropdownMenu from "@/components/dropdown-menu";
 import Edit from "@/components/shared/buttons/view";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ErrorModal } from "@/components/shared/error";
 import { SuccessModal } from "@/components/shared/success";
@@ -20,7 +20,9 @@ import Pagination from "@/components/shared/pagination";
 
 export default function DueMedicationPage() {
   const router = useRouter();
-  if (typeof window === "undefined") {
+  if (typeof window !== 'undefined') {
+    // Now it's safe to use location
+    const location = window.location.href;
   }
   if (!getAccessToken()) {
     router.replace("/login");
