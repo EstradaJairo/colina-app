@@ -34,7 +34,6 @@ export default function PatientOverviewLayout({
   const patientId = params.id.toUpperCase();
   const pathname = usePathname();
   const inputRef = useRef<HTMLSpanElement>(null);
-
   const tabs = [
     {
       label: "Medical History",
@@ -78,7 +77,7 @@ export default function PatientOverviewLayout({
   const [seeMoreHovered, setSeeMoreHovered] = useState(
     localStorage.getItem("seeMoreHovered") === "true" ? true : false
   );
-
+  const [seeMoreDetailsClicked, setSeeMoreDetailsClicked] = useState(false);
   const handleSeeMoreDetails = (url: string, tabIndex: number) => {
     if (url) {
       setActiveTab(-1);
@@ -178,6 +177,11 @@ export default function PatientOverviewLayout({
     }
   };
 
+  const handleSeeMoreClick = () => {
+    setIsLoading(true);
+    setSeeMoreDetailsClicked(!seeMoreDetailsClicked);
+  };
+
   return (
     <div className="flex flex-col w-full px-[150px] pt-[90px]">
       <div className="flex flex-col gap-[3px]">
@@ -194,14 +198,16 @@ export default function PatientOverviewLayout({
                   width="200"
                   height="200"
                 />
-                <button className="absolute bottom-2 right-[-20px]  ">
-                  <img
-                    src="/svgs/editprof.svg"
-                    alt="edit button"
-                    width="35"
-                    height="35"
-                  />
-                </button>
+                {seeMoreDetailsClicked && (
+                  <button className="absolute bottom-2 right-[-20px]  ">
+                    <img
+                      src="/svgs/editprof.svg"
+                      alt="edit button"
+                      width="35"
+                      height="35"
+                    />
+                  </button>
+                )}
               </div>
             </div>
             <div className="justify-between ml-4 mt-1 flex flex-col w-full ">
