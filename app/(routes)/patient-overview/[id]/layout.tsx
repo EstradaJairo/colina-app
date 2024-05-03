@@ -33,6 +33,7 @@ export default function PatientOverviewLayout({
   const [detailsClicked, setDetailsClicked] = useState<boolean>(false); // State to track if "See more details" is clicked
   const patientId = params.id.toUpperCase();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const pathname = usePathname();
   const inputRef = useRef<HTMLSpanElement>(null);
   const tabs = [
@@ -69,6 +70,14 @@ export default function PatientOverviewLayout({
       url: `/patient-overview/${params.id}/forms`,
     },
   ];
+
+  const handleCancelClick = () => {
+    setIsEditing(false);
+  };
+
+  const handleSaveClick = () => {
+    // Handle save functionality
+  };
 
   const [currentRoute, setCurrentRoute] = useState<string>("");
 
@@ -183,12 +192,12 @@ export default function PatientOverviewLayout({
     setSeeMoreDetailsClicked(true);
   };
 
-  // State to manage the popup
+  // // State to manage the popup
 
-  // Function to toggle the popup state
-  const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
-  };
+  // // Function to toggle the popup state
+  // const togglePopup = () => {
+  //   setIsPopupOpen(!isPopupOpen);
+  // };
 
   function handleImageChange(event: ChangeEvent<HTMLInputElement>): void {
     throw new Error("Function not implemented.");
@@ -232,7 +241,7 @@ export default function PatientOverviewLayout({
                 />
               </div>
 
-              {isPopupOpen && (
+              {/* {isPopupOpen && (
                 <div className="popup first-letter:">
                   <div className="popup-content">
                     <button className="" onClick={togglePopup}>
@@ -246,7 +255,7 @@ export default function PatientOverviewLayout({
                     />
                   </div>
                 </div>
-              )}
+              )} */}
             </div>
             <div className="justify-between ml-4 mt-1 flex flex-col w-full ">
               <div>
@@ -257,28 +266,31 @@ export default function PatientOverviewLayout({
                     {patientData[0]?.lastName}
                   </h1>
                   <div className=" cursor-pointer items-center ml-10 flex ">
-                    <Link
-                      href={`/patient-overview/${params.id}/patient-details`}
-                    >
-                      <p
-                        className={`underline text-[15px] font-semibold text-right mr-10 hover:text-[#007C85] ${
-                          currentRoute === "patient-details"
-                            ? "text-[#007C85]"
-                            : ""
-                        }`}
-                        onMouseEnter={handleSeeMoreHover}
-                        onMouseLeave={handleSeeMoreLeave}
-                        onClick={() => {
-                          setIsLoading(true);
-                          // handleSeeMoreDetails(
-                          //   `/patient-overview/${params.id}/patient-details`,
-                          //   -1
-                          // );
-                        }}
+                    {isEditing ? (
+                      <div className="flex space-x-4">
+                        <button onClick={handleSaveClick}>Save</button>
+                        <button onClick={handleCancelClick}>Cancel</button>
+                      </div>
+                    ) : (
+                      <Link
+                        href={`/patient-overview/${params.id}/patient-details`}
                       >
-                        See more details
-                      </p>
-                    </Link>
+                        <p
+                          className={`underline text-[15px] font-semibold text-right mr-10 hover:text-[#007C85] ${
+                            currentRoute === "patient-details"
+                              ? "text-[#007C85]"
+                              : ""
+                          }`}
+                          onMouseEnter={handleSeeMoreHover}
+                          onMouseLeave={handleSeeMoreLeave}
+                          onClick={handleSeeMoreClick}
+                        >
+                          {currentRoute === "patient-details"
+                            ? "Save"
+                            : "See more details"}
+                        </p>
+                      </Link>
+                    )}
                   </div>
                 </div>
                 <div>
