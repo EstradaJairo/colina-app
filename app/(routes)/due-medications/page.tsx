@@ -266,7 +266,7 @@ export default function DueMedicationPage() {
                     <td className="px-6 py-5 gap-2 flex items-center">
                       <Image
                         className="rounded-full"
-                        src="/imgs/dennis.svg"
+                        src="/imgs/drake.png"
                         alt="Icon"
                         width={45}
                         height={45}
@@ -295,15 +295,15 @@ export default function DueMedicationPage() {
         </div>
       </div>
       {/* pagination */}
-     <div className="">
-     <Pagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        pageNumber={pageNumber}
-        setPageNumber={setPageNumber}
-        setCurrentPage={setCurrentPage}
-      />
-     </div>
+      <div className="">
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          pageNumber={pageNumber}
+          setPageNumber={setPageNumber}
+          setCurrentPage={setCurrentPage}
+        />
+      </div>
       {isOpen && (
         <Modal
           content={
