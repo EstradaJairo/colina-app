@@ -99,7 +99,7 @@ export const FilesdropModalContent = ({ isModalOpen }: ModalProps) => {
           </p>
           <X
             onClick={() => isModalOpen(false)}
-            className="w-7 h-7 text-black flex items-center mb-4 ml-6"
+            className="w-7 h-7 text-black"
           />
         </div>
         <div className="h-full w-full flex flex-col justify-start items-center">

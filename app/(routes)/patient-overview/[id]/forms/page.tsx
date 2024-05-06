@@ -13,6 +13,7 @@ import { NofileviewModalContent } from "@/components/modal-content/nofileview-mo
 import { FormsviewsModalContent } from "@/components/modal-content/formsviews-modal-content";
 import { AppointmentemailModalContent } from "@/components/modal-content/appointmentemail-modal-content";
 import { FilesdropModalContent } from "@/components/modal-content/filesdrop-modal-content";
+import { FilehandleModalContent } from "@/components/modal-content/filehandle-modal-content";
 
 export default function forms() {
   const router = useRouter();

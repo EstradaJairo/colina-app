@@ -11,7 +11,6 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [showCheckboxes, setShowCheckboxes] = useState(false);
   const [toast, setToast] = useState(false);
-  const [editMode, setEditMode] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
   const toggleModal = () => {
     setModalOpen(!modalOpen);
@@ -207,19 +206,19 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
               )}
               {deleteModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#76898A99]">
-                  <div className="bg-white max-w-lg rounded-lg w-[700px] h-[146px]">
-                    <div className="flex justify-center items-center pt-6 pb-6">
-                      <h2 className="font-semibold text-[20px] text-[#667085]">
+                  <div className="bg-white max-w-lg rounded-lg w-[600px] h-[146px]">
+                    <div className="flex justify-between items-center pt-6 pb-6">
+                      <h2 className="font-semibold text-[20px] text-[#667085] ml-[130px]">
                         Are you sure to delete this?
                       </h2>
                     </div>
-                    <div className=" flex border-t-4 ">
+                    <div className=" flex justify-center items-center gap-2 ">
                       <button
                         onClick={() => setDeleteModalOpen(false)}
                         type="button"
-                        className="w-[600px] h-[50px] px-3 py-2 bg-[#BCBCBC] hover:bg-[#D9D9D9] font-medium text-white mt-4 mr-[3px] rounded-bl-md"
+                        className="w-[160px] h-[45px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B] text-[#ffff] font-medium rounded-sm"
                       >
-                        No
+                        Yes
                       </button>
                       <button
                         onClick={() => {
@@ -227,9 +226,9 @@ export const PrescriptionviewModalContent = ({ isModalOpen }: ModalProps) => {
                           setToastVisible(true);
                         }}
                         type="button"
-                        className="w-[600px] px-3 py-2 bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff] font-medium mt-4 rounded-br-md"
+                        className="w-[160px] h-[45px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black rounded-sm"
                       >
-                        Yes
+                        No
                       </button>
                     </div>
                   </div>
