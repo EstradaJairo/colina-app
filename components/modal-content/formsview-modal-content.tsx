@@ -454,13 +454,28 @@ export const FormViewsModalContent = ({
           {isLoading ? (
             // Loading state
             <>
-              <div className="mb-9 pt-4">
-                <div className="h-[550px] md:px-8 mt-5">
-                  <div className="w-full h-full flex justify-center items-center ">
-                    <img
+              <div className="bg-[#ffffff] w-full h-[70px] flex flex-col justify-start rounded-md]">
+                <div className="items-center flex justify-between">
+                  <h2 className="p-title text-left text-[#071437]"></h2>
+                  <X
+                    onClick={() => {
+                      isSubmitted ? null : isModalOpen(false);
+                    }}
+                    className={`
+                 ${isSubmitted && " cursor-not-allowed"}
+                 w-6 h-6 text-black flex items-center mt-6 mr-9 cursor-pointer`}
+                  />
+                </div>
+                <p className="text-sm pl-10 text-gray-600 pb-10 pt-2"></p>
+              </div>
+              <div className="mb-9">
+                <div className="h-[380px] md:px-8 ">
+                  <div className="w-full h-full flex justify-center items-center">
+                    <Image
                       src="/imgs/colina-logo-animation.gif"
                       alt="logo"
                       width={100}
+                      height={100}
                     />
                   </div>
                 </div>

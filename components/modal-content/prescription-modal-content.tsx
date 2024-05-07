@@ -439,8 +439,8 @@ export const PrescriptionModalContent = ({
               </div>
               <p className="text-sm pl-10 text-gray-600 pb-10 pt-2"></p>
             </div>
-            <div className="mb-9 pt-4">
-              <div className="h-[380px] md:px-8 mt-5">
+            <div className="mb-9">
+              <div className="h-[380px] md:px-8 ">
                 <div className="w-full h-full flex justify-center items-center ">
                   <Image
                     src="/imgs/colina-logo-animation.gif"
