@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import Modal from "@/components/reusable/modal";
 import { useState } from "react";
 import DropdownMenu from "@/components/dropdown-menu";
-import { DemographicModalContent } from "@/components/modal-content/demographic-modal-content";
+import { EmergencyModalContent } from "@/components/modal-content/emergency-modal-content";
 import Table from "@/components/reusable/table";
 import { Patients } from "@/type";
 import PatientListTableData from "@/components/table-data-components/patient-list-table-data";
@@ -204,7 +204,7 @@ export default function PatientPage() {
 
       {isOpen && (
         <Modal
-          content={<DemographicModalContent isModalOpen={isModalOpen} />}
+          content={<EmergencyModalContent isModalOpen={isModalOpen} />}
           isModalOpen={isModalOpen}
         />
       )}
