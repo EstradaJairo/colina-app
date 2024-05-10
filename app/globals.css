@@ -229,3 +229,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
+
+.styled-radio {
+  accent-color: #007c85;
+  height: 24px;
+  width: 24px;
+}

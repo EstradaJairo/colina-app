@@ -2,27 +2,17 @@
 import { X } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
-import { EmergencyModalContent } from "@/components/modal-content/emergency-modal-content";
-import Modal from "../reusable/modal";
+
 interface Modalprops {
   isModalOpen: (isOpen: boolean) => void;
 }
 
-export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
+export const ContactModalContent = ({ isModalOpen }: Modalprops) => {
   const [selectedCodeStatus, setSelectedCodeStatus] = useState("");
   const [selectedGender, setSelectedGender] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
   function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>): void {
     throw new Error("Function not implemented.");
   }
-  const isModalsOpen = (isOpen: boolean) => {
-    setIsOpen(isOpen);
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else if (!isOpen) {
-      document.body.style.overflow = "scroll";
-    }
-  };
 
   return (
     <>
@@ -383,31 +373,22 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
               </div>
             </form>
           </div>
-          <div className="justify-end flex mr-10 ">
+          <div className="justify-center flex border-t-4 ">
             <button
               onClick={() => isModalOpen(false)}
               type="button"
-              className="
-                w-[150px] h-[45px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black  mr-4 rounded-sm"
+              className="w-[600px] h-[50px]  bg-[#ffffff] hover:text-red-500 text-black font-medium mt-4 mr-[3px] rounded-bl-md border-2  "
             >
               Cancel
             </button>
             <button
-              onClick={() => isModalsOpen(true)}
-              type="submit"
-              className="
-                 w-[150px] h-[45px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium  rounded-sm"
+              type="button"
+              className="w-[600px] bg-[#1B84FF] hover:bg-[#2765AE]  text-[#ffff]  font-medium mt-4 rounded-br-md"
             >
               Submit
             </button>
           </div>
         </div>
-        {isOpen && (
-          <Modal
-            content={<EmergencyModalContent isModalOpen={isModalOpen} />}
-            isModalOpen={isModalOpen}
-          />
-        )}
       </div>
     </>
   );

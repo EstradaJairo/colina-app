@@ -13,6 +13,8 @@ import { EmergencyModalContent } from "@/components/modal-content/emergency-moda
 import Table from "@/components/reusable/table";
 import { Patients } from "@/type";
 import PatientListTableData from "@/components/table-data-components/patient-list-table-data";
+import PatientDemographic from "@/components/patientdemographic";
+import { DemographicModalContent } from "@/components/modal-content/demographic-modal-content";
 
 export default function PatientPage() {
   const router = useRouter();
@@ -204,7 +206,7 @@ export default function PatientPage() {
 
       {isOpen && (
         <Modal
-          content={<EmergencyModalContent isModalOpen={isModalOpen} />}
+          content={<DemographicModalContent isModalOpen={isModalOpen} />}
           isModalOpen={isModalOpen}
         />
       )}
