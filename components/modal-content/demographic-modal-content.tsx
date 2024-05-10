@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { EmergencyModalContent } from "@/components/modal-content/emergency-modal-content";
 import Modal from "../reusable/modal";
+import { ContactModalContent } from "./contact.modal.content";
 interface Modalprops {
   isModalOpen: (isOpen: boolean) => void;
 }
@@ -398,13 +399,13 @@ export const DemographicModalContent = ({ isModalOpen }: Modalprops) => {
               className="
                  w-[150px] h-[45px] px-3 py-2 bg-[#007C85] hover:bg-[#03595B]  text-[#ffff] font-medium  rounded-sm"
             >
-              Submit
+              Next
             </button>
           </div>
         </div>
         {isOpen && (
           <Modal
-            content={<EmergencyModalContent isModalOpen={isModalOpen} />}
+            content={<ContactModalContent isModalOpen={isModalOpen} />}
             isModalOpen={isModalOpen}
           />
         )}

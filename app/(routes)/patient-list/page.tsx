@@ -15,6 +15,7 @@ import { Patients } from "@/type";
 import PatientListTableData from "@/components/table-data-components/patient-list-table-data";
 import PatientDemographic from "@/components/patientdemographic";
 import { DemographicModalContent } from "@/components/modal-content/demographic-modal-content";
+import { ContactModalContent } from "@/components/modal-content/contact.modal.content";
 
 export default function PatientPage() {
   const router = useRouter();
