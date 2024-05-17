@@ -103,10 +103,11 @@ export const Navbar = ({
     const path = `/${urlParts[urlParts.length - 2]}/${
       urlParts[urlParts.length - 1]
     }`;
-    router.push(`/patient-overview/${patientId}${path}`);
+    router.push(`/patient-overview/${patientId.toLocaleLowerCase()}${path}`);
     setTimeout(() => {
       setShowGlobalSearch(false);
       setSuggestionContainer(false);
+      setSelectedPatientId("");
     }, 300);
   };
   const tabsUrls = [
@@ -365,7 +366,7 @@ export const Navbar = ({
                                         onClick={() => {
                                           onPatientClick(
                                             patient.uuid,
-                                            tab.subTab[index]?.url
+                                            tab.subTab[0]?.url
                                           );
                                         }}
                                         key={index}
@@ -428,7 +429,7 @@ export const Navbar = ({
                                               onClick={() => {
                                                 onPatientClick(
                                                   patient.uuid,
-                                                  tab.subTab[index]?.url
+                                                  tab.subTab[0]?.url
                                                 );
                                               }}
                                               key={index}
