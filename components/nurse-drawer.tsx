@@ -73,6 +73,17 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
       [name]: value,
     }));
   };
+
+  const handleOnClose = () => {
+    setFormData({
+      subject: "",
+      notes: "",
+      type: "nn",
+    });
+    setPatientId("");
+    setError("")
+  }
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log("sub");
@@ -174,7 +185,7 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
               <p className="ml-1">Nurse's Notes</p>
               <p>
                 <DrawerClose>
-                  <X />
+                  <X onClick={handleOnClose}/>
                 </DrawerClose>
               </p>
             </DrawerTitle>
@@ -194,7 +205,9 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
                       variant="outline"
                       role="combobox"
                       aria-expanded={open}
-                      className="w-full justify-between mb-5 h-12 rounded-md shadow-sm"
+                      className={`${
+                        error && "text-red-500 border-red-500"
+                      } w-full justify-between mb-5 h-12 rounded-md shadow-sm`}
                     >
                       {patientId
                         ? patientList.find(
@@ -214,7 +227,7 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
                             )?.lastName
                         : "Select patient..."}
                       <Image
-                        src="/icons/arrow-down-gray.svg"
+                        src={error? "/icons/arrow-down-red.svg":"/icons/arrow-down-gray.svg"}
                         width={15}
                         height={15}
                         alt="arrow-down"
@@ -261,11 +274,6 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
                     </Command>
                   </PopoverContent>
                 </Popover>
-                {error && (
-                  <p className="-mt-3 text-red-500 text-sm  mb-1">
-                    Select a patient!
-                  </p>
-                )}
               </div>
               <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 px-[20px]">
                 <div className="flex flex-col gap-1">
@@ -324,6 +332,7 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
                   type="button"
                   disabled={isSubmitted}
                   variant="outline"
+                  onClick={handleOnClose}
                   className={` cancel-button
                   ${isSubmitted && " cursor-not-allowed"}
                   w-[150px] h-[45px]  bg-[#F3F3F3] hover:bg-[#D9D9D9] font-medium text-black  mr-4 rounded-sm`}

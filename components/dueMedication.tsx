@@ -19,7 +19,6 @@ import Image from "next/image";
 import Pagination from "@/components/shared/pagination";
 import { fetchProfileImages } from "@/app/api/patients-api/patientProfileImage.api";
 import ResuableTooltip from "@/components/reusable/tooltip";
-import DueMedicationLoader from "@/components/loaders/DueMedicationLoader";
 
 const DueMedication = () => {
   const router = useRouter();
@@ -168,9 +167,6 @@ const DueMedication = () => {
     );
   };
 
-  if (isLoading) {
-    return <DueMedicationLoader />;
-  }
   console.log("patientList", patientList);
 
   const onSuccess = () => {
@@ -309,14 +305,14 @@ const DueMedication = () => {
                                   {image.data ? (
                                     // Render the image if data is not empty
                                     <div className=" min-w-[45px] min-h-[45px] max-w-[45px] max-h-[45px]">
-                                    <Image
-                                      className="rounded-full object-cover w-12 h-12"
-                                      src={image.data} // Use the base64-encoded image data directly
-                                      alt=""
-                                      width={45}
-                                      height={45}
-                                    />
-                                  </div>
+                                      <Image
+                                        className="rounded-full object-cover w-12 h-12"
+                                        src={image.data} // Use the base64-encoded image data directly
+                                        alt=""
+                                        width={45}
+                                        height={45}
+                                      />
+                                    </div>
                                   ) : (
                                     // Render the stock image (.svg) if data is empty
                                     <Image
@@ -333,8 +329,9 @@ const DueMedication = () => {
                             return null;
                           })}
                         </div>
-                      ) : // Render a placeholder image if no matching image found
-                 ( // Only render stock image when images are loaded
+                      ) : (
+                        // Render a placeholder image if no matching image found
+                        // Only render stock image when images are loaded
                         <div>
                           <Image
                             className="rounded-full min-w-[45px] min-h-[45px] max-w-[45px] max-h-[45px]"
@@ -344,7 +341,6 @@ const DueMedication = () => {
                             height={45}
                           />
                         </div>
-
                       )}
                       <span className="overflow-hidden">
                         <ResuableTooltip

@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import DropdownMenu from "../dropdown-menu";
 import DownloadPDF from "../shared/buttons/downloadpdf";
-import Pagination from "../shared/pagination";
 import PaginationLoader from "./PaginationLoader";
 const DueMedicationLoader = () => {
   return (

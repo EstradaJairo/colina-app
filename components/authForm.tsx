@@ -106,24 +106,6 @@ const AuthForm = () => {
           router.push("/dashboard");
         }
       }
-
-      // const signIn = await validateUser(email, password, rememberMe);
-
-      // if (signIn != false && rememberMeToken===null) {
-      //   const response = await generateOTPCode(email, "signIn");
-      //   if (response) {
-      //     setIsOTP(true);
-      //   }
-      // } else if (rememberMeToken){
-      //   router.push('/dashboard')
-      // }else {
-      //   // Handle invalid login
-      //   setPassword("");
-      //   setIsInvalid(true);
-      //   setTimeout(() => {
-      //     setIsInvalid(false);
-      //   }, 2000);
-      // }
     } catch (error) {
       console.error("Error during login:", error);
       // Handle error
@@ -138,18 +120,7 @@ const AuthForm = () => {
   console.log("email", email);
   console.log(isAccessed, "isAccessed");
   console.log(isForgotPassword, "isForgotPassword");
-  //   if (isAccessed) {
-  //     return (
-  //       <div className="container w-full h-full flex justify-center items-center">
-  //         <Image
-  //           src="/imgs/colina-logo-animation.gif"
-  //           alt="logo"
-  //           width={100}
-  //           height={100}
-  //         />
-  //       </div>
-  //     );
-  //   }
+  
   return (
     <div className="h-full">
       {isLoaded && (
