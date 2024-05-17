@@ -154,7 +154,7 @@ const DBDueMedication = () => {
   return (
     <div className="w-full h-full">
       {dueMedicationList.length > 0 ? (
-        <div className="w-full border-[1px] border-[#E4E4E7] py-3 select-none px-5 bg-white">
+        <div className="w-full  py-3 select-none px-5 bg-[#D9D9D91A]">
           <div className="">
             <p className="p-title ">
               Due Medication

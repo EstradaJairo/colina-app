@@ -50,7 +50,6 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
       uuid: "",
       lastName: "",
       firstName: "",
-      values: "",
     },
   ]);
 
@@ -77,47 +76,44 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log("sub");
-    if (patientId) {
-      setIsSubmitted(true);
-      try {
-        const notes = await createNotesOfPatient(patientId, formData, router);
-        if (notes) {
-          setIsSuccess(true);
-          console.log(isSuccess, "issuccess");
-        }
 
-        setFormData({
-          subject: "",
-          notes: "",
-          type: "nn",
-        });
-        setIsSuccessOpen(true);
-        setOpen(false);
-        setPatientId("");
-      } catch (error: any) {
-        if (error.message == "Network Error") {
-          toast({
-            variant: "destructive",
-            title: "Uh oh! Something went wrong.",
-            description: error.message,
-            action: (
-              <ToastAction
-                altText="Try again"
-                onClick={() => {
-                  window.location.reload();
-                }}
-              >
-                Try again
-              </ToastAction>
-            ),
-          });
-        }
-        console.error("Error adding note:", error);
-        setError("Failed to add note");
+    try {
+      const notes = await createNotesOfPatient(patientId, formData, router);
+      if (notes) {
+        setIsSuccess(true);
+        console.log(isSuccess, "issuccess");
       }
-    } else {
-      setError("no patient id");
+
+      setFormData({
+        subject: "",
+        notes: "",
+        type: "nn",
+      });
+      setOpen(false);
+      setPatientId("");
+    } catch (error: any) {
+      console.log(error, "errrorr1");
+      if (error.message == "Network Error") {
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: error.message,
+          action: (
+            <ToastAction
+              altText="Try again"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Try again
+            </ToastAction>
+          ),
+        });
+      }
+      console.error("Error adding note:", error);
+      setError("Failed to add note");
     }
+
     setIsSubmitted(false);
   };
 
@@ -238,7 +234,7 @@ const NurseDrawer = ({ setIsSuccessOpen }: any) => {
                       <CommandInput placeholder="Search patient..." />
                       <CommandEmpty>No patient found.</CommandEmpty>
                       <CommandGroup>
-                        <CommandList className=" z-[9999] ">    
+                        <CommandList className=" z-[9999] ">
                           {patientList.map((patient) => (
                             <CommandItem
                               key={patient.uuid}
