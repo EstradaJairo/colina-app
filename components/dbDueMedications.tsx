@@ -152,9 +152,10 @@ const DBDueMedication = () => {
   };
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-[350px]">
       {dueMedicationList.length > 0 ? (
-        <div className="w-full  py-3 select-none px-5 bg-[#D9D9D91A]">
+        <div className="flex flex-col justify-between h-full w-full  py-3 select-none px-5 bg-[#D9D9D91A]">
+          <div>
           <div className="">
             <p className="p-title ">
               Due Medication
@@ -257,18 +258,13 @@ const DBDueMedication = () => {
               </div>
             ))}
           </div>
-          {/* // : ( //{" "}
-          <div className="flex items-center text-center justify-center font-normal text-[15px] w-full h-full -mt-10">
-            // No Due Medication/s // <br />
-            //{" "}
           </div>
-          // ) */}
           <div
             onClick={() => {
               setIsLoading(true);
               router.push("/due-medications");
             }}
-            className="group flex w-fit cursor-pointer items-center hover:text-[#007C85] font-semibold text-[15px] text-[#71717A] mt-3"
+            className="group flex w-fit cursor-pointer items-center hover:text-[#007C85] font-semibold text-[15px] text-[#71717A] -mb-1"
           >
             SEE ALL DUE
             <svg

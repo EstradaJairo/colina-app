@@ -35,7 +35,9 @@ const Dashboard = () => {
               <div className="h-4/6 w-full flex gap-3">
                 <div className="w-1/2 flex flex-col  gap-3">
                   <div className="h-2/4 bg-[#D9D9D91A] ">
-                    <h1 className="font-bold text-xl bg-red-500 w-full p-5">Patient Details</h1>
+                    <h1 className="font-bold text-xl bg-red-500 w-full p-5">
+                      Patient Details
+                    </h1>
                   </div>
                   <div className="h-2/4 bg-[#D9D9D91A] p-5">
                     <h1 className="font-bold text-xl">Medication</h1>
@@ -60,11 +62,16 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="w-2/6 h-full flex flex-col gap-3">
-            <Suspense fallback={<DBDueMedicationLoader />}>
-              <DBDueMedication />
-            </Suspense>
+            <div className="w-full h-1/2">
+              <Suspense fallback={<DBDueMedicationLoader />}>
+                <DBDueMedication />
+              </Suspense>
+            </div>
+
             <Suspense fallback={<DBUpcomingLoader />}>
-              <DBUpcomingAppointments />
+              <div className="w-full h-1/2">
+                <DBUpcomingAppointments />
+              </div>
             </Suspense>
           </div>
         </div>
