@@ -7,6 +7,7 @@ import { onNavigate } from "@/actions/navigation";
 
 export default function Home() {
   const router = useRouter();
+  
   useEffect(() => {
     if (getAccessToken()) {
       onNavigate(router, "/dashboard");

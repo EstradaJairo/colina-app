@@ -6,8 +6,8 @@ import { ToastAction } from "./ui/toast";
 import DownloadPDF from "./shared/buttons/downloadpdf";
 import { fetchDueMedication } from "@/app/api/medication-logs-api/due-medication-api";
 import { useRouter } from "next/navigation";
-import { print } from "@/lib/utils";
 import { searchPatientList } from "@/app/api/patients-api/patientList.api";
+import { downloadPDF } from "@/lib/utils";
 
 const PdfDownloader = ({ props, variant }: any) => {
   const router = useRouter();
@@ -56,7 +56,7 @@ const PdfDownloader = ({ props, variant }: any) => {
             Time: d.medicationlogs_medicationLogsTime,
           }));
 
-          print(jsonFile, props, variant);
+          downloadPDF(jsonFile, props, variant);
         }
       } catch (error) {
         console.error("Error fetching due medications:", error);
@@ -108,7 +108,7 @@ const PdfDownloader = ({ props, variant }: any) => {
             Gender: d.gender,
           }));
 
-          print(jsonFile, props, variant);
+          downloadPDF(jsonFile, props, variant);
         }
       } catch (error) {
         console.error("Error fetching due medications:", error);

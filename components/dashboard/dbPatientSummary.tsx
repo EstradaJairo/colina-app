@@ -26,9 +26,9 @@ const DBPatientSummary = ({
 
   const recentMedication =
     pri?.recentMedication?.medicationlogs_medicationLogsName;
-    const recentMedicationDate =
+  const recentMedicationDate =
     pri?.recentMedication?.medicationlogs_medicationLogsDate;
-    const recentMedicationTime =
+  const recentMedicationTime =
     pri?.recentMedication?.medicationlogs_medicationLogsTime;
 
   const allergens = pri?.patientAllergies[0]?.allergens
@@ -53,25 +53,25 @@ const DBPatientSummary = ({
   console.log(patientRecentInfo, "patientRecentInfo");
   console.log("recentMedication", recentMedication);
   return (
-    <div className="w-full h-full flex flex-col justify-between gap-3">
-      <div className="h-[50px]  w-1/2 flex pr-[6px]">
+    <div className="flex h-full w-full flex-col justify-between gap-3">
+      <div className="flex h-[50px] w-1/2 pr-[6px]">
         <DBPatientSelect patientId={patientId} setPatientId={setPatientId} />
       </div>
-      <div className="w-full h-full gap-3 flex flex-col">
+      <div className="flex h-full w-full flex-col gap-3">
         <div className="h-4/6 w-full gap-3">
-          <div className="h-1/2 w-full flex   gap-3 relative">
-            <div className="h-full bg-[#D9D9D91A] w-1/2 ">
-              <div className="h-[40px] rounded-t-[5px] bg-[#F4E394] w-full"></div>
-              <div className="pt-5 px-5">
+          <div className="relative flex h-1/2 w-full gap-3">
+            <div className="h-full w-1/2 bg-[#D9D9D91A]">
+              <div className="h-[40px] w-full rounded-t-[5px] bg-[#F4E394]"></div>
+              <div className="px-5 py-5">
                 <h1 className="text-[15px] font-medium">Patient Details</h1>
-                <div className="h-full w-full flex items-center mt-2 sub-title ">
+                <div className="sub-title mt-2 flex h-full w-full items-center">
                   {pri == undefined ? (
-                    <h1 className="text-center w-full">no data yet</h1>
+                    <h1 className="w-full text-center">no data yet</h1>
                   ) : (
-                    <div className="flex flex-col gap-1 w-full">
+                    <div className="flex w-full flex-col gap-1">
                       <div className="flex w-full">
                         Name:{" "}
-                        <div className="w-full  flex ">
+                        <div className="flex w-full">
                           <p className="w-9/12 truncate">
                             <ResuableTooltip
                               text={`${pri?.data[0]?.patient_firstName}${" "}
@@ -79,7 +79,7 @@ const DBPatientSummary = ({
                           ${pri?.data[0]?.patient_lastName} ${" "}`}
                             />
                           </p>
-                          <span className="w-3/12 ml-1">
+                          <span className="ml-1 w-3/12">
                             {" "}
                             - {pri?.data[0]?.patient_age}{" "}
                             {pri?.data[0]?.patient_gender}
@@ -90,7 +90,7 @@ const DBPatientSummary = ({
                         Date of Birth:{" "}
                         {formatDate(pri?.data[0]?.patient_dateOfBirth)}
                       </h1>
-                      <div className="w-full  flex ">
+                      <div className="flex w-full">
                         Address:{" "}
                         <h1 className="w-[420px] truncate">
                           <ResuableTooltip
@@ -104,55 +104,55 @@ const DBPatientSummary = ({
                 </div>
               </div>
             </div>
-            <div className="h-full bg-[#D9D9D91A] relative w-1/2">
-              <div className="h-[40px] rounded-t-[5px] bg-[#F3BB93] w-full"></div>
-              <div className="pt-5 px-5 relative">
-                <h1 className="text-[15px] font-medium ">Vital Signs</h1>
-                <div className="h-full w-full flex items-center mt-2 sub-title ">
+            <div className="relative h-full w-1/2 bg-[#D9D9D91A]">
+              <div className="h-[40px] w-full rounded-t-[5px] bg-[#F3BB93]"></div>
+              <div className="relative px-5 py-5">
+                <h1 className="text-[15px] font-medium">Vital Signs</h1>
+                <div className="sub-title mt-2 flex h-full w-full items-center">
                   {pri == undefined ? (
-                    <h1 className="text-center w-full">no data yet</h1>
+                    <h1 className="w-full text-center">no data yet</h1>
                   ) : (
                     <div className="flex flex-col gap-1">
-                      <h1>Blood Pressure: {pri?.data[0]?.bloodPressure}</h1>
-                      <h1>Heart Rate: {pri?.data[0]?.heartRate}</h1>
-                      <h1>Temperature: {pri?.data[0]?.temperature}</h1>
-                      <h1>Respiratory: {pri?.data[0]?.respiratoryRate}</h1>
+                      <h1>Blood Pressure: {pri?.data[0]?.bloodPressure}mmHg</h1>
+                      <h1>Heart Rate: {pri?.data[0]?.heartRate}bpm</h1>
+                      <h1>Temperature: {pri?.data[0]?.temperature}°F</h1>
+                      <h1>Respiratory: {pri?.data[0]?.respiratoryRate} breaths per minute </h1>
                     </div>
                   )}
                 </div>
               </div>
             </div>
           </div>
-          <div className="h-[200px] w-full flex flex-row gap-3">
-            <div className="h-full bg-[#D9D9D91A] w-1/2">
-              <div className="h-[40px] rounded-t-[5px] bg-[#93F3B9] w-full"></div>
-              <div className="pt-5 px-5">
-                <h1 className="text-[15px] font-medium ">Medication</h1>
-                <div className="h-full w-full flex items-center sub-title mt-2">
+          <div className="flex h-[200px] w-full flex-row gap-3">
+            <div className="h-full w-1/2 bg-[#D9D9D91A]">
+              <div className="h-[40px] w-full rounded-t-[5px] bg-[#93F3B9]"></div>
+              <div className="px-5 pt-5">
+                <h1 className="text-[15px] font-medium">Medication</h1>
+                <div className="sub-title mt-2 flex h-full w-full items-center">
                   {pri == undefined ? (
-                    <h1 className="text-center w-full">no data yet</h1>
+                    <h1 className="w-full text-center">no data yet</h1>
                   ) : recentMedication === undefined ? (
                     <div>No Recent Medication</div>
                   ) : (
                     <div className="flex flex-col gap-1">
                       <p>{recentMedication}</p>
-                      <p>Date Taken : {" "} {formatDate(recentMedicationDate)}</p>
-                      <p>Time Taken : {" "} {formatTime(recentMedicationTime)}</p>
+                      <p>Date Taken : {formatDate(recentMedicationDate)}</p>
+                      <p>Time Taken : {formatTime(recentMedicationTime)}</p>
                     </div>
                   )}
                 </div>
               </div>
             </div>
-            <div className="h-full bg-[#D9D9D91A] w-1/2">
-              <div className="h-[40px] rounded-t-[5px] bg-[#93F3DC] w-full"></div>
-              <div className="pt-5 pl-5">
+            <div className="h-full w-1/2 bg-[#D9D9D91A]">
+              <div className="h-[40px] w-full rounded-t-[5px] bg-[#93F3DC]"></div>
+              <div className="pl-5 pt-5">
                 <h1 className="text-[15px] font-medium">Allergies</h1>
-                <div className="h-full w-full flex items-center sub-title">
+                <div className="sub-title flex h-full w-full items-center">
                   {pri == undefined ? (
-                    <h1 className="text-center w-full">no data yet</h1>
+                    <h1 className="w-full text-center">no data yet</h1>
                   ) : (
                     <div className="max-h-[100px] w-full overflow-auto">
-                      <div className="h-full mt-2 flex flex-col gap-1">
+                      <div className="mt-2 flex h-full flex-col gap-1">
                         {allergens.map(
                           (
                             allergen:
@@ -168,10 +168,10 @@ const DBPatientSummary = ({
                               | React.PromiseLikeOfReactNode
                               | null
                               | undefined,
-                            index: React.Key | null | undefined
+                            index: React.Key | null | undefined,
                           ) => (
                             <div key={index}>{allergen}</div>
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -181,30 +181,30 @@ const DBPatientSummary = ({
             </div>
           </div>
         </div>
-        <div className="h-2/4 bg-[#D9D9D91A] ">
-          <div className="h-[40px] rounded-t-[5px] bg-[#93D0F3] w-full"></div>
-          <div className="pt-5 px-5">
-            <div className="flex gap-3 w-full relative">
-              <div className="w-1/2 relative">
-                <h1 className="absolute text-[15px] font-medium  truncate w-full">
+        <div className="h-2/4 bg-[#D9D9D91A]">
+          <div className="h-[40px] w-full rounded-t-[5px] bg-[#93D0F3]"></div>
+          <div className="px-5 pt-5">
+            <div className="relative flex w-full gap-3">
+              <div className="relative w-1/2">
+                <h1 className="absolute w-full truncate text-[15px] font-medium">
                   {pri === undefined
                     ? "[Patient Name]"
-                    : pri?.data[0]?.patient_firstName}
-                  's Due Medication
+                    : pri?.data[0]?.patient_firstName + "'s"}{" "}
+                  Due Medication
                 </h1>
-                <div className="h-full w-full flex  items-center justify-center ">
+                <div className="flex h-full w-full items-center justify-center">
                   <DoughnutChart
                     total={totalPatientDue}
                     totalDone={totalPatientDone}
                   />
                 </div>
               </div>
-              <div className=" w-[1px]  bg-[#DDDDDD]"></div>
-              <div className="w-1/2 relative">
-                <h1 className="absolute text-[15px] font-medium ">
+              <div className="w-[1px] bg-[#DDDDDD]"></div>
+              <div className="relative w-1/2">
+                <h1 className="absolute text-[15px] font-medium">
                   Total Due Meds of All Patients
                 </h1>
-                <div className="h-full w-full flex  items-center justify-center ">
+                <div className="flex h-full w-full items-center justify-center">
                   <DoughnutChart
                     total={totalDueMedication}
                     totalDone={totalDone}
